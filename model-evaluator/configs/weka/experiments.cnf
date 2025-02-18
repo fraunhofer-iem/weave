@@ -1,0 +1,9 @@
+mem.max = 3800
+cpu.max = 8
+
+keyfields = datasets:varchar(100), seeds:int(3)
+
+datasets = ../dataset/weka/code-br/sink.arff
+seeds = 1
+
+resultfields = info:varchar(1000), avgPrecision:double, avgRecall:double, avgFMeasure:double, microFMeasure:double, lblPrecision:varchar(200), lblRecall:varchar(200), lblHarmonic:varchar(200)
