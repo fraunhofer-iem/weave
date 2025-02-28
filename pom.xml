@@ -16,5 +16,6 @@
 
     <modules>
         <module>model-evaluator</module>
+        <module>srm-dataset</module>
     </modules>
 </project>
