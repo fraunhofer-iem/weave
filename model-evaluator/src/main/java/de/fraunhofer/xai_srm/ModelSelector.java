@@ -7,11 +7,13 @@ import ai.libs.jaicore.ml.classification.multilabel.evaluation.loss.InstanceWise
 import ai.libs.jaicore.ml.classification.multilabel.learner.IMekaClassifier;
 import ai.libs.jaicore.ml.core.evaluation.evaluator.SupervisedLearnerExecutor;
 import ai.libs.jaicore.ml.core.filter.SplitterUtil;
+import ai.libs.jaicore.ml.scikitwrapper.IScikitLearnWrapper;
 import ai.libs.jaicore.ml.weka.classification.learner.IWekaClassifier;
 import ai.libs.jaicore.ml.weka.dataset.IWekaInstances;
 import ai.libs.jaicore.ml.weka.dataset.WekaInstances;
 import ai.libs.mlplan.core.MLPlan;
 import ai.libs.mlplan.meka.ML2PlanMekaBuilder;
+import ai.libs.mlplan.sklearn.builder.MLPlanScikitLearnBuilder;
 import ai.libs.mlplan.weka.MLPlanWekaBuilder;
 import meka.core.MLUtils;
 import org.api4.java.ai.ml.classification.multilabel.evaluation.IMultiLabelClassification;
@@ -32,6 +34,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Selects machine learning model using ML-Plan/ML2-Plan.
+ *
  * @author Oshando Johnson on 27.09.20
  */
 public class ModelSelector {
@@ -42,10 +45,15 @@ public class ModelSelector {
 
         LOGGER.info("Args: TOOLKIT {}, CPU {}, Dataset {}, Duration {}, Seed {}", args[0], args[1], args[2], args[3], args[4]);
 
-        if (args[0].contains("weka"))
-            selectWekaModel(Integer.parseInt(args[1]), args[2], Long.parseLong(args[3]), Long.parseLong(args[4]));
-        else
-            selectMekaModel(Integer.parseInt(args[1]), args[2], Long.parseLong(args[3]),Long.parseLong(args[4]));
+        switch (args[0]) {
+            case "weka":
+                selectWekaModel(Integer.parseInt(args[1]), args[2], Long.parseLong(args[3]), Long.parseLong(args[4]));
+            case "meka":
+                selectMekaModel(Integer.parseInt(args[1]), args[2], Long.parseLong(args[3]), Long.parseLong(args[4]));
+            case "scikit":
+                selectScikitLearnModel(Integer.parseInt(args[1]), args[2], Long.parseLong(args[3]), Long.parseLong(args[4]));
+
+        }
     }
 
     /**
@@ -101,7 +109,8 @@ public class ModelSelector {
 
         MLUtils.prepareData(instances);
         IWekaInstances dataset = new WekaInstances(instances);
-        List<ILabeledDataset<?>> split = SplitterUtil.getLabelStratifiedTrainTestSplit(dataset, new Random(seed), .7);        LOGGER.info("Loading {} instances from {}", instances.numInstances(), arffFile);
+        List<ILabeledDataset<?>> split = SplitterUtil.getLabelStratifiedTrainTestSplit(dataset, new Random(seed), .7);
+        LOGGER.info("Loading {} instances from {}", instances.numInstances(), arffFile);
 
         // Initialize ML2-Plan
         MLPlan<IWekaClassifier> mlplan = new MLPlanWekaBuilder()
@@ -124,6 +133,52 @@ public class ModelSelector {
                     EClassificationPerformanceMeasure.ERRORRATE.loss(report.getPredictionDiffList()
                             .getCastedView(Integer.class, ISingleLabelClassification.class)),
                     mlplan.getInternalValidationErrorOfSelectedClassifier());
+        } catch (NoSuchElementException e) {
+
+            LOGGER.error("Building the classifier failed: {}", e.getMessage());
+        }
+    }
+
+    /**
+     * Run ML-Plan to select multi-label model.
+     *
+     * @param arffFile path to ARFF dataset file
+     * @throws Exception
+     */
+    public static void selectScikitLearnModel(int cpu, String arffFile, long duration, long seed) throws Exception {
+
+        Instances instances = new Instances(new FileReader(arffFile));
+        LOGGER.info("Loaded {} instances from {}", instances.numInstances(), arffFile);
+        //Prepare instances and split into train and test datasets
+
+        MLUtils.prepareData(instances);
+        IWekaInstances dataset = new WekaInstances(instances);
+        List<ILabeledDataset<?>> split = SplitterUtil.getLabelStratifiedTrainTestSplit(dataset, new Random(seed), .7);
+        LOGGER.info("Loading {} instances from {}", instances.numInstances(), arffFile);
+
+        // Initialize ML2-Plan
+
+        MLPlan<IScikitLearnWrapper> mlplan = MLPlanScikitLearnBuilder.forClassification()
+                .withNumCpus(cpu)
+                .withTimeOut(new Timeout(duration, TimeUnit.MINUTES))
+                .withDataset(split.get(0)).build();
+
+        try {
+
+            //Evaluate ML-Plan solution with test set
+            IScikitLearnWrapper classifier = mlplan.call();
+
+            LOGGER.info("Chosen Scikit model is: {}", (mlplan.getSelectedClassifier()));
+
+            /* evaluate solution produced by mlplan */
+            SupervisedLearnerExecutor executor = new SupervisedLearnerExecutor();
+            ILearnerRunReport report = executor.execute(classifier, split.get(1));
+
+            LOGGER.info("Error Rate of the solution produced by ML-Plan: {}. Internally believed error was {}",
+                    EClassificationPerformanceMeasure.ERRORRATE.loss(report.getPredictionDiffList()
+                            .getCastedView(Integer.class, ISingleLabelClassification.class)),
+                    mlplan.getInternalValidationErrorOfSelectedClassifier());
+
         } catch (NoSuchElementException e) {
 
             LOGGER.error("Building the classifier failed: {}", e.getMessage());
