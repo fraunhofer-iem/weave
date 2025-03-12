@@ -1,0 +1,156 @@
+@relation 'meka-code-v6:-C 11 -meka.filters.unsupervised.attribute.MekaClassAttributes-R1-11'
+
+@attribute CWE89 {0,1}
+@attribute CWE862 {0,1}
+@attribute CWE79 {0,1}
+@attribute sanitizer {0,1}
+@attribute source {0,1}
+@attribute CWE863 {0,1}
+@attribute CWE78 {0,1}
+@attribute CWE306 {0,1}
+@attribute CWE601 {0,1}
+@attribute sink {0,1}
+@attribute authentication {0,1}
+@attribute ClassNameContainsJDBC {true,false}
+@attribute MethodAccessModifier {PRIVATE,PUBLIC,PROTECTED,DEFAULT}
+@attribute InvokedMethodNameContainsIS {true,false}
+@attribute ParameterToInvokedSinkContainsPRINT {true,false}
+@attribute SourceToReturnContainsRED {true,false}
+@attribute ClassNameContainsENCODER {true,false}
+@attribute IsClassConcrete {true,false}
+@attribute MethodType {GETTER,SETTER,CONSTRUCTOR,NONE}
+@attribute ClassLinesCount numeric
+@attribute MethodNameContainsRETRIEV {true,false}
+@attribute InvokedMethodNameContainsHAS {true,false}
+@attribute ClassNameContainsVALID {true,false}
+@attribute ParameterToInvokedSinkContainsPUT {true,false}
+@attribute InvokedMethodNameContainsDELETE {true,false}
+@attribute BranchingStatementCount numeric
+@attribute MethodNameContainsPRIVILEGE {true,false}
+@attribute MethodNameContainsSEND {true,false}
+@attribute ClassNameContainsSQL {true,false}
+@attribute ClassNameContains.IO. {true,false}
+@attribute DefinedFunctionsInvokedCount numeric
+@attribute ClassNameContainsOAUTH {true,false}
+@attribute InvokedClassNameContainsSANITI {true,false}
+@attribute MethodNameContainsDECOD {true,false}
+@attribute SourceToReturnContainsLOAD {true,false}
+@attribute MethodNameContainsREQUEST {true,false}
+@attribute ParameterToInvokedSinkContainsDUMP {true,false}
+@attribute MethodNameContainsDUMP {true,false}
+@attribute MethodNameContainsREGEX {true,false}
+@attribute ParameterToInvokedSinkContainsUPDAT {true,false}
+@attribute ParameterToInvokedSinkContainsPARS {true,false}
+@attribute ClassNameContainsCHECK {true,false}
+@attribute ParameterToInvokedSinkContainsLOG {true,false}
+@attribute MethodNameContainsREPLAC {true,false}
+@attribute MethodNameContainsUNESCAPE {true,false}
+@attribute MethodNameContainsRUN {true,false}
+@attribute MethodNameContainsSTREAM {true,false}
+@attribute ExceptionsCount numeric
+@attribute ClassNameContainsESCAP {true,false}
+@attribute ClassNameContainsSECURITY {true,false}
+@attribute MethodNameContainsUPDAT {true,false}
+@attribute ClassNameContains.NET {true,false}
+@attribute ClassNameContainsAUTHEN {true,false}
+@attribute InvokedMethodNameContainsOPEN {true,false}
+@attribute ClassNameContainsVERIF {true,false}
+@attribute ClassNameContainsCONNECT {true,false}
+@attribute ParameterToInvokedSinkContainsSET {true,false}
+@attribute VariablesUsageCount numeric
+@attribute ClassNameContainsSANITI {true,false}
+@attribute ParameterToInvokedSinkContainsSEND {true,false}
+@attribute InvokedClassNameContainsDB {true,false}
+@attribute ParameterToInvokedSinkContainsSTREAM {true,false}
+@attribute SourceToReturnContainsREQUEST {true,false}
+@attribute TotalMethodsInvokedCount numeric
+@attribute MethodNameContainsDISCONNECT {true,false}
+@attribute MethodNameContainsREDIRECT {true,false}
+@attribute MethodsInvokedCount numeric
+@attribute MethodNameContainsEXECUT {true,false}
+@attribute InvokedClassNameContainsREGEX {true,false}
+@attribute MethodModifier {FINAL,STATIC,ABSTRACT,SYNCHRONIZED,DEFAULT}
+@attribute MethodNameContainsSETHEADER {true,false}
+@attribute ClassNameContainsBIND {true,false}
+@attribute ParameterFlowsToReturn {true,false}
+@attribute InvokedClassNameContainsESCAP {true,false}
+@attribute MethodNameContainsNAME {true,false}
+@attribute ParameterToInvokedSinkContainsRUN {true,false}
+@attribute InvokedClassNameContainsWEB {true,false}
+@attribute InvokedClassNameContainsENCOD {true,false}
+@attribute MethodNameContainsCHECK {true,false}
+@attribute IterationStatementsCount numeric
+@attribute MethodNameContainsUNBIND {true,false}
+@attribute IsMethodImplicit {true,false}
+@attribute ClassNameContainsENCOD {true,false}
+@attribute ParameterToInvokedSinkContainsWRIT {true,false}
+@attribute ParameterToInvokedSinkContainsHANDL {true,false}
+@attribute MethodNameContainsSTRIP {true,false}
+@attribute ClassModifier {STATIC,ABSTRACT,FINAL,DEFAULT}
+@attribute MethodNameContainsOBJECT {true,false}
+@attribute SourceToReturnContainsCREATE {true,false}
+@attribute MethodNameContainsPARS {true,false}
+@attribute ClassNameContainsPAGE {true,false}
+@attribute ClassesInvokedCount numeric
+@attribute MethodOrigin {LIBRARY,JAVA_LIBRARY,APPLICATION}
+@attribute MethodLinesCount numeric
+@attribute ClassAccessModifier {PRIVATE,PUBLIC,PROTECTED,DEFAULT}
+@attribute MethodParametersTypes numeric
+@attribute ClassNameContainsRESPONSE {true,false}
+@attribute MethodNameContainsUNESCAP {true,false}
+@attribute MethodNameContainsHANDL {true,false}
+@attribute SourceToReturnContainsGET {true,false}
+@attribute ParametersCount numeric
+@attribute InvokedClassNameContains.IO. {true,false}
+@attribute ClassNameContainsREDIRECT {true,false}
+@attribute InvokedMethodNameContainsCREATE {true,false}
+@attribute SourceToReturnContainsUNESCAPE {true,false}
+@attribute ClassNameContainsWEB {true,false}
+@attribute InvokedClassNameContains.NET. {true,false}
+@attribute ParameterToInvokedSinkContainsEXECUT {true,false}
+@attribute ClassNameContainsOUTPUT {true,false}
+@attribute ClassNameContainsHTML {true,false}
+@attribute MethodNameContainsWRIT {true,false}
+@attribute InvokedClassNameContainsLOG. {true,false}
+@attribute SourceToReturnContainsDECODE {true,false}
+@attribute MethodNameContainsLOG {true,false}
+@attribute MethodNameContainsAUTHEN {true,false}
+@attribute MethodInnerOrAnonymousClass {INNER_CLASS,ANONYMOUS_CLASS,NONE}
+@attribute MethodNameContainsVERIF {true,false}
+@attribute MethodNameContainsCREAT {true,false}
+@attribute InvokedMethodNameContainsON {true,false}
+@attribute InvokedMethodNameContainsSET {true,false}
+@attribute MethodNameContainsSANITI {true,false}
+@attribute MethodReturnType {STRING,NATIVE,CUSTOM,OTHERS}
+@attribute InvokedClassNameContainsSQL {true,false}
+@attribute MethodNameContainsLOGIN {true,false}
+@attribute ParameterAndReturnTypeMatch {true,false}
+@attribute ClassNameContainsINPUT {true,false}
+@attribute InvokedMethodNameContainsGET {true,false}
+@attribute InvokedMethodNameContainsCLOSE {true,false}
+@attribute ClassNameKeywordsCount numeric
+@attribute MethodNameContainsLOGOUT {true,false}
+@attribute ClassNameContainsMANAGER {true,false}
+@attribute InvokedMethodNameContainsPUT {true,false}
+
+@data
+0,0,0,0,0,0,0,0,0,1,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,3,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,DEFAULT,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,true,false
+0,0,0,0,1,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,DEFAULT,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,1,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,STRING,false,false,true,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,true,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,DEFAULT,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,true,false
+0,0,1,1,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,1,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,STRING,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,DEFAULT,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,true,false
+0,0,0,0,0,0,1,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,1,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,STRING,false,false,true,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,1,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,3,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+1,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+1,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,DEFAULT,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,1,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,1,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,STRING,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,1,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,3,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,2,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,1,0,0,1,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,2,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,DEFAULT,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,1,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,STRING,false,false,true,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,ABSTRACT,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,ABSTRACT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,1,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,STRING,false,false,true,false,false,false,0,false,false,false
+0,0,0,0,0,0,0,0,0,0,0,false,PUBLIC,false,false,false,false,true,NONE,0,false,false,false,false,false,0,false,false,false,false,0,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0,false,false,true,false,false,false,false,false,false,0,false,false,false,false,false,0,false,false,0,false,false,STATIC,false,false,false,false,false,false,false,false,false,0,false,false,false,false,false,false,DEFAULT,false,false,false,false,0,APPLICATION,0,PUBLIC,0,false,false,false,false,2,false,false,false,false,false,false,false,false,false,false,false,false,false,false,NONE,false,false,false,false,false,OTHERS,false,false,false,false,false,false,0,false,false,false
