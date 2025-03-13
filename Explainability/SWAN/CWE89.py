@@ -22,15 +22,14 @@ print('logs saved at:' + logfile_path)
 jvm.start(system_cp=True, packages=True, max_heap_size="12288m")
 
 # Load dataset
-data_dir = f'datasets/{label}.arff'
+data_dir = f'Datasets_new/{label}.arff'
 dataset = con.load_any_file(data_dir)
 dataset.class_is_last()
 logger.info(f'Dataset loaded...')
 
 # Train-Test split
-dataset.stratify(10)
-training_set = dataset.train_cv(10, 0, Random(1))
-testing_set = dataset.test_cv(10, 0)
+training_set, testing_set = dataset.train_test_split(70, Random(1))
+
 
 # Build the Classifier
 classifier = Classifier(classname="weka.classifiers.lazy.LWL", options=[
@@ -50,16 +49,15 @@ classifier = Classifier(classname="weka.classifiers.lazy.LWL", options=[
 logger.info('Classifier = ' + classifier.__str__())
 
 # Train classifier
-classifier.build_classifier(training_set)
+classifier.build_classifier(dataset)
 logger.info('Model training completed successfully...')
 
 # Evaluating the model
-evaluation = Evaluation(training_set)
-evaluation.test_model(classifier, testing_set)
-logger.info('Evaluation for ' + label + ': \n' + evaluation.summary())
-logger.info('F-Score: ' + evaluation.f_measure(0).__str__())
-logger.info('F-Score 1: ' + evaluation.f_measure(1).__str__())
-
+# evaluation = Evaluation(training_set)
+# evaluation.test_model(classifier, testing_set)
+# logger.info('Evaluation for ' + label + ': \n' + evaluation.summary())
+# logger.info('F-Score: ' + evaluation.f_measure(0).__str__())
+# logger.info('F-Score 1: ' + evaluation.f_measure(1).__str__())
 
 feature_names = dataset.attribute_names()
 
@@ -74,23 +72,20 @@ def weka_predict(input_data):
     return np.array(predictions)
 
 
-# Convert dataset to NumPy array
-X_train = inst_to_np(training_set)
-X_test = inst_to_np(testing_set)
+# Convert dataset to NumPy array for Shap Explainer
+dataset_np = inst_to_np(dataset)
 
 # Compute SHAP values
-explainer = shap.Explainer(weka_predict, X_train, feature_names=feature_names)
-exp = explainer(X_test)
-
+explainer = shap.Explainer(weka_predict, dataset_np, feature_names=feature_names)
+exp = explainer(dataset_np)
 
 # Plot SHAP beeswarm plot
 fig = plt.figure()
-shap.plots.beeswarm(exp[:, :training_set.num_attributes - 1, 0], show=False)
+shap.plots.beeswarm(exp[:, :dataset.num_attributes - 1,0], show=False)
 plt.xlabel('SHAP Value')
-plt.savefig(f'out/{label}-global.pdf', bbox_inches='tight', dpi=300)
+plt.savefig(f'results/{label}-global.pdf', bbox_inches='tight', dpi=300)
 plt.close()
 logger.info(f"Saved SHAP plot for {label}")
-
 
 # Stop JVM
 jvm.stop()

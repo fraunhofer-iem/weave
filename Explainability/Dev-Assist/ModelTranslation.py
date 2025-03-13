@@ -11,7 +11,7 @@ from sklearn.preprocessing import LabelEncoder
 from skmultilearn.problem_transform import LabelPowerset
 
 # Configure logger
-logfile_path = os.getcwd() + '/logs.log'
+logfile_path = os.getcwd() + '/out/logs.log'
 logging.basicConfig(filename=logfile_path, filemode='w', encoding='utf-8', level=logging.INFO, force=True)
 logger = logging.getLogger(__name__)
 print('logs saved at:' + logfile_path)
@@ -36,22 +36,16 @@ def preprocessing(data_df):
 
 
 # Load the datasets
-train_file_path = "Datasets/train-meka.arff"
-test_file_path = "Datasets/test-meka.arff"
-train_data, train_meta = arff.loadarff(train_file_path)
-test_data, test_meta = arff.loadarff(test_file_path)
-train_data_df = pd.DataFrame(train_data)
-test_data_df = pd.DataFrame(test_data)
+dataset_file = "Datasets/dataset.arff"
+data, meta_data = arff.loadarff(dataset_file)
+data_df = pd.DataFrame(data)
 logger.info('Datasets loaded successfully...')
 
-train_data_df, train_labels, train_features = preprocessing(train_data_df)
-test_data_df, test_labels, test_features = preprocessing(test_data_df)
+data_df, labels, features = preprocessing(data_df)
 
 # Train-Test split
-X_train = train_data_df[train_features]
-y_train = train_data_df[train_labels]
-X_test = test_data_df[test_features]
-y_test = test_data_df[test_labels]
+X_train = data_df[features]
+y_train = data_df[labels]
 
 # Train the model
 base_classifier = RandomForestClassifier(
@@ -68,20 +62,15 @@ multi_label_model = LabelPowerset(base_classifier)
 multi_label_model.fit(X_train, y_train)
 logger.info('Model built successfully...')
 
-# Evaluate the model
-y_pred = multi_label_model.predict(X_test)
-logger.info('Macro f1:' + str(f1_score(y_test, y_pred, average='macro')))
-logger.info('Micro f1:' + str(f1_score(y_test, y_pred, average='micro')))
-
 # Plot SHAP beeswarm plot
 logger.info('Resolving Shap...')
 explainer = shap.Explainer(multi_label_model.classifier, X_train)
-shap_values = explainer(X_test)
+shap_values = explainer(X_train)
 
 for i in range(0, shap_values.shape[2]):
     fig = plt.figure()
     shap.plots.beeswarm(shap_values[:, :, i], show=False)
-    plt.savefig(f"out/LC-RF{i}.pdf", dpi=300, bbox_inches='tight')
+    plt.savefig(f"results/LC-RF{i}.pdf", dpi=300, bbox_inches='tight')
     plt.close()
     logger.info(f'Shap beeswarm plot exported for powerset: {i}...')
 
@@ -92,8 +81,9 @@ shap_values_aggregated = shap_values.values.mean(axis=2)
 
 # Plot the single aggregated beeswarm plot
 fig = plt.figure()
-shap.summary_plot(shap_values_aggregated, X_test, show=False)
-plt.savefig("out/LC-RF_combined.pdf", dpi=300, bbox_inches='tight')
+shap.summary_plot(shap_values_aggregated, X_train, show=False)
+plt.xlabel('SHAP Value')
+plt.savefig("results/LC-RF_combined.pdf", dpi=300, bbox_inches='tight')
 plt.close()
 
 logger.info(f'Shap beeswarm plot exported for aggregated powersets...')
