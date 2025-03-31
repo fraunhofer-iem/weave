@@ -17,7 +17,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public static ThingInterface createThing() {\r\n    Properties props = new Properties();\r\n    // create a thing using reflection\r\n    try (InputStream thingproperties = ThingFactory.class.getClassLoader().getResourceAsStream(\"thing.properties\")) {\r\n        if (thingproperties == null) {\r\n            System.out.println(\"Can't find thing.properties\");\r\n            return new Thing2();\r\n        }\r\n        props.load(thingproperties);\r\n        String which = \"org.owasp.benchmark.helpers.\" + props.getProperty(\"thing\");\r\n        Class<?> thing = Class.forName(which);\r\n        Constructor<?> thingConstructor = thing.getConstructor();\r\n        Object thingInstance = thingConstructor.newInstance();\r\n        return (ThingInterface) thingInstance;\r\n    } catch (Exception e) {\r\n        System.out.println(\"Error constructing Thing.\");\r\n        e.printStackTrace();\r\n        return new Thing1();\r\n    }\r\n}",
@@ -155,7 +155,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public static String getInsecureOSCommandString(ClassLoader classLoader) {\r\n    String command = null;\r\n    String osName = System.getProperty(\"os.name\");\r\n    if (osName.indexOf(\"Windows\") != -1) {\r\n        command = Utils.getFileFromClasspath(\"insecureCmd.bat\", classLoader).getAbsolutePath();\r\n    } else {\r\n        command = Utils.getFileFromClasspath(\"insecureCmd.sh\", classLoader).getAbsolutePath();\r\n    }\r\n    return command;\r\n}",
@@ -339,7 +339,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public static Cipher getCipher() {\r\n    if (cipher == null) {\r\n        try {\r\n            cipher = javax.crypto.Cipher.getInstance(\"RSA/ECB/OAEPWithSHA-512AndMGF1Padding\", \"SunJCE\");\r\n            // Prepare the cipher to encrypt\r\n            java.security.KeyPairGenerator keyGen = java.security.KeyPairGenerator.getInstance(\"RSA\");\r\n            keyGen.initialize(4096);\r\n            java.security.PublicKey publicKey = keyGen.genKeyPair().getPublic();\r\n            cipher.init(javax.crypto.Cipher.ENCRYPT_MODE, publicKey);\r\n        } catch (NoSuchAlgorithmException | NoSuchProviderException | NoSuchPaddingException | InvalidKeyException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n    return cipher;\r\n}",
@@ -385,7 +385,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ "CWE89" ],
       "known" : false,
       "body" : "public static java.sql.Statement getSqlStatement() {\r\n    if (conn == null) {\r\n        getSqlConnection();\r\n    }\r\n    Statement stmt = null;\r\n    try {\r\n        stmt = conn.createStatement();\r\n    } catch (SQLException e) {\r\n        System.out.println(\"Problem with database init.\");\r\n    }\r\n    return stmt;\r\n}",
@@ -431,7 +431,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ "CWE89" ],
       "known" : false,
       "body" : "public static java.sql.Connection getSqlConnection() {\r\n    if (conn == null) {\r\n        try {\r\n            InitialContext ctx = new InitialContext();\r\n            DataSource datasource = (DataSource) ctx.lookup(\"java:comp/env/jdbc/BenchmarkDB\");\r\n            conn = datasource.getConnection();\r\n            conn.setAutoCommit(false);\r\n        } catch (SQLException | NamingException e) {\r\n            System.out.println(\"Problem with getSqlConnection.\");\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n    return conn;\r\n}",
@@ -477,7 +477,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public static void outputUpdateComplete(String sql, HttpServletResponse response) throws java.sql.SQLException, IOException {\r\n    PrintWriter out = response.getWriter();\r\n    out.write(\"<!DOCTYPE html>\\n<html>\\n<body>\\n<p>\");\r\n    out.write(\"Update complete for query: \" + org.owasp.esapi.ESAPI.encoder().encodeForHTML(sql) + \"<br>\\n\");\r\n    out.write(\"</p>\\n</body>\\n</html>\");\r\n}",
@@ -661,7 +661,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public LDAPManager() {\r\n    try {\r\n        ctx = getDirContext();\r\n    } catch (NamingException e) {\r\n        // FIXME: Don't eat exceptions!\r\n        System.out.println(\"Failed to get Directory Context: \" + e.getMessage());\r\n        e.printStackTrace();\r\n    }\r\n}",
@@ -707,7 +707,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public DirContext getDirContext() throws NamingException {\r\n    if (ctx == null) {\r\n        return new InitialDirContext(createEnv());\r\n    }\r\n    return ctx;\r\n}",
@@ -753,7 +753,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public void closeDirContext() throws NamingException {\r\n    if (ctx != null)\r\n        ctx.close();\r\n}",
@@ -799,7 +799,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public SeparateClassRequest(HttpServletRequest request) {\r\n    this.request = request;\r\n}",
@@ -891,7 +891,7 @@
         "parameters" : [ ],
         "return" : false
       },
-      "srm" : [ "none" ],
+      "srm" : [ ],
       "cwe" : [ ],
       "known" : false,
       "body" : "public String getTheValue(String p) {\r\n    return \"bar\";\r\n}",
