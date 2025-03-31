@@ -23,6 +23,7 @@ public enum Category {
     CWE90("CWE90"),
     CWE91("CWE91"),
     CWE117("CWE117"),
+    CWE209("CWE209"),
     CWE233("CWE233"),
     CWE306("CWE306"),
     CWE327("CWE327"),
