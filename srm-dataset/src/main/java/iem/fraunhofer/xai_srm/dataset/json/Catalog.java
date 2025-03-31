@@ -5,7 +5,7 @@ import java.util.Set;
 /**
  * Returns dataset object containing a set of the methods and dataset metadata.
  */
-public class Dataset {
+public class Catalog {
 
     private Set<Method> methods;
     private String version;
