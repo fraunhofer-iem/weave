@@ -89,7 +89,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>de.fraunhofer.xai_srm.ModelSelector</mainClass>
+                            <mainClass>de.fraunhofer.xai_srm.ModelEvaluator</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
