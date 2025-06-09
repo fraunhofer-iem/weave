@@ -26,17 +26,10 @@ os.makedirs(os.path.join(args.out, 'local/csv'), exist_ok=True)
 # Configure logger
 logfile_path = f'{args.out}/logs'
 os.makedirs(logfile_path, exist_ok=True)
-logfile_path = os.path.join(f'{args.out}/logs', 'dev-assist.log')
+logfile_path = os.path.join(logfile_path, 'dev-assist.log')
 logger = logging.getLogger("meka")
-logging.basicConfig(
-    filename=logfile_path,
-    format='%(asctime)s %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
-    filemode='w',
-    encoding='utf-8',
-    level=logging.INFO,
-    force=True
-)
+logging.basicConfig( filename=logfile_path, format='%(asctime)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S',
+                     filemode='w', encoding='utf-8', level=logging.INFO, force=True)
 print('Logs saved at:', logfile_path)
 logging.getLogger("shap").setLevel(logging.CRITICAL)
 logging.getLogger("weka").setLevel(logging.CRITICAL)
