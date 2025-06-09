@@ -1,53 +1,53 @@
 @relation 'weka-code-br-v6:-C 48'
 
-@attribute '<Method name starts with has>' {true,false}
-@attribute '<Method name contains unescape>' {true,false}
-@attribute '<Method name contains strip>' {true,false}
-@attribute '<Method from class regex invoked>' {true,false}
-@attribute '<Method name contains replac>' {true,false}
-@attribute '<Parameter type contains java.lang.charsequence>' {true,false}
-@attribute '<Method escap invoked>' {true,false}
-@attribute '<Method is part of a STATIC class>' {true,false}
-@attribute '<Method name contains verif>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Method modifier is PUBLIC>' {true,false}
-@attribute '<Method modifier is STATIC>' {true,false}
-@attribute '<Parameter flows to return.>' {true,false}
-@attribute '<Method is part of class that contains the name encod>' {true,false}
-@attribute '<Matching parameter type to return type.>' {true,false}
-@attribute '<Method is part of a PUBLIC class>' {true,false}
-@attribute '<Method name contains escape but not unescape>' {true,false}
-@attribute '<Method name contains regex>' {true,false}
-@attribute '<Method from class encod invoked>' {true,false}
-@attribute '<Method is part of a FINAL class>' {true,false}
-@attribute '<Method is part of class that contains the name valid>' {true,false}
-@attribute '<Method strip invoked>' {true,false}
-@attribute '<Method from class Saniti invoked>' {true,false}
-@attribute '<Method is constructor>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Return type is java.lang.CharSequence>' {true,false}
-@attribute '<Method name starts with set>' {true,false}
-@attribute '<Method name contains saniti>' {true,false}
-@attribute '<Method is part of class that contains the name saniti>' {true,false}
-@attribute '<Method encod invoked>' {true,false}
-@attribute '<Method name contains encod but not encoding>' {true,false}
-@attribute '<Return type is byte[]>' {true,false}
-@attribute '<Method is part of class that ends with Encoder>' {true,false}
-@attribute '<Method saniti invoked>' {true,false}
-@attribute '<Return type is java.lang.String>' {true,false}
-@attribute '<Method regex invoked>' {true,false}
-@attribute '<Method name starts with get>' {true,false}
-@attribute '<Method has parameters>' {true,false}
-@attribute '<Method is part of class that contains the name page>' {true,false}
-@attribute '<Method modifier is FINAL>' {true,false}
-@attribute '<Parameter type contains char[]>' {true,false}
-@attribute '<Method is part of class that contains the name escap>' {true,false}
-@attribute '<Method replac invoked>' {true,false}
-@attribute '<Parameter type contains byte[]>' {true,false}
-@attribute '<Parameter type contains java.lang.stringbuilder>' {true,false}
-@attribute '<Method from class escap invoked>' {true,false}
-@attribute '<Method match invoked>' {true,false}
-@attribute '<Method name starts with put>' {true,false}
+@attribute 'MtdNmStrtHas' {false,true}
+@attribute 'MtdNmCtnUnescape' {false,true}
+@attribute 'MtdNmCtnStrip' {false,true}
+@attribute 'ClsRegexInvkd' {false,true}
+@attribute 'MtdNmCtnReplac' {false,true}
+@attribute 'ParamTypCtnCharsequence' {false,true}
+@attribute 'MtdEscapInvkd' {false,true}
+@attribute 'ClsSTATIC' {false,true}
+@attribute 'MtdNmCtnVerif' {false,true}
+@attribute 'ParamTypCtnStr' {false,true}
+@attribute 'MtdModPUBLIC' {false,true}
+@attribute 'MtdModSTATIC' {false,true}
+@attribute 'ParamDfRtn' {false,true}
+@attribute 'ClsNmCtnEncod' {false,true}
+@attribute 'ParamTypEqRtnTyp' {false,true}
+@attribute 'ClsPUBLIC' {false,true}
+@attribute 'MtdNmCtnEscapeNotUnescape' {false,true}
+@attribute 'MtdNmCtnRegex' {false,true}
+@attribute 'ClsEncodInvkd' {false,true}
+@attribute 'ClsFINAL' {false,true}
+@attribute 'ClsNmCtnValid' {false,true}
+@attribute 'MtdStripInvkd' {false,true}
+@attribute 'ClsSanitiInvkd' {false,true}
+@attribute 'MtdConstructor' {false,true}
+@attribute 'ImplicitMtd' {false,true}
+@attribute 'RtnTypCharsequence' {false,true}
+@attribute 'MtdNmStrtSet' {false,true}
+@attribute 'MtdNmCtnSaniti' {false,true}
+@attribute 'ClsNmCtnSaniti' {false,true}
+@attribute 'MtdEncodInvkd' {false,true}
+@attribute 'MtdNmCtnEncodNotEncoding' {false,true}
+@attribute 'RtnTypByte[]' {false,true}
+@attribute 'ClsNmEndsEncoder' {false,true}
+@attribute 'MtdSanitiInvkd' {false,true}
+@attribute 'RtnTypStr' {false,true}
+@attribute 'MtdRegexInvkd' {false,true}
+@attribute 'MtdNmStrtGet' {false,true}
+@attribute 'MtdCtnParams' {false,true}
+@attribute 'ClsNmCtnPage' {false,true}
+@attribute 'MtdModFINAL' {false,true}
+@attribute 'ParamTypCtnChar[]' {false,true}
+@attribute 'ClsNmCtnEscap' {false,true}
+@attribute 'MtdReplacInvkd' {false,true}
+@attribute 'ParamTypCtnByte[]' {false,true}
+@attribute 'ParamTypCtnStringbuilder' {false,true}
+@attribute 'ClsEscapInvkd' {false,true}
+@attribute 'MtdMatchInvkd' {false,true}
+@attribute 'MtdNmStrtPut' {false,true}
 @attribute sanitizer {0,1}
 
 @data

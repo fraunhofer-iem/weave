@@ -1,30 +1,30 @@
 @relation 'weka-code-br-v6:-C 25'
 
-@attribute '<Return type is User>' {true,false}
-@attribute '<Method is part of class that contains the name bind>' {true,false}
-@attribute '<Method is part of class that contains the name credential>' {true,false}
-@attribute '<Method name contains role>' {true,false}
-@attribute '<Method is part of an anonymous class>' {true,false}
-@attribute '<Method name contains logout>' {true,false}
-@attribute '<Method name contains connect but not disconnect>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Method logout invoked>' {true,false}
-@attribute '<Method name contains disconnect>' {true,false}
-@attribute '<Matching parameter type to return type.>' {true,false}
-@attribute '<Method authori invoked>' {true,false}
-@attribute '<Method name contains  but not loginpage>' {true,false}
-@attribute '<Method is part of class that contains the name connect>' {true,false}
-@attribute '<Method login invoked>' {true,false}
-@attribute '<Method is constructor>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method is part of class that ends with Encoder>' {true,false}
-@attribute '<Method authen invoked>' {true,false}
-@attribute '<Parameter type contains credential>' {true,false}
-@attribute '<Method is part of class that contains the name user>' {true,false}
-@attribute '<Return type is Credential>' {true,false}
-@attribute '<Method credential invoked>' {true,false}
-@attribute '<Method name contains authori>' {true,false}
-@attribute '<Method is part of inner class>' {true,false}
+@attribute 'RtnTypUser'  {false,true}
+@attribute 'ClsNmCtnBind'  {false,true}
+@attribute 'ClsNmCtnCredential'  {false,true}
+@attribute 'MtdNmCtnRole'  {false,true}
+@attribute 'ClsAnonymous'  {false,true}
+@attribute 'MtdNmCtnLogout'  {false,true}
+@attribute 'MtdNmCtnConnect'  {false,true}
+@attribute 'ParamTypCtnStr'  {false,true}
+@attribute 'MtdLogoutInvkd'  {false,true}
+@attribute 'MtdNmCtnDisconnect'  {false,true}
+@attribute 'ParamTypEqRtnTyp'  {false,true}
+@attribute 'MtdAuthoriInvkd'  {false,true}
+@attribute 'MtdNmCtnLogin'  {false,true}
+@attribute 'ClsNmCtnConnect'  {false,true}
+@attribute 'MtdLoginInvkd'  {false,true}
+@attribute 'MtdConstructor'  {false,true}
+@attribute 'ImplicitMtd'  {false,true}
+@attribute 'ClsEndEncoder'  {false,true}
+@attribute 'MtdAuthenInvkd'  {false,true}
+@attribute 'ParamTypCtnCredential'  {false,true}
+@attribute 'ClsNmCtnUser'  {false,true}
+@attribute 'RtnTypCredential'  {false,true}
+@attribute 'MtdCredentialInvkd'  {false,true}
+@attribute 'MtdNmCtnAuthori'  {false,true}
+@attribute 'InnerCls'  {false,true}
 @attribute CWE863 {0,1}
 
 @data

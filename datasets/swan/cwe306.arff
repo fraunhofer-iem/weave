@@ -1,25 +1,25 @@
 @relation 'weka-code-br-v6:-C 20'
 
-@attribute '<Method is part of class that contains the name connect>' {true,false}
-@attribute '<Method login invoked>' {true,false}
-@attribute '<Return type is User>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method name contains authen>' {true,false}
-@attribute '<Method is part of class that contains the name oauth>' {true,false}
-@attribute '<Method is part of class that contains the name bind>' {true,false}
-@attribute '<Method authen invoked>' {true,false}
-@attribute '<Method is part of an anonymous class>' {true,false}
-@attribute '<Parameter type contains credential>' {true,false}
-@attribute '<Method name contains logout>' {true,false}
-@attribute '<Method name contains login>' {true,false}
-@attribute '<Method name contains connect but not disconnect>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Method logout invoked>' {true,false}
-@attribute '<Return type is Credential>' {true,false}
-@attribute '<Method credential invoked>' {true,false}
-@attribute '<Method name contains disconnect>' {true,false}
-@attribute '<Method is part of inner class>' {true,false}
-@attribute '<Method name contains  but not loginpage>' {true,false}
+@attribute 'ClsNmCtnConnect'  {false,true}
+@attribute 'MtdLoginInvkd'  {false,true}
+@attribute 'RtnTypUser'  {false,true}
+@attribute 'ImplicitMtd'  {false,true}
+@attribute 'MtdNmCtnAuthen'  {false,true}
+@attribute 'ClsNmCtnOauth'  {false,true}
+@attribute 'ClsNmCtnBind'  {false,true}
+@attribute 'MtdAuthenInvkd'  {false,true}
+@attribute 'ClsAnonymous'  {false,true}
+@attribute 'ParamTypCtnCredential'  {false,true}
+@attribute 'MtdNmCtnLogout'  {false,true}
+@attribute 'MtdNmCtnLogin'  {false,true}
+@attribute 'MtdNmCtnConnect'  {false,true}
+@attribute 'ParamTypCtnStr'  {false,true}
+@attribute 'MtdLogoutInvkd'  {false,true}
+@attribute 'RtnTypCredential'  {false,true}
+@attribute 'MtdCredentialInvkd'  {false,true}
+@attribute 'MtdNmCtnDisconnect'  {false,true}
+@attribute 'InnerCls'  {false,true}
+@attribute 'MtdNmCtnLogin'  {false,true}
 @attribute CWE306 {0,1}
 
 @data

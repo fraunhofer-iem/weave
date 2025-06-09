@@ -1,24 +1,24 @@
 @relation 'weka-code-br-v6:-C 19'
 
-@attribute '<Method name contains run>' {true,false}
-@attribute '<Method execute invoked>' {true,false}
-@attribute '<Method name contains compile>' {true,false}
-@attribute '<Method is constructor>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method name contains saniti>' {true,false}
-@attribute '<Method is part of class that ends with Encoder>' {true,false}
-@attribute '<Method is part of class that contains the name credential>' {true,false}
-@attribute '<Method is part of class that contains the name process>' {true,false}
-@attribute '<Return type is java.lang.String>' {true,false}
-@attribute '<Return type is Servlet>' {true,false}
-@attribute '<Method name contains exec>' {true,false}
-@attribute '<Method is part of an anonymous class>' {true,false}
-@attribute '<Parameter type contains credential>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Matching parameter type to return type.>' {true,false}
-@attribute '<Method is part of class that contains the name input>' {true,false}
-@attribute '<Method is part of inner class>' {true,false}
-@attribute '<Method is part of class that contains the name runtime>' {true,false}
+@attribute 'MtdNmCtnRun'  {false,true}
+@attribute 'MtdExecuteInvkd'  {false,true}
+@attribute 'MtdNmCtnCompile'  {false,true}
+@attribute 'MtdConstructor'  {false,true}
+@attribute 'ImplicitMtd'  {false,true}
+@attribute 'MtdNmCtnSaniti'  {false,true}
+@attribute 'ClsEndEncoder'  {false,true}
+@attribute 'ClsNmCtnCredential'  {false,true}
+@attribute 'ClsCtnNmCredential'  {false,true}
+@attribute 'RtnTypStr'  {false,true}
+@attribute 'RtnTypServlet'  {false,true}
+@attribute 'MtdNmCtnExec'  {false,true}
+@attribute 'ClsAnonymous'  {false,true}
+@attribute 'ParamTypCtnCredential'  {false,true}
+@attribute 'ParamTypCtnStr'  {false,true}
+@attribute 'ParamTypEqRtnTyp'  {false,true}
+@attribute 'ClsNmCtnInput'  {false,true}
+@attribute 'InnerCls'  {false,true}
+@attribute 'ClsCtnNmRuntime'  {false,true}
 @attribute CWE78 {0,1}
 
 @data

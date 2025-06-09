@@ -1,22 +1,22 @@
 @relation 'weka-code-br-v6:-C 17'
 
-@attribute '<Method is part of class that contains the name servlet>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method name contains read but not thread>' {true,false}
-@attribute '<Method has parameters>' {true,false}
-@attribute '<Method name contains getparameter>' {true,false}
-@attribute '<Method is part of an anonymous class>' {true,false}
-@attribute '<Method name contains redirect>' {true,false}
-@attribute '<Method is part of class that contains the name response>' {true,false}
-@attribute '<Parameter type contains url>' {true,false}
-@attribute '<Method is part of class that contains the name url>' {true,false}
-@attribute '<Method is part of class that contains the name redirect>' {true,false}
-@attribute '<Method is part of class that contains the name web>' {true,false}
-@attribute '<Method is part of class that contains the name http>' {true,false}
-@attribute '<Method name contains send>' {true,false}
-@attribute '<Method is part of inner class>' {true,false}
-@attribute '<Method name contains sendredirect>' {true,false}
-@attribute '<Method is part of class that contains the name request>' {true,false}
+@attribute 'ClsNmCtnServlet'  {false,true}
+@attribute 'ImplicitMtd'  {false,true}
+@attribute 'MtdNmCtnReadNotThread'  {false,true}
+@attribute 'MtdCtnParams'  {false,true}
+@attribute 'MtdNmCtnGetparameter'  {false,true}
+@attribute 'ClsAnonymous'  {false,true}
+@attribute 'MtdNmCtnRedirect'  {false,true}
+@attribute 'ClsNmCtnResponse'  {false,true}
+@attribute 'ParamTypCtnURL'  {false,true}
+@attribute 'ClsNmCtnUrl'  {false,true}
+@attribute 'ClsNmCtnRedirect'  {false,true}
+@attribute 'ClsNmCtnWeb'  {false,true}
+@attribute 'ClsNmCtnHttp'  {false,true}
+@attribute 'MtdNmCtnSend'  {false,true}
+@attribute 'InnerCls'  {false,true}
+@attribute 'MtdNmCtnSendredirect'  {false,true}
+@attribute 'ClsNmCtnRequest'  {false,true}
 @attribute CWE601 {0,1}
 
 @data

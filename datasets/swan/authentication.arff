@@ -1,55 +1,55 @@
 @relation 'weka-code-br-v6:-C 50'
 
-@attribute '<Method is part of class that contains the name authen>' {true,false}
-@attribute '<Method name contains authen>' {true,false}
-@attribute '<Method is part of class that contains the name bind>' {true,false}
-@attribute '<Method name starts with has>' {true,false}
-@attribute '<Method connect invoked>' {true,false}
-@attribute '<Method is part of class that contains the name check>' {true,false}
-@attribute '<Method bind invoked>' {true,false}
-@attribute '<Method name starts with close>' {true,false}
-@attribute '<Method from class .io. invoked>' {true,false}
-@attribute '<Parameter type contains java.lang.charsequence>' {true,false}
-@attribute '<Method name contains check>' {true,false}
-@attribute '<Method from class db invoked>' {true,false}
-@attribute '<Method name contains verif>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Method logout invoked>' {true,false}
-@attribute '<Method modifier is PUBLIC>' {true,false}
-@attribute '<Method is part of class that contains the name security>' {true,false}
-@attribute '<Method security invoked>' {true,false}
-@attribute '<Method modifier is STATIC>' {true,false}
-@attribute '<Method name starts with is>' {true,false}
-@attribute '<Method authori invoked>' {true,false}
-@attribute '<Method name starts with create>' {true,false}
-@attribute '<Method check invoked>' {true,false}
-@attribute '<Method is part of class that contains the name connect>' {true,false}
-@attribute '<Method login invoked>' {true,false}
-@attribute '<Method is constructor>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method is part of class that contains the name oauth>' {true,false}
-@attribute '<Method name starts with set>' {true,false}
-@attribute '<Method has parameters>' {true,false}
-@attribute '<Method name contains privilege>' {true,false}
-@attribute '<Return type is boolean>' {true,false}
-@attribute '<Method authen invoked>' {true,false}
-@attribute '<Method from class sql invoked>' {true,false}
-@attribute '<Method verif invoked>' {true,false}
-@attribute '<Method name contains bind but not unbind>' {true,false}
-@attribute '<Method name starts with get>' {true,false}
-@attribute '<Method name contains unbind>' {true,false}
-@attribute '<Parameter type contains char[]>' {true,false}
-@attribute '<Method name starts with delete>' {true,false}
-@attribute '<Method credential invoked>' {true,false}
-@attribute '<Method name starts with put>' {true,false}
-@attribute '<Method name starts with open>' {true,false}
-@attribute '<Method is part of class that contains the name verif>' {true,false}
-@attribute '<Method name contains logout>' {true,false}
-@attribute '<Method name contains disconnect>' {true,false}
-@attribute '<Return type is User>' {true,false}
-@attribute '<Method name contains connect but not disconnect>' {true,false}
-@attribute '<Method name contains login>' {true,false}
-@attribute '<Return type is Credential>' {true,false}
+@attribute 'ClsNmCtnAuthen'  {false,true}
+@attribute 'MtdNmCtnAuthen'  {false,true}
+@attribute 'ClsNmCtnBind'  {false,true}
+@attribute 'MtdNmStrtHas'  {false,true}
+@attribute 'MtdConnectInvkd'  {false,true}
+@attribute 'ClsNmCtnCheck'  {false,true}
+@attribute 'MtdBindInvkd'  {false,true}
+@attribute 'MtdNmStrtClose'  {false,true}
+@attribute 'MtdFrmClsIoInvkd'  {false,true}
+@attribute 'ParamTypCtnCharsequence'  {false,true}
+@attribute 'MtdNmCtnCheck'  {false,true}
+@attribute 'MtdFrmClsDbInvkd'  {false,true}
+@attribute 'MtdNmCtnVerif'  {false,true}
+@attribute 'ParamTypCtnStr'  {false,true}
+@attribute 'MtdLogoutInvkd'  {false,true}
+@attribute 'MtdModPUBLIC'  {false,true}
+@attribute 'ClsNmCtnSecurity'  {false,true}
+@attribute 'MtdSecurityInvkd'  {false,true}
+@attribute 'MtdModSTATIC'  {false,true}
+@attribute 'MtdNmStrtIs'  {false,true}
+@attribute 'MtdAuthoriInvkd'  {false,true}
+@attribute 'MtdNmStrtCreate'  {false,true}
+@attribute 'MtdCheckInvkd'  {false,true}
+@attribute 'ClsNmCtnConnect'  {false,true}
+@attribute 'MtdLoginInvkd'  {false,true}
+@attribute 'MtdConstructor'  {false,true}
+@attribute 'ImplicitMtd'  {false,true}
+@attribute 'ClsNmCtnOauth'  {false,true}
+@attribute 'MtdNmStrtSet'  {false,true}
+@attribute 'MtdCtnParams'  {false,true}
+@attribute 'MtdNmCtnPrivilege'  {false,true}
+@attribute 'RtnTypBoolean'  {false,true}
+@attribute 'MtdAuthenInvkd'  {false,true}
+@attribute 'MtdFrmClsSqlInvkd'  {false,true}
+@attribute 'MtdVerifInvkd'  {false,true}
+@attribute 'MtdNmCtnBind'  {false,true}
+@attribute 'MtdNmStrtGet'  {false,true}
+@attribute 'MtdNmCtnUnbind'  {false,true}
+@attribute 'ParamTypCtnChar[]'  {false,true}
+@attribute 'MtdNmStrtDelete'  {false,true}
+@attribute 'MtdCredentialInvkd'  {false,true}
+@attribute 'MtdNmStrtPut'  {false,true}
+@attribute 'MtdNmStrtOpen'  {false,true}
+@attribute 'ClsNmCtnVerif'  {false,true}
+@attribute 'MtdNmCtnLogout'  {false,true}
+@attribute 'MtdNmCtnDisconnect'  {false,true}
+@attribute 'RtnTypUser'  {false,true}
+@attribute 'MtdNmCtnConnect'  {false,true}
+@attribute 'MtdNmCtnLogin'  {false,true}
+@attribute 'RtnTypCredential'  {false,true}
 @attribute authentication {0,1,2,3}
 
 @data
