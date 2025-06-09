@@ -1,0 +1,210 @@
+2025-06-06 11:18:46 Adding bundled jars
+2025-06-06 11:18:46 Adding system classpath
+2025-06-06 11:18:46 Cannot add system's classpath, as environment variable CLASSPATH not set.
+2025-06-06 11:18:46 Classpath=['/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/arpack_combined.jar', '/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/python-weka-wrapper.jar', '/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/weka.jar', '/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/core.jar', '/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/mtj.jar']
+2025-06-06 11:18:46 MaxHeapSize=12288m
+2025-06-06 11:18:46 Package support enabled
+2025-06-06 11:18:48 Dataset loaded...
+2025-06-06 11:18:48 Classifier = Classification via Regression: No model built yet.
+2025-06-06 11:18:50 Model training completed successfully...
+2025-06-06 13:02:54 Saved SHAP plot for source
+2025-06-06 13:02:54 --------------- Global Statistics ---------------
+2025-06-06 13:02:54 Shap Values: 
+MtdNmCtnReadNotThread      0.0
+MtdDecodInvkd              0.0
+MtdLoadInvkd               0.0
+RtnTypServlet              0.0
+MtdFrmClswebInvkd          0.0
+MtdNmCtnStream             0.0
+MtdNmCtnCreat              0.0
+ParamTypCtnSql             0.0
+ClsNmCtnWeb                0.0
+ParamTypCtnStr             0.0
+ClsNmCtnSecurity           0.0
+MtdReqInvkd                0.0
+ClsPUBLIC                  0.0
+ParamTypCtnIo              0.0
+SoMtdRtnDecode             0.0
+SoMtdRtnLoad               0.0
+ClsFINAL                   0.0
+ClsNmCtnOutPut             0.0
+MtdOutPutInvkd             0.0
+RtnTypCharsequence         0.0
+MtdCtnParams               0.0
+MtdNmCtnUnescap            0.0
+RtnTypByte[]               0.0
+MtdNmCtnDecod              0.0
+MtdCreatInvkd              0.0
+ParamTypCtnWeb             0.0
+MtdReadInvkd               0.0
+MtdModFINAL                0.0
+MtdNmCtnPars               0.0
+SoMtdRtnRead               0.0
+ParamTypCtnChar[]          0.0
+ClsNmCtnIo                 0.0
+ParamTypCtnByte[]          0.0
+RtnTypNode                 0.0
+ClsNmCtnSql                0.0
+MtdGetInvkd                0.0
+SoMtdRtnUnescape           0.0
+ClsNmCtnNet                0.0
+MtdFrmClsIoInvkd           0.0
+MtdFrmClsNetInvkd          0.0
+ParamTypCtnCharsequence    0.0
+MtdNmCtnName               0.0
+ClsAnonymous               0.0
+ClsSTATIC                  0.0
+MtdNmCtnReq                0.0
+SoMtdRtnCreate             0.0
+MtdFrmClsDbInvkd           0.0
+RtnTypDocument             0.0
+MtdModPUBLIC               0.0
+MtdModSTATIC               0.0
+MtdNmCtnRetriev            0.0
+ClsNmCtnManager            0.0
+MtdNmCtnLoadNotPayload     0.0
+MtdUnescapInvkd            0.0
+MtdConstructor             0.0
+ImplicitMtd                0.0
+ClsNmCtnHtml               0.0
+SoMtdRtnReq                0.0
+MtdRtnsConst               0.0
+RtnTypStr                  0.0
+MtdFrmClsSqlInvkd          0.0
+MtdNmStrtGet               0.0
+MtdModPRIVATE              0.0
+ParamTypCtnDb              0.0
+RtnTypReq                  0.0
+SoMtdRtnGet                0.0
+MtdNmCtnObject             0.0
+InnerCls                   0.0
+source                     0.0
+2025-06-06 13:02:54 Shap Summary: 
+       MtdNmCtnReadNotThread  MtdDecodInvkd  ...  InnerCls  source
+count                 1795.0         1795.0  ...    1795.0  1795.0
+mean                     0.0            0.0  ...       0.0     0.0
+std                      0.0            0.0  ...       0.0     0.0
+min                      0.0            0.0  ...       0.0     0.0
+25%                      0.0            0.0  ...       0.0     0.0
+50%                      0.0            0.0  ...       0.0     0.0
+75%                      0.0            0.0  ...       0.0     0.0
+max                      0.0            0.0  ...       0.0     0.0
+
+[8 rows x 69 columns]
+2025-06-06 13:02:54 Evaluation output:[NOM: 0.0 0.0 1.0 0.9192734580077664 0.08072654199223357, NOM: 0.0 1.0 1.0 0.4873559741596893 0.5126440258403108, NOM: 1.0 1.0 1.0 0.0736799477103293 0.9263200522896707, NOM: 0.0 0.0 1.0 0.7345421402660579 0.2654578597339421, NOM: 0.0 0.0 1.0 0.869937236972233 0.13006276302776695, NOM: 0.0 0.0 1.0 0.7726751559795539 0.22732484402044606, NOM: 0.0 0.0 1.0 0.8114496555799513 0.1885503444200487, NOM: 0.0 0.0 1.0 0.9689559137072128 0.03104408629278721, NOM: 0.0 0.0 1.0 0.8732895204301538 0.12671047956984616, NOM: 0.0 0.0 1.0 0.7726289190527387 0.22737108094726122, NOM: 0.0 0.0 1.0 0.7423145403354003 0.25768545966459966, NOM: 0.0 0.0 1.0 0.9189885101807544 0.08101148981924546, NOM: 0.0 0.0 1.0 0.7993061991575643 0.2006938008424357, NOM: 0.0 0.0 1.0 0.8732895204301538 0.12671047956984616, NOM: 0.0 0.0 1.0 0.8041158109882556 0.19588418901174443, NOM: 0.0 0.0 1.0 0.7868008306533926 0.21319916934660738, NOM: 0.0 1.0 1.0 0.18746345175459966 0.8125365482454003, NOM: 0.0 0.0 1.0 0.8094599162838376 0.19054008371616246, NOM: 0.0 0.0 1.0 0.9440693242945579 0.05593067570544203, NOM: 0.0 0.0 1.0 0.9192734580077664 0.08072654199223357]
+2025-06-06 13:02:54 Evaluation for source: 
+
+Correctly Classified Instances          18               90      %
+Incorrectly Classified Instances         2               10      %
+Kappa statistic                          0.4595
+Mean absolute error                      0.2039
+Root mean squared error                  0.2681
+Relative absolute error                101.0764 %
+Root relative squared error            108.0405 %
+Total Number of Instances               20     
+
+2025-06-06 13:02:54 F-Score: 0.9444444444444444
+2025-06-06 13:02:54 F-Score 1: 0.5
+2025-06-06 13:03:52 Saved SHAP waterfall plot for instance 0
+2025-06-06 13:03:52 Saved SHAP waterfall plot for instance 1
+2025-06-06 13:03:52 Saved SHAP waterfall plot for instance 2
+2025-06-06 13:03:53 Saved SHAP waterfall plot for instance 3
+2025-06-06 13:03:53 Saved SHAP waterfall plot for instance 4
+2025-06-06 13:03:54 Saved SHAP waterfall plot for instance 5
+2025-06-06 13:03:54 Saved SHAP waterfall plot for instance 6
+2025-06-06 13:03:54 Saved SHAP waterfall plot for instance 7
+2025-06-06 13:03:55 Saved SHAP waterfall plot for instance 8
+2025-06-06 13:03:55 Saved SHAP waterfall plot for instance 9
+2025-06-06 13:03:56 Saved SHAP waterfall plot for instance 10
+2025-06-06 13:03:56 Saved SHAP waterfall plot for instance 11
+2025-06-06 13:03:57 Saved SHAP waterfall plot for instance 12
+2025-06-06 13:03:57 Saved SHAP waterfall plot for instance 13
+2025-06-06 13:03:57 Saved SHAP waterfall plot for instance 14
+2025-06-06 13:03:58 Saved SHAP waterfall plot for instance 15
+2025-06-06 13:03:58 Saved SHAP waterfall plot for instance 16
+2025-06-06 13:03:59 Saved SHAP waterfall plot for instance 17
+2025-06-06 13:03:59 Saved SHAP waterfall plot for instance 18
+2025-06-06 13:03:59 Saved SHAP waterfall plot for instance 19
+2025-06-06 13:03:59 --------------- Local Statistics ---------------
+2025-06-06 13:03:59 Shap Values: 
+MtdNmCtnReadNotThread      0.0
+MtdDecodInvkd              0.0
+MtdLoadInvkd               0.0
+RtnTypServlet              0.0
+MtdFrmClswebInvkd          0.0
+MtdNmCtnStream             0.0
+MtdNmCtnCreat              0.0
+ParamTypCtnSql             0.0
+ClsNmCtnWeb                0.0
+ParamTypCtnStr             0.0
+ClsNmCtnSecurity           0.0
+MtdReqInvkd                0.0
+ClsPUBLIC                  0.0
+ParamTypCtnIo              0.0
+SoMtdRtnDecode             0.0
+SoMtdRtnLoad               0.0
+ClsFINAL                   0.0
+ClsNmCtnOutPut             0.0
+MtdOutPutInvkd             0.0
+RtnTypCharsequence         0.0
+MtdCtnParams               0.0
+MtdNmCtnUnescap            0.0
+RtnTypByte[]               0.0
+MtdNmCtnDecod              0.0
+MtdCreatInvkd              0.0
+ParamTypCtnWeb             0.0
+MtdReadInvkd               0.0
+MtdModFINAL                0.0
+MtdNmCtnPars               0.0
+SoMtdRtnRead               0.0
+ParamTypCtnChar[]          0.0
+ClsNmCtnIo                 0.0
+ParamTypCtnByte[]          0.0
+RtnTypNode                 0.0
+ClsNmCtnSql                0.0
+MtdGetInvkd                0.0
+SoMtdRtnUnescape           0.0
+ClsNmCtnNet                0.0
+MtdFrmClsIoInvkd           0.0
+MtdFrmClsNetInvkd          0.0
+ParamTypCtnCharsequence    0.0
+MtdNmCtnName               0.0
+ClsAnonymous               0.0
+ClsSTATIC                  0.0
+MtdNmCtnReq                0.0
+SoMtdRtnCreate             0.0
+MtdFrmClsDbInvkd           0.0
+RtnTypDocument             0.0
+MtdModPUBLIC               0.0
+MtdModSTATIC               0.0
+MtdNmCtnRetriev            0.0
+ClsNmCtnManager            0.0
+MtdNmCtnLoadNotPayload     0.0
+MtdUnescapInvkd            0.0
+MtdConstructor             0.0
+ImplicitMtd                0.0
+ClsNmCtnHtml               0.0
+SoMtdRtnReq                0.0
+MtdRtnsConst               0.0
+RtnTypStr                  0.0
+MtdFrmClsSqlInvkd          0.0
+MtdNmStrtGet               0.0
+MtdModPRIVATE              0.0
+ParamTypCtnDb              0.0
+RtnTypReq                  0.0
+SoMtdRtnGet                0.0
+MtdNmCtnObject             0.0
+InnerCls                   0.0
+source                     0.0
+2025-06-06 13:04:00 Shap Summary: 
+       MtdNmCtnReadNotThread  MtdDecodInvkd  ...  InnerCls  source
+count                   20.0           20.0  ...      20.0    20.0
+mean                     0.0            0.0  ...       0.0     0.0
+std                      0.0            0.0  ...       0.0     0.0
+min                      0.0            0.0  ...       0.0     0.0
+25%                      0.0            0.0  ...       0.0     0.0
+50%                      0.0            0.0  ...       0.0     0.0
+75%                      0.0            0.0  ...       0.0     0.0
+max                      0.0            0.0  ...       0.0     0.0
+
+[8 rows x 69 columns]

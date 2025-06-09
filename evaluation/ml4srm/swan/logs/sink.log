@@ -1,0 +1,242 @@
+2025-06-06 11:18:40 Adding bundled jars
+2025-06-06 11:18:40 Adding system classpath
+2025-06-06 11:18:40 Cannot add system's classpath, as environment variable CLASSPATH not set.
+2025-06-06 11:18:40 Classpath=['/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/arpack_combined.jar', '/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/python-weka-wrapper.jar', '/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/weka.jar', '/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/core.jar', '/home/ubuntu/Explainability/BR/venv/lib/python3.12/site-packages/weka/lib/mtj.jar']
+2025-06-06 11:18:40 MaxHeapSize=12288m
+2025-06-06 11:18:40 Package support enabled
+2025-06-06 11:18:42 Dataset loaded...
+2025-06-06 11:18:42 Classifier = IBk: No model built yet.
+2025-06-06 11:18:42 Model training completed successfully...
+2025-06-06 18:29:59 Saved SHAP plot for sink
+2025-06-06 18:29:59 --------------- Global Statistics ---------------
+2025-06-06 18:29:59 Shap Values: 
+ParamTypCtnStr              0.105382
+ParamDfSiMtdLog             0.038672
+MtdCtnParams                0.030458
+MtdNmCtnLog                 0.028373
+ClsNmCtnIo                  0.027378
+ClsNmCtnSql                 0.026364
+MtdModSTATIC                0.022696
+ParamDfSiMtdSet             0.022464
+ClsNmCtnJdbc                0.022154
+ClsFINAL                    0.020327
+MtdModPUBLIC                0.020005
+MtdFrmClsIoInvkd            0.016635
+ClsNmEndsReq                0.012281
+ParamTypCtnIo               0.012165
+MtdFrmClsDbInvkd            0.011078
+MtdNmCtnStream              0.010861
+MtdFrmClsSqlInvkd           0.010258
+MtdNmCtnWrit                0.009918
+MtdNmCtnReplac              0.009909
+MtdSetInvkd                 0.009293
+MtdNmCtnExecut              0.008603
+ClsNmCtnWeb                 0.008190
+MtdWritInvkd                0.007716
+MtdputInvkd                 0.007405
+MtdExecutInvkd              0.007152
+ParamDfSiMtdExecut          0.006921
+ClsNmCtnSecurity            0.006669
+ParamTypCtnByte[]           0.006603
+ClsPUBLIC                   0.006517
+MtdNmCtnPrint               0.006509
+ParamDfSiMtdPut             0.006008
+MtdNmCtnRun                 0.005655
+MtdLogInvkd                 0.005600
+MtdReplacInvkd              0.005571
+MtdNmCtnUpdat               0.005040
+MtdNmCtnPars                0.005004
+MtdModPRIVATE               0.004965
+MtdModFINAL                 0.004833
+ClsNmCtnResponse            0.004777
+ParamDfSiMtdWrit            0.004526
+MtdFrmClsNetInvkd           0.004288
+MtdHandlInvkd               0.003968
+ParamDfSiMtdStream          0.003661
+ParamTypCtnCharsequence     0.003579
+MtdFrmClswebInvkd           0.003579
+ParamTypCtnSql              0.003461
+MtdLoneGetterOrSetter       0.003380
+ClsNmCtnNet                 0.002723
+ParamTypCtnStringbuilder    0.002625
+ClsNmCtnInput               0.002579
+MtdPrintInvkd               0.002563
+MtdNmCtnHandl               0.002373
+ParamDfSiMtdPrint           0.002343
+MtdParsInvkd                0.002206
+ParamDfSiMtdPars            0.002126
+ParamTypCtnChar[]           0.002107
+ClsNmCtnManager             0.001866
+MtdupdatInvkd               0.001855
+MtdsendInvkd                0.001757
+ParamDfSiMtdUpdat           0.001710
+ParamDfSiMtdSend            0.001670
+ParamDfSiMtdHandl           0.001534
+MtdNmCtnSend                0.001521
+RtnTypResultSet             0.001473
+MtdFrmClsLogInvkd           0.001248
+MtdDumpInvkd                0.001207
+ParamTypCtnDb               0.001113
+MtdRunInvkd                 0.001075
+ParamDfSiMtdDump            0.001018
+ParamDfSiMtdRun             0.000981
+ClsNmCtnHtml                0.000517
+ParamTypCtnWeb              0.000372
+MtdNmCtnDump                0.000296
+ImplicitMtd                 0.000172
+MtdNmCtnRedirect            0.000112
+ClsNmCtnRedirect            0.000069
+MtdNmCtnSetheader           0.000000
+ClsSTATIC                   0.000000
+ClsAnonymous                0.000000
+MtdStrtOn                   0.000000
+MtdNmStrtSet                0.000000
+MtdConstructor              0.000000
+ClsNmEndsRender             0.000000
+InnerCls                    0.000000
+sink                        0.000000
+2025-06-06 18:29:59 Shap Summary: 
+       MtdNmCtnSetheader  ParamDfSiMtdWrit  ...  MtdFrmClsLogInvkd    sink
+count             1795.0       1795.000000  ...        1795.000000  1795.0
+mean                 0.0         -0.001527  ...          -0.000435     0.0
+std                  0.0          0.021742  ...           0.009985     0.0
+min                  0.0         -0.475640  ...          -0.142619     0.0
+25%                  0.0         -0.000832  ...           0.000000     0.0
+50%                  0.0          0.000215  ...           0.000000     0.0
+75%                  0.0          0.001337  ...           0.000000     0.0
+max                  0.0          0.170724  ...           0.113553     0.0
+
+[8 rows x 85 columns]
+2025-06-06 18:30:00 Evaluation output:[NOM: 1.0 0.0 1.0 0.5 0.5, NOM: 0.0 0.0 1.0 0.9285671650699854 0.07143283493001462, NOM: 0.0 1.0 1.0 5.564830272676684E-4 0.9994435169727323, NOM: 0.0 0.0 1.0 0.6666047893075924 0.33339521069240763, NOM: 0.0 0.0 1.0 0.9285671650699854 0.07143283493001462, NOM: 0.0 0.0 1.0 0.9998143679227771 1.8563207722294413E-4, NOM: 0.0 0.0 1.0 0.9998143679227771 1.8563207722294413E-4, NOM: 0.0 1.0 1.0 0.25000994787314473 0.7499900521268553, NOM: 1.0 1.0 1.0 0.20006683747354348 0.7999331625264564, NOM: 0.0 0.0 1.0 0.6666047893075924 0.33339521069240763, NOM: 0.0 0.0 1.0 0.7499303815093289 0.2500696184906711, NOM: 0.0 0.0 1.0 0.7894651967395766 0.21053480326042337, NOM: 0.0 0.0 1.0 0.7916531265957941 0.2083468734042059, NOM: 1.0 1.0 1.0 0.20006683747354348 0.7999331625264564, NOM: 0.0 0.0 1.0 0.7499303815093289 0.2500696184906711, NOM: 1.0 0.0 1.0 0.7499303815093289 0.2500696184906711, NOM: 0.0 1.0 1.0 5.564830272676684E-4 0.9994435169727323, NOM: 0.0 0.0 1.0 0.9998143679227771 1.8563207722294413E-4, NOM: 0.0 1.0 1.0 0.4565222656865001 0.5434777343134999, NOM: 0.0 0.0 1.0 0.9994435169727323 5.564830272676684E-4]
+2025-06-06 18:30:00 Evaluation for sink: 
+
+Correctly Classified Instances          14               70      %
+Incorrectly Classified Instances         6               30      %
+Kappa statistic                          0.2105
+Mean absolute error                      0.3336
+Root mean squared error                  0.4579
+Relative absolute error                 73.6303 %
+Root relative squared error            100.1118 %
+Total Number of Instances               20     
+
+2025-06-06 18:30:00 F-Score: 0.7999999999999999
+2025-06-06 18:30:00 F-Score 1: 0.4
+2025-06-06 18:33:20 Saved SHAP force plot for instance 0
+2025-06-06 18:33:20 Saved SHAP force plot for instance 1
+2025-06-06 18:33:21 Saved SHAP force plot for instance 2
+2025-06-06 18:33:21 Saved SHAP force plot for instance 3
+2025-06-06 18:33:21 Saved SHAP force plot for instance 4
+2025-06-06 18:33:22 Saved SHAP force plot for instance 5
+2025-06-06 18:33:22 Saved SHAP force plot for instance 6
+2025-06-06 18:33:23 Saved SHAP force plot for instance 7
+2025-06-06 18:33:23 Saved SHAP force plot for instance 8
+2025-06-06 18:33:23 Saved SHAP force plot for instance 9
+2025-06-06 18:33:24 Saved SHAP force plot for instance 10
+2025-06-06 18:33:24 Saved SHAP force plot for instance 11
+2025-06-06 18:33:25 Saved SHAP force plot for instance 12
+2025-06-06 18:33:25 Saved SHAP force plot for instance 13
+2025-06-06 18:33:25 Saved SHAP force plot for instance 14
+2025-06-06 18:33:26 Saved SHAP force plot for instance 15
+2025-06-06 18:33:26 Saved SHAP force plot for instance 16
+2025-06-06 18:33:27 Saved SHAP force plot for instance 17
+2025-06-06 18:33:27 Saved SHAP force plot for instance 18
+2025-06-06 18:33:27 Saved SHAP force plot for instance 19
+2025-06-06 18:33:27 --------------- Local Statistics ---------------
+2025-06-06 18:33:27 Shap Values: 
+ParamTypCtnStr              0.132305
+MtdModSTATIC                0.066323
+MtdFrmClsIoInvkd            0.050504
+MtdCtnParams                0.034143
+ClsNmEndsReq                0.029199
+ParamDfSiMtdLog             0.026968
+ClsNmCtnIo                  0.021958
+MtdPrintInvkd               0.021507
+ClsNmCtnSql                 0.020429
+MtdNmCtnPrint               0.020154
+ClsFINAL                    0.019560
+MtdWritInvkd                0.019273
+ClsNmCtnJdbc                0.014560
+MtdNmCtnLog                 0.014218
+ParamTypCtnSql              0.013833
+ParamDfSiMtdSet             0.012927
+MtdSetInvkd                 0.012536
+MtdModPUBLIC                0.011384
+MtdNmCtnReplac              0.009092
+MtdputInvkd                 0.006971
+MtdNmCtnWrit                0.006287
+ParamTypCtnIo               0.006059
+MtdNmCtnExecut              0.005908
+ClsNmCtnWeb                 0.005902
+MtdFrmClsDbInvkd            0.005880
+MtdFrmClsSqlInvkd           0.005112
+ParamDfSiMtdExecut          0.005021
+MtdNmCtnStream              0.004836
+MtdExecutInvkd              0.004697
+MtdNmCtnRun                 0.004329
+ParamDfSiMtdWrit            0.003284
+MtdNmCtnUpdat               0.003240
+ClsNmCtnResponse            0.003188
+ParamTypCtnCharsequence     0.003066
+MtdReplacInvkd              0.003060
+ParamTypCtnStringbuilder    0.002952
+ClsPUBLIC                   0.002779
+ClsNmCtnSecurity            0.002714
+MtdLoneGetterOrSetter       0.002637
+MtdHandlInvkd               0.002573
+MtdFrmClsNetInvkd           0.002279
+ClsNmCtnManager             0.002184
+MtdModPRIVATE               0.002164
+ClsNmCtnNet                 0.002150
+ParamDfSiMtdPut             0.002093
+ParamTypCtnByte[]           0.001959
+MtdNmCtnPars                0.001880
+MtdModFINAL                 0.001304
+RtnTypResultSet             0.001253
+MtdFrmClswebInvkd           0.001039
+ParamDfSiMtdStream          0.000953
+ParamTypCtnChar[]           0.000885
+MtdNmCtnHandl               0.000821
+ParamDfSiMtdSend            0.000748
+MtdLogInvkd                 0.000722
+MtdNmCtnSend                0.000522
+MtdFrmClsLogInvkd           0.000476
+ParamTypCtnDb               0.000464
+ClsNmCtnInput               0.000448
+MtdsendInvkd                0.000441
+ParamDfSiMtdPars            0.000421
+ParamDfSiMtdHandl           0.000387
+MtdupdatInvkd               0.000354
+MtdParsInvkd                0.000316
+MtdDumpInvkd                0.000259
+MtdRunInvkd                 0.000232
+ParamDfSiMtdRun             0.000188
+ParamDfSiMtdUpdat           0.000128
+ParamDfSiMtdPrint           0.000083
+ParamDfSiMtdDump            0.000075
+MtdNmCtnSetheader           0.000000
+ClsNmCtnRedirect            0.000000
+ClsAnonymous                0.000000
+ParamTypCtnWeb              0.000000
+MtdNmStrtSet                0.000000
+MtdStrtOn                   0.000000
+MtdNmCtnDump                0.000000
+ClsSTATIC                   0.000000
+ClsNmCtnHtml                0.000000
+MtdConstructor              0.000000
+ClsNmEndsRender             0.000000
+MtdNmCtnRedirect            0.000000
+ImplicitMtd                 0.000000
+InnerCls                    0.000000
+sink                        0.000000
+2025-06-06 18:33:28 Shap Summary: 
+       MtdNmCtnSetheader  ParamDfSiMtdWrit  ...  MtdFrmClsLogInvkd  sink
+count               20.0         20.000000  ...          20.000000  20.0
+mean                 0.0          0.002713  ...          -0.000264   0.0
+std                  0.0          0.005152  ...           0.001041   0.0
+min                  0.0         -0.002386  ...          -0.003416   0.0
+25%                  0.0         -0.000036  ...          -0.000261   0.0
+50%                  0.0          0.001347  ...           0.000000   0.0
+75%                  0.0          0.002834  ...           0.000000   0.0
+max                  0.0          0.019186  ...           0.001465   0.0
+
+[8 rows x 85 columns]
