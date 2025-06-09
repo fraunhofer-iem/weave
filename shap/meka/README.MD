@@ -23,7 +23,7 @@ Instructions to run the experiments.
  Create a virtual environment to run the program. <br>
  <code>python -m venv venv</code> or <code>python3 -m venv venv</code> <br>
 
- To activate the virtual environement, use:<br>
+ To activate the virtual environment, use:<br>
  Windows: <code> venv\Scripts\activate </code> <br>
  Mac/Linux: <code> source venv/bin/activate </code>
 
