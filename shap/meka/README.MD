@@ -32,7 +32,7 @@ Instructions to run the experiments.
  <code> pip install -r requirements.txt </code>
 
 <h3> Running the program</h3>
- You can now run the program using the python command after passing the train, test and output directories as arguments. <br>
+ Run the program using the python command after passing the train, test and output directories as arguments. <br>
 
 ```bash
 python Dev-Assist.py --train <Path to the training file>\
