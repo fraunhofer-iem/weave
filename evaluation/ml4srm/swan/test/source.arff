@@ -1,0 +1,93 @@
+@relation 'weka-code-br-v6:-C 68'
+
+@attribute 'MtdNmCtnReadNotThread' {false,true}
+@attribute 'MtdDecodInvkd' {false,true}
+@attribute 'MtdLoadInvkd' {false,true}
+@attribute 'RtnTypServlet' {false,true}
+@attribute 'MtdFrmClswebInvkd' {false,true}
+@attribute 'MtdNmCtnStream' {false,true}
+@attribute 'MtdNmCtnCreat' {false,true}
+@attribute 'ParamTypCtnSql' {false,true}
+@attribute 'ClsNmCtnWeb' {false,true}
+@attribute 'ParamTypCtnStr' {false,true}
+@attribute 'ClsNmCtnSecurity' {false,true}
+@attribute 'MtdReqInvkd' {false,true}
+@attribute 'ClsPUBLIC' {false,true}
+@attribute 'ParamTypCtnIo' {false,true}
+@attribute 'SoMtdRtnDecode' {false,true}
+@attribute 'SoMtdRtnLoad' {false,true}
+@attribute 'ClsFINAL' {false,true}
+@attribute 'ClsNmCtnOutPut' {false,true}
+@attribute 'MtdOutPutInvkd' {false,true}
+@attribute 'RtnTypCharsequence' {false,true}
+@attribute 'MtdCtnParams' {false,true}
+@attribute 'MtdNmCtnUnescap' {false,true}
+@attribute 'RtnTypByte[]' {false,true}
+@attribute 'MtdNmCtnDecod' {false,true}
+@attribute 'MtdCreatInvkd' {false,true}
+@attribute 'ParamTypCtnWeb' {false,true}
+@attribute 'MtdReadInvkd' {false,true}
+@attribute 'MtdModFINAL' {false,true}
+@attribute 'MtdNmCtnPars' {false,true}
+@attribute 'SoMtdRtnRead' {false,true}
+@attribute 'ParamTypCtnChar[]' {false,true}
+@attribute 'ClsNmCtnIo' {false,true}
+@attribute 'ParamTypCtnByte[]' {false,true}
+@attribute 'RtnTypNode' {false,true}
+@attribute 'ClsNmCtnSql' {false,true}
+@attribute 'MtdGetInvkd' {false,true}
+@attribute 'SoMtdRtnUnescape' {false,true}
+@attribute 'ClsNmCtnNet' {false,true}
+@attribute 'MtdFrmClsIoInvkd' {false,true}
+@attribute 'MtdFrmClsNetInvkd' {false,true}
+@attribute 'ParamTypCtnCharsequence' {false,true}
+@attribute 'MtdNmCtnName' {false,true}
+@attribute 'ClsAnonymous' {false,true}
+@attribute 'ClsSTATIC' {false,true}
+@attribute 'MtdNmCtnReq' {false,true}
+@attribute 'SoMtdRtnCreate' {false,true}
+@attribute 'MtdFrmClsDbInvkd' {false,true}
+@attribute 'RtnTypDocument' {false,true}
+@attribute 'MtdModPUBLIC' {false,true}
+@attribute 'MtdModSTATIC' {false,true}
+@attribute 'MtdNmCtnRetriev' {false,true}
+@attribute 'ClsNmCtnManager' {false,true}
+@attribute 'MtdNmCtnLoadNotPayload' {false,true}
+@attribute 'MtdUnescapInvkd' {false,true}
+@attribute 'MtdConstructor' {false,true}
+@attribute 'ImplicitMtd' {false,true}
+@attribute 'ClsNmCtnHtml' {false,true}
+@attribute 'SoMtdRtnReq' {false,true}
+@attribute 'MtdRtnsConst' {false,true}
+@attribute 'RtnTypStr' {false,true}
+@attribute 'MtdFrmClsSqlInvkd' {false,true}
+@attribute 'MtdNmStrtGet' {false,true}
+@attribute 'MtdModPRIVATE' {false,true}
+@attribute 'ParamTypCtnDb' {false,true}
+@attribute 'RtnTypReq' {false,true}
+@attribute 'SoMtdRtnGet' {false,true}
+@attribute 'MtdNmCtnObject' {false,true}
+@attribute 'InnerCls' {false,true}
+@attribute source {0,1}
+
+@data
+false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,1
+false,false,true,false,false,false,true,false,false,false,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,true,false,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,true,false,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,true,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,0
+false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,0
