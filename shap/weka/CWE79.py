@@ -1,24 +1,40 @@
+import argparse
 import logging
 import os
 
 import numpy as np
 import pandas as pd
 import shap
-import weka.core.jvm as jvm
+import weka.core.converters as con
 import weka.core.converters as converters
+import weka.core.jvm as jvm
 from matplotlib import pyplot as plt
 from weka.classifiers import Classifier, Evaluation
-from weka.core.classes import Random
+
 from Converters import inst_to_np
-import weka.core.converters as con
 
 np.random.seed(42)
 label = 'CWE79'
 
+# Argument parser
+parser = argparse.ArgumentParser(description='')
+parser.add_argument('--train', required=True, help='Path to training ARFF file')
+parser.add_argument('--test', required=True, help='Path to testing ARFF file')
+parser.add_argument('--out', required=True, help='Output directory to store results')
+args = parser.parse_args()
+
+# Create output directories
+output_path = f'{args.out}/results/'
+os.makedirs(output_path, exist_ok=True)
+os.makedirs(os.path.join(output_path, f'local/csv/{label}'), exist_ok=True)
+
 # Configure logger
-logfile_path = os.getcwd() + f'/out/{label}.log'
+logfile_path = f'{args.out}/logs'
+os.makedirs(logfile_path, exist_ok=True)
+logfile_path = os.path.join(logfile_path, f'{label}.log')
 logger = logging.getLogger(label)
-logging.basicConfig(filename=logfile_path, format='%(asctime)s %(message)s',datefmt='%Y-%m-%d %H:%M:%S', filemode='w', encoding='utf-8', level=logging.INFO, force=True)
+logging.basicConfig(filename=logfile_path, format='%(asctime)s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',
+                    filemode='w', encoding='utf-8', level=logging.INFO, force=True)
 print('logs saved at:' + logfile_path)
 logging.getLogger("shap").setLevel(logging.CRITICAL)
 logging.getLogger("weka").setLevel(logging.CRITICAL)
@@ -27,8 +43,7 @@ logging.getLogger("weka").setLevel(logging.CRITICAL)
 jvm.start(system_cp=True, packages=True, max_heap_size="12288m")
 
 # Load dataset
-data_dir = f'datasets/{label}.arff'
-dataset = converters.load_any_file(data_dir)
+dataset = converters.load_any_file(args.train)
 dataset.class_is_last()
 logger.info(f'Dataset loaded...')
 
@@ -37,7 +52,6 @@ classifier = Classifier(classname="weka.classifiers.functions.Logistic", options
     "-R", "2.280153483153162", "-M", "34",
     "-do-not-check-capabilities", "-num-decimal-places", "4"
 ])
-
 logger.info('Classifier = ' + classifier.__str__())
 
 # Train classifier
@@ -67,7 +81,7 @@ global_exp = global_explainer(dataset_np)
 fig = plt.figure()
 shap.plots.beeswarm(global_exp[:, :dataset.num_attributes - 1,1], show=False)
 plt.xlabel('SHAP Value')
-plt.savefig(f'results/{label}-global.pdf', bbox_inches='tight', dpi=300)
+plt.savefig(f'{output_path}/{label}-global.pdf', bbox_inches='tight', dpi=300)
 plt.close()
 logger.info(f"Saved SHAP plot for {label}")
 
@@ -78,7 +92,7 @@ logger.info("Shap Values: \n" + global_shap_df.abs().mean().sort_values(ascendin
 logger.info("Shap Summary: \n" + str(global_shap_df.describe()))
 
 # Load dataset for local explainability
-test_dataset = converters.load_any_file(f'datasets/owasp-benchmark/{label}.arff')
+test_dataset = converters.load_any_file(args.test)
 test_dataset.class_is_last()
 
 # Evaluating the test set
@@ -96,22 +110,15 @@ test_dataset_np = inst_to_np(test_dataset)
 local_explainer = shap.Explainer(weka_predict, dataset_np, feature_names=feature_names, seed=42)
 local_exp = local_explainer(test_dataset_np)
 
-# Create directory for saving plots and csv foles
-output_dir = f'results/{label}-local/'
-os.makedirs(output_dir, exist_ok=True)
-
-csv_path = f'results/csv/{label}/'
-os.makedirs(csv_path, exist_ok=True)
-
 # Plot SHAP waterfall plots for local explainability
 for i in range(0, len(test_dataset_np)):
     shap.plots.waterfall(local_exp[i,:dataset.num_attributes - 1, 1], show=False)
-    plt.savefig(f'{output_dir}/{label}-local-instance-{i}.pdf', bbox_inches='tight', dpi=300)
+    plt.savefig(f'{output_path}/local/{label}-local-instance-{i}.pdf', bbox_inches='tight', dpi=300)
     plt.close()
     logger.info(f"Saved SHAP force plot for instance {i}")
 
     # Save local shap values to csv files
-    instance_csv_path = f'{csv_path}/instance_{i}.csv'
+    instance_csv_path = f'{output_path}/local/csv/{label}/instance_{i}.csv'
     local_shap_df = pd.DataFrame([local_exp[i, :, 1].values], columns=feature_names)
     local_shap_df = local_shap_df.T.reset_index()
     local_shap_df.columns = ['Feature', 'SHAP Value']
