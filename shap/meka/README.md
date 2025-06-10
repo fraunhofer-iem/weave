@@ -9,7 +9,7 @@ Base Classifier: RandomForestClassifier <br>
 
 Instructions to run the experiments.
 
-<h3> Prerequisites</h3>
+### Prerequisites
 
 <ul>
     <li> 
@@ -18,7 +18,7 @@ Instructions to run the experiments.
     </li>
 </ul>
 
-<h3> Creating and activating a virtual environment</h3>
+### Creating and activating a virtual environment
 
  Create a virtual environment to run the program. <br>
  <code>python -m venv venv</code> or <code>python3 -m venv venv</code> <br>
@@ -27,14 +27,14 @@ Instructions to run the experiments.
  Windows: <code> venv\Scripts\activate </code> <br>
  Mac/Linux: <code> source venv/bin/activate </code>
 
-<h3> Installing Dependencies</h3>
+### Installing Dependencies
  Use pip to install the dependencies<br>
  <code> pip install -r requirements.txt </code>
 
-<h3> Running the program</h3>
+### Running the program
  Run the program using the python command after passing the train, test and output directories as arguments. <br>
 
-```bash
+```text
 python Dev-Assist.py --train <Path to the training file>\
 --test <Path to the test ARFF file>\
 --out <Output directory where logs and SHAP plots are saved> 
