@@ -58,7 +58,7 @@ Mac/Linux: <code> source venv/bin/activate </code>
 <h3> Running the program</h3>
  Run the program using the python command after passing the train, test and output directories as arguments. <br>
 
-```bash
+```text
 python Dev-Assist.py --train <Path to the training file>\
 --test <Path to the test ARFF file>\
 --out <Output directory where logs and SHAP plots are saved> 
