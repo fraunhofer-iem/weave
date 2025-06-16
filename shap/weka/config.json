@@ -1,0 +1,63 @@
+{
+  "swan": {
+    "source": {
+      "classifier": "weka.classifiers.meta.ClassificationViaRegression",
+      "options": [
+        "-W", "weka.classifiers.trees.RandomForest", "-do-not-check-capabilities",
+        "--", "-P", "100", "-I", "100", "-num-slots", "1", "-do-not-check-capabilities",
+        "-K", "0", "-M", "8.0", "-V", "0.001", "-S", "1"
+      ],
+      "train": "evaluation/ml4srm/swan/train/source.arff",
+      "test": "evaluation/ml4srm/swan/test/source.arff",
+      "regressor": true
+    },
+    "sink": {
+      "classifier": "weka.classifiers.lazy.IBk",
+      "options": [ "-K", "1", "-W", "0", "-A", "weka.core.neighboursearch.LinearNNSearch" ],
+      "train": "evaluation/ml4srm/swan/train/sink.arff",
+      "test": "evaluation/ml4srm/swan/test/sink.arff",
+      "regressor": false
+    },
+    "sanitizer": {
+      "classifier": "weka.classifiers.meta.ClassificationViaRegression",
+      "options": [
+        "-W", "weka.classifiers.trees.RandomTree", "-do-not-check-capabilities",
+        "--", "-K", "0", "-M", "10.0", "-V", "0.001", "-S", "1"
+      ],
+      "train": "evaluation/ml4srm/swan/train/sanitizer.arff",
+      "test": "evaluation/ml4srm/swan/test/sanitizer.arff",
+      "regressor": true
+    },
+    "CWE79": {
+      "classifier": "weka.classifiers.functions.Logistic",
+      "options": [
+        "-R", "2.280153483153162", "-M", "34", "-do-not-check-capabilities", "-num-decimal-places", "4"
+      ],
+      "train": "evaluation/ml4srm/swan/train/CWE79.arff",
+      "test": "evaluation/ml4srm/swan/test/CWE79.arff",
+      "regressor": false
+    },
+    "CWE89": {
+      "classifier": "weka.classifiers.lazy.LWL",
+      "options": [
+        "-U", "0", "-K", "60", "-A", "weka.core.neighboursearch.CoverTree", "-W", "weka.classifiers.trees.RandomTree",
+        "--", "-K", "0", "-M", "3.0", "-V", "100.0", "-S", "1", "-depth", "10", "-U", "-do-not-check-capabilities"
+      ],
+      "train": "evaluation/ml4srm/swan/train/CWE89.arff",
+      "test": "evaluation/ml4srm/swan/test/CWE89.arff",
+      "regressor": false
+    }
+  },
+  "sscm": {
+    "sscm": {
+      "classifier": "weka.classifiers.lazy.IBk",
+      "options": [
+        "-K", "7", "-W", "0", "-X", "-A", "weka.core.neighboursearch.LinearNNSearch",
+        "-do-not-check-capabilities"
+      ],
+      "train": "evaluation/ml4srm/sscm/train/sscm.arff",
+      "test": "evaluation/ml4srm/sscm/test/sscm.arff",
+      "regressor": false
+    }
+  }
+}
