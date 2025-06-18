@@ -18,10 +18,10 @@ parser.add_argument('--out', required=True, help='Output directory to store resu
 args = parser.parse_args()
 
 # Create output directories
-out = f'{args.out}/results'
-os.makedirs(args.out, exist_ok=True)
-os.makedirs(os.path.join(args.out, 'global'), exist_ok=True)
-os.makedirs(os.path.join(args.out, 'local/csv'), exist_ok=True)
+output_path = f'{args.out}/results/dev-assist'
+os.makedirs(output_path, exist_ok=True)
+os.makedirs(os.path.join(output_path, 'global'), exist_ok=True)
+os.makedirs(os.path.join(output_path, 'local/csv'), exist_ok=True)
 
 # Configure logger
 logfile_path = f'{args.out}/logs'
@@ -92,12 +92,6 @@ global_exp = global_explainer(X_train)
 for i in range(global_exp.shape[2]):
     fig = plt.figure()
     shap.plots.beeswarm(global_exp[:, :, i], show=False)
-    ax = plt.gca()
-    yticklabels = ax.get_yticklabels()
-    for label1 in yticklabels:
-        if "Sum of 112 other features" in label1.get_text():
-            label1.set_text("∑112RemFeat")
-    ax.set_yticklabels(yticklabels)
     plt.xlabel('SHAP Value')
     plt.savefig(os.path.join(args.out, f'global/LC-RF{i}.pdf'), dpi=300, bbox_inches='tight')
     plt.close()
@@ -115,7 +109,7 @@ shap_values_aggregated = global_exp.values.mean(axis=2)
 fig = plt.figure()
 shap.summary_plot(shap_values_aggregated, X_train, max_display=10, show=False)
 plt.xlabel('SHAP Value')
-plt.savefig(os.path.join(args.out, 'global/LC-RF_combined.pdf'), dpi=300, bbox_inches='tight')
+plt.savefig(os.path.join(output_path, 'global/LC-RF_combined.pdf'), dpi=300, bbox_inches='tight')
 plt.close()
 logger.info(f'Shap beeswarm plot exported for aggregated powersets...')
 
@@ -135,7 +129,7 @@ for i in range(X_test.shape[0]):
     for j in range(local_exp.shape[2]):
         fig = plt.figure()
         shap.plots.waterfall(local_exp[i, :, j], show=False)
-        plt.savefig(os.path.join(args.out, f'local/LC-RF_Waterfall_{i}_class_{j}.pdf'), dpi=300, bbox_inches='tight')
+        plt.savefig(os.path.join(output_path, f'local/LC-RF_Waterfall_{i}_class_{j}.pdf'), dpi=300, bbox_inches='tight')
         plt.close()
         logger.info(f'SHAP waterfall plot exported for test instance {i}, class {j}...')
 
@@ -153,7 +147,7 @@ for i in range(X_test.shape[0]):
     logger.info("Shap Values: \n" + local_shap_df.mean().sort_values(ascending=False).to_string())
 
     final_df = pd.concat(csv_data, ignore_index=True)
-    csv_path = os.path.join(args.out, f'local/csv/instance_{i}.csv')
+    csv_path = os.path.join(output_path, f'local/csv/instance_{i}.csv')
     final_df.to_csv(csv_path, index=False)
 
 logger.info(f'Finished Successfully...')
