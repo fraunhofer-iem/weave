@@ -93,7 +93,7 @@ for i in range(global_exp.shape[2]):
     fig = plt.figure()
     shap.plots.beeswarm(global_exp[:, :, i], show=False)
     plt.xlabel('SHAP Value')
-    plt.savefig(os.path.join(args.out, f'global/LC-RF{i}.pdf'), dpi=300, bbox_inches='tight')
+    plt.savefig(os.path.join(output_path, f'global/LC-RF{i}.pdf'), dpi=300, bbox_inches='tight')
     plt.close()
     logger.info(f'Shap beeswarm plot exported for powerset: {i}...')
 
