@@ -13,9 +13,9 @@ fi
 # Run the programs for rq2 and 3
 echo "Starting Weka-Wrapper..."
 
-python shap/weka/weka_wrapper.py --approach swan --out ./evaluation/demo &
-python shap/weka/weka_wrapper.py --approach sscm --out ./evaluation/demo &
-python shap/meka/Dev-Assist.py --train ./evaluation/ml4srm/dev-assist/train/meka-code.arff --test ./evaluation/ml4srm/dev-assist/test/dev-assist-owasp-benchmark.arff --out ./evaluation/demo &
+python shap/weka/weka_wrapper.py --approach swan --out ./evaluation/ &
+python shap/weka/weka_wrapper.py --approach sscm --out ./evaluation/ &
+python shap/meka/Dev-Assist.py --train ./evaluation/ml4srm/dev-assist/train/meka-code.arff --test ./evaluation/ml4srm/dev-assist/test/dev-assist-owasp-benchmark.arff --out ./evaluation/ &
 
 wait
 
