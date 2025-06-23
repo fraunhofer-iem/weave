@@ -31,6 +31,14 @@ Instructions to run the experiments.
  Use pip to install the dependencies<br>
  <code> pip install -r requirements.txt </code>
 
+*You can also make use of our [script](create_env.sh) to create a virtual environment and install the dependencies.*
+Move to the root directory and use the following commands.
+```text
+chmod +x create_env.sh
+./create_env.sh
+source venv/bin/activate
+```
+
 ### Running the program
  Run the program using the python command after passing the train, test and output directories as arguments. <br>
 
@@ -38,4 +46,10 @@ Instructions to run the experiments.
 python Dev-Assist.py --train <Path to the training file>\
 --test <Path to the test ARFF file>\
 --out <Output directory where logs and SHAP plots are saved> 
+```
+<b>Example</b>
+```text
+python shap/meka/Dev-Assist.py --train ./evaluation/ml4srm/dev-assist/train/meka-code.arff\
+ --test ./evaluation/ml4srm/dev-assist/test/dev-assist-owasp-benchmark.arff\
+ --out ./evaluation/
 ```
