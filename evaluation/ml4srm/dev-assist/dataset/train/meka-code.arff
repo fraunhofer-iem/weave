@@ -1,4 +1,4 @@
-@relation 'meka-code-v6:-C 11 -meka.filters.unsupervised.attribute.MekaClsAttributes-R1-11'
+@relation 'meka-code-v6:-C 11 -meka.filters.unsupervised.attribute.MekaClassAttributes-R1-11'
 
 @attribute CWE89 {0,1}
 @attribute CWE862 {0,1}
