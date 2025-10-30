@@ -1,4 +1,4 @@
-package de.fraunhofer.xai_srm.experiment;
+package de.fraunhofer.exrm;
 
 import ai.libs.jaicore.db.IDatabaseConfig;
 import ai.libs.jaicore.experiments.*;

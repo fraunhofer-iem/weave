@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.fraunhofer.iem</groupId>
-    <artifactId>xai-srm</artifactId>
+    <artifactId>exrm</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
 
