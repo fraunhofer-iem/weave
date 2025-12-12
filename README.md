@@ -1,50 +1,9 @@
-## Empirical Evaluation and Explainability Tool---*eXRM*
+## WEKA Automated eValuation & Explainability (WEAVE)
 
-<b>eXRM</b> is an empirical evaluation and explainability tool for evaluating and exploring the explainability of WEKA-based machine learning models. <br>
-Emperical evaluation: <b>eXRM</b> performs an empirical evaluation of ML models (selected via AutoML approaches) by performing repeated cross-validation of the model and averaging the metrics. <br>
-Explainability: The WEKA models are configured in python using python-weka-wrapper3 and use SHAP to explore the explainability of the models.
+WEAVE is a tool for automated machine learning (AutoML), empirical evaluation, and eXplainability AI (XAI) for WEKA-based machine learning models. Given a dataset, WEAVE's pipeline performs: 
 
-There are three main folders 
-- Evaluation results [(evaluation)](evaluation/)
-- Automated model selection using AutoML [(model-evaluator)](model-evaluator/)
-- Explainability using SHAP [(shap)](shap/)
+- _Model selection:_ uses the automated machine learning tool ML-Plan to search and select a machine learning model (pipeline and hyperparameter)
+- _Empirical evaluation_: performs repeated cross-validation on the selected model using the jaicore-experimenter library
+- _Explainability_: uses SHAP (SHapley Additive exPlanations) to explain the output of the model with global and local explanations
 
-## Evaluation results [(evaluation)](evaluation/)
-
-[evaluation](evaluation/) contains the datasets and results of previously evaluated models using eXRM. These models are used to detect Security-Relevant Methods (SRMs). This contains the directory [ml4srm](evaluation/ml4srm/), which uses the eXRM tool to evaluate and explore the explainability of three different ML based SRM classification approaches.
-The datasets used and results obtained from the experiment are available in this directory.
-
-## Automated model selection using AutoML [(model-evaluator)](model-evaluator/)
-
-Program to run AutoML for the model selection and emperical evaluation of the selected model using the multiple cross-validation technique.
-
-## Explainability using SHAP [(shap)](shap/)
-Contains the scripts to run interpretability or explainability of the [meka](shap/meka) and [weka](shap/weka) models.
-
-### Artifacts
-To replicate the findings presented in our paper, please follow the instructions below.
-
-Clone/download this repository.
-
-Create a virtual environment to run the program.<br>
-
-```bash
-chmod +x create_env.sh
-./create_env.sh
-```
-
-Run the script to reproduce the results for RQ2 and RQ3.
-```bash
-chmod +x RQ2_and_RQ3.sh
-./RQ2_and_RQ3.sh.sh
-```
-#### Docker
-You can also run our experiments on a docker container using the [Dockerfile](Dockerfile) provided. Mount a local directory along with the container to run the program and retrieve the results.
-
-```bash
-docker build -t weka-runner .
-docker run --rm -v $(pwd):/app/evaluation/demo weka-runner
-```
-
-
-
+### How do I get started with WEAVE?
