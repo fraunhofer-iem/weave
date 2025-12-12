@@ -7,13 +7,12 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.CancellationException;
 
-public class RunTool {
+public class PipelineRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(RunTool.class);
-    private ExrmConfigOptions exrmOptions;
+    private static final Logger logger = LoggerFactory.getLogger(PipelineRunner.class);
+    private PipelineOptions exrmOptions;
 
-
-    public int run(ExrmConfigOptions options) {
+    public int run(PipelineOptions options) {
 
         try {
 

@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
 
-public class ExrmConfigOptions {
+public class PipelineOptions {
 
     private String configFile;
     private String toolkit;
@@ -22,10 +22,10 @@ public class ExrmConfigOptions {
     private String experimentConfigFile;
     private String dbConfigFile;
 
-    ExrmConfigOptions() {
+    PipelineOptions() {
     }
 
-    ExrmConfigOptions(String toolkit, String configFile) {
+    PipelineOptions(String toolkit, String configFile) {
 
         this.toolkit = toolkit;
         this.configFile = configFile;

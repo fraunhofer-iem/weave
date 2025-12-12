@@ -6,7 +6,7 @@ import ai.libs.jaicore.experiments.databasehandle.ExperimenterMySQLHandle;
 import ai.libs.jaicore.experiments.exceptions.ExperimentAlreadyExistsInDatabaseException;
 import ai.libs.jaicore.experiments.exceptions.ExperimentDBInteractionFailedException;
 import ai.libs.jaicore.experiments.exceptions.IllegalExperimentSetupException;
-import de.fraunhofer.weave.cli.PipelineConfigOptions;
+import de.fraunhofer.weave.cli.PipelineOptions;
 import meka.classifiers.multilabel.Evaluation;
 import meka.classifiers.multilabel.MultiLabelClassifier;
 import meka.core.MLUtils;
@@ -29,12 +29,12 @@ public class ModelExperimenter {
 
     private static final Logger logger = LoggerFactory.getLogger(ModelExperimenter.class);
 
-    private PipelineConfigOptions options;
+    private PipelineOptions options;
     private IDatabaseConfig dbConfig;
     private IExperimentSetConfig expConfig;
     private String classifier;
 
-    public ModelExperimenter(PipelineConfigOptions options, String classifier) {
+    public ModelExperimenter(PipelineOptions options, String classifier) {
 
         this.options = options;
         this.classifier = classifier;

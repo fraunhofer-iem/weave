@@ -13,7 +13,7 @@ import ai.libs.mlplan.core.MLPlan;
 import ai.libs.mlplan.meka.ML2PlanMekaBuilder;
 import ai.libs.mlplan.sklearn.builder.MLPlanScikitLearnBuilder;
 import ai.libs.mlplan.weka.MLPlanWekaBuilder;
-import de.fraunhofer.weave.cli.PipelineConfigOptions;
+import de.fraunhofer.weave.cli.PipelineOptions;
 import meka.core.MLUtils;
 import org.api4.java.ai.ml.classification.singlelabel.evaluation.ISingleLabelClassification;
 import org.api4.java.ai.ml.core.dataset.supervised.ILabeledDataset;
@@ -38,12 +38,12 @@ public class ModelSelector {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ModelSelector.class.getName());
 
-    private ExrmConfigOptions configOptions;
+    private PipelineOptions configOptions;
     private List<ILabeledDataset<?>> labeledDataset;
     private String classifier;
     private ILearnerRunReport runReport;
 
-    public ModelSelector(ExrmConfigOptions options) {
+    public ModelSelector(PipelineOptions options) {
 
         configOptions = options;
         LOGGER.info("ML-Plan Options: {}", configOptions);
