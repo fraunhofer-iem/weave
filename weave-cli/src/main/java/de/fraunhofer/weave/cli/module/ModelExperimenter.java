@@ -1,4 +1,4 @@
-package de.fraunhofer.exrm;
+package de.fraunhofer.weave.cli.module;
 
 import ai.libs.jaicore.db.IDatabaseConfig;
 import ai.libs.jaicore.experiments.*;
@@ -6,7 +6,7 @@ import ai.libs.jaicore.experiments.databasehandle.ExperimenterMySQLHandle;
 import ai.libs.jaicore.experiments.exceptions.ExperimentAlreadyExistsInDatabaseException;
 import ai.libs.jaicore.experiments.exceptions.ExperimentDBInteractionFailedException;
 import ai.libs.jaicore.experiments.exceptions.IllegalExperimentSetupException;
-import de.fraunhofer.exrm.cli.ExrmConfigOptions;
+import de.fraunhofer.weave.cli.PipelineConfigOptions;
 import meka.classifiers.multilabel.Evaluation;
 import meka.classifiers.multilabel.MultiLabelClassifier;
 import meka.core.MLUtils;

@@ -1,6 +1,7 @@
-package de.fraunhofer.exrm;
+package de.fraunhofer.weave.cli;
 
-import de.fraunhofer.exrm.cli.ExrmConfigOptions;
+import de.fraunhofer.weave.cli.module.ModelExplainer;
+import de.fraunhofer.weave.cli.module.ModelSelector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

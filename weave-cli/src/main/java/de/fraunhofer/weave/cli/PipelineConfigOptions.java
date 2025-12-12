@@ -1,4 +1,4 @@
-package de.fraunhofer.exrm.cli;
+package de.fraunhofer.weave.cli;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.fraunhofer.iem</groupId>
-    <artifactId>exrm</artifactId>
+    <artifactId>weave</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
 
@@ -15,6 +15,6 @@
     </properties>
 
     <modules>
-        <module>model-evaluator</module>
+        <module>weave-cli</module>
     </modules>
 </project>

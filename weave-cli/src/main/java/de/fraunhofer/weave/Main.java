@@ -1,6 +1,6 @@
-package de.fraunhofer.exrm;
+package de.fraunhofer.weave;
 
-import de.fraunhofer.exrm.cli.ExrmCommands;
+import de.fraunhofer.weave.cli.CliOptions;
 import picocli.CommandLine;
 
 public class Main {

@@ -1,6 +1,5 @@
-package de.fraunhofer.exrm.cli;
+package de.fraunhofer.weave.cli;
 
-import de.fraunhofer.exrm.RunTool;
 import picocli.CommandLine;
 
 import java.util.concurrent.Callable;
@@ -8,6 +7,8 @@ import java.util.concurrent.Callable;
 @CommandLine.Command(name = "exrm", mixinStandardHelpOptions = true,
         version = "exrm-1.0", description = "")
 public class ExrmCommands implements Callable<Integer> {
+@CommandLine.Command(name = "weave", mixinStandardHelpOptions = true,
+        version = "weave-1.0", description = "")
 
     @CommandLine.Option(names = {"-t", "--toolkit"}, description = {"ML toolkit: weka, meka, scikit"})
     private String mlToolkit = "meka";
