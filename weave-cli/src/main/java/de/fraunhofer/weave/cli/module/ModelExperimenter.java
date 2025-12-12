@@ -22,18 +22,19 @@ import weka.core.Utils;
 import weka.core.converters.ConverterUtils;
 
 import java.io.File;
+import java.net.URL;
 import java.util.*;
 
 public class ModelExperimenter {
 
     private static final Logger logger = LoggerFactory.getLogger(ModelExperimenter.class);
 
-    private ExrmConfigOptions options;
+    private PipelineConfigOptions options;
     private IDatabaseConfig dbConfig;
     private IExperimentSetConfig expConfig;
     private String classifier;
 
-    public ModelExperimenter(ExrmConfigOptions options, String classifier) {
+    public ModelExperimenter(PipelineConfigOptions options, String classifier) {
 
         this.options = options;
         this.classifier = classifier;
@@ -63,6 +64,7 @@ public class ModelExperimenter {
         IExperimentSetEvaluator evaluator = switch (options.getToolkit()) {
             case "weka" -> getWekaEvaluator(options.getDataset(), classifier);
             case "meka" -> getMekaEvaluator(options.getDataset(), classifier);
+            case "scikit" -> getSciKitEvaluator(options.getDataset(), classifier);
             default -> null;
         };
 
@@ -141,6 +143,62 @@ public class ModelExperimenter {
 
                         processor.processResults(experimentResults);
 
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                };
+        return evaluator;
+    }
+
+
+    /**
+     * Evaluates SciKit-learn ML model on the provided dataset.
+     *
+     * @param dataset
+     * @param classifierDescriptor
+     * @return
+     */
+    public IExperimentSetEvaluator getSciKitEvaluator(String dataset, String classifierDescriptor) {
+
+        IExperimentSetEvaluator evaluator =
+                (ExperimentDBEntry experimentEntry, IExperimentIntermediateResultProcessor processor) -> {
+                    Experiment experiment = experimentEntry.getExperiment();
+                    Map<String, String> keyFields = experiment.getValuesOfKeyFields();
+
+                    try {
+
+                        // gather experiment key values:
+                        int seed = Integer.parseInt(keyFields.get("seeds"));
+
+                        if (keyFields.get("classifier").contentEquals("automl")) {
+                            keyFields.replace("classifier", classifierDescriptor);
+                        }
+
+                        String classifier = keyFields.get("classifier");
+
+                        URL url = ModelExperimenter.class.getClassLoader()
+                                .getResource("scripts/experimenter/scikit-experimenter.py");
+                        File f = new File(Objects.requireNonNull(url).toURI());
+
+                        ProcessBuilder processBuilder = new ProcessBuilder("python",
+                                f.getAbsolutePath(),
+                                "--arff", options.getDataset(),
+                                "--model", classifier,
+                                "--seed", Integer.toString(seed));
+                        processBuilder.redirectErrorStream(true);
+
+                        System.out.println(processBuilder.command());
+
+                        Process process = processBuilder.start();
+
+                        StringBuilder sb = new StringBuilder();
+                        for (int ch; (ch = process.getInputStream().read()) != -1; ) {
+                            sb.append((char) ch);
+                        }
+
+                        System.out.println(sb.toString());
+
+                        int exitCode = process.waitFor();
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
