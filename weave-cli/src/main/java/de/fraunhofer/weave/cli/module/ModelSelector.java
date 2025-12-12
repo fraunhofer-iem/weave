@@ -57,6 +57,7 @@ public class ModelSelector {
 
             switch (configOptions.getToolkit()) {
                 case "weka":
+                case "scikit":
                     labeledDataset = SplitterUtil.getLabelStratifiedTrainTestSplit(new WekaInstances(instances), configOptions.getSeed(), .7);
                     break;
                 case "meka":
@@ -128,6 +129,7 @@ public class ModelSelector {
                 //Evaluate ML-Plan solution with test set
                 IScikitLearnWrapper scikitClassifier = scikit.call();
                 LOGGER.info("SciKit model selected: {}", scikitClassifier);
+                classifier = scikitClassifier.toString();
 
                 //Evaluate ML2-Plan solution with test set
                 runReport = executor.execute(scikitClassifier, labeledDataset.get(1));

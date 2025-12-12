@@ -2,6 +2,7 @@ package de.fraunhofer.weave.cli;
 
 import de.fraunhofer.weave.cli.module.ModelExplainer;
 import de.fraunhofer.weave.cli.module.ModelSelector;
+import de.fraunhofer.weave.cli.module.ModelExperimenter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +25,8 @@ public class PipelineRunner {
             ModelExperimenter modelExperimenter = new ModelExperimenter(options, modelSelector.getClassifier());
             modelExperimenter.evaluate();
 
+            ModelExplainer modelExplainer = new ModelExplainer(options, modelSelector.getClassifier());
+            modelExplainer.explain();
 
             return 0;
         } catch (
