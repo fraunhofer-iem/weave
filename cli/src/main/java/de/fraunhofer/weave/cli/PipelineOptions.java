@@ -131,7 +131,7 @@ public class PipelineOptions {
 
     @Override
     public String toString() {
-        return "ExrmConfigOptions{" +
+        return "PipelineOptions{" +
                 "configFile='" + configFile + '\'' +
                 ", toolkit='" + toolkit + '\'' +
                 ", dataset='" + dataset + '\'' +

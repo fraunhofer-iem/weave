@@ -1,4 +1,4 @@
-## WEKA Automated eValuation & Explainability (WEAVE)
+## WEKA Automated eValuator & Explainer (WEAVE)
 
 WEAVE is a tool for automated machine learning (AutoML), empirical evaluation, and eXplainability AI (XAI) for WEKA-based machine learning models. Given a dataset, WEAVE's pipeline performs: 
 
