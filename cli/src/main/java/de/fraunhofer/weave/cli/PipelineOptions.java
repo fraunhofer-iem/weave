@@ -21,14 +21,21 @@ public class PipelineOptions {
 
     private String experimentConfigFile;
     private String dbConfigFile;
+    private String  explainModel;
+    private boolean explainerOnly;
+    private String  testDatasetPath;
+
+    private int port;
 
     PipelineOptions() {
     }
 
-    PipelineOptions(String toolkit, String configFile) {
+    PipelineOptions(String toolkit, String configFile, String explainModel, boolean explainerOnly) {
 
         this.toolkit = toolkit;
         this.configFile = configFile;
+        this.explainModel = explainModel;
+        this.explainerOnly = explainerOnly;
 
         Properties properties = new Properties();
 
@@ -38,7 +45,9 @@ public class PipelineOptions {
             throw new RuntimeException(e);
         }
 
-        this.dataset = properties.getProperty("dataset");
+        this.port = Integer.parseInt(properties.getProperty("port"));
+        this.dataset = properties.getProperty("dataset.train");
+        this.testDatasetPath = properties.getProperty("dataset.test");
         this.timeout = Long.parseLong(properties.getProperty("mlplan.timeout"));
         this.nodeTimeout = Long.parseLong(properties.getProperty("mlplan.timeout.node"));
         this.candidateTimeout = Long.parseLong(properties.getProperty("mlplan.timeout.candidate"));
@@ -143,5 +152,25 @@ public class PipelineOptions {
                 ", experimentConfigFile='" + experimentConfigFile + '\'' +
                 ", dbConfigFile='" + dbConfigFile + '\'' +
                 '}';
+    }
+
+    public String getExplainModel() {
+        return explainModel;
+    }
+
+    public void setExplainModel(String explainModel) {
+        this.explainModel = explainModel;
+    }
+
+    public boolean isExplainerOnly() {
+        return this.explainerOnly;
+    }
+
+    public String getTestDatasetPath() {
+        return testDatasetPath;
+    }
+
+    public int getPort() {
+        return port;
     }
 }
