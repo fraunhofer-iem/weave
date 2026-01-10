@@ -121,7 +121,7 @@ def predict_http(server_url: str, X: np.ndarray) -> np.ndarray:
     X : Feature matrix of shape (n_samples, n_features)
     """
     payload = {"instances": X.tolist()}
-    resp = requests.post(f"{server_url}/predict", json=payload)
+    resp = requests.post(f"{server_url}/predict", json=payload, timeout=(60, 300))
     resp.raise_for_status()
     data = resp.json()
     return np.array(data["probs"], dtype=float)
