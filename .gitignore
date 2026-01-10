@@ -140,4 +140,9 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 
+lib/
+lib64
+pyvenv.cfg
+share/
+
 # End of https://www.gitignore.io/api/java,maven,intellij
