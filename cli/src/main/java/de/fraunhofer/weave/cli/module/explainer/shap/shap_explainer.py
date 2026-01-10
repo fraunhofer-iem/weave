@@ -153,13 +153,11 @@ def explain_weka(server_url: str,
         probs = predict_http(server_url, X)
         return probs[:, positive_class_index]
 
-    # Todo: Remove sampling
-    background = shap.sample(Xg, 100, random_state=0)
+    background = Xg
 
     explainer = shap.KernelExplainer(f_pos, background)
 
-    # Todo: Remove sampling
-    Xg_explain = shap.sample(Xg, 100, random_state=1)
+    Xg_explain = Xg
 
     # Global explanations
     shap_values_global = explainer(Xg_explain)
@@ -170,8 +168,8 @@ def explain_weka(server_url: str,
         k=10,
     )
 
-    weka_dir = os.path.join(output_dir, "weka")
-    os.makedirs(weka_dir, exist_ok=True)
+    global_dir = os.path.join(output_dir, "global")
+    os.makedirs(global_dir, exist_ok=True)
 
     plt.figure()
     shap.summary_plot(
@@ -180,11 +178,14 @@ def explain_weka(server_url: str,
         sort=False
     )
     plt.tight_layout()
-    plt.savefig(os.path.join(weka_dir, "global_beeswarm_positive.png"))
+    plt.savefig(os.path.join(global_dir, "global_beeswarm.pdf"), dpi=300, bbox_inches='tight')
     plt.close()
 
     # Local explanations
     shap_values_local = explainer(Xl)
+
+    local_dir = os.path.join(output_dir, "local")
+    os.makedirs(local_dir, exist_ok=True)
 
     for i in range(df_local.shape[0]):
         print(f"[MEKA] Computing SHAP values for instance {i} ...")
@@ -203,11 +204,11 @@ def explain_weka(server_url: str,
             show=False
         )
         plt.tight_layout()
-        plt.savefig(os.path.join(weka_dir, f"local/local_instance_{i}_positive.png"))
+        plt.savefig(os.path.join(local_dir, f"local_instance_{i}.pdf"), dpi=300, bbox_inches='tight')
         plt.close()
 
 
-    print(f"[WEKA] Global and local SHAP plots written to: {weka_dir}")
+    print(f"[WEKA] Global and local SHAP plots written to: {output_dir}")
 
 
 def explain_meka(server_url: str,
@@ -230,8 +231,11 @@ def explain_meka(server_url: str,
     sample_probs = predict_http(server_url, Xg[:1])
     n_labels = sample_probs.shape[1]
 
-    meka_dir = os.path.join(output_dir, "meka")
-    os.makedirs(meka_dir, exist_ok=True)
+    global_dir = os.path.join(output_dir, "global")
+    os.makedirs(global_dir, exist_ok=True)
+
+    local_dir = os.path.join(output_dir, "local")
+    os.makedirs(local_dir, exist_ok=True)
 
     # For each label, build a separate scalar-output model f_j(X) and run SHAP on it.
     for label_index in range(n_labels):
@@ -241,13 +245,11 @@ def explain_meka(server_url: str,
             probs = predict_http(server_url, X)
             return probs[:, j]
 
-        # Todo: Remove sampling
-        background = shap.sample(Xg, 50, random_state=0)
+        background = Xg
 
         explainer = shap.KernelExplainer(f_label, background) #Xg
 
-        # Todo: Remove sampling
-        Xg_explain = shap.sample(Xg, 50, random_state=1)
+        Xg_explain = Xg
 
         # Global explanations
         shap_values_global = explainer(Xg_explain) #Xg
@@ -265,11 +267,14 @@ def explain_meka(server_url: str,
             sort=False
         )
         plt.tight_layout()
-        plt.savefig(os.path.join(meka_dir, f"global_beeswarm_label_{label_index}.png"))
+        plt.savefig(os.path.join(global_dir, f"global_beeswarm_label_{label_index}.pdf"), dpi=300, bbox_inches='tight')
         plt.close()
 
         # Local explanations
         shap_values_local = explainer(Xl)
+
+        local_dir = os.path.join(local_dir, f"{label_index}")
+        os.makedirs(local_dir, exist_ok=True)
 
         for i in range(df_local.shape[0]):
             expl_single = aggregate_local_top_k(
@@ -287,15 +292,10 @@ def explain_meka(server_url: str,
                 show=False
             )
             plt.tight_layout()
-            plt.savefig(
-                os.path.join(
-                    meka_dir,
-                    f"local/local_instance_{i}_label_{label_index}.png"
-                )
-            )
+            plt.savefig(os.path.join(local_dir, f"local/local_instance_{i}_label_{label_index}.pdf"), dpi=300, bbox_inches='tight')
             plt.close()
 
-    print(f"[MEKA] Global and local label-specific SHAP plots written to: {meka_dir}")
+    print(f"[MEKA] Global and local label-specific SHAP plots written to: {local_dir}")
 
 
 def main() -> None:
