@@ -1,27 +1,27 @@
 @relation 'swan-cwe89:-C 22'
 
-@attribute '<Method is part of class that contains the name input>' {true,false}
-@attribute '<Method is part of class that ends with Request>' {true,false}
-@attribute '<Method is part of an anonymous class>' {true,false}
-@attribute '<Parameter type contains sql>' {true,false}
-@attribute '<Return type is java.lang.String>' {true,false}
-@attribute '<Method is part of class that contains the name hibernate>' {true,false}
-@attribute '<Method name contains execute>' {true,false}
-@attribute '<Method is part of class that contains the name db>' {true,false}
-@attribute '<Method is part of inner class>' {true,false}
-@attribute '<Method is part of class that ends with Encoder>' {true,false}
-@attribute '<Method is constructor>' {true,false}
-@attribute '<Method is part of class that contains the name jdbc>' {true,false}
-@attribute '<Method name contains query>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Method is part of class that contains the name database>' {true,false}
-@attribute '<Return type is java.sql.ResultSet>' {true,false}
-@attribute '<Method has parameters>' {true,false}
-@attribute '<Matching parameter type to return type.>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method makedb invoked>' {true,false}
-@attribute '<Method name contains saniti>' {true,false}
-@attribute '<Method is part of class that contains the name sql>' {true,false}
+@attribute 'ClsNmCtnInput' {false,true}
+@attribute 'ClsNmEndsReq' {false,true}
+@attribute 'ClsAnonymous' {false,true}
+@attribute 'ParamTypCtnSql' {false,true}
+@attribute 'RtnTypStr' {false,true}
+@attribute 'ClsNmCtnHibernate' {false,true}
+@attribute 'MtdNmCtnExecute' {false,true}
+@attribute 'ClsNmCtnDb' {false,true}
+@attribute 'InnerCls' {false,true}
+@attribute 'ClsNmEndsEncoder' {false,true}
+@attribute 'MtdConstructor' {false,true}
+@attribute 'ClsNmCtnJdbc' {false,true}
+@attribute 'MtdNmCtnQuery' {false,true}
+@attribute 'ParamTypCtnStr' {false,true}
+@attribute 'ClsNmCtnDatabase' {false,true}
+@attribute 'RtnTypResultSet' {false,true}
+@attribute 'MtdCtnParams' {false,true}
+@attribute 'ParamTypEqRtnTyp' {false,true}
+@attribute 'ImplicitMtd' {false,true}
+@attribute 'MtdMakedbInvkd' {false,true}
+@attribute 'MtdNmCtnSaniti' {false,true}
+@attribute 'ClsNmCtnSql' {false,true}
 @attribute CWE89 {0,1}
 
 @data

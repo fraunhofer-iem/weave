@@ -1,31 +1,31 @@
 @relation 'swan-cwe79:-C 26'
 
-@attribute '<Method is part of class that contains the name web>' {true,false}
-@attribute '<Method is part of class that contains the name input>' {true,false}
-@attribute '<Method is part of class that ends with Request>' {true,false}
-@attribute '<Method is part of class that ends with Render>' {true,false}
-@attribute '<Method is part of inner class>' {true,false}
-@attribute '<Return type is Servlet>' {true,false}
-@attribute '<Method is part of class that ends with Encoder>' {true,false}
-@attribute '<Method name starts with set>' {true,false}
-@attribute '<Matching parameter type to return type.>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method is part of class that contains the name page>' {true,false}
-@attribute '<Method is part of class that contains the name html>' {true,false}
-@attribute '<Method starts with on and has void/bool return type>' {true,false}
-@attribute '<Method is part of an anonymous class>' {true,false}
-@attribute '<Return type is java.lang.String>' {true,false}
-@attribute '<Method is part of class that contains the name hibernate>' {true,false}
-@attribute '<Method is part of class that contains the name dom>' {true,false}
-@attribute '<Method from class web invoked>' {true,false}
-@attribute '<Return type is Document>' {true,false}
-@attribute '<Return type is Node>' {true,false}
-@attribute '<Return type is Request>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Method is part of class that contains the name css>' {true,false}
-@attribute '<Method has parameters>' {true,false}
-@attribute '<Method name contains saniti>' {true,false}
-@attribute '<Method name contains setheader>' {true,false}
+@attribute '<ClsNmCtnWeb>' {false,true}
+@attribute '<ClsNmCtnInput>' {false,true}
+@attribute '<ClsNmEndsReq>' {false,true}
+@attribute '<ClsNmEndsRender>' {false,true}
+@attribute '<InnerCls>' {false,true}
+@attribute '<RtnTypServlet>' {false,true}
+@attribute '<ClsNmEndsEncoder>' {false,true}
+@attribute '<MtdNmStrtSet>' {false,true}
+@attribute '<ParamTypEqRtnTyp>' {false,true}
+@attribute '<ImplicitMtd>' {false,true}
+@attribute '<ClsNmCtnPage>' {false,true}
+@attribute '<ClsNmCtnHtml>' {false,true}
+@attribute '<MtdStrtOn>' {false,true}
+@attribute '<ClsAnonymous>' {false,true}
+@attribute '<RtnTypString>' {false,true}
+@attribute '<ClsNmCtnHibernate>' {false,true}
+@attribute '<ClsNmCtnDom>' {false,true}
+@attribute '<MtdFrmClsWebInvkd>' {false,true}
+@attribute '<RtnTypDocument>' {false,true}
+@attribute '<RtnTypNode>' {false,true}
+@attribute '<RtnTypRequest>' {false,true}
+@attribute '<ParamTypCtnStr>' {false,true}
+@attribute '<ClsNmCtnCss>' {false,true}
+@attribute '<MtdCtnParams>' {false,true}
+@attribute '<MtdNmCtnSaniti>' {false,true}
+@attribute '<MtdNmCtnSetheader>' {false,true}
 @attribute CWE79 {0,1}
 
 @data

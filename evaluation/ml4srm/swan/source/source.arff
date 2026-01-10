@@ -1,73 +1,73 @@
 @relation 'swan-source:-C 68'
 
-@attribute '<Method is part of class that contains the name web>' {true,false}
-@attribute '<Method modifier is FINAL>' {true,false}
-@attribute '<Parameter type contains sql>' {true,false}
-@attribute '<Method name contains name>' {true,false}
-@attribute '<Method name contains decod>' {true,false}
-@attribute '<Method is part of class that contains the name output>' {true,false}
-@attribute '<Source method to return get>' {true,false}
-@attribute '<Source method to return request>' {true,false}
-@attribute '<Method modifier is PRIVATE>' {true,false}
-@attribute '<Method is part of class that contains the name manager>' {true,false}
-@attribute '<Method name contains unescap>' {true,false}
-@attribute '<Method is part of a FINAL class>' {true,false}
-@attribute '<Method creat invoked>' {true,false}
-@attribute '<Source method to return load>' {true,false}
-@attribute '<Method from class web invoked>' {true,false}
-@attribute '<Parameter type contains db>' {true,false}
-@attribute '<Method has parameters>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Method returns constant>' {true,false}
-@attribute '<Method name contains creat>' {true,false}
-@attribute '<Method name contains pars>' {true,false}
-@attribute '<Method is part of class that contains the name security>' {true,false}
-@attribute '<Method modifier is STATIC>' {true,false}
-@attribute '<Method from class sql invoked>' {true,false}
-@attribute '<Method name contains request>' {true,false}
-@attribute '<Return type is byte[]>' {true,false}
-@attribute '<Parameter type contains web>' {true,false}
-@attribute '<Method modifier is PUBLIC>' {true,false}
-@attribute '<Parameter type contains .io.>' {true,false}
-@attribute '<Method decod invoked>' {true,false}
-@attribute '<Method output invoked>' {true,false}
-@attribute '<Method is part of inner class>' {true,false}
-@attribute '<Return type is Servlet>' {true,false}
-@attribute '<Method name contains read but not thread>' {true,false}
-@attribute '<Method from class db invoked>' {true,false}
-@attribute '<Method is part of a STATIC class>' {true,false}
-@attribute '<Method name contains retriev>' {true,false}
-@attribute '<Method get invoked>' {true,false}
-@attribute '<Method name starts with get>' {true,false}
-@attribute '<Method name contains stream>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method from class .io. invoked>' {true,false}
-@attribute '<Method from class .net. invoked>' {true,false}
-@attribute '<Source method to return create>' {true,false}
-@attribute '<Method is part of class that contains the name .io.>' {true,false}
-@attribute '<Method name contains object>' {true,false}
-@attribute '<Return type is java.lang.CharSequence>' {true,false}
-@attribute '<Method request invoked>' {true,false}
-@attribute '<Method is part of class that contains the name html>' {true,false}
-@attribute '<Method is part of an anonymous class>' {true,false}
-@attribute '<Parameter type contains char[]>' {true,false}
-@attribute '<Return type is java.lang.String>' {true,false}
-@attribute '<Source method to return unescape>' {true,false}
-@attribute '<Method unescap invoked>' {true,false}
-@attribute '<Source method to return read>' {true,false}
-@attribute '<Return type is Document>' {true,false}
-@attribute '<Return type is Node>' {true,false}
-@attribute '<Method is part of class that contains the name .net.>' {true,false}
-@attribute '<Method read invoked>' {true,false}
-@attribute '<Method is constructor>' {true,false}
-@attribute '<Return type is Request>' {true,false}
-@attribute '<Method name contains load but not payload>' {true,false}
-@attribute '<Parameter type contains java.lang.charsequence>' {true,false}
-@attribute '<Method load invoked>' {true,false}
-@attribute '<Parameter type contains byte[]>' {true,false}
-@attribute '<Source method to return decode>' {true,false}
-@attribute '<Method is part of class that contains the name sql>' {true,false}
-@attribute '<Method is part of a PUBLIC class>' {true,false}
+@attribute 'ClsNmCtnWeb' {false,true}
+@attribute 'MtdModFINAL' {false,true}
+@attribute 'ParamTypCtnSql' {false,true}
+@attribute 'MtdNmCtnName' {false,true}
+@attribute 'MtdNmCtnDecod' {false,true}
+@attribute 'ClsNmCtnOutput' {false,true}
+@attribute 'SoMtdRtnGet' {false,true}
+@attribute 'SoMtdRtnRequest' {false,true}
+@attribute 'MtdModPRIVATE' {false,true}
+@attribute 'ClsNmCtnManager' {false,true}
+@attribute 'MtdNmCtnUnescap' {false,true}
+@attribute 'ClsFINAL' {false,true}
+@attribute 'MtdCreatInvkd' {false,true}
+@attribute 'SoMtdRtnLoad' {false,true}
+@attribute 'ClsWebInvkd' {false,true}
+@attribute 'ParamTypCtnDb' {false,true}
+@attribute 'MtdCtnParams' {false,true}
+@attribute 'ParamTypCtnStr' {false,true}
+@attribute 'RtnTypConstant' {false,true}
+@attribute 'MtdNmCtnCreat' {false,true}
+@attribute 'MtdNmCtnPars' {false,true}
+@attribute 'ClsNmCtnSecurity' {false,true}
+@attribute 'MtdModSTATIC' {false,true}
+@attribute 'ClsSqlInvkd' {false,true}
+@attribute 'MtdNmCtnRequest' {false,true}
+@attribute 'RtnTypByte[]' {false,true}
+@attribute 'ParamTypCtnWeb' {false,true}
+@attribute 'MtdModPUBLIC' {false,true}
+@attribute 'ParamTypCtn.io.' {false,true}
+@attribute 'MtdDecodInvkd' {false,true}
+@attribute 'MtdOutputInvkd' {false,true}
+@attribute 'InnerCls' {false,true}
+@attribute 'RtnTypServlet' {false,true}
+@attribute 'MtdNmCtnReadNotThread' {false,true}
+@attribute 'ClsDbInvkd' {false,true}
+@attribute 'ClsSTATIC' {false,true}
+@attribute 'MtdNmCtnRetriev' {false,true}
+@attribute 'MtdGetInvkd' {false,true}
+@attribute 'MtdNmStrtGet' {false,true}
+@attribute 'MtdNmCtnStream' {false,true}
+@attribute 'ImplicitMtd' {false,true}
+@attribute 'Cls.io.Invkd' {false,true}
+@attribute 'Cls.net.Invkd' {false,true}
+@attribute 'SoMtdRtnCreate' {false,true}
+@attribute 'ClsNmCtn.io.' {false,true}
+@attribute 'MtdNmCtnObject' {false,true}
+@attribute 'RtnTypCharSequence' {false,true}
+@attribute 'MtdRequestInvkd' {false,true}
+@attribute 'ClsNmCtnHtml' {false,true}
+@attribute 'ClsAnonymous' {false,true}
+@attribute 'ParamTypCtnChar[]' {false,true}
+@attribute 'RtnTypStr' {false,true}
+@attribute 'SoMtdRtnUnescape' {false,true}
+@attribute 'MtdUnescapInvkd' {false,true}
+@attribute 'SoMtdRtnRead' {false,true}
+@attribute 'RtnTypDocument' {false,true}
+@attribute 'RtnTypNode' {false,true}
+@attribute 'ClsNmCtn.net.' {false,true}
+@attribute 'MtdReadInvkd' {false,true}
+@attribute 'MtdConstructor' {false,true}
+@attribute 'RtnTypRequest' {false,true}
+@attribute 'MtdNmCtnLoadNotPayload' {false,true}
+@attribute 'ParamTypCtnCharsequence' {false,true}
+@attribute 'MtdLoadInvkd' {false,true}
+@attribute 'ParamTypCtnByte[]' {false,true}
+@attribute 'SoMtdRtnDecode' {false,true}
+@attribute 'ClsNmCtnSql' {false,true}
+@attribute 'ClsPUBLIC' {false,true}
 @attribute source {0,1}
 
 @data

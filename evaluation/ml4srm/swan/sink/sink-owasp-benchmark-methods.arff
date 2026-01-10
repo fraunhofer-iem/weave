@@ -1,89 +1,89 @@
 @relation 'swan-sink:-C 84-test'
 
-@attribute '<Method is part of class that contains the name web>' {true,false}
-@attribute '<Method name contains send>' {true,false}
-@attribute '<Method name contains execut>' {true,false}
-@attribute '<Method modifier is FINAL>' {true,false}
-@attribute '<Method is part of class that contains the name input>' {true,false}
-@attribute '<Method is part of class that ends with Request>' {true,false}
-@attribute '<Method is part of class that contains the name redirect>' {true,false}
-@attribute '<Parameter to sink method run>' {true,false}
-@attribute '<Parameter type contains sql>' {true,false}
-@attribute '<Parameter to sink method dump>' {true,false}
-@attribute '<Parameter to sink method stream>' {true,false}
-@attribute '<Method writ invoked>' {true,false}
-@attribute '<Method set invoked>' {true,false}
-@attribute '<Method name contains handl>' {true,false}
-@attribute '<Parameter to sink method log>' {true,false}
-@attribute '<Method modifier is PRIVATE>' {true,false}
-@attribute '<Method is part of class that contains the name manager>' {true,false}
-@attribute '<Return type is java.sql.ResultSet>' {true,false}
-@attribute '<Method execut invoked>' {true,false}
-@attribute '<Method is part of a FINAL class>' {true,false}
-@attribute '<Parameter to sink method print>' {true,false}
-@attribute '<Method updat invoked>' {true,false}
-@attribute '<Method from class web invoked>' {true,false}
-@attribute '<Method name contains log>' {true,false}
-@attribute '<Parameter type contains db>' {true,false}
-@attribute '<Parameter to sink method execut>' {true,false}
-@attribute '<Method run invoked>' {true,false}
-@attribute '<Parameter type contains java.lang.string>' {true,false}
-@attribute '<Parameter to sink method updat>' {true,false}
-@attribute '<Method replac invoked>' {true,false}
-@attribute '<Method name contains pars>' {true,false}
-@attribute '<Method is part of class that contains the name security>' {true,false}
-@attribute '<Method modifier is STATIC>' {true,false}
-@attribute '<Method from class sql invoked>' {true,false}
-@attribute '<Method from class Log. invoked>' {true,false}
-@attribute '<Method pars invoked>' {true,false}
-@attribute '<Parameter type contains web>' {true,false}
-@attribute '<Parameter to sink method handl>' {true,false}
-@attribute '<Method modifier is PUBLIC>' {true,false}
-@attribute '<Parameter type contains .io.>' {true,false}
-@attribute '<Method is part of class that ends with Render>' {true,false}
-@attribute '<Method name contains writ>' {true,false}
-@attribute '<Method is part of inner class>' {true,false}
-@attribute '<Method log invoked>' {true,false}
-@attribute '<Method name contains print>' {true,false}
-@attribute '<Method put invoked>' {true,false}
-@attribute '<Method from class db invoked>' {true,false}
-@attribute '<Parameter type contains java.lang.stringbuilder>' {true,false}
-@attribute '<Parameter to sink method writ>' {true,false}
-@attribute '<Method is part of class that contains the name response>' {true,false}
-@attribute '<Method is part of class that contains the name jdbc>' {true,false}
-@attribute '<Method name starts with set>' {true,false}
-@attribute '<Method is part of a STATIC class>' {true,false}
-@attribute '<Method name contains updat>' {true,false}
-@attribute '<Method name contains redirect>' {true,false}
-@attribute '<Parameter to sink method set>' {true,false}
-@attribute '<Method name contains stream>' {true,false}
-@attribute '<Parameter to sink method put>' {true,false}
-@attribute '<Implicit method>' {true,false}
-@attribute '<Method from class .io. invoked>' {true,false}
-@attribute '<Method from class .net. invoked>' {true,false}
-@attribute '<Method is part of class that contains the name .io.>' {true,false}
-@attribute '<Method handl invoked>' {true,false}
-@attribute '<Method is part of class that contains the name html>' {true,false}
-@attribute '<Method starts with on and has void/bool return type>' {true,false}
-@attribute '<Method is part of an anonymous class>' {true,false}
-@attribute '<Parameter type contains char[]>' {true,false}
-@attribute '<Method name contains replac>' {true,false}
-@attribute '<Method print invoked>' {true,false}
-@attribute '<Method is part of class that contains the name .net.>' {true,false}
-@attribute '<Method is constructor>' {true,false}
-@attribute '<Parameter to sink method send>' {true,false}
-@attribute '<Method send invoked>' {true,false}
-@attribute '<Method name contains run>' {true,false}
-@attribute '<Parameter type contains java.lang.charsequence>' {true,false}
-@attribute '<Parameter type contains byte[]>' {true,false}
-@attribute '<Method is lone getter or setter>' {true,false}
-@attribute '<Parameter to sink method pars>' {true,false}
-@attribute '<Method has parameters>' {true,false}
-@attribute '<Method name contains dump>' {true,false}
-@attribute '<Method dump invoked>' {true,false}
-@attribute '<Method is part of class that contains the name sql>' {true,false}
-@attribute '<Method is part of a PUBLIC class>' {true,false}
-@attribute '<Method name contains setheader>' {true,false}
+@attribute 'ClsNmCtnWeb' {false,true}
+@attribute 'MtdNmCtnSend' {false,true}
+@attribute 'MtdNmCtnExecut' {false,true}
+@attribute 'MtdModFINAL' {false,true}
+@attribute 'ClsNmCtnInput' {false,true}
+@attribute 'ClsNmEndsReq' {false,true}
+@attribute 'ClsNmCtnRedirect' {false,true}
+@attribute 'ParamDfSiMtdRun' {false,true}
+@attribute 'ParamTypCtnSql' {false,true}
+@attribute 'ParamDfSiMtdDump' {false,true}
+@attribute 'ParamDfSiMtdStream' {false,true}
+@attribute 'MtdWritInvkd' {false,true}
+@attribute 'MtdSetInvkd' {false,true}
+@attribute 'MtdNmCtnHandl' {false,true}
+@attribute 'ParamDfSiMtdLog' {false,true}
+@attribute 'MtdModPRIVATE' {false,true}
+@attribute 'ClsNmCtnManager' {false,true}
+@attribute 'RtnTypResultSet' {false,true}
+@attribute 'MtdExecutInvkd' {false,true}
+@attribute 'ClsFINAL' {false,true}
+@attribute 'ParamDfSiMtdPrint' {false,true}
+@attribute 'MtdUpdatInvkd' {false,true}
+@attribute 'ClsWebInvkd' {false,true}
+@attribute 'MtdNmCtnLog' {false,true}
+@attribute 'ParamTypCtnDb' {false,true}
+@attribute 'ParamDfSiMtdExecut' {false,true}
+@attribute 'MtdRunInvkd' {false,true}
+@attribute 'ParamTypCtnStr' {false,true}
+@attribute 'ParamDfSiMtdUpdat' {false,true}
+@attribute 'MtdReplacInvkd' {false,true}
+@attribute 'MtdNmCtnPars' {false,true}
+@attribute 'ClsNmCtnSecurity' {false,true}
+@attribute 'MtdModSTATIC' {false,true}
+@attribute 'ClsSqlInvkd' {false,true}
+@attribute 'ClsLogInvkd' {false,true}
+@attribute 'MtdParsInvkd' {false,true}
+@attribute 'ParamTypCtnWeb' {false,true}
+@attribute 'ParamDfSiMtdHandl' {false,true}
+@attribute 'MtdModPUBLIC' {false,true}
+@attribute 'ParamTypCtn.io.' {false,true}
+@attribute 'ClsNmEndsRender' {false,true}
+@attribute 'MtdNmCtnWrit' {false,true}
+@attribute 'InnerCls' {false,true}
+@attribute 'MtdLogInvkd' {false,true}
+@attribute 'MtdNmCtnPrint' {false,true}
+@attribute 'MtdPutInvkd' {false,true}
+@attribute 'ClsDbInvkd' {false,true}
+@attribute 'ParamTypCtnStringbuilder' {false,true}
+@attribute 'ParamDfSiMtdWrit' {false,true}
+@attribute 'ClsNmCtnResponse' {false,true}
+@attribute 'ClsNmCtnJdbc' {false,true}
+@attribute 'MtdNmStrtSet' {false,true}
+@attribute 'ClsSTATIC' {false,true}
+@attribute 'MtdNmCtnUpdat' {false,true}
+@attribute 'MtdNmCtnRedirect' {false,true}
+@attribute 'ParamDfSiMtdSet' {false,true}
+@attribute 'MtdNmCtnStream' {false,true}
+@attribute 'ParamDfSiMtdPut' {false,true}
+@attribute 'Implicit method' {false,true}
+@attribute 'Cls.io.Invkd' {false,true}
+@attribute 'Cls.net.Invkd' {false,true}
+@attribute 'ClsNmCtn.io.' {false,true}
+@attribute 'MtdHandlInvkd' {false,true}
+@attribute 'ClsNmCtnHtml' {false,true}
+@attribute 'MtdNmStrtOn' {false,true}
+@attribute 'ClsAnonymous' {false,true}
+@attribute 'ParamTypCtnChar[]' {false,true}
+@attribute 'MtdNmCtnReplac' {false,true}
+@attribute 'MtdPrintInvkd' {false,true}
+@attribute 'ClsNmCtnNet' {false,true}
+@attribute 'MtdConstructor' {false,true}
+@attribute 'ParamDfSiMtdSend' {false,true}
+@attribute 'MtdSendInvkd' {false,true}
+@attribute 'MtdNmCtnRun' {false,true}
+@attribute 'ParamTypCtnCharsequence' {false,true}
+@attribute 'ParamTypCtnByte[]' {false,true}
+@attribute 'MtdLoneGetterOrSetter' {false,true}
+@attribute 'ParamDfSiMtdPars' {false,true}
+@attribute 'MtdCtnParams' {false,true}
+@attribute 'MtdNmCtnDump' {false,true}
+@attribute 'MtdDumpInvkd' {false,true}
+@attribute 'ClsNmCtnSql' {false,true}
+@attribute 'ClsPUBLIC' {false,true}
+@attribute 'MtdNmCtnSetheader' {false,true}
 @attribute sink {0,1}
 
 @data
