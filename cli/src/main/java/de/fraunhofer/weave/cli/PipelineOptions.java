@@ -25,6 +25,10 @@ public class PipelineOptions {
     private boolean explainerOnly;
     private String  testDatasetPath;
 
+    private String pythonExplainerPath;
+    private String outputPath;
+    private String pythonPath;
+
     private int port;
 
     PipelineOptions() {
@@ -56,6 +60,10 @@ public class PipelineOptions {
 
         this.dbConfigFile = properties.getProperty("jaicore.databaseConfig");
         this.experimentConfigFile = properties.getProperty("jaicore.experimentConfig");
+
+        this.pythonExplainerPath = properties.getProperty("paths.explainer");
+        this.outputPath = properties.getProperty("paths.output");
+        this.pythonPath = properties.getProperty("paths.python");
 
     }
 
@@ -172,5 +180,17 @@ public class PipelineOptions {
 
     public int getPort() {
         return port;
+    }
+
+    public String getPythonExplainerPath() {
+        return pythonExplainerPath;
+    }
+
+    public String getOutputPath() {
+        return outputPath;
+    }
+
+    public String getPythonPath() {
+        return pythonPath;
     }
 }

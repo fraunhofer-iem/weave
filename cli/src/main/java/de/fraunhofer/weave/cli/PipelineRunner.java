@@ -69,7 +69,7 @@ public class PipelineRunner {
 
             ModelExplainer explainer = new ModelExplainer(predictor, options);
             explainer.runHttpExplainer();
-            explainer.runShapExplainer("python",".\\weave\\cli\\src\\main\\java\\de\\fraunhofer\\weave\\cli\\module\\explainer\\shap\\shap_eplainer.py", ".\\weave\\cli\\src\\main\\resources\\out");
+            explainer.runShapExplainer(options.getPythonPath(),options.getPythonExplainerPath(), options.getOutputPath());
 
             return 0;
         } catch (
