@@ -121,7 +121,7 @@ def predict_http(server_url: str, X: np.ndarray) -> np.ndarray:
     X : Feature matrix of shape (n_samples, n_features)
     """
     payload = {"instances": X.tolist()}
-    resp = requests.post(f"{server_url}/predict", json=payload, timeout=(60, 300))
+    resp = requests.post(f"{server_url}/predict", json=payload)
     resp.raise_for_status()
     data = resp.json()
     return np.array(data["probs"], dtype=float)
@@ -234,8 +234,8 @@ def explain_meka(server_url: str,
     global_dir = os.path.join(output_dir, "global")
     os.makedirs(global_dir, exist_ok=True)
 
-    local_dir = os.path.join(output_dir, "local")
-    os.makedirs(local_dir, exist_ok=True)
+    base_local_dir = os.path.join(output_dir, "local")
+    os.makedirs(base_local_dir, exist_ok=True)
 
     # For each label, build a separate scalar-output model f_j(X) and run SHAP on it.
     for label_index in range(n_labels):
@@ -273,7 +273,7 @@ def explain_meka(server_url: str,
         # Local explanations
         shap_values_local = explainer(Xl)
 
-        local_dir = os.path.join(local_dir, f"{label_index}")
+        local_dir = os.path.join(base_local_dir, f"{label_index}")
         os.makedirs(local_dir, exist_ok=True)
 
         for i in range(df_local.shape[0]):
@@ -295,7 +295,7 @@ def explain_meka(server_url: str,
             plt.savefig(os.path.join(local_dir, f"local/local_instance_{i}_label_{label_index}.pdf"), dpi=300, bbox_inches='tight')
             plt.close()
 
-    print(f"[MEKA] Global and local label-specific SHAP plots written to: {local_dir}")
+    print(f"[MEKA] Global and local label-specific SHAP plots written to: {base_local_dir}")
 
 
 def main() -> None:
