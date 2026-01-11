@@ -132,12 +132,13 @@ def predict_http(server_url: str, X: np.ndarray, batch_size: int = 128) -> np.nd
         resp = requests.post(
             f"{server_url}/predict",
             json=payload,
-            timeout=(300, 900)  # keep or adjust as you like
+            timeout=(300, 900)
         )
         resp.raise_for_status()
         data = resp.json()
         batch_probs = np.array(data["probs"], dtype=float)
         all_probs.append(batch_probs)
+        print(f"Sub-requests: Completed batch {(start+1)//batch_size} of {n_samples//batch_size}")
 
     return np.vstack(all_probs)
 
