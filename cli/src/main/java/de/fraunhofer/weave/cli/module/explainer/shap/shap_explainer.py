@@ -114,17 +114,32 @@ def aggregate_local_top_k(expl: Explanation,
         feature_names=new_names,
     )
 
-def predict_http(server_url: str, X: np.ndarray) -> np.ndarray:
+def predict_http(server_url: str, X: np.ndarray, batch_size: int = 128) -> np.ndarray:
     """
     Calls the Java HTTP /predict endpoint to obtain prediction probabilities.
     server_url : Base URL of the prediction server
     X : Feature matrix of shape (n_samples, n_features)
     """
-    payload = {"instances": X.tolist()}
-    resp = requests.post(f"{server_url}/predict", json=payload)
-    resp.raise_for_status()
-    data = resp.json()
-    return np.array(data["probs"], dtype=float)
+    X = np.asarray(X)
+    n_samples = X.shape[0]
+
+    all_probs = []
+    for start in range(0, n_samples, batch_size):
+        end = min(start + batch_size, n_samples)
+        batch = X[start:end]
+        payload = {"instances": batch.tolist()}
+
+        resp = requests.post(
+            f"{server_url}/predict",
+            json=payload,
+            timeout=(300, 900)  # keep or adjust as you like
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        batch_probs = np.array(data["probs"], dtype=float)
+        all_probs.append(batch_probs)
+
+    return np.vstack(all_probs)
 
 
 def explain_weka(server_url: str,
