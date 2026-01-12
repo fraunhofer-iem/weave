@@ -1,7 +1,7 @@
-package de.fraunhofer.weave.cli.module.explainer.services;
+package de.fraunhofer.iem.weave.module.explainer.services;
 
 
-import de.fraunhofer.weave.cli.PipelineOptions;
+import de.fraunhofer.iem.weave.cli.PipelineOptions;
 import meka.core.MLUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

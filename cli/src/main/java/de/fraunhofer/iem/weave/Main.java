@@ -1,6 +1,6 @@
-package de.fraunhofer.weave;
+package de.fraunhofer.iem.weave;
 
-import de.fraunhofer.weave.cli.CliOptions;
+import de.fraunhofer.iem.weave.cli.CliOptions;
 import picocli.CommandLine;
 
 public class Main {

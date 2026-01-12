@@ -1,11 +1,11 @@
-package de.fraunhofer.weave.cli;
+package de.fraunhofer.iem.weave.cli;
 
-import de.fraunhofer.weave.cli.module.ModelExplainer;
-import de.fraunhofer.weave.cli.module.ModelSelector;
-import de.fraunhofer.weave.cli.module.ModelExperimenter;
-import de.fraunhofer.weave.cli.module.explainer.services.MekaPredictionService;
-import de.fraunhofer.weave.cli.module.explainer.services.PredictionService;
-import de.fraunhofer.weave.cli.module.explainer.services.WekaPredictionService;
+import de.fraunhofer.iem.weave.module.ModelExplainer;
+import de.fraunhofer.iem.weave.module.ModelSelector;
+import de.fraunhofer.iem.weave.module.ModelExperimenter;
+import de.fraunhofer.iem.weave.module.explainer.services.MekaPredictionService;
+import de.fraunhofer.iem.weave.module.explainer.services.PredictionService;
+import de.fraunhofer.iem.weave.module.explainer.services.WekaPredictionService;
 import meka.classifiers.multilabel.MultiLabelClassifier;
 import meka.core.MLUtils;
 import org.slf4j.Logger;

@@ -1,9 +1,9 @@
-package de.fraunhofer.weave.cli.module.explainer.shap.model;
+package de.fraunhofer.iem.weave.module.explainer.shap.model;
 
 
-import de.fraunhofer.weave.cli.PipelineOptions;
-import de.fraunhofer.weave.cli.module.explainer.services.PredictionService;
-import de.fraunhofer.weave.cli.module.explainer.services.WekaPredictionService;
+import de.fraunhofer.iem.weave.cli.PipelineOptions;
+import de.fraunhofer.iem.weave.module.explainer.services.PredictionService;
+import de.fraunhofer.iem.weave.module.explainer.services.WekaPredictionService;
 import weka.classifiers.Classifier;
 import weka.core.Instance;
 import weka.core.Instances;

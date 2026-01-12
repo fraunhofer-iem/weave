@@ -1,10 +1,10 @@
-package de.fraunhofer.weave.cli.module.explainer.server;
+package de.fraunhofer.iem.weave.module.explainer.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import de.fraunhofer.weave.cli.module.explainer.services.PredictionService;
+import de.fraunhofer.iem.weave.module.explainer.services.PredictionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

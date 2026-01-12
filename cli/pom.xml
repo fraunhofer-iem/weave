@@ -94,7 +94,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>de.fraunhofer.weave.Main</mainClass>
+                            <mainClass>de.fraunhofer.iem.weave.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

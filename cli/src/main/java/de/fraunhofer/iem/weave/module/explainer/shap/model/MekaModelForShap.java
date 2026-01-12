@@ -1,9 +1,9 @@
-package de.fraunhofer.weave.cli.module.explainer.shap.model;
+package de.fraunhofer.iem.weave.module.explainer.shap.model;
 
 
-import de.fraunhofer.weave.cli.PipelineOptions;
-import de.fraunhofer.weave.cli.module.explainer.services.MekaPredictionService;
-import de.fraunhofer.weave.cli.module.explainer.services.PredictionService;
+import de.fraunhofer.iem.weave.cli.PipelineOptions;
+import de.fraunhofer.iem.weave.module.explainer.services.MekaPredictionService;
+import de.fraunhofer.iem.weave.module.explainer.services.PredictionService;
 import meka.classifiers.multilabel.MultiLabelClassifier;
 import meka.core.MLUtils;
 import weka.core.Instance;

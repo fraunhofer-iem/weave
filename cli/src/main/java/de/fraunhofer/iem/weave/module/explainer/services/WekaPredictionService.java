@@ -1,4 +1,4 @@
-package de.fraunhofer.weave.cli.module.explainer.services;
+package de.fraunhofer.iem.weave.module.explainer.services;
 
 import weka.classifiers.Classifier;
 import weka.core.DenseInstance;

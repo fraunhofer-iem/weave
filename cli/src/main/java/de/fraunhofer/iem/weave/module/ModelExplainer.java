@@ -1,11 +1,10 @@
-package de.fraunhofer.weave.cli.module;
+package de.fraunhofer.iem.weave.module;
 
 
-import de.fraunhofer.weave.cli.CliOptions;
-import de.fraunhofer.weave.cli.PipelineOptions;
-import de.fraunhofer.weave.cli.module.explainer.server.PredictionHttpServer;
-import de.fraunhofer.weave.cli.module.explainer.services.ExplainerExporter;
-import de.fraunhofer.weave.cli.module.explainer.services.PredictionService;
+import de.fraunhofer.iem.weave.cli.PipelineOptions;
+import de.fraunhofer.iem.weave.module.explainer.server.PredictionHttpServer;
+import de.fraunhofer.iem.weave.module.explainer.services.ExplainerExporter;
+import de.fraunhofer.iem.weave.module.explainer.services.PredictionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

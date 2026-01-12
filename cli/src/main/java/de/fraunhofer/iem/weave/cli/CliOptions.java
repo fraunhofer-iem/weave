@@ -1,4 +1,4 @@
-package de.fraunhofer.weave.cli;
+package de.fraunhofer.iem.weave.cli;
 
 import picocli.CommandLine;
 

@@ -1,4 +1,4 @@
-package de.fraunhofer.weave.cli.module.explainer.services;
+package de.fraunhofer.iem.weave.module.explainer.services;
 
 /**
  * A generic prediction service interface that provides a probability prediction method for

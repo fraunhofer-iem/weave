@@ -1,4 +1,4 @@
-package de.fraunhofer.weave.cli.module;
+package de.fraunhofer.iem.weave.module;
 
 import ai.libs.jaicore.ml.classification.loss.dataset.EClassificationPerformanceMeasure;
 import ai.libs.jaicore.ml.classification.multilabel.dataset.IMekaInstances;
@@ -13,7 +13,7 @@ import ai.libs.mlplan.core.MLPlan;
 import ai.libs.mlplan.meka.ML2PlanMekaBuilder;
 import ai.libs.mlplan.sklearn.builder.MLPlanScikitLearnBuilder;
 import ai.libs.mlplan.weka.MLPlanWekaBuilder;
-import de.fraunhofer.weave.cli.PipelineOptions;
+import de.fraunhofer.iem.weave.cli.PipelineOptions;
 import meka.core.MLUtils;
 import org.api4.java.ai.ml.classification.singlelabel.evaluation.ISingleLabelClassification;
 import org.api4.java.ai.ml.core.dataset.supervised.ILabeledDataset;
