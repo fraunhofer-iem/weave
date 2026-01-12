@@ -89,8 +89,11 @@ public class ModelSelector {
                         .withDataset(labeledDataset.get(0)).build();
 
                 IWekaClassifier wekaClassifier = mlplan.call();
+                LOGGER.info("ML-Plan Selected Classifier: {}", (mlplan.getSelectedClassifier()));
+                LOGGER.info("WEKA Classifier: {}", (wekaClassifier.getClassifier()));
+
                 classifier = Utils.toCommandLine(wekaClassifier.getClassifier());
-                LOGGER.info("WEKA model selected: {}", classifier);
+                LOGGER.info("Command line WEKA Pipeline: {}", classifier);
 
                 runReport = executor.execute(wekaClassifier, labeledDataset.get(1));
                 LOGGER.info("Error Rate of the solution produced by ML-Plan: {}. Internally believed error was {}",
@@ -109,9 +112,11 @@ public class ModelSelector {
                         .withDataset(labeledDataset.get(0)).build();
 
                 IMekaClassifier mekaClassifier = ml2plan.call();
+                LOGGER.info("ML2-Plan Selected Classifier: {}", (ml2plan.getSelectedClassifier()));
+                LOGGER.info("MEKA Classifier: {}", (mekaClassifier.getClassifier()));
 
                 classifier = Utils.toCommandLine(mekaClassifier.getClassifier());
-                LOGGER.info("MEKA model selected: {}", classifier);
+                LOGGER.info("Command line MEKA Pipeline: {}", classifier);
 
                 //Evaluate ML2-Plan solution with test set
                 runReport = executor.execute(mekaClassifier, labeledDataset.get(1));
@@ -145,4 +150,7 @@ public class ModelSelector {
         return classifier;
     }
 
+    public void setClassifier(String classifier) {
+        this.classifier = classifier;
+    }
 }
