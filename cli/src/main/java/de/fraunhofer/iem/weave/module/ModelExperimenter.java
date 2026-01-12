@@ -206,7 +206,7 @@ public class ModelExperimenter {
         return evaluator;
     }
 
-    public IExperimentSetEvaluator getWekaEvaluator(String dataset, String classifierDescriptor) {
+    public IExperimentSetEvaluator getWekaEvaluator(String trainingData, String classifierDescriptor) {
 
         IExperimentSetEvaluator evaluator =
                 (ExperimentDBEntry experimentEntry, IExperimentIntermediateResultProcessor processor) -> {
@@ -216,11 +216,16 @@ public class ModelExperimenter {
                     // gather experiment key values:
                     int seed = Integer.parseInt(keyFields.get("seeds"));
 
-                    if (keyFields.get("classifier").contentEquals("automl")) {
+                    if (keyFields.get("classifier").contentEquals("weave")) {
                         keyFields.replace("classifier", classifierDescriptor);
                     }
 
+                    if (keyFields.get("dataset").contentEquals("weave")) {
+                        keyFields.replace("dataset", trainingData);
+                    }
+
                     String classifier = keyFields.get("classifier");
+                    String dataset = keyFields.get("dataset");
 
                     try {
                         // Load dataset
@@ -276,7 +281,9 @@ public class ModelExperimenter {
 
                         // submit the results:
                         Map<String, Object> experimentResults = new HashMap<>();
-                        experimentResults.put("automlClassifier", classifier);
+                        experimentResults.put("classifierWeave", classifier);
+                        experimentResults.put("datasetWeave", dataset);
+
                         experimentResults.put("info", info);
                         experimentResults.put("lblPrecision", Arrays.toString(lblPrecision));
                         experimentResults.put("lblRecall", Arrays.toString(lblRecall));
