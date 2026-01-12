@@ -31,6 +31,8 @@ public class PipelineOptions {
 
     private int port;
 
+    private int shapSamples;
+
     PipelineOptions() {
     }
 
@@ -64,6 +66,7 @@ public class PipelineOptions {
         this.pythonExplainerPath = properties.getProperty("paths.explainer");
         this.outputPath = properties.getProperty("paths.output");
         this.pythonPath = properties.getProperty("paths.python");
+        this.shapSamples = Integer.parseInt(properties.getProperty("shap.samples"));
 
     }
 
@@ -193,4 +196,7 @@ public class PipelineOptions {
     public String getPythonPath() {
         return pythonPath;
     }
+
+    public int getShapSamples() { return shapSamples; }
+    public void setShapSamples(int shapSamples) { this.shapSamples = shapSamples; }
 }

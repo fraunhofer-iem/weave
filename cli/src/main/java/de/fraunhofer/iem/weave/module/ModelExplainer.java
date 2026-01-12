@@ -62,7 +62,7 @@ public class ModelExplainer {
      * @param shapScriptPath   path to the shap_http_explainer.py script.
      * @param outputDir        directory where SHAP plots should be written.
      */
-    public void runShapExplainer(String pythonExecutable, String shapScriptPath, String outputDir) throws Exception {
+    public void runShapExplainer(String pythonExecutable, String shapScriptPath, String outputDir, int shapSamples) throws Exception {
 
         String toolkit = options.getToolkit();
         String serverUrl = "http://localhost:" + options.getPort();
@@ -80,6 +80,8 @@ public class ModelExplainer {
         command.add("local_features.csv");
         command.add("--output_dir");
         command.add(outputDir);
+        command.add("--shap_samples");
+        command.add(String.valueOf(shapSamples));
 
         logger.info("Starting Python SHAP script: {}", String.join(" ", command));
 

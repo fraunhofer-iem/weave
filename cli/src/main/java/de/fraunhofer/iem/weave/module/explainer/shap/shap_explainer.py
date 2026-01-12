@@ -147,7 +147,9 @@ def explain_weka(server_url: str,
                  global_csv: str,
                  local_csv: str,
                  output_dir: str,
-                 positive_class_index: int = 1) -> None:
+                 shap_samples: int,
+                 positive_class_index: int = 1
+                 ) -> None:
     """
     Computes SHAP explanations for a WEKA single-label (binary) classifier.
 
@@ -169,7 +171,7 @@ def explain_weka(server_url: str,
         probs = predict_http(server_url, X)
         return probs[:, positive_class_index]
 
-    background = Xg
+    background = shap.sample(Xg, shap_samples, random_state=42)
 
     explainer = shap.KernelExplainer(f_pos, background)
 
@@ -230,7 +232,8 @@ def explain_weka(server_url: str,
 def explain_meka(server_url: str,
                  global_csv: str,
                  local_csv: str,
-                 output_dir: str) -> None:
+                 output_dir: str,
+                 shap_samples: int) -> None:
     """
     Computes SHAP explanations for a MEKA multi-label classifier.
     For each label j:
@@ -261,7 +264,7 @@ def explain_meka(server_url: str,
             probs = predict_http(server_url, X)
             return probs[:, j]
 
-        background = Xg
+        background = shap.sample(Xg, shap_samples, random_state=42)
 
         explainer = shap.KernelExplainer(f_label, background) #Xg
 
@@ -345,6 +348,12 @@ def main() -> None:
         help="Output directory for the plots."
     )
 
+    parser.add_argument(
+        "--shap_samples",
+        default="1000",
+        help="No. of Samples for Shap Explainer"
+    )
+
     args = parser.parse_args()
 
     if args.toolkit == "weka":
@@ -352,14 +361,16 @@ def main() -> None:
             server_url=args.server_url,
             global_csv=args.global_csv,
             local_csv=args.local_csv,
-            output_dir=args.output_dir
+            output_dir=args.output_dir,
+            shap_samples=int(args.shap_samples)
         )
     else:
         explain_meka(
             server_url=args.server_url,
             global_csv=args.global_csv,
             local_csv=args.local_csv,
-            output_dir=args.output_dir
+            output_dir=args.output_dir,
+            shap_samples=int(args.shap_samples)
         )
 
 
