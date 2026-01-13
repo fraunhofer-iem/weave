@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J "weave-shap-sanitizer"
+#SBATCH -J "weave-shap-sscm"
 #SBATCH -N 1
 #SBATCH -t 12:00:00
 #SBATCH -A hpc-prf-crnrw
@@ -23,6 +23,6 @@ pip install requests
 
 echo "Starting model explanation"
 
-java -Xms20g -Xmx200g -jar $PC2PFS/hpc-prf-crnrw/weave/target/cli-1.0-jar-with-dependencies.jar -t weka -c $PC2PFS/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sanitizer.properties -X -e "weka.classifiers.meta.Bagging -P 100 -O -S 1 -num-slots 1 -I 63 -W weka.classifiers.functions.Logistic -do-not-check-capabilities -- -R 0.1414577662954652 -M 94 -do-not-check-capabilities -num-decimal-places 4"
+java -Xms20g -Xmx200g -jar $PC2PFS/hpc-prf-crnrw/weave/target/cli-1.0-jar-with-dependencies.jar -t weka -c $PC2PFS/hpc-prf-crnrw/weave/evaluation/ml4srm/sscm/sscm.properties -X -e "weka.classifiers.meta.Bagging -P 179 -S 1 -num-slots 1 -I 28 -W weka.classifiers.trees.RandomForest -do-not-check-capabilities -- -P 100 -I 122 -num-slots 1 -do-not-check-capabilities -K 0 -M 1.0 -V 0.001 -S 1"
 
 echo "Process completed"

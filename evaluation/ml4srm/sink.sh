@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J "weave-shap-cwe89"
+#SBATCH -J "weave-shap-sink"
 #SBATCH -N 1
 #SBATCH -t 12:00:00
 #SBATCH -A hpc-prf-crnrw
