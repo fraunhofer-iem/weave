@@ -184,14 +184,15 @@ def explain_weka(server_url: str, global_csv: str, local_csv: str, output_dir: s
     explainer_global = shap.KernelExplainer(f_pos, Xg_bg)
     shap_values_global = explainer_global(Xg_exp)
 
-    shap_values_global_top = aggregate_global_top_k(
-        shap_values_global,
-        feature_names=feature_names,
-        k=10,
-    )
-
+    # Export global shap values
     global_dir = os.path.join(output_dir, "global")
     os.makedirs(global_dir, exist_ok=True)
+    global_shap_array = np.asarray(shap_values_global.values
+        if isinstance(shap_values_global, Explanation) else shap_values_global)
+    df_global_shap = pd.DataFrame(global_shap_array, columns=feature_names)
+    df_global_shap.to_csv(os.path.join(global_dir, "global_shap_values.csv"), index=False)
+
+    shap_values_global_top = aggregate_global_top_k(shap_values_global, feature_names=feature_names, k=10,)
 
     plt.figure()
     shap.summary_plot(shap_values_global_top, show=False, sort=False)
@@ -206,15 +207,15 @@ def explain_weka(server_url: str, global_csv: str, local_csv: str, output_dir: s
     local_dir = os.path.join(output_dir, "local")
     os.makedirs(local_dir, exist_ok=True)
 
-    for i in range(df_local.shape[0]):
-        print(f"[MEKA] Computing SHAP values for instance {i} ...")
-        expl_single = aggregate_local_top_k(
-            shap_values_local,
-            df_local,
-            feature_names,
-            row_index=i,
-            k=10,
-        )
+    # Export local shap values
+    local_shap_array = np.asarray(shap_values_local.values
+        if isinstance(shap_values_local, Explanation) else shap_values_local)
+    df_local_shap = pd.DataFrame(local_shap_array, columns=feature_names)
+    df_local_shap.to_csv(os.path.join(local_dir, "local_shap_values.csv"),index=False)
+
+    for i in range(Xl_exp.shape[0]):
+        print(f"[WEKA] Computing SHAP values for instance {i} ...")
+        expl_single = aggregate_local_top_k(shap_values_local, df_local, feature_names, row_index=i, k=10,)
 
         plt.figure()
         shap.plots.waterfall(expl_single, max_display=11, show=False)
@@ -279,7 +280,11 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         explainer_global = shap.KernelExplainer(f_label, Xg_bg)
         shap_values_global = explainer_global(Xg_exp)
 
-        Xg_explain = Xg
+        # Export global shap values
+        global_shap_array = np.asarray(shap_values_global.values
+            if isinstance(shap_values_global, Explanation) else shap_values_global)
+        df_global_shap = pd.DataFrame(global_shap_array, columns=feature_names)
+        df_global_shap.to_csv(os.path.join(global_dir, f"global_shap_values_label_{label_index}.csv"), index=False)
 
         shap_values_global_top = aggregate_global_top_k(shap_values_global, feature_names=feature_names, k=10,)
 
@@ -296,14 +301,14 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         local_dir = os.path.join(base_local_dir, f"{label_index}")
         os.makedirs(local_dir, exist_ok=True)
 
-        for i in range(df_local.shape[0]):
-            expl_single = aggregate_local_top_k(
-                shap_values_local,
-                df_local,
-                feature_names,
-                row_index=i,
-                k=10,
-            )
+        # Export local shap values
+        local_shap_array = np.asarray(shap_values_local.values
+            if isinstance(shap_values_local, Explanation) else shap_values_local)
+        df_local_shap = pd.DataFrame(local_shap_array, columns=feature_names)
+        df_local_shap.to_csv(os.path.join(local_dir, f"local_shap_values_label_{label_index}.csv"), index=False)
+
+        for i in range(Xl_exp.shape[0]):
+            expl_single = aggregate_local_top_k(shap_values_local, df_local, feature_names, row_index=i, k=10,)
 
             plt.figure()
             shap.plots.waterfall(expl_single, max_display=11, show=False)
