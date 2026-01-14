@@ -45,7 +45,7 @@ public class ExplainerExporter {
         }
 
         String toolkit = options.getToolkit();
-        Path out = Paths.get("global_features.csv");
+        Path out = Paths.get(options.getOutputPath(),"global_features.csv");
 
         if ("weka".equalsIgnoreCase(toolkit)) {
             exportWekaFeatures(datasetPath, out);
@@ -70,7 +70,7 @@ public class ExplainerExporter {
         }
 
         String toolkit = options.getToolkit();
-        Path out = Paths.get("local_features.csv");
+        Path out = Paths.get(options.getOutputPath(),"local_features.csv");
 
         if ("weka".equalsIgnoreCase(toolkit)) {
             exportWekaFeatures(testDatasetPath, out);
