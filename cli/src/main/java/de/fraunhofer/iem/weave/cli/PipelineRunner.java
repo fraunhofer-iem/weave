@@ -69,7 +69,9 @@ public class PipelineRunner {
 
             ModelExplainer explainer = new ModelExplainer(predictor, options);
             explainer.runHttpExplainer();
-            explainer.runShapExplainer(options.getPythonPath(),options.getPythonExplainerPath(), options.getOutputPath(), options.getShapSamples());
+            explainer.runShapExplainer(options.getPythonPath(),options.getPythonExplainerPath(), options.getOutputPath(),
+                    options.getShapGlobalBgSamples(), options.getShapGlobalExpSamples(), options.getShapLocalBgSamples(),
+                    options.getShapLocalExpSamples());
 
             return 0;
         } catch (

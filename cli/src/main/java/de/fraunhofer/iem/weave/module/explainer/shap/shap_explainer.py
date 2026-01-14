@@ -138,47 +138,51 @@ def predict_http(server_url: str, X: np.ndarray, batch_size: int = 128) -> np.nd
         data = resp.json()
         batch_probs = np.array(data["probs"], dtype=float)
         all_probs.append(batch_probs)
-        print(f"Sub-requests: Completed batch {(start+1)//batch_size} of {n_samples//batch_size}")
 
     return np.vstack(all_probs)
 
 
-def explain_weka(server_url: str,
-                 global_csv: str,
-                 local_csv: str,
-                 output_dir: str,
-                 shap_samples: int,
-                 positive_class_index: int = 1
-                 ) -> None:
+def explain_weka(server_url: str, global_csv: str, local_csv: str, output_dir: str,
+                 shap_global_bg_sample_size: int, shap_global_exp_sample_size: int,
+                 shap_local_bg_sample_size: int, shap_local_exp_sample_size: int, positive_class_index: int = 1) -> None:
     """
     Computes SHAP explanations for a WEKA single-label (binary) classifier.
-
     Global explanations:
         - Beeswarm plot for the positive class (positive_class_index).
-
     Local explanations:
         - Waterfall plots for each instance in the local CSV, for the positive class.
-
     """
     df_global = pd.read_csv(global_csv)
-    df_local = pd.read_csv(local_csv)
+    df_local_full = pd.read_csv(local_csv)
 
     feature_names = list(df_global.columns)
-    Xg = df_global.values
-    Xl = df_local.values
+    Xg_full = df_global.values
+    Xl_full = df_local_full.values
 
     def f_pos(X: np.ndarray) -> np.ndarray:
         probs = predict_http(server_url, X)
         return probs[:, positive_class_index]
 
-    background = shap.sample(Xg, shap_samples, random_state=42)
+    rng = np.random.default_rng(42)
+    n_global = Xg_full.shape[0]
+    n_local = Xl_full.shape[0]
 
-    explainer = shap.KernelExplainer(f_pos, background)
+    # sample indices from the correct data sources
+    global_bg_idx = rng.choice(n_global, size=shap_global_bg_sample_size, replace=False)
+    global_exp_idx = rng.choice(n_global, size=shap_global_exp_sample_size, replace=False)
+    local_bg_idx = rng.choice(n_local, size=shap_local_bg_sample_size, replace=False)
+    local_exp_idx = rng.choice(n_local, size=shap_local_exp_sample_size, replace=False)
 
-    Xg_explain = Xg
+    Xg_bg = Xg_full[global_bg_idx]
+    Xg_exp = Xg_full[global_exp_idx]
+
+    Xl_bg = Xl_full[local_bg_idx]
+    Xl_exp = Xl_full[local_exp_idx]
+    df_local = df_local_full.iloc[local_exp_idx].reset_index(drop=True)
 
     # Global explanations
-    shap_values_global = explainer(Xg_explain)
+    explainer_global = shap.KernelExplainer(f_pos, Xg_bg)
+    shap_values_global = explainer_global(Xg_exp)
 
     shap_values_global_top = aggregate_global_top_k(
         shap_values_global,
@@ -190,17 +194,14 @@ def explain_weka(server_url: str,
     os.makedirs(global_dir, exist_ok=True)
 
     plt.figure()
-    shap.summary_plot(
-        shap_values_global_top,
-        show=False,
-        sort=False
-    )
+    shap.summary_plot(shap_values_global_top, show=False, sort=False)
     plt.tight_layout()
     plt.savefig(os.path.join(global_dir, "global_beeswarm.pdf"), dpi=300, bbox_inches='tight')
     plt.close()
 
-    # Local explanations
-    shap_values_local = explainer(Xl)
+    # Local explanations (background: local)
+    explainer_local = shap.KernelExplainer(f_pos, Xl_bg)
+    shap_values_local = explainer_local(Xl_exp)
 
     local_dir = os.path.join(output_dir, "local")
     os.makedirs(local_dir, exist_ok=True)
@@ -216,24 +217,17 @@ def explain_weka(server_url: str,
         )
 
         plt.figure()
-        shap.plots.waterfall(
-            expl_single,
-            max_display=11,   # 10 + OTHER
-            show=False
-        )
+        shap.plots.waterfall(expl_single, max_display=11, show=False)
         plt.tight_layout()
         plt.savefig(os.path.join(local_dir, f"local_instance_{i}.pdf"), dpi=300, bbox_inches='tight')
         plt.close()
 
-
     print(f"[WEKA] Global and local SHAP plots written to: {output_dir}")
 
 
-def explain_meka(server_url: str,
-                 global_csv: str,
-                 local_csv: str,
-                 output_dir: str,
-                 shap_samples: int) -> None:
+def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: str,
+                 shap_global_bg_sample_size: int, shap_global_exp_sample_size: int,
+                 shap_local_bg_sample_size: int, shap_local_exp_sample_size: int) -> None:
     """
     Computes SHAP explanations for a MEKA multi-label classifier.
     For each label j:
@@ -241,14 +235,31 @@ def explain_meka(server_url: str,
         Local waterfall plots for each instance in the local CSV for label j.
     """
     df_global = pd.read_csv(global_csv)
-    df_local = pd.read_csv(local_csv)
+    df_local_full = pd.read_csv(local_csv)
 
     feature_names = list(df_global.columns)
-    Xg = df_global.values
-    Xl = df_local.values
+    Xg_full = df_global.values
+    Xl_full = df_local_full.values
 
-    sample_probs = predict_http(server_url, Xg[:1])
+    sample_probs = predict_http(server_url, Xg_full[:1])
     n_labels = sample_probs.shape[1]
+
+    rng = np.random.default_rng(42)
+    n_global = Xg_full.shape[0]
+    n_local = Xl_full.shape[0]
+
+    # sample indices from the correct data sources
+    global_bg_idx = rng.choice(n_global, size=shap_global_bg_sample_size, replace=False)
+    global_exp_idx = rng.choice(n_global, size=shap_global_exp_sample_size, replace=False)
+    local_bg_idx = rng.choice(n_local, size=shap_local_bg_sample_size, replace=False)
+    local_exp_idx = rng.choice(n_local, size=shap_local_exp_sample_size, replace=False)
+
+    Xg_bg = Xg_full[global_bg_idx]
+    Xg_exp = Xg_full[global_exp_idx]
+
+    Xl_bg = Xl_full[local_bg_idx]
+    Xl_exp = Xl_full[local_exp_idx]
+    df_local = df_local_full.iloc[local_exp_idx].reset_index(drop=True)
 
     global_dir = os.path.join(output_dir, "global")
     os.makedirs(global_dir, exist_ok=True)
@@ -256,7 +267,7 @@ def explain_meka(server_url: str,
     base_local_dir = os.path.join(output_dir, "local")
     os.makedirs(base_local_dir, exist_ok=True)
 
-    # For each label, build a separate scalar-output model f_j(X) and run SHAP on it.
+    # For each label, build separate explainers for global and local
     for label_index in range(n_labels):
         print(f"[MEKA] Computing SHAP values for label {label_index} ...")
 
@@ -264,33 +275,23 @@ def explain_meka(server_url: str,
             probs = predict_http(server_url, X)
             return probs[:, j]
 
-        background = shap.sample(Xg, shap_samples, random_state=42)
-
-        explainer = shap.KernelExplainer(f_label, background) #Xg
+        # Global explanations (background: global)
+        explainer_global = shap.KernelExplainer(f_label, Xg_bg)
+        shap_values_global = explainer_global(Xg_exp)
 
         Xg_explain = Xg
 
-        # Global explanations
-        shap_values_global = explainer(Xg_explain) #Xg
-
-        shap_values_global_top = aggregate_global_top_k(
-            shap_values_global,
-            feature_names=feature_names,
-            k=10,
-        )
+        shap_values_global_top = aggregate_global_top_k(shap_values_global, feature_names=feature_names, k=10,)
 
         plt.figure()
-        shap.summary_plot(
-            shap_values_global_top,
-            show=False,
-            sort=False
-        )
+        shap.summary_plot(shap_values_global_top, show=False, sort=False)
         plt.tight_layout()
         plt.savefig(os.path.join(global_dir, f"global_beeswarm_label_{label_index}.pdf"), dpi=300, bbox_inches='tight')
         plt.close()
 
-        # Local explanations
-        shap_values_local = explainer(Xl)
+        # Local explanations (background: local)
+        explainer_local = shap.KernelExplainer(f_label, Xl_bg)
+        shap_values_local = explainer_local(Xl_exp)
 
         local_dir = os.path.join(base_local_dir, f"{label_index}")
         os.makedirs(local_dir, exist_ok=True)
@@ -305,13 +306,9 @@ def explain_meka(server_url: str,
             )
 
             plt.figure()
-            shap.plots.waterfall(
-                expl_single,
-                max_display=11,
-                show=False
-            )
+            shap.plots.waterfall(expl_single, max_display=11, show=False)
             plt.tight_layout()
-            plt.savefig(os.path.join(local_dir, f"local/local_instance_{i}_label_{label_index}.pdf"), dpi=300, bbox_inches='tight')
+            plt.savefig( os.path.join(local_dir, f"local_instance_{i}_label_{label_index}.pdf"), dpi=300, bbox_inches='tight')
             plt.close()
 
     print(f"[MEKA] Global and local label-specific SHAP plots written to: {base_local_dir}")
@@ -349,30 +346,47 @@ def main() -> None:
     )
 
     parser.add_argument(
-        "--shap_samples",
+        "--shap_global_bg_samples",
         default="1000",
         help="No. of Samples for Shap Explainer"
+    )
+
+    parser.add_argument(
+        "--shap_global_exp_samples",
+        default="1000",
+        help="No. of Samples to explain for Global Explainability"
+    )
+
+    parser.add_argument(
+        "--shap_local_bg_samples",
+        default="1000",
+        help="No. of Samples for Shap Explainer"
+    )
+
+    parser.add_argument(
+        "--shap_local_exp_samples",
+        default="1000",
+        help="No. of Samples to explain for Global Explainability"
     )
 
     args = parser.parse_args()
 
     if args.toolkit == "weka":
         explain_weka(
-            server_url=args.server_url,
-            global_csv=args.global_csv,
-            local_csv=args.local_csv,
-            output_dir=args.output_dir,
-            shap_samples=int(args.shap_samples)
+            server_url=args.server_url, global_csv=args.global_csv, local_csv=args.local_csv, output_dir=args.output_dir,
+            shap_global_bg_sample_size=int(args.shap_global_bg_samples),
+            shap_global_exp_sample_size=int(args.shap_global_exp_samples),
+            shap_local_bg_sample_size=int(args.shap_local_bg_samples),
+            shap_local_exp_sample_size=int(args.shap_local_exp_samples)
         )
     else:
         explain_meka(
-            server_url=args.server_url,
-            global_csv=args.global_csv,
-            local_csv=args.local_csv,
-            output_dir=args.output_dir,
-            shap_samples=int(args.shap_samples)
+            server_url=args.server_url, global_csv=args.global_csv, local_csv=args.local_csv, output_dir=args.output_dir,
+            shap_global_bg_sample_size=int(args.shap_bg_samples),
+            shap_global_exp_sample_size=int(args.shap_global_exp_samples),
+            shap_local_bg_sample_size=int(args.shap_local_bg_samples),
+            shap_local_exp_sample_size=int(args.shap_local_exp_samples)
         )
-
 
 if __name__ == "__main__":
     main()

@@ -31,7 +31,12 @@ public class PipelineOptions {
 
     private int port;
 
-    private int shapSamples;
+    private int shapGlobalBgSamples;
+    private int shapGlobalExpSamples;
+
+    private int shapLocalBgSamples;
+    private int shapLocalExpSamples;
+
 
     PipelineOptions() {
     }
@@ -66,7 +71,10 @@ public class PipelineOptions {
         this.pythonExplainerPath = properties.getProperty("paths.explainer");
         this.outputPath = properties.getProperty("paths.output");
         this.pythonPath = properties.getProperty("paths.python");
-        this.shapSamples = Integer.parseInt(properties.getProperty("shap.samples"));
+        this.shapGlobalBgSamples = Integer.parseInt(properties.getProperty("shap.global.bg.samples"));
+        this.shapGlobalExpSamples = Integer.parseInt(properties.getProperty("shap.global.exp.samples"));
+        this.shapLocalBgSamples = Integer.parseInt(properties.getProperty("shap.local.bg.samples"));
+        this.shapLocalExpSamples = Integer.parseInt(properties.getProperty("shap.local.exp.samples"));
 
     }
 
@@ -197,6 +205,13 @@ public class PipelineOptions {
         return pythonPath;
     }
 
-    public int getShapSamples() { return shapSamples; }
-    public void setShapSamples(int shapSamples) { this.shapSamples = shapSamples; }
+    public int getShapGlobalBgSamples() { return shapGlobalBgSamples; }
+    public void setShapGlobalBgSamples(int shapGlobalBgSamples) { this.shapGlobalBgSamples = shapGlobalBgSamples; }
+    public int getShapGlobalExpSamples() { return shapGlobalExpSamples; }
+    public void setShapGlobalExpSamples(int shapGlobalExpSamples) { this.shapGlobalExpSamples = shapGlobalExpSamples; }
+
+    public int getShapLocalBgSamples() { return shapLocalBgSamples; }
+    public void setShapLocalBgSamples(int shapLocalBgSamples) { this.shapLocalBgSamples = shapLocalBgSamples; }
+    public int getShapLocalExpSamples() { return shapLocalExpSamples; }
+    public void setShapLocalExpSamples(int shapLocalExpSamples) { this.shapLocalExpSamples = shapLocalExpSamples; }
 }
