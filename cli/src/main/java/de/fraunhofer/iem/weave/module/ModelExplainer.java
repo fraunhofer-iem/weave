@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,9 +77,9 @@ public class ModelExplainer {
         command.add("--server_url");
         command.add(serverUrl);
         command.add("--global_csv");
-        command.add("global_features.csv");
+        command.add(Paths.get(options.getOutputPath(),"global_features.csv").toString());
         command.add("--local_csv");
-        command.add("local_features.csv");
+        command.add(Paths.get(options.getOutputPath(),"local_features.csv").toString());
         command.add("--output_dir");
         command.add(outputDir);
         command.add("--shap_global_bg_samples");
