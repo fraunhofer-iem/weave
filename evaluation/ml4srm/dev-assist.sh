@@ -11,8 +11,8 @@ module load lang/Java/17.0.6
 module load lang/Python/3.12.3-GCCcore-13.3.0
 
 echo "Setting up Python environment"
-python -m venv weave_env
-source weave_env/bin/activate
+python -m venv weave_env_dev_assist
+source weave_env_dev_assist/bin/activate
 
 echo "Installing packages"
 pip install numpy
