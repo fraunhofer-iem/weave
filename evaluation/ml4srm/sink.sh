@@ -23,6 +23,6 @@ pip install requests
 
 echo "Starting model explanation"
 
-java -Xms20g -Xmx200g -jar $PC2PFS/hpc-prf-crnrw/weave/target/cli-1.0-jar-with-dependencies.jar -t weka -c $PC2PFS/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink.properties -X -e "weka.classifiers.meta.ClassificationViaRegression -W weka.classifiers.meta.RandomCommittee -do-not-check-capabilities -- -S 1 -num-slots 1 -I 42 -W weka.classifiers.trees.RandomForest -do-not-check-capabilities -- -P 100 -I 122 -num-slots 1 -do-not-check-capabilities -K 0 -M 4.0 -V 1.0E-6 -S 1"
+java -Xms20g -Xmx200g -jar $PC2PFS/hpc-prf-crnrw/weave/target/cli-1.0-jar-with-dependencies.jar -t weka -c $PC2PFS/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink.properties -X -e "weka.classifiers.meta.LogitBoost -Q -L -1.7976931348623157E308 -H 0.5 -Z 5.0 -O 1 -E 1 -S 1 -I 10 -W weka.classifiers.trees.RandomForest -do-not-check-capabilities -- -P 94 -I 95 -num-slots 1 -do-not-check-capabilities -K 0 -M 2.0 -V 1.0E-4 -S 1 -N 8"
 
 echo "Process completed"
