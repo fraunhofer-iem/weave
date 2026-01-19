@@ -190,7 +190,15 @@ def explain_weka(server_url: str, global_csv: str, local_csv: str, output_dir: s
     global_shap_array = np.asarray(shap_values_global.values
         if isinstance(shap_values_global, Explanation) else shap_values_global)
     df_global_shap = pd.DataFrame(global_shap_array, columns=feature_names)
-    df_global_shap.to_csv(os.path.join(global_dir, "global_shap_values.csv"), index=False)
+    global_mean_abs = df_global_shap.abs().mean(axis=0)
+    df_global_agg = pd.DataFrame({
+        "Feature": feature_names,
+        "GlobalShapValAgg": global_mean_abs.values
+    })
+    df_global_agg.to_csv(
+        os.path.join(global_dir, "global_shap_aggregated.csv"),
+        index=False
+    )
 
     shap_values_global_top = aggregate_global_top_k(shap_values_global, feature_names=feature_names, k=10,)
 
@@ -208,10 +216,23 @@ def explain_weka(server_url: str, global_csv: str, local_csv: str, output_dir: s
     os.makedirs(local_dir, exist_ok=True)
 
     # Export local shap values
-    local_shap_array = np.asarray(shap_values_local.values
-        if isinstance(shap_values_local, Explanation) else shap_values_local)
-    df_local_shap = pd.DataFrame(local_shap_array, columns=feature_names)
-    df_local_shap.to_csv(os.path.join(local_dir, "local_shap_values.csv"),index=False)
+    local_array = np.asarray(
+        shap_values_local.values
+        if isinstance(shap_values_local, Explanation) else shap_values_local
+    )
+
+    # Mean absolute SHAP per feature over all local instances
+    local_mean_abs = np.mean(np.abs(local_array), axis=0)
+
+    df_local_agg = pd.DataFrame({
+        "Feature": feature_names,
+        "LocalShapValAgg": local_mean_abs
+    })
+
+    df_local_agg.to_csv(
+        os.path.join(local_dir, "local_shap_aggregated.csv"),
+        index=False
+    )
 
     for i in range(Xl_exp.shape[0]):
         print(f"[WEKA] Computing SHAP values for instance {i} ...")
@@ -268,6 +289,12 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
     base_local_dir = os.path.join(output_dir, "local")
     os.makedirs(base_local_dir, exist_ok=True)
 
+    global_importance_acc = np.zeros(len(feature_names), dtype=float)
+    n_labels_acc_global = 0
+
+    local_importance_acc = np.zeros(len(feature_names), dtype=float)
+    n_labels_acc = 0
+
     # For each label, build separate explainers for global and local
     for label_index in range(n_labels):
         print(f"[MEKA] Computing SHAP values for label {label_index} ...")
@@ -281,10 +308,13 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         shap_values_global = explainer_global(Xg_exp)
 
         # Export global shap values
-        global_shap_array = np.asarray(shap_values_global.values
-            if isinstance(shap_values_global, Explanation) else shap_values_global)
-        df_global_shap = pd.DataFrame(global_shap_array, columns=feature_names)
-        df_global_shap.to_csv(os.path.join(global_dir, f"global_shap_values_label_{label_index}.csv"), index=False)
+        global_array = np.asarray(
+            shap_values_global.values
+            if isinstance(shap_values_global, Explanation) else shap_values_global
+        )
+        global_mean_abs_for_label = np.mean(np.abs(global_array), axis=0)
+        global_importance_acc += global_mean_abs_for_label
+        n_labels_acc_global += 1
 
         shap_values_global_top = aggregate_global_top_k(shap_values_global, feature_names=feature_names, k=10,)
 
@@ -302,10 +332,15 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         os.makedirs(local_dir, exist_ok=True)
 
         # Export local shap values
-        local_shap_array = np.asarray(shap_values_local.values
-            if isinstance(shap_values_local, Explanation) else shap_values_local)
-        df_local_shap = pd.DataFrame(local_shap_array, columns=feature_names)
-        df_local_shap.to_csv(os.path.join(local_dir, f"local_shap_values_label_{label_index}.csv"), index=False)
+        local_array = np.asarray(
+            shap_values_local.values
+            if isinstance(shap_values_local, Explanation) else shap_values_local
+        )  # shape: (n_local_instances, n_features)
+
+        # mean |SHAP| per feature for this label
+        local_mean_abs_for_label = np.mean(np.abs(local_array), axis=0)
+        local_importance_acc += local_mean_abs_for_label
+        n_labels_acc += 1
 
         for i in range(Xl_exp.shape[0]):
             expl_single = aggregate_local_top_k(shap_values_local, df_local, feature_names, row_index=i, k=10,)
@@ -315,6 +350,31 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
             plt.tight_layout()
             plt.savefig( os.path.join(local_dir, f"local_instance_{i}_label_{label_index}.pdf"), dpi=300, bbox_inches='tight')
             plt.close()
+
+    if n_labels_acc_global > 0:
+        global_mean_abs_all_labels = global_importance_acc / n_labels_acc_global
+
+        df_global_agg_all = pd.DataFrame({
+            "Feature": feature_names,
+            "GlobalSHAPValAgg_AllLabels": global_mean_abs_all_labels
+        })
+
+        df_global_agg_all.to_csv(
+            os.path.join(global_dir, "global_shap_aggregated_all_labels.csv"),
+            index=False
+        )
+
+    if n_labels_acc > 0:
+        local_mean_abs_all_labels = local_importance_acc / n_labels_acc
+        df_local_agg_all = pd.DataFrame({
+        "Feature": feature_names,
+        "LocalSHAPValAgg_AllLabels": local_mean_abs_all_labels
+        })
+        df_local_agg_all.to_csv(
+        os.path.join(base_local_dir, "local_shap_aggregated_all_labels.csv"),
+        index=False
+        )
+
 
     print(f"[MEKA] Global and local label-specific SHAP plots written to: {base_local_dir}")
 
@@ -387,7 +447,7 @@ def main() -> None:
     else:
         explain_meka(
             server_url=args.server_url, global_csv=args.global_csv, local_csv=args.local_csv, output_dir=args.output_dir,
-            shap_global_bg_sample_size=int(args.shap_bg_samples),
+            shap_global_bg_sample_size=int(args.shap_global_bg_samples),
             shap_global_exp_sample_size=int(args.shap_global_exp_samples),
             shap_local_bg_sample_size=int(args.shap_local_bg_samples),
             shap_local_exp_sample_size=int(args.shap_local_exp_samples)
