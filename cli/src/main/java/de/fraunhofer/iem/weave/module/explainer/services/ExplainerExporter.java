@@ -99,10 +99,17 @@ public class ExplainerExporter {
             data.setClassIndex(data.numAttributes() - 1);
         }
 
+        Path parent = outputPath.getParent();
+        if (parent != null) {
+            Files.createDirectories(parent);
+        }
+
         int numAttrs = data.numAttributes();
         int classIdx = data.classIndex();
 
-        try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
+        try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8,
+                java.nio.file.StandardOpenOption.CREATE,
+                java.nio.file.StandardOpenOption.TRUNCATE_EXISTING)) {
             // Write header: names of all non-class attributes.
             int featureCount = 0;
             for (int attrIndex = 0; attrIndex < numAttrs; attrIndex++) {
@@ -145,13 +152,19 @@ public class ExplainerExporter {
         ConverterUtils.DataSource source = new ConverterUtils.DataSource(datasetPath);
         Instances data = source.getDataSet();
 
+        Path parent = outputPath.getParent();
+        if (parent != null) {
+            Files.createDirectories(parent);
+        }
+
         // Prepare as multi-label: after this, classIndex() = number of labels L,
         // and labels are at indices 0..L-1; features follow from L..numAttributes-1.
         MLUtils.prepareData(data);
         int L = data.classIndex();
         int numFeatures = data.numAttributes() - L;
 
-        try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
+        try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8,
+                java.nio.file.StandardOpenOption.CREATE, java.nio.file.StandardOpenOption.TRUNCATE_EXISTING)) {
             // Write header: names of feature attributes from L..end.
             for (int j = 0; j < numFeatures; j++) {
                 int attrIndex = L + j;
