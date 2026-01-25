@@ -412,25 +412,25 @@ def main() -> None:
 
     parser.add_argument(
         "--shap_global_bg_samples",
-        default="1000",
+        default=1000,
         help="No. of Samples for Shap Explainer"
     )
 
     parser.add_argument(
         "--shap_global_exp_samples",
-        default="1000",
+        default=1000,
         help="No. of Samples to explain for Global Explainability"
     )
 
     parser.add_argument(
         "--shap_local_bg_samples",
-        default="1000",
+        default=1000,
         help="No. of Samples for Shap Explainer"
     )
 
     parser.add_argument(
         "--shap_local_exp_samples",
-        default="1000",
+        default=1000,
         help="No. of Samples to explain for Global Explainability"
     )
 
