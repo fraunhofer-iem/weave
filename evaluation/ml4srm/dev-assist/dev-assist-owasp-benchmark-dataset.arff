@@ -1,4 +1,4 @@
-@relation 'dev-assist:-C 5-meka.filters.unsupervised.attribute.MekaClassAttributes-R1-5'
+@relation 'dev-assist: -C 5 -meka.filters.unsupervised.attribute.MekaClassAttributes-R1-5'
 
 @attribute CWE79 {0,1}
 @attribute source {0,1}
