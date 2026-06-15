@@ -35,7 +35,7 @@ public class WekaPredictionService implements PredictionService {
      * predicted probabilities for that instance.
      */
     @Override
-    public double[][] predictProba(double[][] features) throws Exception {
+    public synchronized double[][] predictProba(double[][] features) throws Exception {
         int n = features.length;
         int numClasses = header.numClasses();
         double[][] out = new double[n][numClasses];

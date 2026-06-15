@@ -14,6 +14,8 @@ import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * A lightweight HTTP server that exposes the /predict endpoint and invokes a PredictionService
@@ -46,7 +48,11 @@ public class PredictionHttpServer {
     public void start() throws Exception {
         server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/predict", new PredictHandler());
-        server.setExecutor(null);
+
+        int cores = Runtime.getRuntime().availableProcessors();
+        logger.info("Using {} available cores", cores);
+        ExecutorService executor = Executors.newFixedThreadPool(cores * 4);
+        server.setExecutor(executor);
         server.start();
         logger.info("Prediction HTTP server started on port {}", port);
     }

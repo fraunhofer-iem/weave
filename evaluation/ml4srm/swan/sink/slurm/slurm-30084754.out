@@ -1,0 +1,173 @@
+cpu-bind=MASK - n2cn0171, task  0  0 [2379921]: mask |BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB|  set
+Setting up WEAVE
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) pc2fs   2) slurm/24.11.5-1   3) DefaultModules
+Setting up Python environment
+Installing packages
+Requirement already satisfied: numpy in ./weave_env_si/lib/python3.12/site-packages (2.3.5)
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: pandas in ./weave_env_si/lib/python3.12/site-packages (2.3.3)
+Requirement already satisfied: numpy>=1.26.0 in ./weave_env_si/lib/python3.12/site-packages (from pandas) (2.3.5)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./weave_env_si/lib/python3.12/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in ./weave_env_si/lib/python3.12/site-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in ./weave_env_si/lib/python3.12/site-packages (from pandas) (2025.3)
+Requirement already satisfied: six>=1.5 in ./weave_env_si/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: shap in ./weave_env_si/lib/python3.12/site-packages (0.50.0)
+Requirement already satisfied: numpy>=2 in ./weave_env_si/lib/python3.12/site-packages (from shap) (2.3.5)
+Requirement already satisfied: scipy in ./weave_env_si/lib/python3.12/site-packages (from shap) (1.17.0)
+Requirement already satisfied: scikit-learn in ./weave_env_si/lib/python3.12/site-packages (from shap) (1.8.0)
+Requirement already satisfied: pandas in ./weave_env_si/lib/python3.12/site-packages (from shap) (2.3.3)
+Requirement already satisfied: tqdm>=4.27.0 in ./weave_env_si/lib/python3.12/site-packages (from shap) (4.67.1)
+Requirement already satisfied: packaging>20.9 in ./weave_env_si/lib/python3.12/site-packages (from shap) (25.0)
+Requirement already satisfied: slicer==0.0.8 in ./weave_env_si/lib/python3.12/site-packages (from shap) (0.0.8)
+Requirement already satisfied: numba>=0.54 in ./weave_env_si/lib/python3.12/site-packages (from shap) (0.63.1)
+Requirement already satisfied: cloudpickle in ./weave_env_si/lib/python3.12/site-packages (from shap) (3.1.2)
+Requirement already satisfied: typing-extensions in ./weave_env_si/lib/python3.12/site-packages (from shap) (4.15.0)
+Requirement already satisfied: llvmlite<0.47,>=0.46.0dev0 in ./weave_env_si/lib/python3.12/site-packages (from numba>=0.54->shap) (0.46.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in ./weave_env_si/lib/python3.12/site-packages (from pandas->shap) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in ./weave_env_si/lib/python3.12/site-packages (from pandas->shap) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in ./weave_env_si/lib/python3.12/site-packages (from pandas->shap) (2025.3)
+Requirement already satisfied: joblib>=1.3.0 in ./weave_env_si/lib/python3.12/site-packages (from scikit-learn->shap) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.2.0 in ./weave_env_si/lib/python3.12/site-packages (from scikit-learn->shap) (3.6.0)
+Requirement already satisfied: six>=1.5 in ./weave_env_si/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas->shap) (1.17.0)
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: matplotlib in ./weave_env_si/lib/python3.12/site-packages (3.10.8)
+Requirement already satisfied: contourpy>=1.0.1 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (4.61.1)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (1.4.9)
+Requirement already satisfied: numpy>=1.23 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (2.3.5)
+Requirement already satisfied: packaging>=20.0 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (25.0)
+Requirement already satisfied: pillow>=8 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (12.1.0)
+Requirement already satisfied: pyparsing>=3 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (3.3.1)
+Requirement already satisfied: python-dateutil>=2.7 in ./weave_env_si/lib/python3.12/site-packages (from matplotlib) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in ./weave_env_si/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib) (1.17.0)
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+Requirement already satisfied: requests in ./weave_env_si/lib/python3.12/site-packages (2.32.5)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./weave_env_si/lib/python3.12/site-packages (from requests) (3.4.4)
+Requirement already satisfied: idna<4,>=2.5 in ./weave_env_si/lib/python3.12/site-packages (from requests) (3.11)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./weave_env_si/lib/python3.12/site-packages (from requests) (2.6.3)
+Requirement already satisfied: certifi>=2017.4.17 in ./weave_env_si/lib/python3.12/site-packages (from requests) (2026.1.4)
+
+[notice] A new release of pip is available: 24.0 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+Starting model explanation
+2026-01-15 17:01:39:267 INFO de.fraunhofer.iem.weave.cli.PipelineRunner - Explainer-only mode. Using model: weka.classifiers.meta.LogitBoost -Q -L -1.7976931348623157E308 -H 0.5 -Z 5.0 -O 1 -E 1 -S 1 -I 10 -W weka.classifiers.trees.RandomForest -do-not-check-capabilities -- -P 94 -I 95 -num-slots 1 -do-not-check-capabilities -K 0 -M 2.0 -V 1.0E-4 -S 1 -N 8
+Jan 15, 2026 5:01:39 PM com.github.fommil.netlib.ARPACK <clinit>
+WARNING: Failed to load implementation from: com.github.fommil.netlib.NativeSystemARPACK
+Jan 15, 2026 5:01:39 PM com.github.fommil.netlib.ARPACK <clinit>
+WARNING: Failed to load implementation from: com.github.fommil.netlib.NativeRefARPACK
+2026-01-15 17:02:08:922 INFO de.fraunhofer.iem.weave.cli.PipelineRunner - Built WEKA classifier for explanation: weka.classifiers.meta.LogitBoost -Q -L -1.7976931348623157E308 -H 0.5 -Z 5.0 -O 1 -E 1 -S 1 -I 10 -W weka.classifiers.trees.RandomForest -do-not-check-capabilities -- -P 94 -I 95 -num-slots 1 -do-not-check-capabilities -K 0 -M 2.0 -V 1.0E-4 -S 1 -N 8
+2026-01-15 17:02:09:039 INFO de.fraunhofer.iem.weave.module.explainer.server.PredictionHttpServer - Using 128 available cores
+2026-01-15 17:02:09:042 INFO de.fraunhofer.iem.weave.module.explainer.server.PredictionHttpServer - Prediction HTTP server started on port 8060
+2026-01-15 17:02:09:166 INFO de.fraunhofer.iem.weave.module.explainer.services.ExplainerExporter - Exported global features to /scratch/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink/output/global_features.csv
+2026-01-15 17:02:09:175 INFO de.fraunhofer.iem.weave.module.explainer.services.ExplainerExporter - Exported local features to /scratch/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink/output/local_features.csv
+2026-01-15 17:02:09:176 INFO de.fraunhofer.iem.weave.module.ModelExplainer - HTTP explainer setup complete.
+2026-01-15 17:02:09:176 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Prediction server listening on http://localhost:8060/predict
+2026-01-15 17:02:09:176 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Global features CSV: /scratch/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink/output/global_features.csv
+2026-01-15 17:02:09:176 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Local features CSV : /scratch/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink/output/local_features.csv
+2026-01-15 17:02:09:176 INFO de.fraunhofer.iem.weave.module.ModelExplainer - You can now run the Python SHAP script pointing to these files and the /predict endpoint.
+2026-01-15 17:02:09:178 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Starting Python SHAP script: python /scratch/hpc-prf-crnrw/weave/cli/src/main/java/de/fraunhofer/iem/weave/module/explainer/shap/shap_explainer.py --toolkit weka --server_url http://localhost:8060 --global_csv /scratch/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink/output/global_features.csv --local_csv /scratch/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink/output/local_features.csv --output_dir /scratch/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink/output --shap_global_bg_samples 250 --shap_global_exp_samples 500 --shap_local_bg_samples 250 --shap_local_exp_samples 250
+2026-01-15 17:02:16:488 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] Using 250 background data samples could cause slower run times. Consider using shap.sample(data, K) or shap.kmeans(data, K) to summarize the background as K samples.
+2026-01-15 17:02:16:489 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 
+2026-01-15 17:10:58:790 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   0%|          | 0/500 [00:00<?, ?it/s]
+2026-01-15 17:19:10:942 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   0%|          | 1/500 [08:42<72:23:48, 522.30s/it]
+2026-01-15 17:26:59:857 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   0%|          | 2/500 [16:54<69:47:54, 504.57s/it]
+2026-01-15 17:37:04:861 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 3/500 [24:43<67:24:38, 488.29s/it]
+2026-01-15 17:44:28:116 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 4/500 [34:48<73:37:25, 534.37s/it]
+2026-01-15 17:53:27:348 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 5/500 [42:11<68:57:27, 501.51s/it]
+2026-01-15 18:01:51:601 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 6/500 [51:10<70:34:41, 514.34s/it]
+2026-01-15 18:09:59:477 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|▏         | 7/500 [59:35<69:59:02, 511.04s/it]
+2026-01-15 18:18:59:803 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 8/500 [1:07:42<68:50:03, 503.67s/it]
+2026-01-15 18:26:43:595 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 9/500 [1:16:43<70:15:26, 515.13s/it]
+2026-01-15 18:33:30:755 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 10/500 [1:24:27<67:57:26, 499.28s/it]
+2026-01-15 18:40:41:644 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 11/500 [1:31:14<63:59:20, 471.09s/it]
+2026-01-15 18:50:03:528 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 12/500 [1:38:25<62:12:02, 458.86s/it]
+2026-01-15 18:57:11:904 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 13/500 [1:47:47<66:17:42, 490.07s/it]
+2026-01-15 19:05:10:421 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 14/500 [1:54:55<63:38:36, 471.43s/it]
+2026-01-15 19:14:09:497 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 15/500 [2:02:53<63:48:00, 473.57s/it]
+2026-01-15 19:20:31:209 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 16/500 [2:11:53<66:19:10, 493.29s/it]
+2026-01-15 19:30:47:704 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 17/500 [2:18:14<61:40:52, 459.74s/it]
+2026-01-15 19:38:51:938 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▎         | 18/500 [2:28:31<67:51:37, 506.84s/it]
+2026-01-15 19:48:32:230 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 19/500 [2:36:35<66:48:44, 500.05s/it]
+2026-01-15 19:56:19:208 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 20/500 [2:46:15<69:53:08, 524.14s/it]
+2026-01-15 20:02:48:206 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 21/500 [2:54:02<67:27:25, 506.98s/it]
+2026-01-15 20:13:04:507 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 22/500 [3:00:31<62:36:52, 471.57s/it]
+2026-01-15 20:22:00:953 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▍         | 23/500 [3:10:48<68:14:16, 515.00s/it]
+2026-01-15 20:28:30:397 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▍         | 24/500 [3:19:44<68:56:44, 521.44s/it]
+2026-01-15 20:37:27:695 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▌         | 25/500 [3:26:13<63:34:31, 481.83s/it]
+2026-01-15 20:44:32:782 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▌         | 26/500 [3:35:11<65:37:57, 498.47s/it]
+2026-01-15 20:51:29:750 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▌         | 27/500 [3:42:16<62:36:04, 476.46s/it]
+2026-01-15 20:58:27:626 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 28/500 [3:49:13<60:07:43, 458.61s/it]
+2026-01-15 21:04:46:082 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 29/500 [3:56:11<58:24:09, 446.39s/it]
+2026-01-15 21:11:13:883 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 30/500 [4:02:29<55:37:04, 426.01s/it]
+2026-01-15 21:18:02:694 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 31/500 [4:08:57<54:00:22, 414.55s/it]
+2026-01-15 21:25:16:064 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▋         | 32/500 [4:15:46<53:40:02, 412.83s/it]
+2026-01-15 21:33:06:539 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 33/500 [4:22:59<54:21:07, 418.99s/it]
+2026-01-15 21:42:04:353 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 34/500 [4:30:50<56:14:06, 434.43s/it]
+2026-01-15 21:50:00:166 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 35/500 [4:39:47<60:07:13, 465.45s/it]
+2026-01-15 21:56:28:451 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 36/500 [4:47:43<60:23:31, 468.56s/it]
+2026-01-15 22:04:26:465 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 37/500 [4:54:11<57:09:52, 444.48s/it]
+2026-01-15 22:11:40:656 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 38/500 [5:02:09<58:19:56, 454.54s/it]
+2026-01-15 22:18:58:053 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 39/500 [5:09:24<57:25:27, 448.43s/it]
+2026-01-15 22:26:43:544 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 40/500 [5:16:41<56:52:36, 445.12s/it]
+2026-01-15 22:37:32:032 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 41/500 [5:24:27<57:31:55, 451.23s/it]
+2026-01-15 22:47:47:937 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 42/500 [5:35:15<64:56:07, 510.41s/it]
+2026-01-15 22:56:44:396 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▊         | 43/500 [5:45:31<68:48:40, 542.06s/it]
+2026-01-15 23:02:40:798 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 44/500 [5:54:27<68:26:52, 540.38s/it]
+2026-01-15 23:09:38:305 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 45/500 [6:00:24<61:19:19, 485.19s/it]
+2026-01-15 23:17:33:858 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 46/500 [6:07:21<58:37:36, 464.88s/it]
+2026-01-15 23:25:20:064 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 47/500 [6:15:17<58:54:01, 468.08s/it]
+2026-01-15 23:31:16:672 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|▉         | 48/500 [6:23:03<58:41:59, 467.52s/it]
+2026-01-15 23:42:06:050 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|▉         | 49/500 [6:29:00<54:24:05, 434.25s/it]
+2026-01-15 23:51:04:322 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|█         | 50/500 [6:39:49<62:20:53, 498.79s/it]
+2026-01-16 00:00:04:413 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|█         | 51/500 [6:48:47<63:41:13, 510.63s/it]
+2026-01-16 00:08:05:140 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|█         | 52/500 [6:57:47<64:38:42, 519.47s/it]
+2026-01-16 00:16:05:146 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 53/500 [7:05:48<63:03:27, 507.85s/it]
+2026-01-16 00:25:01:740 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 54/500 [7:13:48<61:52:54, 499.49s/it]
+2026-01-16 00:32:22:117 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 55/500 [7:22:45<63:07:07, 510.62s/it]
+2026-01-16 00:40:21:193 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 56/500 [7:30:05<60:22:40, 489.55s/it]
+2026-01-16 00:46:33:918 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█▏        | 57/500 [7:38:04<59:51:18, 486.41s/it]
+2026-01-16 00:55:32:363 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 58/500 [7:44:17<55:31:58, 452.30s/it]
+2026-01-16 01:02:49:169 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 59/500 [7:53:15<58:34:22, 478.15s/it]
+2026-01-16 01:11:48:041 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 60/500 [8:00:32<56:55:27, 465.74s/it]
+2026-01-16 01:20:28:278 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 61/500 [8:09:31<59:28:12, 487.68s/it]
+2026-01-16 01:28:12:930 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 62/500 [8:18:11<60:31:22, 497.45s/it]
+2026-01-16 01:34:53:519 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 63/500 [8:25:56<59:11:25, 487.61s/it]
+2026-01-16 01:42:55:874 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 64/500 [8:32:37<55:53:35, 461.50s/it]
+2026-01-16 01:51:54:125 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 65/500 [8:40:39<56:31:15, 467.76s/it]
+2026-01-16 01:58:41:525 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 66/500 [8:49:37<58:56:25, 488.91s/it]
+2026-01-16 02:05:59:683 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 67/500 [8:56:25<55:51:48, 464.45s/it]
+2026-01-16 02:12:36:601 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▎        | 68/500 [9:03:43<54:47:16, 456.57s/it]
+2026-01-16 02:21:34:311 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 69/500 [9:10:20<52:31:07, 438.67s/it]
+2026-01-16 02:30:32:833 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 70/500 [9:19:17<55:56:44, 468.38s/it]
+2026-01-16 02:41:21:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 71/500 [9:28:16<58:19:23, 489.42s/it]
+2026-01-16 02:47:56:305 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 72/500 [9:39:05<63:52:46, 537.31s/it]
+2026-01-16 02:57:31:992 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▍        | 73/500 [9:45:39<58:38:49, 494.45s/it]
+2026-01-16 03:06:08:930 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▍        | 74/500 [9:55:15<61:23:36, 518.82s/it]
+2026-01-16 03:14:05:288 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▌        | 75/500 [10:03:52<61:10:58, 518.25s/it]
+2026-01-16 03:22:31:789 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▌        | 76/500 [10:11:48<59:33:30, 505.69s/it]
+2026-01-16 03:28:31:685 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▌        | 77/500 [10:20:15<59:26:48, 505.93s/it]
+2026-01-16 03:36:45:089 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 78/500 [10:26:15<54:10:14, 462.12s/it]
+2026-01-16 03:45:43:094 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 79/500 [10:34:28<55:08:23, 471.51s/it]
+2026-01-16 03:52:31:656 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 80/500 [10:43:26<57:20:11, 491.46s/it]
+2026-01-16 03:59:21:432 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 81/500 [10:50:15<54:18:19, 466.59s/it]
+2026-01-16 04:06:16:173 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▋        | 82/500 [10:57:04<52:11:49, 449.54s/it]
+2026-01-16 04:13:44:492 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 83/500 [11:03:59<50:51:45, 439.10s/it]
+2026-01-16 04:23:58:597 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 84/500 [11:11:28<51:03:37, 441.87s/it]
+2026-01-16 04:32:57:796 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 85/500 [11:21:42<56:53:38, 493.54s/it]
+2026-01-16 04:40:44:778 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 86/500 [11:30:41<58:19:56, 507.24s/it]
+2026-01-16 04:47:16:812 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 87/500 [11:38:28<56:48:21, 495.16s/it]
+2026-01-16 04:55:19:065 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 88/500 [11:45:00<53:07:39, 464.22s/it]
+slurmstepd: error: *** JOB 30084754 ON n2cn0171 CANCELLED AT 2026-01-16T05:01:26 DUE TO TIME LIMIT ***
