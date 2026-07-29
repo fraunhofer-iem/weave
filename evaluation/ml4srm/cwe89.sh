@@ -23,6 +23,6 @@ pip install requests
 
 echo "Starting model explanation"
 
-java -Xms20g -Xmx200g -jar $PC2PFS/hpc-prf-crnrw/weave/target/cli-1.0-jar-with-dependencies.jar -t weka -c $PC2PFS/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/cwe89.properties -X -e "weka.classifiers.lazy.LWL -U 2 -K 120 -A weka.core.neighboursearch.LinearNNSearch -W weka.classifiers.trees.RandomForest -do-not-check-capabilities -- -P 24 -I 118 -num-slots 1 -do-not-check-capabilities -K 32 -M 8.0 -V 10.0 -S 1 -N 2 -B"
+java -Xms20g -Xmx200g -jar $PC2PFS/hpc-prf-crnrw/weave/target/cli-1.0-jar-with-dependencies.jar -t weka -c $PC2PFS/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/cwe89.properties -X -e "weka.classifiers.functions.SimpleLogistic -I 0 -S -P -M 500 -H 32 -W 0.0 -do-not-check-capabilities"
 
 echo "Process completed"
