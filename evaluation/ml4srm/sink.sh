@@ -3,6 +3,19 @@
 #SBATCH -N 1
 #SBATCH -t 12:00:00
 #SBATCH -A hpc-prf-crnrw
+
+# Point this at your checkout; every path below is derived from it.
+export WEAVE_HOME="${WEAVE_HOME:-$PC2PFS/hpc-prf-crnrw/weave}"
+
+# Which model to explain: "old" (the previously selected model) or "new".
+# Submit once per model, e.g. sbatch --export=ALL,MODEL_TAG=new <script>
+export MODEL_TAG="${MODEL_TAG:-old}"
+case "$MODEL_TAG" in
+  new) MODEL="weka.classifiers.meta.LogitBoost -Q -L -1.7976931348623157E308 -H 0.5 -Z 5.0 -O 1 -E 1 -S 1 -I 10 -W weka.classifiers.trees.RandomForest -do-not-check-capabilities -- -P 94 -I 95 -num-slots 1 -do-not-check-capabilities -K 0 -M 2.0 -V 1.0E-4 -S 1 -N 8" ;;
+  old) MODEL="weka.classifiers.functions.SMO" ;;
+  *) echo "MODEL_TAG must be old or new, got: $MODEL_TAG" >&2; exit 2 ;;
+esac
+echo "Explaining $MODEL_TAG model: $MODEL"
 echo "Setting up WEAVE"
 
 module purge
@@ -23,6 +36,6 @@ pip install requests
 
 echo "Starting model explanation"
 
-java -Xms20g -Xmx200g -jar $PC2PFS/hpc-prf-crnrw/weave/target/cli-1.0-jar-with-dependencies.jar -t weka -c $PC2PFS/hpc-prf-crnrw/weave/evaluation/ml4srm/swan/sink.properties -X -e "weka.classifiers.meta.LogitBoost -Q -L -1.7976931348623157E308 -H 0.5 -Z 5.0 -O 1 -E 1 -S 1 -I 10 -W weka.classifiers.trees.RandomForest -do-not-check-capabilities -- -P 94 -I 95 -num-slots 1 -do-not-check-capabilities -K 0 -M 2.0 -V 1.0E-4 -S 1 -N 8"
+java -Xms20g -Xmx200g -jar ${WEAVE_HOME}/target/cli-1.0-jar-with-dependencies.jar -t weka -c ${WEAVE_HOME}/evaluation/ml4srm/swan/sink.properties -X -e "$MODEL"
 
 echo "Process completed"
