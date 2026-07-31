@@ -1,11 +1,16 @@
 package de.fraunhofer.iem.weave.module.explainer.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
 
 import java.util.concurrent.CompletionException;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ForkJoinPool;
 import java.util.stream.IntStream;
 
 /**
@@ -13,9 +18,31 @@ import java.util.stream.IntStream;
  */
 public class WekaPredictionService implements PredictionService {
 
+    private static final Logger logger = LoggerFactory.getLogger(WekaPredictionService.class);
+
+    /** Worker count, and therefore the number of classifier copies held in memory. */
+    private static final int THREADS = Integer.getInteger("weave.predict.threads",
+            Runtime.getRuntime().availableProcessors());
+
     private final Instances header;
-    private final Classifier classifier;
+    private final Classifier prototype;
     private final int classIndex;
+
+    /**
+     * One classifier per worker thread. Several WEKA classifiers are NOT safe to call
+     * concurrently: SMO, SimpleLogistic and Logistic push each instance through an
+     * internal Filter whose Queue is shared mutable state, so sharing a single
+     * instance across threads throws "Queue is empty" or silently returns the wrong
+     * distribution. Tree ensembles happen to be safe, but that is not something the
+     * Classifier interface promises, so every thread gets its own deep copy.
+     */
+    private final ThreadLocal<Classifier> perThread;
+
+    /** Dedicated pool so the copies live on a fixed, known set of threads. */
+    private final ForkJoinPool pool;
+
+    /** False when the classifier cannot be copied; then scoring is serial and locked. */
+    private final boolean parallel;
 
     /**
      * Constructs a new WekaPredictionService.
@@ -25,18 +52,36 @@ public class WekaPredictionService implements PredictionService {
     public WekaPredictionService(Instances header, Classifier classifier) {
         // create a template for constructing new instances.
         this.header = new Instances(header, 0);
-        this.classifier = classifier;
+        this.prototype = classifier;
         this.classIndex = this.header.classIndex();
+
+        boolean copyable;
+        try {
+            AbstractClassifier.makeCopy(classifier);
+            copyable = true;
+        } catch (Exception e) {
+            copyable = false;
+            logger.warn("{} cannot be copied ({}); scoring will run single-threaded.",
+                    classifier.getClass().getName(), e.getMessage());
+        }
+        this.parallel = copyable;
+        this.pool = copyable ? new ForkJoinPool(THREADS) : null;
+        this.perThread = ThreadLocal.withInitial(() -> {
+            try {
+                return AbstractClassifier.makeCopy(prototype);
+            } catch (Exception e) {
+                throw new IllegalStateException("Could not copy classifier for this thread", e);
+            }
+        });
+        if (copyable) {
+            logger.info("Scoring with up to {} threads, one classifier copy each"
+                    + " (override with -Dweave.predict.threads=N).", THREADS);
+        }
     }
 
     /**
      * Computes prediction probabilities for a batch of feature vectors using the underlying
      * WEKA Classifier.
-     *
-     * <p>Rows are scored in parallel. The classifier and the header template are only
-     * read after training, and every row gets its own Instance, so no state is shared
-     * between threads. SHAP drives this endpoint with batches of tens of thousands of
-     * rows, and scoring them one at a time left all but one core idle.
      *
      * @param features a 2D array of shape [nSamples][nFeatures].
      * @return a 2D array of shape [nSamples][nOutputs], where each row contains the
@@ -45,21 +90,33 @@ public class WekaPredictionService implements PredictionService {
     @Override
     public double[][] predictProba(double[][] features) throws Exception {
         int n = features.length;
-        int numClasses = header.numClasses();
-        double[][] out = new double[n][numClasses];
+        double[][] out = new double[n][header.numClasses()];
+
+        if (!parallel) {
+            synchronized (prototype) {
+                for (int i = 0; i < n; i++) {
+                    out[i] = prototype.distributionForInstance(toInstance(features[i]));
+                }
+            }
+            return out;
+        }
 
         try {
-            IntStream.range(0, n).parallel().forEach(i -> {
+            // Distinct indices, so the concurrent writes do not race.
+            pool.submit(() -> IntStream.range(0, n).parallel().forEach(i -> {
                 try {
-                    // Distinct indices, so the concurrent writes do not race.
-                    out[i] = classifier.distributionForInstance(toInstance(features[i]));
+                    out[i] = perThread.get().distributionForInstance(toInstance(features[i]));
                 } catch (Exception e) {
                     throw new CompletionException(e);
                 }
-            });
-        } catch (CompletionException e) {
-            if (e.getCause() instanceof Exception cause) {
-                throw cause;
+            })).get();
+        } catch (ExecutionException e) {
+            Throwable cause = e.getCause();
+            if (cause instanceof CompletionException && cause.getCause() != null) {
+                cause = cause.getCause();
+            }
+            if (cause instanceof Exception ex) {
+                throw ex;
             }
             throw e;
         }
