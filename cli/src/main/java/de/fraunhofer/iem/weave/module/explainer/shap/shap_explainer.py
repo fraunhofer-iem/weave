@@ -114,11 +114,16 @@ def aggregate_local_top_k(expl: Explanation,
         feature_names=new_names,
     )
 
-def predict_http(server_url: str, X: np.ndarray, batch_size: int = 128) -> np.ndarray:
+def predict_http(server_url: str, X: np.ndarray, batch_size: int = 8192) -> np.ndarray:
     """
     Calls the Java HTTP /predict endpoint to obtain prediction probabilities.
     server_url : Base URL of the prediction server
     X : Feature matrix of shape (n_samples, n_features)
+
+    Batches are posted one at a time, so batch_size sets how many rows the Java
+    side can score in parallel. Keep it large: at 128 rows the server had far
+    fewer rows in flight than it has cores, and the run was dominated by HTTP
+    round trips.
     """
     X = np.asarray(X)
     n_samples = X.shape[0]
