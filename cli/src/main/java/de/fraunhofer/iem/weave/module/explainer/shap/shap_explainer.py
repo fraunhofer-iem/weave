@@ -114,6 +114,54 @@ def aggregate_local_top_k(expl: Explanation,
         feature_names=new_names,
     )
 
+def sample_indices(rng, population: int, requested: int, what: str) -> np.ndarray:
+    """
+    Draw `requested` distinct row indices out of `population`, clamped to the
+    population size.
+
+    The local background and explanation sets are drawn from the test ARFF, which
+    can hold fewer rows than the configured sample count - the gxa sanitizer set has
+    248 rows against a configured 250 - and rng.choice(..., replace=False) raises
+    "Cannot take a larger sample than population" instead of clamping.
+    """
+    if requested > population:
+        print(f"[shap] {what}: {requested} samples requested but only {population} "
+              f"rows available; using {population}.")
+        requested = population
+    return rng.choice(population, size=requested, replace=False)
+
+
+def export_shap_matrix(expl, feature_names: list[str], source_idx, path: str) -> None:
+    """
+    Write the full SIGNED SHAP matrix: one row per explained instance, one column
+    per feature. This is the raw output; the *_aggregated.csv files next to it are
+    mean(|SHAP|) collapses of exactly this data and cannot be un-collapsed.
+
+    Columns:
+      row          position within the explained set - matches local_instance_<row>.pdf
+      dataset_row  row in the source features CSV. That CSV is written in ARFF order,
+                   which is order-locked to the *-methods file, so this is what maps a
+                   SHAP row back to a method signature.
+      base_value   E[f(x)] over the background set
+      prediction   base_value + sum(shap values), i.e. the model output being explained
+      <feature>    signed SHAP value, one column per feature
+    """
+    values = np.asarray(expl.values if isinstance(expl, Explanation) else expl)
+    base = (np.asarray(expl.base_values, dtype=float).reshape(-1)
+            if isinstance(expl, Explanation) else np.array([np.nan]))
+    if base.size == 1:
+        base = np.repeat(base, values.shape[0])
+
+    df = pd.DataFrame(values, columns=feature_names)
+    df.insert(0, "prediction", base + values.sum(axis=1))
+    df.insert(0, "base_value", base)
+    df.insert(0, "dataset_row", np.asarray(source_idx))
+    df.insert(0, "row", np.arange(values.shape[0]))
+    df.to_csv(path, index=False)
+    print(f"[shap] wrote {path} "
+          f"({values.shape[0]} instances x {len(feature_names)} features, signed)")
+
+
 def predict_http(server_url: str, X: np.ndarray, batch_size: int = 8192) -> np.ndarray:
     """
     Calls the Java HTTP /predict endpoint to obtain prediction probabilities.
@@ -173,10 +221,10 @@ def explain_weka(server_url: str, global_csv: str, local_csv: str, output_dir: s
     n_local = Xl_full.shape[0]
 
     # sample indices from the correct data sources
-    global_bg_idx = rng.choice(n_global, size=shap_global_bg_sample_size, replace=False)
-    global_exp_idx = rng.choice(n_global, size=shap_global_exp_sample_size, replace=False)
-    local_bg_idx = rng.choice(n_local, size=shap_local_bg_sample_size, replace=False)
-    local_exp_idx = rng.choice(n_local, size=shap_local_exp_sample_size, replace=False)
+    global_bg_idx = sample_indices(rng, n_global, shap_global_bg_sample_size, "global background")
+    global_exp_idx = sample_indices(rng, n_global, shap_global_exp_sample_size, "global explained")
+    local_bg_idx = sample_indices(rng, n_local, shap_local_bg_sample_size, "local background")
+    local_exp_idx = sample_indices(rng, n_local, shap_local_exp_sample_size, "local explained")
 
     Xg_bg = Xg_full[global_bg_idx]
     Xg_exp = Xg_full[global_exp_idx]
@@ -204,6 +252,9 @@ def explain_weka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         os.path.join(global_dir, "global_shap_aggregated.csv"),
         index=False
     )
+
+    export_shap_matrix(shap_values_global, feature_names, global_exp_idx,
+                       os.path.join(global_dir, "global_shap_values.csv"))
 
     shap_values_global_top = aggregate_global_top_k(shap_values_global, feature_names=feature_names, k=10,)
 
@@ -238,6 +289,9 @@ def explain_weka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         os.path.join(local_dir, "local_shap_aggregated.csv"),
         index=False
     )
+
+    export_shap_matrix(shap_values_local, feature_names, local_exp_idx,
+                       os.path.join(local_dir, "local_shap_values.csv"))
 
     for i in range(Xl_exp.shape[0]):
         print(f"[WEKA] Computing SHAP values for instance {i} ...")
@@ -276,10 +330,10 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
     n_local = Xl_full.shape[0]
 
     # sample indices from the correct data sources
-    global_bg_idx = rng.choice(n_global, size=shap_global_bg_sample_size, replace=False)
-    global_exp_idx = rng.choice(n_global, size=shap_global_exp_sample_size, replace=False)
-    local_bg_idx = rng.choice(n_local, size=shap_local_bg_sample_size, replace=False)
-    local_exp_idx = rng.choice(n_local, size=shap_local_exp_sample_size, replace=False)
+    global_bg_idx = sample_indices(rng, n_global, shap_global_bg_sample_size, "global background")
+    global_exp_idx = sample_indices(rng, n_global, shap_global_exp_sample_size, "global explained")
+    local_bg_idx = sample_indices(rng, n_local, shap_local_bg_sample_size, "local background")
+    local_exp_idx = sample_indices(rng, n_local, shap_local_exp_sample_size, "local explained")
 
     Xg_bg = Xg_full[global_bg_idx]
     Xg_exp = Xg_full[global_exp_idx]
@@ -321,6 +375,10 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         global_importance_acc += global_mean_abs_for_label
         n_labels_acc_global += 1
 
+        export_shap_matrix(
+            shap_values_global, feature_names, global_exp_idx,
+            os.path.join(global_dir, f"global_shap_values_label_{label_index}.csv"))
+
         shap_values_global_top = aggregate_global_top_k(shap_values_global, feature_names=feature_names, k=10,)
 
         plt.figure()
@@ -346,6 +404,10 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         local_mean_abs_for_label = np.mean(np.abs(local_array), axis=0)
         local_importance_acc += local_mean_abs_for_label
         n_labels_acc += 1
+
+        export_shap_matrix(
+            shap_values_local, feature_names, local_exp_idx,
+            os.path.join(local_dir, f"local_shap_values_label_{label_index}.csv"))
 
         for i in range(Xl_exp.shape[0]):
             expl_single = aggregate_local_top_k(shap_values_local, df_local, feature_names, row_index=i, k=10,)
