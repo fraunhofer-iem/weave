@@ -348,6 +348,8 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
     base_local_dir = os.path.join(output_dir, "local")
     os.makedirs(base_local_dir, exist_ok=True)
 
+    # Per-label global explanations, kept so they can be pooled into one beeswarm.
+    pooled_global = []
     global_importance_acc = np.zeros(len(feature_names), dtype=float)
     n_labels_acc_global = 0
 
@@ -378,6 +380,13 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
         export_shap_matrix(
             shap_values_global, feature_names, global_exp_idx,
             os.path.join(global_dir, f"global_shap_values_label_{label_index}.csv"))
+
+        base_g = (np.asarray(shap_values_global.base_values, dtype=float).reshape(-1)
+                  if isinstance(shap_values_global, Explanation)
+                  else np.asarray([explainer_global.expected_value], dtype=float))
+        if base_g.size == 1:
+            base_g = np.repeat(base_g, global_array.shape[0])
+        pooled_global.append((global_array, base_g))
 
         shap_values_global_top = aggregate_global_top_k(shap_values_global, feature_names=feature_names, k=10,)
 
@@ -417,6 +426,30 @@ def explain_meka(server_url: str, global_csv: str, local_csv: str, output_dir: s
             plt.tight_layout()
             plt.savefig( os.path.join(local_dir, f"local_instance_{i}_label_{label_index}.pdf"), dpi=300, bbox_inches='tight')
             plt.close()
+
+    # One beeswarm covering every label: the per-label explanations stacked row-wise,
+    # so the plot shows the signed SHAP distribution of the whole multi-label model
+    # rather than one label at a time. Top-k selection is the same as the per-label
+    # plots, so the two are directly comparable.
+    if pooled_global:
+        pooled = Explanation(
+            values=np.vstack([v for v, _ in pooled_global]),
+            base_values=np.concatenate([b for _, b in pooled_global]),
+            data=np.vstack([Xg_exp] * len(pooled_global)),
+            feature_names=feature_names,
+        )
+        pooled_top = aggregate_global_top_k(pooled, feature_names=feature_names, k=10)
+        plt.figure()
+        shap.summary_plot(pooled_top, show=False, sort=False)
+        plt.title(f"All {len(pooled_global)} labels pooled "
+                  f"({pooled.values.shape[0]} explanations)")
+        plt.tight_layout()
+        plt.savefig(os.path.join(global_dir, "global_beeswarm_all_labels.pdf"),
+                    dpi=300, bbox_inches="tight")
+        plt.close()
+        print(f"[MEKA] wrote global_beeswarm_all_labels.pdf "
+              f"({len(pooled_global)} labels x {Xg_exp.shape[0]} instances "
+              f"= {pooled.values.shape[0]} rows)")
 
     if n_labels_acc_global > 0:
         global_mean_abs_all_labels = global_importance_acc / n_labels_acc_global
