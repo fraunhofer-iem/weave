@@ -1,0 +1,250 @@
+java.lang.String uk.ac.ebi.gxa.data.NetCDFProxyV1.getArrayDesignAccession() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.utils.Pair uk.ac.ebi.gxa.utils.Pair.create(java.lang.Object, java.lang.Object) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.bioentity.BioEntityType uk.ac.ebi.gxa.dao.bioentity.BioEntityDAO.findOrCreateBioEntityType(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.properties.DbStorage.setProperty(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.Collection uk.ac.ebi.gxa.efo.EfoImpl.searchTerm(java.lang.String) # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.microarray.atlas.model.AssayProperty.removeTerm(uk.ac.ebi.microarray.atlas.model.OntologyTerm) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFStatisticsCreator.writeUEFVs() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.data.ExperimentPartCriteria uk.ac.ebi.gxa.data.ExperimentPartCriteria.hasArrayDesignAccession(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.data.ExpressionDataCursor.getDeAccession() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.AtlasDataException.<init>(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.SolrContainerFactory.writeResourceToFile(java.lang.String, java.io.File) # rq3_shap_sample250_gxa.csv
+int uk.ac.ebi.gxa.utils.FactorValueOrdering.compare(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.statistics.ExperimentResult.<init>(uk.ac.ebi.gxa.statistics.ExperimentInfo, uk.ac.ebi.gxa.statistics.EfAttribute, uk.ac.ebi.gxa.statistics.PTRank) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.properties.ResourceFileStorage.getProperty(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiProperty.<init>(uk.ac.ebi.microarray.atlas.model.PropertyValue, java.util.Collection) # rq3_shap_sample250_gxa.csv
+java.io.File uk.ac.ebi.gxa.data.AtlasDataDAO.getFile(uk.ac.ebi.microarray.atlas.model.Experiment, uk.ac.ebi.microarray.atlas.model.ArrayDesign, java.lang.String) # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.microarray.atlas.model.AssayProperty.equals(java.lang.Object) # rq3_shap_sample250_gxa.csv
+java.lang.String[][] uk.ac.ebi.gxa.data.ExperimentWithData.getFactorValues(uk.ac.ebi.microarray.atlas.model.ArrayDesign) # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.gxa.dao.PropertyDAO.isPropertyUsed(java.lang.String) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.data.DataProxy uk.ac.ebi.gxa.data.ExperimentWithData.getProxy(uk.ac.ebi.microarray.atlas.model.ArrayDesign) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.OntologyTerm uk.ac.ebi.gxa.dao.OntologyTermDAO.getOrCreateOntologyTerm(java.lang.String, java.lang.String, java.lang.String, uk.ac.ebi.microarray.atlas.model.Ontology) # rq3_shap_sample250_gxa.csv
+com.google.common.collect.Multimap uk.ac.ebi.gxa.statistics.StatisticsQueryUtils.getScoringExpsAttrs(uk.ac.ebi.gxa.statistics.StatisticsQueryCondition, uk.ac.ebi.gxa.statistics.StatisticsStorage) # rq3_shap_sample250_gxa.csv
+int uk.ac.ebi.microarray.atlas.model.PropertyValue.compareTo(java.lang.Object) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.utils.CollectionUtil.boundSafeSublist(java.util.List, int, int) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.statistics.ThreadSafeStatisticsBuilder.<clinit>() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.exceptions.RecordNotFoundException.<init>() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.NewGeneAtlasIndexBuilderService.processCommand(uk.ac.ebi.gxa.index.builder.IndexAllCommand, uk.ac.ebi.gxa.index.builder.service.IndexBuilderService$ProgressUpdater) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.exceptions.UnexpectedException.<init>(java.lang.String) # rq3_shap_sample250_gxa.csv
+int uk.ac.ebi.gxa.properties.AtlasProperties.getGeneAutocompleteNamesPerSpeciesLimit() # rq3_shap_sample250_gxa.csv
+java.util.Collection uk.ac.ebi.gxa.properties.DbStorage.getAvailablePropertyNames() # rq3_shap_sample250_gxa.csv
+java.lang.Integer uk.ac.ebi.gxa.utils.CountIterator.next() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.db.SqlStatementExecutor.cleanup(java.sql.Statement, java.sql.ResultSet) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.AssayDAO.getAssaysByPropertyValue(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.properties.DbStorage.readProperties() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.utils.dsv.DsvRowIterator.getColumnNames() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.statistics.StatisticsStorage.computeScoresAcrossAllEfos() # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.dao.FindPropertiesQueryBuilder.getQueryThatSelectsPropertiesByNameAndValue() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.bioentity.BioEntityType uk.ac.ebi.gxa.dao.bioentity.BioEntityTypeDAO.findOrCreate(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.Object uk.ac.ebi.gxa.dao.AbstractDAO.getOnly(java.util.List) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.model.Property.deleteValue(uk.ac.ebi.microarray.atlas.model.PropertyValue) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.bioentity.Software uk.ac.ebi.gxa.dao.SoftwareDAO.find(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.String[] uk.ac.ebi.gxa.data.NetCDFProxy.getArrayOfStrings(ucar.nc2.NetcdfFile, java.lang.String) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.PropertyValue uk.ac.ebi.gxa.dao.PropertyValueDAO.getOrCreatePropertyValue(uk.ac.ebi.microarray.atlas.model.Property, java.lang.String) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.ArrayDesign uk.ac.ebi.gxa.dao.arraydesign.ArrayDesignService.loadFromArrayExpress(java.lang.String, boolean) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.efo.EfoImpl.triggerLoad() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.data.ExperimentPartCriteria uk.ac.ebi.gxa.data.ExperimentPartCriteria.containsEfEfv(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+java.io.File uk.ac.ebi.gxa.utils.FileUtil.tempFile(java.lang.String) # rq3_shap_sample250_gxa.csv
+int uk.ac.ebi.microarray.atlas.model.Organism.hashCode() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.GeneAtlasBitIndexBuilderService.indexAll(uk.ac.ebi.gxa.index.builder.service.IndexBuilderService$ProgressUpdater) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.exceptions.RecordNotFoundException.<init>(java.lang.String, java.lang.Throwable) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.ExperimentDAO.getExperimentsByArrayDesignAccession(java.lang.String) # rq3_shap_sample250_gxa.csv
+int uk.ac.ebi.microarray.atlas.model.Property.hashCode() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.anatomogram.svgutil.Editor.setTextAndAlign(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.bioentity.BioEntityDAO.getPropertiesForGenes(java.util.List) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.SampleDAO.getSamplesByProperty(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.String[] uk.ac.ebi.gxa.data.NetCDFProxy.getFactorsCharacteristics(ucar.nc2.NetcdfFile, java.lang.String) # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.microarray.atlas.model.bioentity.BioEntityProperty.equals(java.lang.Object) # rq3_shap_sample250_gxa.csv
+java.util.Collection uk.ac.ebi.microarray.atlas.api.ApiExperiment.getAssets() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.PropertyValueDAO.findValuesForProperty(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.AbstractDAO.getAll() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.data.FloatMatrixProxy uk.ac.ebi.gxa.data.NetCDFProxy.readFloatValuesForRowIndices(ucar.nc2.NetcdfFile, int[], java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.utils.dsv.DsvRowIterator.next() # rq3_shap_sample250_gxa.csv
+java.util.Collection uk.ac.ebi.gxa.properties.ResourceFileStorage.getAvailablePropertyNames() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.anatomogram.svgutil.PathWalker.linetoAbs(float, float) # rq3_shap_sample250_gxa.csv
+java.lang.String[] uk.ac.ebi.gxa.data.NetCDFProxyV1.getFactors() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.AssayDAO.getAssaysByProperty(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.SampleDAO.getSamplePropertiesByPropertyValue(java.lang.String, java.lang.String, boolean) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.BitIndexTask.done(uk.ac.ebi.microarray.atlas.model.Experiment) # rq3_shap_sample250_gxa.csv
+java.lang.String[] uk.ac.ebi.gxa.data.NetCDFProxyV2.getCharacteristics() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.anatomogram.svgutil.ImageFormat.<clinit>() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.ExperimentDAO.getExperimentsBySamplePropertyOntologyTerm(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.efo.EfoTerm.<init>(java.lang.String, java.lang.String, java.util.Collection, boolean, boolean, boolean, int) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.data.NetCDFProxyV2.getExperimentAccession() # rq3_shap_sample250_gxa.csv
+int uk.ac.ebi.microarray.atlas.model.Sample.hashCode() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.ArrayDesign uk.ac.ebi.gxa.dao.ArrayDesignDAO.getArrayDesign(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.utils.FloatFormatter.<init>() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.ExperimentDAO.getExperimentsByAssayPropertyOntologyTerm(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.index.builder.service.NewGeneAtlasIndexBuilderService.createGeneSolrInputDocument(uk.ac.ebi.microarray.atlas.model.bioentity.BioEntity, com.google.common.collect.ArrayListMultimap) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.properties.AtlasProperties.getGeneAutocompleteNameFields() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFDataCreator.writeSamplesAssays(ucar.nc2.NetcdfFileWriteable) # rq3_shap_sample250_gxa.csv
+java.net.HttpURLConnection uk.ac.ebi.gxa.dao.arraydesign.SynonymsServiceClient.getUrlConnection(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.PropertiesIndexBuilderService.<init>() # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.gxa.index.SolrContainerFactory.compareIndex() # rq3_shap_sample250_gxa.csv
+float uk.ac.ebi.gxa.data.FloatMatrixProxy.get(int, int) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFStatisticsCreator.safeAddGlobalAttribute(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.statistics.EfAttribute.getAttributeToExperimentMappings(uk.ac.ebi.gxa.statistics.StatisticsStorage, java.util.Map) # rq3_shap_sample250_gxa.csv
+org.apache.lucene.analysis.TokenStream uk.ac.ebi.gxa.efo.LowercaseAnalyzer.reusableTokenStream(java.lang.String, java.io.Reader) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.exceptions.UnexpectedException uk.ac.ebi.gxa.exceptions.LogUtil.createUnexpected(java.lang.String) # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.gxa.efo.EfoTerm.isBranchRoot() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.model.Experiment.addSample(uk.ac.ebi.microarray.atlas.model.Sample) # rq3_shap_sample250_gxa.csv
+java.lang.String[] uk.ac.ebi.gxa.data.ExperimentWithData.getFactors(uk.ac.ebi.microarray.atlas.model.ArrayDesign) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.model.OntologyTerm.setDescription(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.Object uk.ac.ebi.gxa.dao.AbstractDAO.getById(long) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.microarray.atlas.api.ApiArrayDesign.getName() # rq3_shap_sample250_gxa.csv
+java.io.File uk.ac.ebi.gxa.data.AtlasDataDAO.getStatisticsFile(uk.ac.ebi.microarray.atlas.model.Experiment, uk.ac.ebi.microarray.atlas.model.ArrayDesign) # rq3_shap_sample250_gxa.csv
+java.util.Collection uk.ac.ebi.gxa.statistics.StatisticsStorage.getScoringExperiments(uk.ac.ebi.gxa.statistics.StatisticsType) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.anatomogram.svgutil.CenterWalker.<init>() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.AssayDAO.getAssayPropertiesByPropertyValue(java.lang.String, java.lang.String, boolean) # rq3_shap_sample250_gxa.csv
+java.lang.Integer uk.ac.ebi.gxa.data.NetCDFProxy.findEfIndex(java.lang.String) # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.gxa.utils.DoubleIndexIterator.hasNext() # rq3_shap_sample250_gxa.csv
+org.apache.solr.core.CoreContainer uk.ac.ebi.gxa.index.SolrContainerFactory.createContainer() # rq3_shap_sample250_gxa.csv
+com.google.common.base.Function uk.ac.ebi.gxa.utils.TransformerUtil.instanceTransformer(java.lang.Class, java.lang.Class) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.statistics.EfvAttribute.encodePair(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.utils.dsv.DsvDocumentWriter.write(uk.ac.ebi.gxa.utils.dsv.DsvRowIterator) # rq3_shap_sample250_gxa.csv
+java.io.File uk.ac.ebi.gxa.data.AtlasDataDAO.getV1File(uk.ac.ebi.microarray.atlas.model.Experiment, uk.ac.ebi.microarray.atlas.model.ArrayDesign) # rq3_shap_sample250_gxa.csv
+long[] uk.ac.ebi.gxa.data.NetCDFProxy.getLongArray1(ucar.nc2.NetcdfFile, java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.microarray.atlas.model.Experiment.getAssays() # rq3_shap_sample250_gxa.csv
+it.uniroma3.mat.extendedset.ExtendedSet uk.ac.ebi.gxa.statistics.StatisticsQueryUtils.intersect(it.uniroma3.mat.extendedset.ExtendedSet, java.util.Set) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.index.SolrContainerFactory.getCorePaths() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.Experiment uk.ac.ebi.gxa.dao.AtlasDAO.getExperimentByAccession(java.lang.String) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.exceptions.UnexpectedException uk.ac.ebi.gxa.exceptions.LogUtil.createUnexpected(java.lang.String, java.lang.Throwable) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.hibernate.SchemaValidatingAnnotationSessionFactoryBean.validateDatabaseSchema() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.utils.dsv.DsvRowIterator uk.ac.ebi.gxa.utils.dsv.DsvRowIterator.addColumn(java.lang.String, java.lang.String, com.google.common.base.Function) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.efo.EfoTerm.getTerm() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.model.Experiment.setAbstract(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.io.File uk.ac.ebi.gxa.utils.FileUtil.getTempDirectory() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.properties.DbStorage.reload() # rq3_shap_sample250_gxa.csv
+float[] uk.ac.ebi.gxa.data.FloatMatrixProxy.getRow(int) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFHacks.safeCreate(ucar.nc2.NetcdfFileWriteable) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.ArrayDesign uk.ac.ebi.gxa.dao.arraydesign.ArrayDesignService.findOrCreateArrayDesignShallow(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.dao.SoftwareDAO.getEnsemblVersion() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.arraydesign.ArrayExpressConnection.setNonArrayExpressFields(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.String[] uk.ac.ebi.gxa.data.NetCDFProxyV1.getDesignElementAccessions() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.PropertyValue uk.ac.ebi.gxa.dao.PropertyValueDAO.find(uk.ac.ebi.microarray.atlas.model.Property, java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiShallowSample.<init>(uk.ac.ebi.microarray.atlas.model.Sample) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.statistics.EfoIndex uk.ac.ebi.gxa.index.builder.service.GeneAtlasBitIndexBuilderService.loadEfoMapping(uk.ac.ebi.gxa.statistics.ObjectPool, uk.ac.ebi.gxa.statistics.ObjectPool) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.ArrayDesign uk.ac.ebi.gxa.dao.AtlasDAO.getArrayDesignShallowByAccession(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.properties.AtlasProperties.getGenePageDefaultFields() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.SampleDAO.getSamplePropertiesByOntologyTerm(java.lang.String) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.bioentity.Software uk.ac.ebi.gxa.dao.SoftwareDAO.getById(long) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.PropertyValue uk.ac.ebi.gxa.dao.PropertyValueDAO.getOrCreatePropertyValue(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiOrganism.<init>(uk.ac.ebi.microarray.atlas.model.Organism) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.utils.ZipUtil.addDirectory(java.util.zip.ZipOutputStream, java.io.File, java.lang.String) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.Ontology uk.ac.ebi.gxa.dao.OntologyDAO.getOrCreateOntology(java.lang.String, java.lang.String, java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.AssayDAO.getAssayPropertiesByOntologyTerm(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.bioentity.BioEntityDAO.getGenes(java.lang.String, int, int) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiShallowProperty.<init>(uk.ac.ebi.microarray.atlas.api.ApiProperty) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.SolrContainerFactory.deployIndex() # rq3_shap_sample250_gxa.csv
+java.util.Set uk.ac.ebi.gxa.dao.PropertyDAO.getUnusedProperties() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.utils.dsv.CsvFormat.<init>(boolean) # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.microarray.atlas.api.ApiShallowExperiment.isPrivate() # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.gxa.utils.Pair.equals(java.lang.Object) # rq3_shap_sample250_gxa.csv
+long uk.ac.ebi.gxa.index.builder.service.NewGeneAtlasIndexBuilderService.timestamp(long) # rq3_shap_sample250_gxa.csv
+int[][] uk.ac.ebi.gxa.data.NetCDFProxyV2.getSamplesToAssays() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.bioentity.BioEntityDAO.getAllGenesAndProteinsFast() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.ArrayDesignDAO.getAllArrayDesigns() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.model.bioentity.BioEntityType.<init>() # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.microarray.atlas.model.Assay.toString() # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.properties.DirectoryBasedStorage.getProperty(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.io.File uk.ac.ebi.gxa.data.AtlasDataDAO.getDataFile(uk.ac.ebi.microarray.atlas.model.Experiment, uk.ac.ebi.microarray.atlas.model.ArrayDesign) # rq3_shap_sample250_gxa.csv
+java.util.Set uk.ac.ebi.gxa.utils.CollectionUtil.distinct(java.util.Collection) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.statistics.EfoIndex.addMapping(java.lang.String, uk.ac.ebi.gxa.statistics.EfvAttribute, uk.ac.ebi.gxa.statistics.ExperimentInfo) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.ExperimentAtlasIndexBuilderService.processExperiment(uk.ac.ebi.microarray.atlas.model.Experiment) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.ArrayDesign uk.ac.ebi.gxa.dao.arraydesign.ArrayDesignService.findOrCreateArrayDesignShallow(java.lang.String, boolean) # rq3_shap_sample250_gxa.csv
+java.util.Map uk.ac.ebi.gxa.dao.bioentity.BioEntityDAO.getGeneNames(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFDataCreator.create(ucar.nc2.NetcdfFileWriteable) # rq3_shap_sample250_gxa.csv
+java.util.Set uk.ac.ebi.gxa.statistics.StatisticsQueryOrConditions.getConditions() # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.properties.DirectoryBasedStorage.readValueFromFile(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFDataCreator.createNetCdf() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiOntology.<init>(uk.ac.ebi.microarray.atlas.model.Ontology) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.efo.EfoImpl.getVersionInfo() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.AbstractDAO.save(java.lang.Object) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.utils.dsv.DsvWriter.writeLine(java.lang.Iterable) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.anatomogram.svgutil.ImageFormat.writeSvg(org.w3c.dom.Document, java.io.OutputStream) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.PropertyDAO.delete(uk.ac.ebi.microarray.atlas.model.Property, uk.ac.ebi.microarray.atlas.model.PropertyValue) # rq3_shap_sample250_gxa.csv
+java.lang.String[] uk.ac.ebi.gxa.data.NetCDFProxyV2.getDesignElementAccessions() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.GeneAtlasIndexBuilderService.processCommand(uk.ac.ebi.gxa.index.builder.IndexAllCommand, uk.ac.ebi.gxa.index.builder.service.IndexBuilderService$ProgressUpdater) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.AssayDAO.getAssayPropertiesByProperty(java.lang.String, boolean) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.data.FloatMatrixProxy uk.ac.ebi.gxa.data.ExperimentWithData.getExpressionValues(uk.ac.ebi.microarray.atlas.model.ArrayDesign, int[]) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.exceptions.DataAccessException.<init>(java.lang.Throwable) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFStatisticsCreator.createNetCdf() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.statistics.ThreadSafeStatisticsBuilder.addStatistics(uk.ac.ebi.gxa.statistics.EfAttribute, uk.ac.ebi.gxa.statistics.ExperimentInfo, java.util.Collection) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.DefaultIndexBuilder.<init>() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.exceptions.RecordNotFoundException.<init>(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.SoftwareDAO.getAllButLegacySoftware() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.properties.ResourceFileStorage.reload() # rq3_shap_sample250_gxa.csv
+void com.jamesmurty.utils.XMLBuilder.write(java.lang.Appendable, boolean, int) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.AtlasDAO.getExperimentsByArrayDesignAccession(java.lang.String) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.Property uk.ac.ebi.gxa.dao.PropertyDAO.getOrCreateProperty(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.Map uk.ac.ebi.gxa.efo.EfoImpl.getMap() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.GeneAtlasBitIndexBuilderService.<init>() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFMissingVal.<clinit>() # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.gxa.statistics.Attribute.equals(java.lang.Object) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.IndexBuilderException.<init>(java.lang.Throwable) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.bioentity.BioEntityProperty uk.ac.ebi.gxa.dao.bioentity.BioEntityPropertyDAO.findOrCreate(java.lang.String) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.data.FloatMatrixProxy uk.ac.ebi.gxa.data.NetCDFProxyV2.getAllTStatistics() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.AtlasDAO.getOntologyMappingsByOntology(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiShallowExperiment.<init>(uk.ac.ebi.microarray.atlas.model.Experiment) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.IndexBuilderService.optimize() # rq3_shap_sample250_gxa.csv
+long uk.ac.ebi.gxa.dao.ExperimentDAO.getTotalCount() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFDataCreator.writeAssayAccessions(ucar.nc2.NetcdfFileWriteable) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.properties.DbStorage.getProperty(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiOntologyTerm.<init>(uk.ac.ebi.microarray.atlas.model.OntologyTerm) # rq3_shap_sample250_gxa.csv
+boolean uk.ac.ebi.gxa.dao.PropertyValueDAO.isPropertyValueUsed(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+float[][] uk.ac.ebi.gxa.data.FloatMatrixProxy.asMatrix() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.exceptions.RecordNotFoundException.<init>(java.lang.Throwable) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.utils.NumberFormatUtil.formatPValue(java.lang.Float) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.GeneAtlasBitIndexBuilderService.processCommand(uk.ac.ebi.gxa.index.builder.IndexAllCommand, uk.ac.ebi.gxa.index.builder.service.IndexBuilderService$ProgressUpdater) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.ArrayDesignDAO.fillOutArrayDesigns(uk.ac.ebi.microarray.atlas.model.ArrayDesign) # rq3_shap_sample250_gxa.csv
+java.lang.Long uk.ac.ebi.microarray.atlas.model.bioentity.BioEntityProperty.getBioEntitypropertyId() # rq3_shap_sample250_gxa.csv
+java.io.File uk.ac.ebi.gxa.data.AtlasDataDAO.getDataDirectory(uk.ac.ebi.microarray.atlas.model.Experiment) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.PropertyDAO.delete(uk.ac.ebi.microarray.atlas.model.Property) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFStatisticsCreator.create(uk.ac.ebi.gxa.data.ExperimentWithData) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiShallowAssay.<init>(uk.ac.ebi.microarray.atlas.model.Assay) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.ArrayDesign uk.ac.ebi.gxa.dao.AtlasDAO.getArrayDesignByAccession(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.IndexBuilderException.<init>(java.lang.String, java.lang.Throwable) # rq3_shap_sample250_gxa.csv
+java.lang.Object uk.ac.ebi.gxa.dao.AbstractDAO.getByName(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.efo.EfoImpl.init() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.exceptions.DataAccessException.<init>(java.lang.String, java.lang.Throwable) # rq3_shap_sample250_gxa.csv
+java.io.File uk.ac.ebi.gxa.utils.ResourceUtil.getResourceRoot(java.lang.Class) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.statistics.StatisticsStorage uk.ac.ebi.gxa.index.StatisticsStorageFactory.createStatisticsStorage() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.db.SqlStatementExecutor.<init>(java.sql.Connection) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.ExperimentDAO.delete(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.dao.arraydesign.SynonymsServiceClient.fetchAccessionMaster(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.data.NetCDFProxyV1.getVersion() # rq3_shap_sample250_gxa.csv
+org.w3c.dom.Document com.jamesmurty.utils.XMLBuilder.getDocument() # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.properties.AtlasProperties.getSoftwareDate() # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.dao.SampleDAO.getSamplePropertiesByProperty(java.lang.String, boolean) # rq3_shap_sample250_gxa.csv
+int uk.ac.ebi.gxa.data.StatisticsSnapshot.compareTo(java.lang.Object) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.microarray.atlas.api.ApiPropertyName.<init>() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.efo.Loader.load(uk.ac.ebi.gxa.efo.Efo, java.net.URI) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.anatomogram.svgutil.Editor.setText(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+long uk.ac.ebi.gxa.dao.SampleDAO.getTotalCount() # rq3_shap_sample250_gxa.csv
+java.util.Collection uk.ac.ebi.microarray.atlas.model.Sample.getPropertyValues(uk.ac.ebi.microarray.atlas.model.Property) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.bioentity.BioEntityTypeDAO.setUseForIndexEnsprotein(boolean) # rq3_shap_sample250_gxa.csv
+java.util.Collection uk.ac.ebi.gxa.properties.AtlasProperties.getAvailablePropertyNames() # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.OrganismDAO.<init>(org.hibernate.SessionFactory) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.AtlasDataException.<init>(java.lang.Exception) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.statistics.ObjectPool.<init>() # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.utils.FloatFormatter.formatDouble(double, int) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.utils.DigestUtil.<clinit>() # rq3_shap_sample250_gxa.csv
+float[] uk.ac.ebi.gxa.data.NetCDFProxyV1.getExpressionDataForDesignElementAtIndex(int) # rq3_shap_sample250_gxa.csv
+java.util.Map uk.ac.ebi.gxa.dao.ArrayDesignDAO.getDesignElementGeneAccMapping(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.net.URL uk.ac.ebi.gxa.utils.ResourceUtil.getClassResource(java.lang.Class) # rq3_shap_sample250_gxa.csv
+java.util.Collection uk.ac.ebi.microarray.atlas.api.ApiExperiment.getAssays() # rq3_shap_sample250_gxa.csv
+float uk.ac.ebi.microarray.atlas.model.ExpressionAnalysis.getP() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.gxa.data.StatisticsCursor uk.ac.ebi.gxa.data.ExperimentWithData.getStatistics(uk.ac.ebi.microarray.atlas.model.ArrayDesign, int, com.google.common.base.Predicate) # rq3_shap_sample250_gxa.csv
+float uk.ac.ebi.gxa.data.StatisticsCursor.getT() # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.microarray.atlas.model.AssayProperty.toString() # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.bioentity.Software uk.ac.ebi.gxa.dao.SoftwareDAO.findOrCreate(java.lang.String, java.lang.String) # rq3_shap_sample250_gxa.csv
+java.lang.String uk.ac.ebi.gxa.dao.arraydesign.SynonymsServiceClient.synonymsServiceURL(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.exceptions.ResourceNotFoundException.<init>(java.lang.Throwable) # rq3_shap_sample250_gxa.csv
+int uk.ac.ebi.gxa.utils.CBitSet.compareTo(uk.ac.ebi.gxa.utils.CBitSet) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.dao.exceptions.DataAccessException.<init>(java.lang.String) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.anatomogram.svgutil.Editor.<init>(org.w3c.dom.Document) # rq3_shap_sample250_gxa.csv
+uk.ac.ebi.microarray.atlas.model.ArrayDesign uk.ac.ebi.gxa.dao.ArrayDesignDAO.getArrayDesignByAccession(java.lang.String) # rq3_shap_sample250_gxa.csv
+java.util.Date uk.ac.ebi.gxa.utils.DateUtil.copyOf(java.util.Date) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.index.builder.service.IndexBuilderService.processCommand(uk.ac.ebi.gxa.index.builder.IndexAllCommand, uk.ac.ebi.gxa.index.builder.service.IndexBuilderService$ProgressUpdater) # rq3_shap_sample250_gxa.csv
+java.util.List uk.ac.ebi.gxa.index.builder.service.mirbase.MirbaseFastaParser.readData(java.io.BufferedReader) # rq3_shap_sample250_gxa.csv
+void uk.ac.ebi.gxa.data.NetCDFDataCreator.writeData(ucar.nc2.NetcdfFileWriteable) # rq3_shap_sample250_gxa.csv
