@@ -92,6 +92,18 @@ public class ModelExplainer {
         command.add("--shap_local_exp_samples");
         command.add(String.valueOf(shapLocalExpSamples));
 
+        // Optional: lets the explainer name its per-class output. Skipped when a name
+        // contains a comma, which would be indistinguishable from the separator - the
+        // explainer then falls back to class indices.
+        List<String> outputNames = predictor.getOutputNames();
+        if (outputNames.stream().anyMatch(name -> name.contains(","))) {
+            logger.warn("Not passing class names to the explainer: {} contains a comma.",
+                    outputNames);
+        } else if (!outputNames.isEmpty()) {
+            command.add("--class_names");
+            command.add(String.join(",", outputNames));
+        }
+
         logger.info("Starting Python SHAP script: {}", String.join(" ", command));
 
         ProcessBuilder pb = new ProcessBuilder(command);

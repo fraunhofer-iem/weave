@@ -4,10 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
+import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletionException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
@@ -77,6 +80,25 @@ public class WekaPredictionService implements PredictionService {
             logger.info("Scoring with up to {} threads, one classifier copy each"
                     + " (override with -Dweave.predict.threads=N).", THREADS);
         }
+    }
+
+    /**
+     * The class values in the order distributionForInstance returns them, which is the
+     * order the ARFF class attribute declares them in. A three-class problem such as
+     * sscm (tag = None/Target/Input) is explained per class, and these are the names
+     * that identify which column is which.
+     */
+    @Override
+    public List<String> getOutputNames() {
+        Attribute classAttribute = header.classAttribute();
+        if (!classAttribute.isNominal()) {
+            return List.of();
+        }
+        List<String> names = new ArrayList<>(classAttribute.numValues());
+        for (int i = 0; i < classAttribute.numValues(); i++) {
+            names.add(classAttribute.value(i));
+        }
+        return names;
     }
 
     /**
