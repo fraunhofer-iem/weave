@@ -7,13 +7,14 @@
 # Point this at your checkout; every path below is derived from it.
 export WEAVE_HOME="${WEAVE_HOME:-$PC2PFS/hpc-prf-crnrw/weave}"
 
-# Which model to explain: "old" (the previously selected model) or "new".
-# Submit once per model, e.g. sbatch --export=ALL,MODEL_TAG=new <script>
-export MODEL_TAG="${MODEL_TAG:-old}"
+# Which model to explain: "published" (the model the tool shipped with) or "weave"
+# (the model ML-Plan selected in stage 1). These are the names the paper uses.
+# Submit once per model, e.g. sbatch --export=ALL,MODEL_TAG=weave <script>
+export MODEL_TAG="${MODEL_TAG:-published}"
 case "$MODEL_TAG" in
-  new) MODEL="meka.classifiers.multilabel.meta.EnsembleML -S 1 -I 30 -P 64 -W meka.classifiers.multilabel.PS -- -P 4 -N 4 -S 0 -W weka.classifiers.trees.J48 -- -C 0.4375 -B -M 2" ;;
-  old) MODEL="meka.classifiers.multilabel.meta.EnsembleML -S 1 -I 10 -P 67 -W meka.classifiers.multilabel.PS -- -P 0 -N 0 -S 0 -W weka.classifiers.trees.LMT -- -I -1 -M 15 -W 00" ;;
-  *) echo "MODEL_TAG must be old or new, got: $MODEL_TAG" >&2; exit 2 ;;
+  weave) MODEL="meka.classifiers.multilabel.meta.EnsembleML -S 1 -I 30 -P 64 -W meka.classifiers.multilabel.PS -- -P 4 -N 4 -S 0 -W weka.classifiers.trees.J48 -- -C 0.4375 -B -M 2" ;;
+  published) MODEL="meka.classifiers.multilabel.meta.EnsembleML -S 1 -I 10 -P 67 -W meka.classifiers.multilabel.PS -- -P 0 -N 0 -S 0 -W weka.classifiers.trees.LMT -- -I -1 -M 15 -W 00" ;;
+  *) echo "MODEL_TAG must be published or weave, got: $MODEL_TAG" >&2; exit 2 ;;
 esac
 echo "Explaining $MODEL_TAG model: $MODEL"
 echo "Setting up WEAVE"

@@ -7,13 +7,14 @@
 # Point this at your checkout; every path below is derived from it.
 export WEAVE_HOME="${WEAVE_HOME:-$PC2PFS/hpc-prf-crnrw/weave}"
 
-# Which model to explain: "old" (the previously selected model) or "new".
-# Submit once per model, e.g. sbatch --export=ALL,MODEL_TAG=new <script>
-export MODEL_TAG="${MODEL_TAG:-old}"
+# Which model to explain: "published" (the model the tool shipped with) or "weave"
+# (the model ML-Plan selected in stage 1). These are the names the paper uses.
+# Submit once per model, e.g. sbatch --export=ALL,MODEL_TAG=weave <script>
+export MODEL_TAG="${MODEL_TAG:-published}"
 case "$MODEL_TAG" in
-  new) MODEL="weka.classifiers.trees.RandomForest -P 94 -I 100 -num-slots 1 -do-not-check-capabilities -K 0 -M 8.0 -V 0.001 -S 1" ;;
-  old) MODEL="weka.classifiers.functions.SMO" ;;
-  *) echo "MODEL_TAG must be old or new, got: $MODEL_TAG" >&2; exit 2 ;;
+  weave) MODEL="weka.classifiers.trees.RandomForest -P 94 -I 100 -num-slots 1 -do-not-check-capabilities -K 0 -M 8.0 -V 0.001 -S 1" ;;
+  published) MODEL="weka.classifiers.functions.SMO" ;;
+  *) echo "MODEL_TAG must be published or weave, got: $MODEL_TAG" >&2; exit 2 ;;
 esac
 echo "Explaining $MODEL_TAG model: $MODEL"
 echo "Setting up WEAVE"
