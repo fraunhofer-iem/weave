@@ -18,9 +18,8 @@ naively:
 absolute path and one just "weave". Rows are therefore deduplicated on (task, family, seed),
 which is verified: within every group a seed's metrics are identical across its copies.
 
-*Superseded model candidates are still present.* Three tasks carry an AutoML pipeline that was
-later replaced, and the dump keeps both. Selecting a row by task alone would pick arbitrarily
-between them, so the caller names the model family it wants.
+*A task does not identify a model.* Each task carries two configurations, the published model
+and the WEAVE one, so the caller names the model family it wants rather than selecting by task.
 """
 
 import collections
@@ -116,7 +115,7 @@ def family_of(row):
 
 
 def experiments(path=DUMP, verbose=False):
-    """-> {(task, family): [row dict]}, one row per seed, superseded candidates kept.
+    """-> {(task, family): [row dict]}, one row per seed.
 
     `swan` and `dev_assist` only, since the other two tables duplicate `swan`. Deduplication
     is on (task, family, seed) and is checked rather than assumed: a seed whose copies

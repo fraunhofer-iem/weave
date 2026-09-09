@@ -224,9 +224,7 @@ def table2(sf):
 
 # ------------------------------------------------------------------ Table 3
 # (row label, task, WEAVE family, published family, WEAVE abbreviation, published abbreviation)
-# The dump keeps the superseded AutoML candidates beside the selected ones -- LWL for cwe89,
-# ClassificationViaRegression for sink, LC for Dev-Assist -- so each row names the family it
-# wants rather than taking "whichever is not SMO".
+# Each row names the model family it wants rather than taking "whichever is not SMO".
 TABLE3_ROWS = [
     ("Dev-Assist",     "dev-assist", "EnsembleML-J48", "EnsembleML-LMT", "PS+J48", "PS+LMT"),
     ("SSCM",           "sscm",       "Bagging",        "SMO",            "B+RF",   "SVM"),

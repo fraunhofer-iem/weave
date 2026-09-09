@@ -71,9 +71,7 @@ def per_class(info):
 
 # --------------------------------------------------------------- pipeline map
 # (row label, task, WEAVE model family, published model family)
-# The dump keeps the superseded AutoML candidates alongside the selected ones -- LWL for
-# cwe89 and ClassificationViaRegression for sink -- so each row names the family it wants
-# rather than taking "whichever is not SMO".
+# Each row names the model family it wants rather than taking "whichever is not SMO".
 # The five binary SWAN tasks only. SSCM is excluded because it is three-class, so it has no
 # single positive class to report, and Dev-Assist because it is multi-label. Table 3's seven
 # rows are a different, longer list and live in make_tables.py.
