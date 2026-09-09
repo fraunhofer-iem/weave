@@ -17,38 +17,26 @@ first place. See
 [Reproducing a run](#reproducing-a-run). 
 
 
-## Case studies
+## ML4SRM Case Studies
+
+Seven case studies, one per detection target, across the three ML4SRM approaches. SSCM is one
+three-class model, Dev-Assist one multi-label model over five labels, and SWAN five separate
+binary models, one per label. Each carries its own feature set, so the counts below vary by case
+study and not just by approach.
 
 | Directory | Toolkit | Target | Features | Train rows | Test (GXA) rows |
-|---|---|---|---|---|---|
-| `sscm/` | weka | `tag {None,Target,Input}` (3-class) | 103 | 9021 | 250 |
-| `dev-assist/` | meka | 5 labels: `CWE79`, `source`, `sanitizer`, `CWE89`, `sink` | 121 | 9229 | 250 |
-| `swan/source/` | weka | `source {0,1}` | 68 | 9229 | 250 |
-| `swan/sink/` | weka | `sink {0,1}` | 84 | 9229 | 250 |
-| `swan/sanitizer/` | weka | `sanitizer {0,1}` | 48 | 9229 | 248 |
-| `swan/cwe79/` | weka | `CWE79 {0,1}` | 26 | 9229 | 251 |
-| `swan/cwe89/` | weka | `CWE89 {0,1}` | 22 | 9229 | 250 |
+|---|---|---|---|---|-----------------|
+| `sscm/` | weka | `tag {None,Target,Input}` (3-class) | 103 | 9021 | 250             |
+| `dev-assist/` | meka | 5 labels: `CWE79`, `source`, `sanitizer`, `CWE89`, `sink` | 121 | 9229 | 250             |
+| `swan/source/` | weka | `source {0,1}` | 68 | 9229 | 250             |
+| `swan/sink/` | weka | `sink {0,1}` | 84 | 9229 | 250             |
+| `swan/sanitizer/` | weka | `sanitizer {0,1}` | 48 | 9229 | -               |
+| `swan/cwe79/` | weka | `CWE79 {0,1}` | 26 | 9229 | -               |
+| `swan/cwe89/` | weka | `CWE89 {0,1}` | 22 | 9229 | 250             |
 
 `dev-assist` is the multi-label case. MEKA moves its 5 labels to attribute indices `0..4`,
 which is the order the `label_<n>` suffixes refer to. So `label_0` = `CWE79`, `label_1` = `source`,
 `label_2` = `sanitizer`, `label_3` = `CWE89`, `label_4` = `sink`.
-
-### Models explained
-
-| Case study | `published` | `weave` (ML-Plan selection) |
-|---|---|---|
-| sscm | `SMO` | `Bagging` ⊃ `RandomForest` |
-| dev-assist | `EnsembleML` ⊃ `PS` ⊃ `LMT` | `EnsembleML` ⊃ `PS` ⊃ `J48` |
-| swan/source | `SMO` | `RandomForest` |
-| swan/sink | `SMO` | `LogitBoost` ⊃ `RandomForest` |
-| swan/sanitizer | `SMO` | `Bagging` ⊃ `Logistic` |
-| swan/cwe79 | `SMO` | `RandomSubSpace` ⊃ `Logistic` |
-| swan/cwe89 | `SMO` | `SimpleLogistic` |
-
-The full descriptors, hyperparameters included, live in the `MODEL_TAG` case statement at the
-top of each job script: `sscm.sh`, `dev-assist.sh`, `source.sh`, `sink.sh`, `sanitizer.sh`,
-`cwe79.sh`, `cwe89.sh`. Those are the authoritative record. `../models` lists some of the same
-pairs.
 
 ## Datasets
 
@@ -70,13 +58,12 @@ Each case study ships two ARFFs with an identical attribute schema:
 - **`feature-mapping`** maps the short feature names used in the raw data to the descriptive
   names that appear in the ARFFs and in the SHAP output. A reference table, not read by any
   script.
-- **`analysis/inputs/model-selection-dump.sql`** is the one input that is not extracted
-  features. It is a mysqldump of the jaicore-experimenter database that stage 2 writes to,
+- **`analysis/inputs/model-selection-dump.sql`** is a mysqldump of the jaicore-experimenter database that stage 2 writes to,
   holding the repeated-cross-validation log behind the RQ1 numbers and Table 3, one row per seed
   and configuration. `analysis/cvlog.py` is the reader, and `python3 analysis/cvlog.py` prints
   the 17 configurations it finds.
 
-## Layout
+## Replication Package Layout
 
 ```
 evaluation/ml4srm/
@@ -108,7 +95,7 @@ evaluation/ml4srm/
 │   ├── sscm.properties          WEAVE pipeline config
 │   ├── experiments.cnf          jaicore experiment definition (stage 2)
 │   ├── db.properties            MySQL connection (stage 2)
-│   ├── model-selection/         stage-1 job script
+│   ├── model-selection/         stage-1 job script and its SLURM log
 │   └── explanations/
 │       ├── published/           SHAP output for the model the tool shipped with
 │       └── weave/               SHAP output for the ML-Plan model
@@ -122,7 +109,7 @@ evaluation/ml4srm/
     └── <label>/                 datasets, experiments.cnf, model-selection/, explanations/
 ```
 
-## Reproducing a run
+## Reproducing a Run
 
 Set `WEAVE_HOME` to your checkout. Every path in the job scripts and the
 `.properties` files is derived from it. The `.properties` files use
@@ -150,7 +137,82 @@ The pins in `requirements.txt` are load-bearing. `shap` pulls in `numba`, which 
 upper bound at *import* time. Unpinned installs therefore fail with an `ImportError`, not a
 resolver conflict.
 
-**3. Submit the SHAP job, once per model:**
+### Stage 1: Model Selection
+
+**Re-running model selection** instead of reusing the committed descriptors is what
+`<case>/model-selection/*.sh` is for, the same invocation without `-X`.
+
+Each `model-selection/` also holds the SLURM log of the run that selected that case study's
+`weave` model. That log is the record of the search: its `ML-Plan Options` line carries the seed
+and the timeouts, and its `model selected` line carries the descriptor the stage-3 script reuses.
+
+| Case study | job | `mlplan.seed` |
+|---|---|---|
+| `sscm` | 29700613 | 12345678 |
+| `dev-assist` | 29684002 | 5570 |
+| `swan/source` | 29680818 | 557 |
+| `swan/sink` | 29642295 | 557 |
+| `swan/sanitizer` | 29770748 | 3012026 |
+| `swan/cwe79` | 29683998 | 54512570 |
+| `swan/cwe89` | 29783793 | 54613374 |
+
+Each `.properties` carries the ML-Plan settings its own run used:
+`mlplan.timeout = 480`, `mlplan.timeout.node = 30`, `mlplan.cpu = 64`, the seed above, and
+`mlplan.timeout.candidate = 5` for `sscm` and `dev-assist`, `10` for the five SWAN labels. Selection is still wall-clock bounded, so the recorded seed makes a re-run comparable rather than
+bit-for-bit identical, and it may return a different pipeline.
+
+
+The table below summarizes the published and WEAVE-selected models. 
+Each row is the pair compared for that case study, written in abbreviated form. `⊃` means the
+classifier on the left wraps the one on the right, so `Bagging` ⊃ `RandomForest` is bagged random
+forests. Six of the seven published models are a plain SVM, which is what SWAN and SSCM shipped.
+
+| Case study | `published` | `weave` (ML-Plan selection) |
+|---|---|---|
+| sscm | `SMO` | `Bagging` ⊃ `RandomForest` |
+| dev-assist | `EnsembleML` ⊃ `PS` ⊃ `LMT` | `EnsembleML` ⊃ `PS` ⊃ `J48` |
+| swan/source | `SMO` | `RandomForest` |
+| swan/sink | `SMO` | `LogitBoost` ⊃ `RandomForest` |
+| swan/sanitizer | `SMO` | `Bagging` ⊃ `Logistic` |
+| swan/cwe79 | `SMO` | `RandomSubSpace` ⊃ `Logistic` |
+| swan/cwe89 | `SMO` | `SimpleLogistic` |
+
+The full descriptors, hyperparameters included, live in the `MODEL_TAG` case statement at the
+top of each job script: `sscm.sh`, `dev-assist.sh`, `source.sh`, `sink.sh`, `sanitizer.sh`,
+`cwe79.sh`, `cwe89.sh`.
+
+### Stage 2: Repeated Cross-Validation
+
+Stage 2 produced the RQ1 numbers and Table 3. Each experiment shuffles the training ARFF and runs 10-fold cross-validation for WEKA and MEKA. The
+repetition is the seed list, so each model is evaluated on 100 different shuffles.
+
+`experiments.cnf` defines the grid. Its `keyfields` are `seeds`, `dataset` and `classifier`, and
+its `classifier` line names two descriptors, the `weave` model and the published one. That is 100
+seeds by 2 models, so 200 experiments per case study and 1,400 in total.
+
+The literal string `weave` is a placeholder in the `classifier` and `dataset` lines, substituted
+at run time with the descriptor stage 1 selected and with `dataset.train`.
+Results go to MySQL, one table per approach (`sscm`, `dev_assist`, `swan`), with the columns
+`resultfields` lists. `analysis/inputs/model-selection-dump.sql` is a dump of those tables.
+
+**To run it.** There is no stage-2-only flag. `-X` is explainer only, and without it the CLI runs
+selection, then cross-validation, then the explainer in one job. Stage 2 therefore needs a MySQL
+server matching `db.properties`, and it runs after a fresh selection whose result the pinned
+`experiments.cnf` ignores.
+
+```bash
+mysql -e "CREATE DATABASE weave"     # db.properties expects localhost:3306, user root
+java -jar cli/target/cli-1.0-jar-with-dependencies.jar \
+  -t weka -c evaluation/ml4srm/sscm/sscm.properties
+```
+
+`synchronizeExperiments()` inserts the grid into the table on first run, then
+`sequentiallyConductExperiments(-1)` executes the rows that have no result yet. An interrupted run
+resumes instead of duplicating.
+
+### Stage 3: Model Explanation
+
+**Submit the SHAP job, once per model:**
 
 ```bash
 sbatch --export=ALL,WEAVE_HOME=$WEAVE_HOME,MODEL_TAG=published evaluation/ml4srm/sscm.sh
@@ -174,12 +236,23 @@ MODEL_TAG=weave java -XX:MaxRAMPercentage=75 \
 server is needed. Dropping `-X` runs the full three-stage pipeline and *does* need the database
 in `db.properties`. The committed values there are localhost placeholders.
 
-**Re-running model selection** instead of reusing the committed descriptors is what
-`/model-selection/*.sh` is for, the same invocation without `-X`. Selection is seeded
-(`mlplan.seed = 76557`, the same for every case study) but wall-clock bounded by
-`mlplan.timeout`.
-Selection is therefore not bit-for-bit reproducible, and may return a different pipeline than the
-`weave` models above.
+After the run completes, the SLURM logs and explanations are exported.
+Each `explanations/<tag>/` directory holds the `slurm-*.out` of the run that produced the
+results beside it, which is the most recent successful run for that case study and model:
+
+| Case study | `weave` | `published` |
+|---|---|---|
+| sscm | 34169430 | 34169429 |
+| dev-assist | 33883587 | 33883588 |
+| swan/source | 33855250 | 33855249 |
+| swan/sink | 33855251 | 33855252 |
+| swan/sanitizer | 33855254 | 33855253 |
+| swan/cwe79 | 33855247 | 33855256 |
+| swan/cwe89 | 33855246 | 33855245 |
+
+`slurm-logs/` keeps the other 21 runs, the earlier successful runs that were
+superseded plus the failures, mirroring the same
+`<case-study>/<tag>/` layout.
 
 ## Reading the output
 
@@ -286,7 +359,7 @@ Each prints what it read and verified rather than failing silently, so read the 
 `make_shap_figs.py` also cross-checks its derived feature-group counts against the ARFF
 headers, and reports a disagreement rather than carrying on.
 
-### The tables
+### Data tables
 
 `make_tables.py` writes one file per table. 
 
@@ -307,22 +380,4 @@ other four are still written.
 SRM_DATASET_HOME=/path/to/srm-dataset analysis/reproduce.sh
 ```
 
-## Job logs
-
-Each `explanations/<tag>/` directory holds the `slurm-*.out` of the run that produced the
-results beside it, which is the most recent successful run for that case study and model:
-
-| Case study | `weave` | `published` |
-|---|---|---|
-| sscm | 34169430 | 34169429 |
-| dev-assist | 33883587 | 33883588 |
-| swan/source | 33855250 | 33855249 |
-| swan/sink | 33855251 | 33855252 |
-| swan/sanitizer | 33855254 | 33855253 |
-| swan/cwe79 | 33855247 | 33855256 |
-| swan/cwe89 | 33855246 | 33855245 |
-
-`slurm-logs/` keeps the other 21 runs, the earlier successful runs that were
-superseded plus the failures, mirroring the same
-`<case-study>/<tag>/` layout. 
 
