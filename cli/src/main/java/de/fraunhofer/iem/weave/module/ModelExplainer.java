@@ -51,7 +51,7 @@ public class ModelExplainer {
         Path localPath = exporter.exportLocalFeatures();
 
         logger.info("HTTP explainer setup complete.");
-        logger.info("Prediction server listening on http://localhost:{}/predict", options.getPort());
+        logger.info("Prediction server listening on http://localhost:{}/predict", server.getPort());
         logger.info("Global features CSV: {}", globalPath.toAbsolutePath());
         logger.info("Local features CSV : {}", localPath.toAbsolutePath());
         logger.info("You can now run the Python SHAP script pointing to these files and the /predict endpoint.");
@@ -67,7 +67,8 @@ public class ModelExplainer {
                                  int shapGlobalExpSamples, int shapLocalBgSamples, int shapLocalExpSamples) throws Exception {
 
         String toolkit = options.getToolkit();
-        String serverUrl = "http://localhost:" + options.getPort();
+        // Read the bound port from the server, not the config: with port 0 the OS picks it.
+        String serverUrl = "http://localhost:" + server.getPort();
 
         List<String> command = new ArrayList<>();
         command.add(pythonExecutable);
@@ -90,6 +91,18 @@ public class ModelExplainer {
         command.add(String.valueOf(shapLocalBgSamples));
         command.add("--shap_local_exp_samples");
         command.add(String.valueOf(shapLocalExpSamples));
+
+        // Optional: lets the explainer name its per-class output. Skipped when a name
+        // contains a comma, which would be indistinguishable from the separator - the
+        // explainer then falls back to class indices.
+        List<String> outputNames = predictor.getOutputNames();
+        if (outputNames.stream().anyMatch(name -> name.contains(","))) {
+            logger.warn("Not passing class names to the explainer: {} contains a comma.",
+                    outputNames);
+        } else if (!outputNames.isEmpty()) {
+            command.add("--class_names");
+            command.add(String.join(",", outputNames));
+        }
 
         logger.info("Starting Python SHAP script: {}", String.join(" ", command));
 

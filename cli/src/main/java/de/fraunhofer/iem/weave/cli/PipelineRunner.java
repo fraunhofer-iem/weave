@@ -68,10 +68,16 @@ public class PipelineRunner {
             }
 
             ModelExplainer explainer = new ModelExplainer(predictor, options);
-            explainer.runHttpExplainer();
-            explainer.runShapExplainer(options.getPythonPath(),options.getPythonExplainerPath(), options.getOutputPath(),
-                    options.getShapGlobalBgSamples(), options.getShapGlobalExpSamples(), options.getShapLocalBgSamples(),
-                    options.getShapLocalExpSamples());
+            try {
+                explainer.runHttpExplainer();
+                explainer.runShapExplainer(options.getPythonPath(),options.getPythonExplainerPath(), options.getOutputPath(),
+                        options.getShapGlobalBgSamples(), options.getShapGlobalExpSamples(), options.getShapLocalBgSamples(),
+                        options.getShapLocalExpSamples());
+            } finally {
+                // Without this the prediction server outlives the analysis and the
+                // batch job sits idle until it hits its wall-clock limit.
+                explainer.stopServer(5);
+            }
 
             return 0;
         } catch (

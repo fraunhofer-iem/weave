@@ -1,0 +1,1042 @@
+cpu-bind=MASK - n2cn0642, task  0  0 [837874]: mask 0x|BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB| set
+Explaining new model: weka.classifiers.trees.RandomForest -P 94 -I 100 -num-slots 1 -do-not-check-capabilities -K 0 -M 8.0 -V 0.001 -S 1
+Setting up WEAVE
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) pc2fs   2) slurm/25.11.2-1   3) DefaultModules
+Setting up Python environment
+Reusing existing environment /scratch/hpc-prf-crnrw/asej-2026/weave/weave_env_so
+Starting model explanation
+2026-08-02 00:04:41:057 INFO de.fraunhofer.iem.weave.cli.PipelineRunner - Explainer-only mode. Using model: weka.classifiers.trees.RandomForest -P 94 -I 100 -num-slots 1 -do-not-check-capabilities -K 0 -M 8.0 -V 0.001 -S 1
+Aug 02, 2026 12:04:41 AM com.github.fommil.netlib.ARPACK <clinit>
+WARNING: Failed to load implementation from: com.github.fommil.netlib.NativeSystemARPACK
+Aug 02, 2026 12:04:41 AM com.github.fommil.netlib.ARPACK <clinit>
+WARNING: Failed to load implementation from: com.github.fommil.netlib.NativeRefARPACK
+2026-08-02 00:04:43:545 INFO de.fraunhofer.iem.weave.cli.PipelineRunner - Built WEKA classifier for explanation: weka.classifiers.trees.RandomForest -P 94 -I 100 -num-slots 1 -do-not-check-capabilities -K 0 -M 8.0 -V 0.001 -S 1
+2026-08-02 00:04:43:821 INFO de.fraunhofer.iem.weave.module.explainer.services.WekaPredictionService - Scoring with up to 128 threads, one classifier copy each (override with -Dweave.predict.threads=N).
+2026-08-02 00:04:43:928 INFO de.fraunhofer.iem.weave.module.explainer.server.PredictionHttpServer - Using 128 available cores
+2026-08-02 00:04:43:930 INFO de.fraunhofer.iem.weave.module.explainer.server.PredictionHttpServer - Prediction HTTP server started on port 43769
+2026-08-02 00:04:44:042 INFO de.fraunhofer.iem.weave.module.explainer.services.ExplainerExporter - Exported global features to /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new/global_features.csv
+2026-08-02 00:04:44:051 INFO de.fraunhofer.iem.weave.module.explainer.services.ExplainerExporter - Exported local features to /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new/local_features.csv
+2026-08-02 00:04:44:051 INFO de.fraunhofer.iem.weave.module.ModelExplainer - HTTP explainer setup complete.
+2026-08-02 00:04:44:051 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Prediction server listening on http://localhost:43769/predict
+2026-08-02 00:04:44:051 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Global features CSV: /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new/global_features.csv
+2026-08-02 00:04:44:051 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Local features CSV : /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new/local_features.csv
+2026-08-02 00:04:44:051 INFO de.fraunhofer.iem.weave.module.ModelExplainer - You can now run the Python SHAP script pointing to these files and the /predict endpoint.
+2026-08-02 00:04:44:053 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Starting Python SHAP script: python /scratch/hpc-prf-crnrw/asej-2026/weave/cli/src/main/java/de/fraunhofer/iem/weave/module/explainer/shap/shap_explainer.py --toolkit weka --server_url http://localhost:43769 --global_csv /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new/global_features.csv --local_csv /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new/local_features.csv --output_dir /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new --shap_global_bg_samples 500 --shap_global_exp_samples 500 --shap_local_bg_samples 250 --shap_local_exp_samples 250
+2026-08-02 00:04:47:442 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] Using 500 background data samples could cause slower run times. Consider using shap.sample(data, K) or shap.kmeans(data, K) to summarize the background as K samples.
+2026-08-02 00:04:47:442 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 
+2026-08-02 00:05:07:687 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   0%|          | 0/500 [00:00<?, ?it/s]
+2026-08-02 00:05:27:182 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   0%|          | 1/500 [00:20<2:48:22, 20.24s/it]
+2026-08-02 00:05:46:520 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   0%|          | 2/500 [00:39<2:44:22, 19.80s/it]
+2026-08-02 00:06:06:050 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 3/500 [00:59<2:42:16, 19.59s/it]
+2026-08-02 00:06:25:231 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 4/500 [01:18<2:41:45, 19.57s/it]
+2026-08-02 00:06:44:622 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 5/500 [01:37<2:40:16, 19.43s/it]
+2026-08-02 00:07:03:909 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 6/500 [01:57<2:39:51, 19.42s/it]
+2026-08-02 00:07:23:277 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|▏         | 7/500 [02:16<2:39:10, 19.37s/it]
+2026-08-02 00:07:42:474 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 8/500 [02:35<2:38:50, 19.37s/it]
+2026-08-02 00:08:01:650 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 9/500 [02:55<2:38:04, 19.32s/it]
+2026-08-02 00:08:21:200 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 10/500 [03:14<2:37:24, 19.27s/it]
+2026-08-02 00:08:40:596 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 11/500 [03:33<2:37:46, 19.36s/it]
+2026-08-02 00:08:59:659 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 12/500 [03:53<2:37:32, 19.37s/it]
+2026-08-02 00:09:19:035 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 13/500 [04:12<2:36:27, 19.28s/it]
+2026-08-02 00:09:38:433 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 14/500 [04:31<2:36:23, 19.31s/it]
+2026-08-02 00:09:58:002 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 15/500 [04:50<2:36:17, 19.33s/it]
+2026-08-02 00:10:17:564 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 16/500 [05:10<2:36:31, 19.40s/it]
+2026-08-02 00:10:36:800 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 17/500 [05:30<2:36:35, 19.45s/it]
+2026-08-02 00:10:56:097 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▎         | 18/500 [05:49<2:35:44, 19.39s/it]
+2026-08-02 00:11:15:382 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 19/500 [06:08<2:35:12, 19.36s/it]
+2026-08-02 00:11:34:749 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 20/500 [06:27<2:34:41, 19.34s/it]
+2026-08-02 00:11:53:774 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 21/500 [06:47<2:34:26, 19.35s/it]
+2026-08-02 00:12:13:332 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 22/500 [07:06<2:33:21, 19.25s/it]
+2026-08-02 00:12:32:798 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▍         | 23/500 [07:25<2:33:46, 19.34s/it]
+2026-08-02 00:12:52:232 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▍         | 24/500 [07:45<2:33:44, 19.38s/it]
+2026-08-02 00:13:11:425 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▌         | 25/500 [08:04<2:33:33, 19.40s/it]
+2026-08-02 00:13:30:870 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▌         | 26/500 [08:23<2:32:44, 19.33s/it]
+2026-08-02 00:13:50:441 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▌         | 27/500 [08:43<2:32:41, 19.37s/it]
+2026-08-02 00:14:09:515 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 28/500 [09:02<2:32:50, 19.43s/it]
+2026-08-02 00:14:28:727 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 29/500 [09:22<2:31:40, 19.32s/it]
+2026-08-02 00:14:48:402 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 30/500 [09:41<2:31:05, 19.29s/it]
+2026-08-02 00:15:08:191 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 31/500 [10:00<2:31:40, 19.40s/it]
+2026-08-02 00:15:27:606 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▋         | 32/500 [10:20<2:32:15, 19.52s/it]
+2026-08-02 00:15:47:035 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 33/500 [10:40<2:31:41, 19.49s/it]
+2026-08-02 00:16:06:328 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 34/500 [10:59<2:31:13, 19.47s/it]
+2026-08-02 00:16:25:999 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 35/500 [11:18<2:30:29, 19.42s/it]
+2026-08-02 00:16:45:548 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 36/500 [11:38<2:30:45, 19.49s/it]
+2026-08-02 00:17:05:024 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 37/500 [11:58<2:30:33, 19.51s/it]
+2026-08-02 00:17:24:546 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 38/500 [12:17<2:30:08, 19.50s/it]
+2026-08-02 00:17:43:844 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 39/500 [12:37<2:29:52, 19.51s/it]
+2026-08-02 00:18:03:052 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 40/500 [12:56<2:29:04, 19.44s/it]
+2026-08-02 00:18:22:208 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 41/500 [13:15<2:28:12, 19.37s/it]
+2026-08-02 00:18:41:654 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 42/500 [13:34<2:27:23, 19.31s/it]
+2026-08-02 00:19:01:099 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▊         | 43/500 [13:54<2:27:22, 19.35s/it]
+2026-08-02 00:19:20:287 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 44/500 [14:13<2:27:16, 19.38s/it]
+2026-08-02 00:19:39:911 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 45/500 [14:32<2:26:31, 19.32s/it]
+2026-08-02 00:19:59:043 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 46/500 [14:52<2:26:53, 19.41s/it]
+2026-08-02 00:20:18:367 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 47/500 [15:11<2:25:55, 19.33s/it]
+2026-08-02 00:20:37:940 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|▉         | 48/500 [15:30<2:25:35, 19.33s/it]
+2026-08-02 00:20:57:339 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|▉         | 49/500 [15:50<2:25:49, 19.40s/it]
+2026-08-02 00:21:16:891 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|█         | 50/500 [16:09<2:25:30, 19.40s/it]
+2026-08-02 00:21:35:935 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|█         | 51/500 [16:29<2:25:31, 19.45s/it]
+2026-08-02 00:21:55:511 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|█         | 52/500 [16:48<2:24:17, 19.33s/it]
+2026-08-02 00:22:15:059 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 53/500 [17:08<2:24:32, 19.40s/it]
+2026-08-02 00:22:34:431 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 54/500 [17:27<2:24:32, 19.44s/it]
+2026-08-02 00:22:53:563 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 55/500 [17:46<2:24:03, 19.42s/it]
+2026-08-02 00:23:13:244 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 56/500 [18:06<2:23:05, 19.34s/it]
+2026-08-02 00:23:32:811 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█▏        | 57/500 [18:25<2:23:31, 19.44s/it]
+2026-08-02 00:23:52:076 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 58/500 [18:45<2:23:29, 19.48s/it]
+2026-08-02 00:24:11:597 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 59/500 [19:04<2:22:41, 19.41s/it]
+2026-08-02 00:24:30:821 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 60/500 [19:24<2:22:36, 19.45s/it]
+2026-08-02 00:24:50:371 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 61/500 [19:43<2:21:47, 19.38s/it]
+2026-08-02 00:25:09:930 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 62/500 [20:02<2:21:50, 19.43s/it]
+2026-08-02 00:25:29:433 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 63/500 [20:22<2:21:47, 19.47s/it]
+2026-08-02 00:25:49:255 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 64/500 [20:41<2:21:32, 19.48s/it]
+2026-08-02 00:26:08:654 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 65/500 [21:01<2:21:58, 19.58s/it]
+2026-08-02 00:26:28:355 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 66/500 [21:21<2:21:14, 19.53s/it]
+2026-08-02 00:26:47:832 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 67/500 [21:40<2:21:17, 19.58s/it]
+2026-08-02 00:27:07:414 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▎        | 68/500 [22:00<2:20:45, 19.55s/it]
+2026-08-02 00:27:26:503 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 69/500 [22:19<2:20:29, 19.56s/it]
+2026-08-02 00:27:45:570 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 70/500 [22:39<2:19:09, 19.42s/it]
+2026-08-02 00:28:05:129 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 71/500 [22:58<2:18:05, 19.31s/it]
+2026-08-02 00:28:24:603 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 72/500 [23:17<2:18:17, 19.39s/it]
+2026-08-02 00:28:44:095 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▍        | 73/500 [23:37<2:18:09, 19.41s/it]
+2026-08-02 00:29:03:284 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▍        | 74/500 [23:56<2:18:00, 19.44s/it]
+2026-08-02 00:29:22:521 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▌        | 75/500 [24:15<2:17:08, 19.36s/it]
+2026-08-02 00:29:41:596 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▌        | 76/500 [24:35<2:16:33, 19.32s/it]
+2026-08-02 00:30:00:692 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▌        | 77/500 [24:54<2:15:42, 19.25s/it]
+2026-08-02 00:30:20:202 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 78/500 [25:13<2:15:03, 19.20s/it]
+2026-08-02 00:30:39:792 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 79/500 [25:32<2:15:23, 19.30s/it]
+2026-08-02 00:30:59:579 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 80/500 [25:52<2:15:41, 19.38s/it]
+2026-08-02 00:31:18:920 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 81/500 [26:12<2:16:12, 19.50s/it]
+2026-08-02 00:31:38:354 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▋        | 82/500 [26:31<2:15:32, 19.46s/it]
+2026-08-02 00:31:57:660 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 83/500 [26:50<2:15:10, 19.45s/it]
+2026-08-02 00:32:16:855 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 84/500 [27:10<2:14:32, 19.41s/it]
+2026-08-02 00:32:36:347 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 85/500 [27:29<2:13:47, 19.34s/it]
+2026-08-02 00:32:55:563 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 86/500 [27:48<2:13:46, 19.39s/it]
+2026-08-02 00:33:14:703 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 87/500 [28:08<2:13:05, 19.34s/it]
+2026-08-02 00:33:33:963 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 88/500 [28:27<2:12:22, 19.28s/it]
+2026-08-02 00:33:53:562 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 89/500 [28:46<2:12:00, 19.27s/it]
+2026-08-02 00:34:12:805 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 90/500 [29:06<2:12:21, 19.37s/it]
+2026-08-02 00:34:32:176 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 91/500 [29:25<2:11:46, 19.33s/it]
+2026-08-02 00:34:51:435 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 92/500 [29:44<2:11:32, 19.34s/it]
+2026-08-02 00:35:10:513 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  19%|█▊        | 93/500 [30:03<2:11:02, 19.32s/it]
+2026-08-02 00:35:29:974 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  19%|█▉        | 94/500 [30:23<2:10:13, 19.25s/it]
+2026-08-02 00:35:49:457 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  19%|█▉        | 95/500 [30:42<2:10:20, 19.31s/it]
+2026-08-02 00:36:08:602 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  19%|█▉        | 96/500 [31:02<2:10:22, 19.36s/it]
+2026-08-02 00:36:28:143 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  19%|█▉        | 97/500 [31:21<2:09:36, 19.30s/it]
+2026-08-02 00:36:47:337 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  20%|█▉        | 98/500 [31:40<2:09:46, 19.37s/it]
+2026-08-02 00:37:06:775 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  20%|█▉        | 99/500 [31:59<2:09:06, 19.32s/it]
+2026-08-02 00:37:26:117 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  20%|██        | 100/500 [32:19<2:09:01, 19.35s/it]
+2026-08-02 00:37:45:513 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  20%|██        | 101/500 [32:38<2:08:40, 19.35s/it]
+2026-08-02 00:38:04:792 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  20%|██        | 102/500 [32:58<2:08:26, 19.36s/it]
+2026-08-02 00:38:24:184 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  21%|██        | 103/500 [33:17<2:07:57, 19.34s/it]
+2026-08-02 00:38:43:711 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  21%|██        | 104/500 [33:36<2:07:44, 19.35s/it]
+2026-08-02 00:39:02:930 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  21%|██        | 105/500 [33:56<2:07:45, 19.41s/it]
+2026-08-02 00:39:22:373 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  21%|██        | 106/500 [34:15<2:07:03, 19.35s/it]
+2026-08-02 00:39:41:923 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  21%|██▏       | 107/500 [34:34<2:06:55, 19.38s/it]
+2026-08-02 00:40:01:227 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  22%|██▏       | 108/500 [34:54<2:06:56, 19.43s/it]
+2026-08-02 00:40:20:564 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  22%|██▏       | 109/500 [35:13<2:06:22, 19.39s/it]
+2026-08-02 00:40:39:824 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  22%|██▏       | 110/500 [35:33<2:05:56, 19.38s/it]
+2026-08-02 00:40:59:560 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  22%|██▏       | 111/500 [35:52<2:05:23, 19.34s/it]
+2026-08-02 00:41:18:997 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  22%|██▏       | 112/500 [36:12<2:05:50, 19.46s/it]
+2026-08-02 00:41:38:486 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  23%|██▎       | 113/500 [36:31<2:05:28, 19.45s/it]
+2026-08-02 00:41:57:952 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  23%|██▎       | 114/500 [36:51<2:05:12, 19.46s/it]
+2026-08-02 00:42:17:504 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  23%|██▎       | 115/500 [37:10<2:04:53, 19.46s/it]
+2026-08-02 00:42:36:879 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  23%|██▎       | 116/500 [37:30<2:04:44, 19.49s/it]
+2026-08-02 00:42:56:388 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  23%|██▎       | 117/500 [37:49<2:04:11, 19.46s/it]
+2026-08-02 00:43:15:791 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  24%|██▎       | 118/500 [38:08<2:03:58, 19.47s/it]
+2026-08-02 00:43:35:156 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  24%|██▍       | 119/500 [38:28<2:03:30, 19.45s/it]
+2026-08-02 00:43:54:462 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  24%|██▍       | 120/500 [38:47<2:03:01, 19.43s/it]
+2026-08-02 00:44:13:993 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  24%|██▍       | 121/500 [39:07<2:02:28, 19.39s/it]
+2026-08-02 00:44:33:364 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  24%|██▍       | 122/500 [39:26<2:02:25, 19.43s/it]
+2026-08-02 00:44:52:837 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  25%|██▍       | 123/500 [39:45<2:01:58, 19.41s/it]
+2026-08-02 00:45:12:136 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  25%|██▍       | 124/500 [40:05<2:01:46, 19.43s/it]
+2026-08-02 00:45:31:460 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  25%|██▌       | 125/500 [40:24<2:01:11, 19.39s/it]
+2026-08-02 00:45:50:840 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  25%|██▌       | 126/500 [40:44<2:00:44, 19.37s/it]
+2026-08-02 00:46:10:698 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  25%|██▌       | 127/500 [41:03<2:00:26, 19.37s/it]
+2026-08-02 00:46:29:940 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  26%|██▌       | 128/500 [41:23<2:01:01, 19.52s/it]
+2026-08-02 00:46:49:616 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  26%|██▌       | 129/500 [41:42<2:00:10, 19.44s/it]
+2026-08-02 00:47:09:278 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  26%|██▌       | 130/500 [42:02<2:00:18, 19.51s/it]
+2026-08-02 00:47:28:503 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  26%|██▌       | 131/500 [42:21<2:00:15, 19.55s/it]
+2026-08-02 00:47:47:829 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  26%|██▋       | 132/500 [42:41<1:59:19, 19.46s/it]
+2026-08-02 00:48:07:266 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  27%|██▋       | 133/500 [43:00<1:58:45, 19.42s/it]
+2026-08-02 00:48:26:454 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  27%|██▋       | 134/500 [43:19<1:58:28, 19.42s/it]
+2026-08-02 00:48:45:954 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  27%|██▋       | 135/500 [43:39<1:57:43, 19.35s/it]
+2026-08-02 00:49:05:472 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  27%|██▋       | 136/500 [43:58<1:57:40, 19.40s/it]
+2026-08-02 00:49:24:812 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  27%|██▋       | 137/500 [44:18<1:57:34, 19.43s/it]
+2026-08-02 00:49:44:347 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  28%|██▊       | 138/500 [44:37<1:57:04, 19.41s/it]
+2026-08-02 00:50:03:802 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  28%|██▊       | 139/500 [44:56<1:56:59, 19.44s/it]
+2026-08-02 00:50:23:232 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  28%|██▊       | 140/500 [45:16<1:56:41, 19.45s/it]
+2026-08-02 00:50:42:636 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  28%|██▊       | 141/500 [45:35<1:56:19, 19.44s/it]
+2026-08-02 00:51:02:272 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  28%|██▊       | 142/500 [45:55<1:55:56, 19.43s/it]
+2026-08-02 00:51:21:500 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  29%|██▊       | 143/500 [46:14<1:55:58, 19.49s/it]
+2026-08-02 00:51:40:990 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  29%|██▉       | 144/500 [46:34<1:55:11, 19.41s/it]
+2026-08-02 00:52:00:439 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  29%|██▉       | 145/500 [46:53<1:54:59, 19.44s/it]
+2026-08-02 00:52:19:959 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  29%|██▉       | 146/500 [47:12<1:54:41, 19.44s/it]
+2026-08-02 00:52:39:463 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  29%|██▉       | 147/500 [47:32<1:54:30, 19.46s/it]
+2026-08-02 00:52:58:904 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  30%|██▉       | 148/500 [47:52<1:54:15, 19.48s/it]
+2026-08-02 00:53:18:086 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  30%|██▉       | 149/500 [48:11<1:53:52, 19.47s/it]
+2026-08-02 00:53:37:352 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  30%|███       | 150/500 [48:30<1:53:03, 19.38s/it]
+2026-08-02 00:53:56:669 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  30%|███       | 151/500 [48:49<1:52:31, 19.35s/it]
+2026-08-02 00:54:16:110 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  30%|███       | 152/500 [49:09<1:52:09, 19.34s/it]
+2026-08-02 00:54:35:621 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  31%|███       | 153/500 [49:28<1:52:00, 19.37s/it]
+2026-08-02 00:54:55:114 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  31%|███       | 154/500 [49:48<1:51:56, 19.41s/it]
+2026-08-02 00:55:14:424 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  31%|███       | 155/500 [50:07<1:51:45, 19.44s/it]
+2026-08-02 00:55:33:880 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  31%|███       | 156/500 [50:26<1:51:12, 19.40s/it]
+2026-08-02 00:55:53:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  31%|███▏      | 157/500 [50:46<1:50:59, 19.42s/it]
+2026-08-02 00:56:12:519 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  32%|███▏      | 158/500 [51:05<1:50:33, 19.40s/it]
+2026-08-02 00:56:31:905 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  32%|███▏      | 159/500 [51:25<1:50:02, 19.36s/it]
+2026-08-02 00:56:51:241 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  32%|███▏      | 160/500 [51:44<1:49:45, 19.37s/it]
+2026-08-02 00:57:10:723 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  32%|███▏      | 161/500 [52:03<1:49:23, 19.36s/it]
+2026-08-02 00:57:30:326 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  32%|███▏      | 162/500 [52:23<1:49:15, 19.40s/it]
+2026-08-02 00:57:49:550 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  33%|███▎      | 163/500 [52:42<1:49:17, 19.46s/it]
+2026-08-02 00:58:09:137 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  33%|███▎      | 164/500 [53:02<1:48:34, 19.39s/it]
+2026-08-02 00:58:28:596 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  33%|███▎      | 165/500 [53:21<1:48:34, 19.45s/it]
+2026-08-02 00:58:48:304 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  33%|███▎      | 166/500 [53:41<1:48:16, 19.45s/it]
+2026-08-02 00:59:07:636 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  33%|███▎      | 167/500 [54:00<1:48:22, 19.53s/it]
+2026-08-02 00:59:27:266 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  34%|███▎      | 168/500 [54:20<1:47:43, 19.47s/it]
+2026-08-02 00:59:46:703 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  34%|███▍      | 169/500 [54:39<1:47:40, 19.52s/it]
+2026-08-02 01:00:06:062 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  34%|███▍      | 170/500 [54:59<1:47:12, 19.49s/it]
+2026-08-02 01:00:25:733 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  34%|███▍      | 171/500 [55:18<1:46:40, 19.45s/it]
+2026-08-02 01:00:44:965 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  34%|███▍      | 172/500 [55:38<1:46:42, 19.52s/it]
+2026-08-02 01:01:04:357 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  35%|███▍      | 173/500 [55:57<1:45:54, 19.43s/it]
+2026-08-02 01:01:23:662 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  35%|███▍      | 174/500 [56:16<1:45:31, 19.42s/it]
+2026-08-02 01:01:43:284 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  35%|███▌      | 175/500 [56:36<1:45:00, 19.39s/it]
+2026-08-02 01:02:03:074 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  35%|███▌      | 176/500 [56:55<1:45:03, 19.46s/it]
+2026-08-02 01:02:22:456 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  35%|███▌      | 177/500 [57:15<1:45:16, 19.56s/it]
+2026-08-02 01:02:41:697 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  36%|███▌      | 178/500 [57:35<1:44:40, 19.50s/it]
+2026-08-02 01:03:01:334 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  36%|███▌      | 179/500 [57:54<1:43:55, 19.43s/it]
+2026-08-02 01:03:20:980 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  36%|███▌      | 180/500 [58:13<1:43:56, 19.49s/it]
+2026-08-02 01:03:40:169 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  36%|███▌      | 181/500 [58:33<1:43:51, 19.54s/it]
+2026-08-02 01:03:59:543 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  36%|███▋      | 182/500 [58:52<1:42:59, 19.43s/it]
+2026-08-02 01:04:19:103 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  37%|███▋      | 183/500 [59:12<1:42:34, 19.41s/it]
+2026-08-02 01:04:38:737 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  37%|███▋      | 184/500 [59:31<1:42:28, 19.46s/it]
+2026-08-02 01:04:57:935 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  37%|███▋      | 185/500 [59:51<1:42:25, 19.51s/it]
+2026-08-02 01:05:17:225 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  37%|███▋      | 186/500 [1:00:10<1:41:36, 19.42s/it]
+2026-08-02 01:05:36:877 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  37%|███▋      | 187/500 [1:00:29<1:41:05, 19.38s/it]
+2026-08-02 01:05:56:068 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  38%|███▊      | 188/500 [1:00:49<1:41:11, 19.46s/it]
+2026-08-02 01:06:15:287 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  38%|███▊      | 189/500 [1:01:08<1:40:27, 19.38s/it]
+2026-08-02 01:06:34:711 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  38%|███▊      | 190/500 [1:01:27<1:39:52, 19.33s/it]
+2026-08-02 01:06:53:928 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  38%|███▊      | 191/500 [1:01:47<1:39:42, 19.36s/it]
+2026-08-02 01:07:13:278 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  38%|███▊      | 192/500 [1:02:06<1:39:09, 19.32s/it]
+2026-08-02 01:07:32:833 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  39%|███▊      | 193/500 [1:02:25<1:38:53, 19.33s/it]
+2026-08-02 01:07:52:212 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  39%|███▉      | 194/500 [1:02:45<1:38:54, 19.40s/it]
+2026-08-02 01:08:11:631 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  39%|███▉      | 195/500 [1:03:04<1:38:34, 19.39s/it]
+2026-08-02 01:08:31:097 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  39%|███▉      | 196/500 [1:03:24<1:38:17, 19.40s/it]
+2026-08-02 01:08:50:612 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  39%|███▉      | 197/500 [1:03:43<1:38:03, 19.42s/it]
+2026-08-02 01:09:10:255 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  40%|███▉      | 198/500 [1:04:03<1:37:53, 19.45s/it]
+2026-08-02 01:09:29:633 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  40%|███▉      | 199/500 [1:04:22<1:37:51, 19.51s/it]
+2026-08-02 01:09:49:240 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  40%|████      | 200/500 [1:04:42<1:37:20, 19.47s/it]
+2026-08-02 01:10:08:726 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  40%|████      | 201/500 [1:05:01<1:37:13, 19.51s/it]
+2026-08-02 01:10:28:305 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  40%|████      | 202/500 [1:05:21<1:36:51, 19.50s/it]
+2026-08-02 01:10:48:000 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  41%|████      | 203/500 [1:05:40<1:36:39, 19.53s/it]
+2026-08-02 01:11:07:661 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  41%|████      | 204/500 [1:06:00<1:36:34, 19.58s/it]
+2026-08-02 01:11:27:298 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  41%|████      | 205/500 [1:06:20<1:36:22, 19.60s/it]
+2026-08-02 01:11:46:852 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  41%|████      | 206/500 [1:06:39<1:36:06, 19.61s/it]
+2026-08-02 01:12:06:173 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  41%|████▏     | 207/500 [1:06:59<1:35:41, 19.59s/it]
+2026-08-02 01:12:25:279 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  42%|████▏     | 208/500 [1:07:18<1:34:57, 19.51s/it]
+2026-08-02 01:12:44:562 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  42%|████▏     | 209/500 [1:07:37<1:34:02, 19.39s/it]
+2026-08-02 01:13:03:728 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  42%|████▏     | 210/500 [1:07:57<1:33:33, 19.36s/it]
+2026-08-02 01:13:23:325 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  42%|████▏     | 211/500 [1:08:16<1:32:57, 19.30s/it]
+2026-08-02 01:13:42:856 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  42%|████▏     | 212/500 [1:08:35<1:33:04, 19.39s/it]
+2026-08-02 01:14:02:089 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  43%|████▎     | 213/500 [1:08:55<1:32:56, 19.43s/it]
+2026-08-02 01:14:21:628 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  43%|████▎     | 214/500 [1:09:14<1:32:20, 19.37s/it]
+2026-08-02 01:14:40:962 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  43%|████▎     | 215/500 [1:09:34<1:32:15, 19.42s/it]
+2026-08-02 01:15:00:105 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  43%|████▎     | 216/500 [1:09:53<1:31:48, 19.40s/it]
+2026-08-02 01:15:19:455 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  43%|████▎     | 217/500 [1:10:12<1:31:07, 19.32s/it]
+2026-08-02 01:15:38:895 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  44%|████▎     | 218/500 [1:10:32<1:30:50, 19.33s/it]
+2026-08-02 01:15:58:010 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  44%|████▍     | 219/500 [1:10:51<1:30:40, 19.36s/it]
+2026-08-02 01:16:17:210 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  44%|████▍     | 220/500 [1:11:10<1:30:00, 19.29s/it]
+2026-08-02 01:16:36:525 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  44%|████▍     | 221/500 [1:11:29<1:29:34, 19.26s/it]
+2026-08-02 01:16:55:867 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  44%|████▍     | 222/500 [1:11:49<1:29:19, 19.28s/it]
+2026-08-02 01:17:15:281 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  45%|████▍     | 223/500 [1:12:08<1:29:05, 19.30s/it]
+2026-08-02 01:17:34:850 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  45%|████▍     | 224/500 [1:12:27<1:28:55, 19.33s/it]
+2026-08-02 01:17:54:198 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  45%|████▌     | 225/500 [1:12:47<1:28:55, 19.40s/it]
+2026-08-02 01:18:13:566 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  45%|████▌     | 226/500 [1:13:06<1:28:31, 19.39s/it]
+2026-08-02 01:18:33:172 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  45%|████▌     | 227/500 [1:13:26<1:28:11, 19.38s/it]
+2026-08-02 01:18:52:796 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  46%|████▌     | 228/500 [1:13:45<1:28:09, 19.45s/it]
+2026-08-02 01:19:12:026 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  46%|████▌     | 229/500 [1:14:05<1:28:04, 19.50s/it]
+2026-08-02 01:19:31:532 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  46%|████▌     | 230/500 [1:14:24<1:27:23, 19.42s/it]
+2026-08-02 01:19:50:894 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  46%|████▌     | 231/500 [1:14:44<1:27:10, 19.45s/it]
+2026-08-02 01:20:09:976 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  46%|████▋     | 232/500 [1:15:03<1:26:44, 19.42s/it]
+2026-08-02 01:20:29:126 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  47%|████▋     | 233/500 [1:15:22<1:25:58, 19.32s/it]
+2026-08-02 01:20:48:535 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  47%|████▋     | 234/500 [1:15:41<1:25:25, 19.27s/it]
+2026-08-02 01:21:07:698 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  47%|████▋     | 235/500 [1:16:01<1:25:17, 19.31s/it]
+2026-08-02 01:21:27:004 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  47%|████▋     | 236/500 [1:16:20<1:24:46, 19.27s/it]
+2026-08-02 01:21:46:711 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  47%|████▋     | 237/500 [1:16:39<1:24:30, 19.28s/it]
+2026-08-02 01:22:06:260 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  48%|████▊     | 238/500 [1:16:59<1:24:44, 19.41s/it]
+2026-08-02 01:22:25:870 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  48%|████▊     | 239/500 [1:17:18<1:24:36, 19.45s/it]
+2026-08-02 01:22:45:343 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  48%|████▊     | 240/500 [1:17:38<1:24:29, 19.50s/it]
+2026-08-02 01:23:04:671 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  48%|████▊     | 241/500 [1:17:57<1:24:07, 19.49s/it]
+2026-08-02 01:23:23:869 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  48%|████▊     | 242/500 [1:18:17<1:23:35, 19.44s/it]
+2026-08-02 01:23:43:243 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  49%|████▊     | 243/500 [1:18:36<1:22:57, 19.37s/it]
+2026-08-02 01:24:02:892 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  49%|████▉     | 244/500 [1:18:55<1:22:38, 19.37s/it]
+2026-08-02 01:24:22:535 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  49%|████▉     | 245/500 [1:19:15<1:22:40, 19.45s/it]
+2026-08-02 01:24:42:159 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  49%|████▉     | 246/500 [1:19:35<1:22:35, 19.51s/it]
+2026-08-02 01:25:01:358 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  49%|████▉     | 247/500 [1:19:54<1:22:24, 19.54s/it]
+2026-08-02 01:25:20:640 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  50%|████▉     | 248/500 [1:20:13<1:21:39, 19.44s/it]
+2026-08-02 01:25:39:915 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  50%|████▉     | 249/500 [1:20:33<1:21:07, 19.39s/it]
+2026-08-02 01:25:59:289 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  50%|█████     | 250/500 [1:20:52<1:20:39, 19.36s/it]
+2026-08-02 01:26:18:553 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  50%|█████     | 251/500 [1:21:11<1:20:21, 19.36s/it]
+2026-08-02 01:26:37:637 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  50%|█████     | 252/500 [1:21:31<1:19:54, 19.33s/it]
+2026-08-02 01:26:56:897 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  51%|█████     | 253/500 [1:21:50<1:19:16, 19.26s/it]
+2026-08-02 01:27:16:250 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  51%|█████     | 254/500 [1:22:09<1:18:57, 19.26s/it]
+2026-08-02 01:27:35:779 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  51%|█████     | 255/500 [1:22:28<1:18:45, 19.29s/it]
+2026-08-02 01:27:55:515 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  51%|█████     | 256/500 [1:22:48<1:18:43, 19.36s/it]
+2026-08-02 01:28:15:068 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  51%|█████▏    | 257/500 [1:23:08<1:18:51, 19.47s/it]
+2026-08-02 01:28:34:818 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  52%|█████▏    | 258/500 [1:23:27<1:18:38, 19.50s/it]
+2026-08-02 01:28:54:391 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  52%|█████▏    | 259/500 [1:23:47<1:18:37, 19.57s/it]
+2026-08-02 01:29:13:772 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  52%|█████▏    | 260/500 [1:24:06<1:18:17, 19.57s/it]
+2026-08-02 01:29:33:259 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  52%|█████▏    | 261/500 [1:24:26<1:17:44, 19.52s/it]
+2026-08-02 01:29:52:470 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  52%|█████▏    | 262/500 [1:24:45<1:17:22, 19.51s/it]
+2026-08-02 01:30:12:009 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  53%|█████▎    | 263/500 [1:25:05<1:16:42, 19.42s/it]
+2026-08-02 01:30:31:578 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  53%|█████▎    | 264/500 [1:25:24<1:16:31, 19.45s/it]
+2026-08-02 01:30:50:932 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  53%|█████▎    | 265/500 [1:25:44<1:16:19, 19.49s/it]
+2026-08-02 01:31:10:426 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  53%|█████▎    | 266/500 [1:26:03<1:15:50, 19.45s/it]
+2026-08-02 01:31:29:901 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  53%|█████▎    | 267/500 [1:26:22<1:15:34, 19.46s/it]
+2026-08-02 01:31:49:293 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  54%|█████▎    | 268/500 [1:26:42<1:15:16, 19.47s/it]
+2026-08-02 01:32:08:606 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  54%|█████▍    | 269/500 [1:27:01<1:14:51, 19.44s/it]
+2026-08-02 01:32:28:188 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  54%|█████▍    | 270/500 [1:27:21<1:14:23, 19.40s/it]
+2026-08-02 01:32:47:787 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  54%|█████▍    | 271/500 [1:27:40<1:14:15, 19.46s/it]
+2026-08-02 01:33:06:952 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  54%|█████▍    | 272/500 [1:28:00<1:14:06, 19.50s/it]
+2026-08-02 01:33:26:672 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  55%|█████▍    | 273/500 [1:28:19<1:13:23, 19.40s/it]
+2026-08-02 01:33:45:734 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  55%|█████▍    | 274/500 [1:28:39<1:13:26, 19.50s/it]
+2026-08-02 01:34:05:019 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  55%|█████▌    | 275/500 [1:28:58<1:12:37, 19.37s/it]
+2026-08-02 01:34:24:200 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  55%|█████▌    | 276/500 [1:29:17<1:12:12, 19.34s/it]
+2026-08-02 01:34:43:645 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  55%|█████▌    | 277/500 [1:29:36<1:11:42, 19.29s/it]
+2026-08-02 01:35:03:064 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  56%|█████▌    | 278/500 [1:29:56<1:11:33, 19.34s/it]
+2026-08-02 01:35:22:573 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  56%|█████▌    | 279/500 [1:30:15<1:11:19, 19.36s/it]
+2026-08-02 01:35:42:089 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  56%|█████▌    | 280/500 [1:30:35<1:11:09, 19.41s/it]
+2026-08-02 01:36:01:466 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  56%|█████▌    | 281/500 [1:30:54<1:10:57, 19.44s/it]
+2026-08-02 01:36:20:748 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  56%|█████▋    | 282/500 [1:31:14<1:10:33, 19.42s/it]
+2026-08-02 01:36:39:982 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  57%|█████▋    | 283/500 [1:31:33<1:10:05, 19.38s/it]
+2026-08-02 01:36:59:194 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  57%|█████▋    | 284/500 [1:31:52<1:09:36, 19.34s/it]
+2026-08-02 01:37:18:930 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  57%|█████▋    | 285/500 [1:32:11<1:09:09, 19.30s/it]
+2026-08-02 01:37:38:290 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  57%|█████▋    | 286/500 [1:32:31<1:09:17, 19.43s/it]
+2026-08-02 01:37:58:044 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  57%|█████▋    | 287/500 [1:32:50<1:08:54, 19.41s/it]
+2026-08-02 01:38:17:149 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  58%|█████▊    | 288/500 [1:33:10<1:08:56, 19.51s/it]
+2026-08-02 01:38:36:353 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  58%|█████▊    | 289/500 [1:33:29<1:08:11, 19.39s/it]
+2026-08-02 01:38:55:711 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  58%|█████▊    | 290/500 [1:33:48<1:07:40, 19.33s/it]
+2026-08-02 01:39:15:185 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  58%|█████▊    | 291/500 [1:34:08<1:07:22, 19.34s/it]
+2026-08-02 01:39:34:285 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  58%|█████▊    | 292/500 [1:34:27<1:07:11, 19.38s/it]
+2026-08-02 01:39:53:735 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  59%|█████▊    | 293/500 [1:34:46<1:06:34, 19.30s/it]
+2026-08-02 01:40:13:073 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  59%|█████▉    | 294/500 [1:35:06<1:06:24, 19.34s/it]
+2026-08-02 01:40:32:165 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  59%|█████▉    | 295/500 [1:35:25<1:06:04, 19.34s/it]
+2026-08-02 01:40:51:834 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  59%|█████▉    | 296/500 [1:35:44<1:05:30, 19.27s/it]
+2026-08-02 01:41:11:434 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  59%|█████▉    | 297/500 [1:36:04<1:05:35, 19.39s/it]
+2026-08-02 01:41:30:558 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  60%|█████▉    | 298/500 [1:36:23<1:05:29, 19.45s/it]
+2026-08-02 01:41:49:719 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  60%|█████▉    | 299/500 [1:36:43<1:04:49, 19.35s/it]
+2026-08-02 01:42:09:254 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  60%|██████    | 300/500 [1:37:02<1:04:19, 19.30s/it]
+2026-08-02 01:42:28:903 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  60%|██████    | 301/500 [1:37:21<1:04:14, 19.37s/it]
+2026-08-02 01:42:48:491 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  60%|██████    | 302/500 [1:37:41<1:04:11, 19.45s/it]
+2026-08-02 01:43:07:807 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  61%|██████    | 303/500 [1:38:01<1:04:00, 19.49s/it]
+2026-08-02 01:43:27:371 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  61%|██████    | 304/500 [1:38:20<1:03:30, 19.44s/it]
+2026-08-02 01:43:46:531 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  61%|██████    | 305/500 [1:38:39<1:03:17, 19.48s/it]
+2026-08-02 01:44:05:692 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  61%|██████    | 306/500 [1:38:59<1:02:40, 19.38s/it]
+2026-08-02 01:44:24:969 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  61%|██████▏   | 307/500 [1:39:18<1:02:07, 19.32s/it]
+2026-08-02 01:44:44:354 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  62%|██████▏   | 308/500 [1:39:37<1:01:46, 19.30s/it]
+2026-08-02 01:45:03:468 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  62%|██████▏   | 309/500 [1:39:56<1:01:31, 19.33s/it]
+2026-08-02 01:45:22:653 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  62%|██████▏   | 310/500 [1:40:16<1:01:00, 19.26s/it]
+2026-08-02 01:45:42:020 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  62%|██████▏   | 311/500 [1:40:35<1:00:36, 19.24s/it]
+2026-08-02 01:46:01:453 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  62%|██████▏   | 312/500 [1:40:54<1:00:24, 19.28s/it]
+2026-08-02 01:46:20:851 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  63%|██████▎   | 313/500 [1:41:14<1:00:13, 19.32s/it]
+2026-08-02 01:46:40:497 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  63%|██████▎   | 314/500 [1:41:33<59:58, 19.35s/it]  
+2026-08-02 01:47:00:042 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  63%|██████▎   | 315/500 [1:41:53<59:55, 19.44s/it]
+2026-08-02 01:47:19:320 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  63%|██████▎   | 316/500 [1:42:12<59:42, 19.47s/it]
+2026-08-02 01:47:38:554 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  63%|██████▎   | 317/500 [1:42:31<59:12, 19.41s/it]
+2026-08-02 01:47:58:189 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  64%|██████▎   | 318/500 [1:42:51<58:43, 19.36s/it]
+2026-08-02 01:48:17:553 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  64%|██████▍   | 319/500 [1:43:10<58:38, 19.44s/it]
+2026-08-02 01:48:36:875 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  64%|██████▍   | 320/500 [1:43:30<58:15, 19.42s/it]
+2026-08-02 01:48:56:045 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  64%|██████▍   | 321/500 [1:43:49<57:50, 19.39s/it]
+2026-08-02 01:49:15:257 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  64%|██████▍   | 322/500 [1:44:08<57:19, 19.32s/it]
+2026-08-02 01:49:34:405 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  65%|██████▍   | 323/500 [1:44:27<56:54, 19.29s/it]
+2026-08-02 01:49:53:903 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  65%|██████▍   | 324/500 [1:44:46<56:27, 19.25s/it]
+2026-08-02 01:50:13:009 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  65%|██████▌   | 325/500 [1:45:06<56:21, 19.32s/it]
+2026-08-02 01:50:32:069 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  65%|██████▌   | 326/500 [1:45:25<55:50, 19.26s/it]
+2026-08-02 01:50:51:337 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  65%|██████▌   | 327/500 [1:45:44<55:21, 19.20s/it]
+2026-08-02 01:51:10:729 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  66%|██████▌   | 328/500 [1:46:03<55:05, 19.22s/it]
+2026-08-02 01:51:29:946 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  66%|██████▌   | 329/500 [1:46:23<54:55, 19.27s/it]
+2026-08-02 01:51:49:299 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  66%|██████▌   | 330/500 [1:46:42<54:33, 19.25s/it]
+2026-08-02 01:52:08:619 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  66%|██████▌   | 331/500 [1:47:01<54:19, 19.28s/it]
+2026-08-02 01:52:28:010 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  66%|██████▋   | 332/500 [1:47:21<54:01, 19.29s/it]
+2026-08-02 01:52:47:136 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  67%|██████▋   | 333/500 [1:47:40<53:47, 19.32s/it]
+2026-08-02 01:53:06:384 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  67%|██████▋   | 334/500 [1:47:59<53:17, 19.26s/it]
+2026-08-02 01:53:25:596 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  67%|██████▋   | 335/500 [1:48:18<52:57, 19.26s/it]
+2026-08-02 01:53:44:978 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  67%|██████▋   | 336/500 [1:48:38<52:36, 19.25s/it]
+2026-08-02 01:54:04:338 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  67%|██████▋   | 337/500 [1:48:57<52:23, 19.29s/it]
+2026-08-02 01:54:23:904 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  68%|██████▊   | 338/500 [1:49:16<52:07, 19.31s/it]
+2026-08-02 01:54:43:508 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  68%|██████▊   | 339/500 [1:49:36<52:01, 19.39s/it]
+2026-08-02 01:55:02:851 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  68%|██████▊   | 340/500 [1:49:56<51:52, 19.45s/it]
+2026-08-02 01:55:22:243 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  68%|██████▊   | 341/500 [1:50:15<51:27, 19.42s/it]
+2026-08-02 01:55:41:538 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  68%|██████▊   | 342/500 [1:50:34<51:06, 19.41s/it]
+2026-08-02 01:56:00:890 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  69%|██████▊   | 343/500 [1:50:54<50:42, 19.38s/it]
+2026-08-02 01:56:20:527 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  69%|██████▉   | 344/500 [1:51:13<50:21, 19.37s/it]
+2026-08-02 01:56:40:051 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  69%|██████▉   | 345/500 [1:51:33<50:14, 19.45s/it]
+2026-08-02 01:56:59:555 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  69%|██████▉   | 346/500 [1:51:52<49:58, 19.47s/it]
+2026-08-02 01:57:18:661 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  69%|██████▉   | 347/500 [1:52:12<49:40, 19.48s/it]
+2026-08-02 01:57:37:653 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  70%|██████▉   | 348/500 [1:52:31<49:04, 19.37s/it]
+2026-08-02 01:57:56:715 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  70%|██████▉   | 349/500 [1:52:50<48:27, 19.26s/it]
+2026-08-02 01:58:16:210 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  70%|███████   | 350/500 [1:53:09<47:59, 19.20s/it]
+2026-08-02 01:58:35:405 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  70%|███████   | 351/500 [1:53:28<47:53, 19.29s/it]
+2026-08-02 01:58:54:800 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  70%|███████   | 352/500 [1:53:47<47:30, 19.26s/it]
+2026-08-02 01:59:14:225 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  71%|███████   | 353/500 [1:54:07<47:17, 19.30s/it]
+2026-08-02 01:59:33:488 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  71%|███████   | 354/500 [1:54:26<47:03, 19.34s/it]
+2026-08-02 01:59:52:711 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  71%|███████   | 355/500 [1:54:46<46:40, 19.31s/it]
+2026-08-02 02:00:12:228 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  71%|███████   | 356/500 [1:55:05<46:17, 19.29s/it]
+2026-08-02 02:00:31:677 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  71%|███████▏  | 357/500 [1:55:24<46:07, 19.36s/it]
+2026-08-02 02:00:51:440 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  72%|███████▏  | 358/500 [1:55:44<45:52, 19.38s/it]
+2026-08-02 02:01:10:538 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  72%|███████▏  | 359/500 [1:56:03<45:49, 19.50s/it]
+2026-08-02 02:01:29:764 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  72%|███████▏  | 360/500 [1:56:23<45:12, 19.38s/it]
+2026-08-02 02:01:48:961 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  72%|███████▏  | 361/500 [1:56:42<44:47, 19.33s/it]
+2026-08-02 02:02:08:179 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  72%|███████▏  | 362/500 [1:57:01<44:22, 19.29s/it]
+2026-08-02 02:02:27:368 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  73%|███████▎  | 363/500 [1:57:20<43:59, 19.27s/it]
+2026-08-02 02:02:46:881 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  73%|███████▎  | 364/500 [1:57:39<43:37, 19.25s/it]
+2026-08-02 02:03:06:078 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  73%|███████▎  | 365/500 [1:57:59<43:28, 19.33s/it]
+2026-08-02 02:03:25:527 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  73%|███████▎  | 366/500 [1:58:18<43:04, 19.29s/it]
+2026-08-02 02:03:45:087 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  73%|███████▎  | 367/500 [1:58:38<42:51, 19.34s/it]
+2026-08-02 02:04:04:588 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  74%|███████▎  | 368/500 [1:58:57<42:41, 19.40s/it]
+2026-08-02 02:04:24:187 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  74%|███████▍  | 369/500 [1:59:17<42:25, 19.43s/it]
+2026-08-02 02:04:43:965 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  74%|███████▍  | 370/500 [1:59:36<42:12, 19.48s/it]
+2026-08-02 02:05:03:194 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  74%|███████▍  | 371/500 [1:59:56<42:04, 19.57s/it]
+2026-08-02 02:05:22:858 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  74%|███████▍  | 372/500 [2:00:15<41:31, 19.47s/it]
+2026-08-02 02:05:42:384 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  75%|███████▍  | 373/500 [2:00:35<41:19, 19.53s/it]
+2026-08-02 02:06:01:965 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  75%|███████▍  | 374/500 [2:00:54<41:00, 19.53s/it]
+2026-08-02 02:06:21:660 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  75%|███████▌  | 375/500 [2:01:14<40:42, 19.54s/it]
+2026-08-02 02:06:40:879 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  75%|███████▌  | 376/500 [2:01:34<40:28, 19.59s/it]
+2026-08-02 02:07:00:011 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  75%|███████▌  | 377/500 [2:01:53<39:55, 19.48s/it]
+2026-08-02 02:07:19:547 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  76%|███████▌  | 378/500 [2:02:12<39:23, 19.37s/it]
+2026-08-02 02:07:38:982 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  76%|███████▌  | 379/500 [2:02:32<39:10, 19.42s/it]
+2026-08-02 02:07:58:677 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  76%|███████▌  | 380/500 [2:02:51<38:51, 19.43s/it]
+2026-08-02 02:08:18:244 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  76%|███████▌  | 381/500 [2:03:11<38:41, 19.51s/it]
+2026-08-02 02:08:37:605 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  76%|███████▋  | 382/500 [2:03:30<38:23, 19.53s/it]
+2026-08-02 02:08:56:988 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  77%|███████▋  | 383/500 [2:03:50<37:58, 19.48s/it]
+2026-08-02 02:09:16:362 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  77%|███████▋  | 384/500 [2:04:09<37:35, 19.45s/it]
+2026-08-02 02:09:35:676 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  77%|███████▋  | 385/500 [2:04:28<37:13, 19.43s/it]
+2026-08-02 02:09:54:981 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  77%|███████▋  | 386/500 [2:04:48<36:50, 19.39s/it]
+2026-08-02 02:10:14:543 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  77%|███████▋  | 387/500 [2:05:07<36:28, 19.37s/it]
+2026-08-02 02:10:34:107 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  78%|███████▊  | 388/500 [2:05:27<36:15, 19.42s/it]
+2026-08-02 02:10:53:478 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  78%|███████▊  | 389/500 [2:05:46<36:00, 19.47s/it]
+2026-08-02 02:11:12:969 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  78%|███████▊  | 390/500 [2:06:06<35:38, 19.44s/it]
+2026-08-02 02:11:32:519 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  78%|███████▊  | 391/500 [2:06:25<35:20, 19.45s/it]
+2026-08-02 02:11:52:046 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  78%|███████▊  | 392/500 [2:06:45<35:04, 19.48s/it]
+2026-08-02 02:12:11:274 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  79%|███████▊  | 393/500 [2:07:04<34:46, 19.50s/it]
+2026-08-02 02:12:30:873 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  79%|███████▉  | 394/500 [2:07:23<34:18, 19.42s/it]
+2026-08-02 02:12:50:028 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  79%|███████▉  | 395/500 [2:07:43<34:04, 19.47s/it]
+2026-08-02 02:13:09:438 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  79%|███████▉  | 396/500 [2:08:02<33:35, 19.38s/it]
+2026-08-02 02:13:28:588 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  79%|███████▉  | 397/500 [2:08:21<33:16, 19.39s/it]
+2026-08-02 02:13:48:335 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  80%|███████▉  | 398/500 [2:08:41<32:50, 19.32s/it]
+2026-08-02 02:14:08:050 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  80%|███████▉  | 399/500 [2:09:00<32:43, 19.44s/it]
+2026-08-02 02:14:27:480 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  80%|████████  | 400/500 [2:09:20<32:32, 19.53s/it]
+2026-08-02 02:14:46:714 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  80%|████████  | 401/500 [2:09:40<32:10, 19.50s/it]
+2026-08-02 02:15:06:166 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  80%|████████  | 402/500 [2:09:59<31:42, 19.42s/it]
+2026-08-02 02:15:25:483 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  81%|████████  | 403/500 [2:10:18<31:24, 19.43s/it]
+2026-08-02 02:15:44:970 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  81%|████████  | 404/500 [2:10:38<31:01, 19.39s/it]
+2026-08-02 02:16:04:288 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  81%|████████  | 405/500 [2:10:57<30:45, 19.42s/it]
+2026-08-02 02:16:23:692 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  81%|████████  | 406/500 [2:11:16<30:22, 19.39s/it]
+2026-08-02 02:16:43:004 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  81%|████████▏ | 407/500 [2:11:36<30:03, 19.40s/it]
+2026-08-02 02:17:02:376 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  82%|████████▏ | 408/500 [2:11:55<29:42, 19.37s/it]
+2026-08-02 02:17:21:921 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  82%|████████▏ | 409/500 [2:12:14<29:22, 19.37s/it]
+2026-08-02 02:17:41:397 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  82%|████████▏ | 410/500 [2:12:34<29:08, 19.42s/it]
+2026-08-02 02:18:00:723 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  82%|████████▏ | 411/500 [2:12:53<28:50, 19.44s/it]
+2026-08-02 02:18:20:373 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  82%|████████▏ | 412/500 [2:13:13<28:27, 19.41s/it]
+2026-08-02 02:18:39:506 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  83%|████████▎ | 413/500 [2:13:32<28:14, 19.48s/it]
+2026-08-02 02:18:59:014 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  83%|████████▎ | 414/500 [2:13:52<27:46, 19.37s/it]
+2026-08-02 02:19:18:293 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  83%|████████▎ | 415/500 [2:14:11<27:30, 19.41s/it]
+2026-08-02 02:19:37:738 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  83%|████████▎ | 416/500 [2:14:30<27:07, 19.37s/it]
+2026-08-02 02:19:56:932 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  83%|████████▎ | 417/500 [2:14:50<26:49, 19.40s/it]
+2026-08-02 02:20:16:397 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  84%|████████▎ | 418/500 [2:15:09<26:25, 19.33s/it]
+2026-08-02 02:20:36:124 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  84%|████████▍ | 419/500 [2:15:28<26:09, 19.37s/it]
+2026-08-02 02:20:55:467 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  84%|████████▍ | 420/500 [2:15:48<25:58, 19.48s/it]
+2026-08-02 02:21:15:055 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  84%|████████▍ | 421/500 [2:16:08<25:35, 19.44s/it]
+2026-08-02 02:21:34:589 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  84%|████████▍ | 422/500 [2:16:27<25:19, 19.48s/it]
+2026-08-02 02:21:54:085 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  85%|████████▍ | 423/500 [2:16:47<25:01, 19.50s/it]
+2026-08-02 02:22:13:305 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  85%|████████▍ | 424/500 [2:17:06<24:41, 19.50s/it]
+2026-08-02 02:22:32:425 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  85%|████████▌ | 425/500 [2:17:25<24:16, 19.41s/it]
+2026-08-02 02:22:51:839 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  85%|████████▌ | 426/500 [2:17:44<23:50, 19.33s/it]
+2026-08-02 02:23:11:414 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  85%|████████▌ | 427/500 [2:18:04<23:32, 19.35s/it]
+2026-08-02 02:23:30:657 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  86%|████████▌ | 428/500 [2:18:23<23:18, 19.42s/it]
+2026-08-02 02:23:50:191 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  86%|████████▌ | 429/500 [2:18:43<22:55, 19.37s/it]
+2026-08-02 02:24:09:670 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  86%|████████▌ | 430/500 [2:19:02<22:39, 19.42s/it]
+2026-08-02 02:24:29:132 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  86%|████████▌ | 431/500 [2:19:22<22:21, 19.44s/it]
+2026-08-02 02:24:48:872 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  86%|████████▋ | 432/500 [2:19:41<22:02, 19.44s/it]
+2026-08-02 02:25:08:642 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  87%|████████▋ | 433/500 [2:20:01<21:48, 19.53s/it]
+2026-08-02 02:25:28:242 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  87%|████████▋ | 434/500 [2:20:21<21:33, 19.60s/it]
+2026-08-02 02:25:47:526 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  87%|████████▋ | 435/500 [2:20:40<21:14, 19.60s/it]
+2026-08-02 02:26:07:012 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  87%|████████▋ | 436/500 [2:21:00<20:48, 19.51s/it]
+2026-08-02 02:26:26:422 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  87%|████████▋ | 437/500 [2:21:19<20:28, 19.50s/it]
+2026-08-02 02:26:45:550 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  88%|████████▊ | 438/500 [2:21:38<20:07, 19.47s/it]
+2026-08-02 02:27:04:815 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  88%|████████▊ | 439/500 [2:21:58<19:41, 19.37s/it]
+2026-08-02 02:27:24:048 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  88%|████████▊ | 440/500 [2:22:17<19:20, 19.34s/it]
+2026-08-02 02:27:43:362 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  88%|████████▊ | 441/500 [2:22:36<18:59, 19.31s/it]
+2026-08-02 02:28:02:580 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  88%|████████▊ | 442/500 [2:22:55<18:39, 19.31s/it]
+2026-08-02 02:28:21:971 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  89%|████████▊ | 443/500 [2:23:15<18:19, 19.28s/it]
+2026-08-02 02:28:41:218 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  89%|████████▉ | 444/500 [2:23:34<18:01, 19.31s/it]
+2026-08-02 02:29:00:422 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  89%|████████▉ | 445/500 [2:23:53<17:41, 19.29s/it]
+2026-08-02 02:29:20:141 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  89%|████████▉ | 446/500 [2:24:12<17:20, 19.27s/it]
+2026-08-02 02:29:39:692 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  89%|████████▉ | 447/500 [2:24:32<17:08, 19.40s/it]
+2026-08-02 02:29:59:130 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  90%|████████▉ | 448/500 [2:24:52<16:51, 19.45s/it]
+2026-08-02 02:30:18:361 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  90%|████████▉ | 449/500 [2:25:11<16:31, 19.44s/it]
+2026-08-02 02:30:38:124 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  90%|█████████ | 450/500 [2:25:30<16:09, 19.38s/it]
+2026-08-02 02:30:57:732 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  90%|█████████ | 451/500 [2:25:50<15:55, 19.50s/it]
+2026-08-02 02:31:17:436 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  90%|█████████ | 452/500 [2:26:10<15:37, 19.53s/it]
+2026-08-02 02:31:36:626 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  91%|█████████ | 453/500 [2:26:29<15:20, 19.58s/it]
+2026-08-02 02:31:55:953 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  91%|█████████ | 454/500 [2:26:49<14:55, 19.46s/it]
+2026-08-02 02:32:15:362 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  91%|█████████ | 455/500 [2:27:08<14:34, 19.42s/it]
+2026-08-02 02:32:34:813 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  91%|█████████ | 456/500 [2:27:27<14:14, 19.42s/it]
+2026-08-02 02:32:54:236 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  91%|█████████▏| 457/500 [2:27:47<13:55, 19.43s/it]
+2026-08-02 02:33:13:458 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  92%|█████████▏| 458/500 [2:28:06<13:35, 19.43s/it]
+2026-08-02 02:33:32:667 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  92%|█████████▏| 459/500 [2:28:26<13:13, 19.37s/it]
+2026-08-02 02:33:52:108 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  92%|█████████▏| 460/500 [2:28:45<12:52, 19.32s/it]
+2026-08-02 02:34:11:267 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  92%|█████████▏| 461/500 [2:29:04<12:34, 19.36s/it]
+2026-08-02 02:34:30:542 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  92%|█████████▏| 462/500 [2:29:23<12:13, 19.30s/it]
+2026-08-02 02:34:49:992 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  93%|█████████▎| 463/500 [2:29:43<11:53, 19.29s/it]
+2026-08-02 02:35:09:582 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  93%|█████████▎| 464/500 [2:30:02<11:36, 19.34s/it]
+2026-08-02 02:35:28:920 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  93%|█████████▎| 465/500 [2:30:22<11:19, 19.41s/it]
+2026-08-02 02:35:48:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  93%|█████████▎| 466/500 [2:30:41<10:59, 19.39s/it]
+2026-08-02 02:36:07:460 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  93%|█████████▎| 467/500 [2:31:00<10:39, 19.37s/it]
+2026-08-02 02:36:26:966 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  94%|█████████▎| 468/500 [2:31:20<10:18, 19.33s/it]
+2026-08-02 02:36:46:377 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  94%|█████████▍| 469/500 [2:31:39<10:00, 19.38s/it]
+2026-08-02 02:37:05:561 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  94%|█████████▍| 470/500 [2:31:58<09:41, 19.39s/it]
+2026-08-02 02:37:24:855 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  94%|█████████▍| 471/500 [2:32:18<09:20, 19.33s/it]
+2026-08-02 02:37:44:325 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  94%|█████████▍| 472/500 [2:32:37<09:00, 19.32s/it]
+2026-08-02 02:38:03:566 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  95%|█████████▍| 473/500 [2:32:56<08:42, 19.36s/it]
+2026-08-02 02:38:22:719 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  95%|█████████▍| 474/500 [2:33:16<08:22, 19.33s/it]
+2026-08-02 02:38:41:942 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  95%|█████████▌| 475/500 [2:33:35<08:01, 19.27s/it]
+2026-08-02 02:39:01:444 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  95%|█████████▌| 476/500 [2:33:54<07:42, 19.26s/it]
+2026-08-02 02:39:21:111 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  95%|█████████▌| 477/500 [2:34:14<07:24, 19.33s/it]
+2026-08-02 02:39:40:802 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  96%|█████████▌| 478/500 [2:34:33<07:07, 19.43s/it]
+2026-08-02 02:40:00:180 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  96%|█████████▌| 479/500 [2:34:53<06:49, 19.51s/it]
+2026-08-02 02:40:19:828 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  96%|█████████▌| 480/500 [2:35:12<06:29, 19.47s/it]
+2026-08-02 02:40:39:103 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  96%|█████████▌| 481/500 [2:35:32<06:10, 19.52s/it]
+2026-08-02 02:40:58:644 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  96%|█████████▋| 482/500 [2:35:51<05:50, 19.45s/it]
+2026-08-02 02:41:18:396 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  97%|█████████▋| 483/500 [2:36:11<05:31, 19.48s/it]
+2026-08-02 02:41:37:593 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  97%|█████████▋| 484/500 [2:36:30<05:12, 19.56s/it]
+2026-08-02 02:41:57:076 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  97%|█████████▋| 485/500 [2:36:50<04:51, 19.45s/it]
+2026-08-02 02:42:16:130 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  97%|█████████▋| 486/500 [2:37:09<04:32, 19.46s/it]
+2026-08-02 02:42:35:519 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  97%|█████████▋| 487/500 [2:37:28<04:11, 19.34s/it]
+2026-08-02 02:42:54:804 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  98%|█████████▊| 488/500 [2:37:48<03:52, 19.35s/it]
+2026-08-02 02:43:14:170 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  98%|█████████▊| 489/500 [2:38:07<03:32, 19.33s/it]
+2026-08-02 02:43:33:511 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  98%|█████████▊| 490/500 [2:38:26<03:13, 19.34s/it]
+2026-08-02 02:43:53:197 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  98%|█████████▊| 491/500 [2:38:46<02:54, 19.34s/it]
+2026-08-02 02:44:12:371 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  98%|█████████▊| 492/500 [2:39:05<02:35, 19.45s/it]
+2026-08-02 02:44:31:948 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  99%|█████████▊| 493/500 [2:39:24<02:15, 19.36s/it]
+2026-08-02 02:44:51:171 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  99%|█████████▉| 494/500 [2:39:44<01:56, 19.43s/it]
+2026-08-02 02:45:10:809 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  99%|█████████▉| 495/500 [2:40:03<01:36, 19.37s/it]
+2026-08-02 02:45:30:011 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  99%|█████████▉| 496/500 [2:40:23<01:17, 19.45s/it]
+2026-08-02 02:45:49:390 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  99%|█████████▉| 497/500 [2:40:42<00:58, 19.37s/it]
+2026-08-02 02:46:08:460 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 100%|█████████▉| 498/500 [2:41:01<00:38, 19.38s/it]
+2026-08-02 02:46:27:662 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 100%|█████████▉| 499/500 [2:41:21<00:19, 19.28s/it]
+2026-08-02 02:46:27:662 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 100%|██████████| 500/500 [2:41:40<00:00, 19.26s/it]
+2026-08-02 02:46:27:662 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 100%|██████████| 500/500 [2:41:40<00:00, 19.40s/it]
+2026-08-02 02:46:28:847 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] Using 250 background data samples could cause slower run times. Consider using shap.sample(data, K) or shap.kmeans(data, K) to summarize the background as K samples.
+2026-08-02 02:46:28:847 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [shap] wrote /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new/global/global_shap_values.csv (500 instances x 68 features, signed)
+2026-08-02 02:46:28:847 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 
+2026-08-02 02:46:38:017 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   0%|          | 0/250 [00:00<?, ?it/s]
+2026-08-02 02:46:47:508 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   0%|          | 1/250 [00:09<38:03,  9.17s/it]
+2026-08-02 02:46:56:984 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 2/250 [00:18<38:40,  9.36s/it]
+2026-08-02 02:47:06:506 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   1%|          | 3/250 [00:28<38:44,  9.41s/it]
+2026-08-02 02:47:15:862 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 4/250 [00:37<38:46,  9.46s/it]
+2026-08-02 02:47:25:346 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 5/250 [00:47<38:27,  9.42s/it]
+2026-08-02 02:47:34:781 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   2%|▏         | 6/250 [00:56<38:23,  9.44s/it]
+2026-08-02 02:47:44:174 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 7/250 [01:05<38:13,  9.44s/it]
+2026-08-02 02:47:53:581 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   3%|▎         | 8/250 [01:15<38:00,  9.42s/it]
+2026-08-02 02:48:02:849 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▎         | 9/250 [01:24<37:49,  9.42s/it]
+2026-08-02 02:48:12:312 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 10/250 [01:34<37:29,  9.37s/it]
+2026-08-02 02:48:21:695 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   4%|▍         | 11/250 [01:43<37:26,  9.40s/it]
+2026-08-02 02:48:31:034 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▍         | 12/250 [01:52<37:16,  9.39s/it]
+2026-08-02 02:48:40:403 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   5%|▌         | 13/250 [02:02<37:02,  9.38s/it]
+2026-08-02 02:48:49:987 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 14/250 [02:11<36:52,  9.38s/it]
+2026-08-02 02:48:59:379 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▌         | 15/250 [02:21<36:57,  9.44s/it]
+2026-08-02 02:49:08:905 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   6%|▋         | 16/250 [02:30<36:45,  9.42s/it]
+2026-08-02 02:49:18:323 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 17/250 [02:40<36:43,  9.45s/it]
+2026-08-02 02:49:27:916 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   7%|▋         | 18/250 [02:49<36:30,  9.44s/it]
+2026-08-02 02:49:37:211 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 19/250 [02:59<36:31,  9.49s/it]
+2026-08-02 02:49:46:629 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 20/250 [03:08<36:09,  9.43s/it]
+2026-08-02 02:49:56:046 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   8%|▊         | 21/250 [03:17<35:58,  9.43s/it]
+2026-08-02 02:50:05:595 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 22/250 [03:27<35:48,  9.42s/it]
+2026-08-02 02:50:14:956 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]   9%|▉         | 23/250 [03:36<35:47,  9.46s/it]
+2026-08-02 02:50:24:455 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|▉         | 24/250 [03:46<35:31,  9.43s/it]
+2026-08-02 02:50:33:929 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|█         | 25/250 [03:55<35:26,  9.45s/it]
+2026-08-02 02:50:43:454 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  10%|█         | 26/250 [04:05<35:18,  9.46s/it]
+2026-08-02 02:50:53:005 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 27/250 [04:14<35:13,  9.48s/it]
+2026-08-02 02:51:02:367 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  11%|█         | 28/250 [04:24<35:08,  9.50s/it]
+2026-08-02 02:51:11:777 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 29/250 [04:33<34:50,  9.46s/it]
+2026-08-02 02:51:21:220 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 30/250 [04:42<34:37,  9.44s/it]
+2026-08-02 02:51:30:576 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  12%|█▏        | 31/250 [04:52<34:28,  9.44s/it]
+2026-08-02 02:51:40:253 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 32/250 [05:01<34:13,  9.42s/it]
+2026-08-02 02:51:49:847 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  13%|█▎        | 33/250 [05:11<34:20,  9.50s/it]
+2026-08-02 02:51:59:336 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▎        | 34/250 [05:20<34:17,  9.52s/it]
+2026-08-02 02:52:08:789 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 35/250 [05:30<34:05,  9.51s/it]
+2026-08-02 02:52:18:411 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  14%|█▍        | 36/250 [05:39<33:52,  9.50s/it]
+2026-08-02 02:52:27:864 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▍        | 37/250 [05:49<33:50,  9.53s/it]
+2026-08-02 02:52:37:189 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  15%|█▌        | 38/250 [05:59<33:36,  9.51s/it]
+2026-08-02 02:52:46:586 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 39/250 [06:08<33:14,  9.45s/it]
+2026-08-02 02:52:56:014 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▌        | 40/250 [06:17<33:01,  9.44s/it]
+2026-08-02 02:53:05:486 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  16%|█▋        | 41/250 [06:27<32:51,  9.43s/it]
+2026-08-02 02:53:14:956 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 42/250 [06:36<32:44,  9.45s/it]
+2026-08-02 02:53:24:394 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  17%|█▋        | 43/250 [06:46<32:36,  9.45s/it]
+2026-08-02 02:53:33:839 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 44/250 [06:55<32:26,  9.45s/it]
+2026-08-02 02:53:43:242 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 45/250 [07:04<32:16,  9.45s/it]
+2026-08-02 02:53:52:558 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  18%|█▊        | 46/250 [07:14<32:04,  9.43s/it]
+2026-08-02 02:54:02:151 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  19%|█▉        | 47/250 [07:23<31:47,  9.40s/it]
+2026-08-02 02:54:11:459 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  19%|█▉        | 48/250 [07:33<31:50,  9.46s/it]
+2026-08-02 02:54:20:831 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  20%|█▉        | 49/250 [07:42<31:31,  9.41s/it]
+2026-08-02 02:54:30:350 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  20%|██        | 50/250 [07:51<31:20,  9.40s/it]
+2026-08-02 02:54:39:881 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  20%|██        | 51/250 [08:01<31:17,  9.44s/it]
+2026-08-02 02:54:49:333 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  21%|██        | 52/250 [08:11<31:13,  9.46s/it]
+2026-08-02 02:54:58:893 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  21%|██        | 53/250 [08:20<31:03,  9.46s/it]
+2026-08-02 02:55:08:254 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  22%|██▏       | 54/250 [08:30<31:00,  9.49s/it]
+2026-08-02 02:55:17:693 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  22%|██▏       | 55/250 [08:39<30:43,  9.45s/it]
+2026-08-02 02:55:27:230 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  22%|██▏       | 56/250 [08:48<30:32,  9.45s/it]
+2026-08-02 02:55:36:766 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  23%|██▎       | 57/250 [08:58<30:28,  9.47s/it]
+2026-08-02 02:55:46:358 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  23%|██▎       | 58/250 [09:07<30:22,  9.49s/it]
+2026-08-02 02:55:55:833 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  24%|██▎       | 59/250 [09:17<30:18,  9.52s/it]
+2026-08-02 02:56:05:375 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  24%|██▍       | 60/250 [09:26<30:06,  9.51s/it]
+2026-08-02 02:56:14:938 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  24%|██▍       | 61/250 [09:36<29:58,  9.52s/it]
+2026-08-02 02:56:24:361 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  25%|██▍       | 62/250 [09:46<29:52,  9.53s/it]
+2026-08-02 02:56:33:878 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  25%|██▌       | 63/250 [09:55<29:36,  9.50s/it]
+2026-08-02 02:56:43:308 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  26%|██▌       | 64/250 [10:05<29:27,  9.50s/it]
+2026-08-02 02:56:52:865 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  26%|██▌       | 65/250 [10:14<29:14,  9.48s/it]
+2026-08-02 02:57:02:198 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  26%|██▋       | 66/250 [10:24<29:08,  9.50s/it]
+2026-08-02 02:57:11:672 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  27%|██▋       | 67/250 [10:33<28:49,  9.45s/it]
+2026-08-02 02:57:21:130 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  27%|██▋       | 68/250 [10:42<28:41,  9.46s/it]
+2026-08-02 02:57:30:611 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  28%|██▊       | 69/250 [10:52<28:32,  9.46s/it]
+2026-08-02 02:57:40:227 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  28%|██▊       | 70/250 [11:01<28:23,  9.47s/it]
+2026-08-02 02:57:49:732 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  28%|██▊       | 71/250 [11:11<28:22,  9.51s/it]
+2026-08-02 02:57:59:197 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  29%|██▉       | 72/250 [11:20<28:12,  9.51s/it]
+2026-08-02 02:58:08:628 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  29%|██▉       | 73/250 [11:30<28:00,  9.50s/it]
+2026-08-02 02:58:18:037 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  30%|██▉       | 74/250 [11:39<27:47,  9.48s/it]
+2026-08-02 02:58:27:396 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  30%|███       | 75/250 [11:49<27:34,  9.46s/it]
+2026-08-02 02:58:36:839 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  30%|███       | 76/250 [11:58<27:20,  9.43s/it]
+2026-08-02 02:58:46:200 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  31%|███       | 77/250 [12:07<27:11,  9.43s/it]
+2026-08-02 02:58:55:454 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  31%|███       | 78/250 [12:17<26:58,  9.41s/it]
+2026-08-02 02:59:04:975 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  32%|███▏      | 79/250 [12:26<26:41,  9.36s/it]
+2026-08-02 02:59:14:489 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  32%|███▏      | 80/250 [12:36<26:39,  9.41s/it]
+2026-08-02 02:59:23:906 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  32%|███▏      | 81/250 [12:45<26:35,  9.44s/it]
+2026-08-02 02:59:33:386 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  33%|███▎      | 82/250 [12:55<26:24,  9.43s/it]
+2026-08-02 02:59:42:871 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  33%|███▎      | 83/250 [13:04<26:17,  9.45s/it]
+2026-08-02 02:59:52:471 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  34%|███▎      | 84/250 [13:14<26:10,  9.46s/it]
+2026-08-02 03:00:01:881 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  34%|███▍      | 85/250 [13:23<26:07,  9.50s/it]
+2026-08-02 03:00:11:333 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  34%|███▍      | 86/250 [13:33<25:53,  9.47s/it]
+2026-08-02 03:00:20:922 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  35%|███▍      | 87/250 [13:42<25:43,  9.47s/it]
+2026-08-02 03:00:30:331 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  35%|███▌      | 88/250 [13:52<25:39,  9.50s/it]
+2026-08-02 03:00:39:781 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  36%|███▌      | 89/250 [14:01<25:25,  9.48s/it]
+2026-08-02 03:00:49:209 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  36%|███▌      | 90/250 [14:10<25:14,  9.47s/it]
+2026-08-02 03:00:58:750 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  36%|███▋      | 91/250 [14:20<25:03,  9.46s/it]
+2026-08-02 03:01:08:196 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  37%|███▋      | 92/250 [14:29<24:58,  9.48s/it]
+2026-08-02 03:01:17:529 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  37%|███▋      | 93/250 [14:39<24:46,  9.47s/it]
+2026-08-02 03:01:26:825 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  38%|███▊      | 94/250 [14:48<24:30,  9.43s/it]
+2026-08-02 03:01:36:114 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  38%|███▊      | 95/250 [14:57<24:15,  9.39s/it]
+2026-08-02 03:01:45:585 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  38%|███▊      | 96/250 [15:07<24:01,  9.36s/it]
+2026-08-02 03:01:54:961 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  39%|███▉      | 97/250 [15:16<23:57,  9.39s/it]
+2026-08-02 03:02:04:501 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  39%|███▉      | 98/250 [15:26<23:46,  9.39s/it]
+2026-08-02 03:02:13:973 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  40%|███▉      | 99/250 [15:35<23:44,  9.43s/it]
+2026-08-02 03:02:23:441 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  40%|████      | 100/250 [15:45<23:36,  9.45s/it]
+2026-08-02 03:02:32:834 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  40%|████      | 101/250 [15:54<23:28,  9.45s/it]
+2026-08-02 03:02:42:331 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  41%|████      | 102/250 [16:03<23:16,  9.43s/it]
+2026-08-02 03:02:51:678 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  41%|████      | 103/250 [16:13<23:09,  9.45s/it]
+2026-08-02 03:03:01:246 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  42%|████▏     | 104/250 [16:22<22:55,  9.42s/it]
+2026-08-02 03:03:10:742 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  42%|████▏     | 105/250 [16:32<22:52,  9.47s/it]
+2026-08-02 03:03:20:186 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  42%|████▏     | 106/250 [16:41<22:44,  9.47s/it]
+2026-08-02 03:03:29:595 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  43%|████▎     | 107/250 [16:51<22:33,  9.47s/it]
+2026-08-02 03:03:39:099 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  43%|████▎     | 108/250 [17:00<22:21,  9.45s/it]
+2026-08-02 03:03:48:521 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  44%|████▎     | 109/250 [17:10<22:14,  9.47s/it]
+2026-08-02 03:03:57:968 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  44%|████▍     | 110/250 [17:19<22:03,  9.45s/it]
+2026-08-02 03:04:07:517 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  44%|████▍     | 111/250 [17:29<21:53,  9.45s/it]
+2026-08-02 03:04:16:950 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  45%|████▍     | 112/250 [17:38<21:48,  9.48s/it]
+2026-08-02 03:04:26:273 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  45%|████▌     | 113/250 [17:48<21:36,  9.47s/it]
+2026-08-02 03:04:35:737 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  46%|████▌     | 114/250 [17:57<21:21,  9.42s/it]
+2026-08-02 03:04:45:332 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  46%|████▌     | 115/250 [18:06<21:13,  9.44s/it]
+2026-08-02 03:04:54:837 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  46%|████▋     | 116/250 [18:16<21:10,  9.48s/it]
+2026-08-02 03:05:04:358 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  47%|████▋     | 117/250 [18:25<21:02,  9.49s/it]
+2026-08-02 03:05:13:789 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  47%|████▋     | 118/250 [18:35<20:53,  9.50s/it]
+2026-08-02 03:05:23:379 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  48%|████▊     | 119/250 [18:44<20:41,  9.48s/it]
+2026-08-02 03:05:32:832 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  48%|████▊     | 120/250 [18:54<20:36,  9.51s/it]
+2026-08-02 03:05:42:318 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  48%|████▊     | 121/250 [19:03<20:24,  9.49s/it]
+2026-08-02 03:05:51:772 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  49%|████▉     | 122/250 [19:13<20:14,  9.49s/it]
+2026-08-02 03:06:01:318 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  49%|████▉     | 123/250 [19:22<20:04,  9.48s/it]
+2026-08-02 03:06:10:901 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  50%|████▉     | 124/250 [19:32<19:57,  9.50s/it]
+2026-08-02 03:06:20:341 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  50%|█████     | 125/250 [19:42<19:50,  9.52s/it]
+2026-08-02 03:06:29:815 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  50%|█████     | 126/250 [19:51<19:37,  9.50s/it]
+2026-08-02 03:06:39:294 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  51%|█████     | 127/250 [20:00<19:27,  9.49s/it]
+2026-08-02 03:06:48:789 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  51%|█████     | 128/250 [20:10<19:17,  9.49s/it]
+2026-08-02 03:06:58:230 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  52%|█████▏    | 129/250 [20:19<19:08,  9.49s/it]
+2026-08-02 03:07:07:739 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  52%|█████▏    | 130/250 [20:29<18:57,  9.48s/it]
+2026-08-02 03:07:17:159 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  52%|█████▏    | 131/250 [20:38<18:48,  9.49s/it]
+2026-08-02 03:07:26:671 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  53%|█████▎    | 132/250 [20:48<18:36,  9.47s/it]
+2026-08-02 03:07:36:082 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  53%|█████▎    | 133/250 [20:57<18:29,  9.48s/it]
+2026-08-02 03:07:45:546 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  54%|█████▎    | 134/250 [21:07<18:17,  9.46s/it]
+2026-08-02 03:07:54:976 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  54%|█████▍    | 135/250 [21:16<18:07,  9.46s/it]
+2026-08-02 03:08:04:505 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  54%|█████▍    | 136/250 [21:26<17:57,  9.45s/it]
+2026-08-02 03:08:13:923 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  55%|█████▍    | 137/250 [21:35<17:50,  9.47s/it]
+2026-08-02 03:08:23:450 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  55%|█████▌    | 138/250 [21:45<17:39,  9.46s/it]
+2026-08-02 03:08:32:797 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  56%|█████▌    | 139/250 [21:54<17:32,  9.48s/it]
+2026-08-02 03:08:42:202 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  56%|█████▌    | 140/250 [22:03<17:18,  9.44s/it]
+2026-08-02 03:08:51:702 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  56%|█████▋    | 141/250 [22:13<17:07,  9.43s/it]
+2026-08-02 03:09:01:148 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  57%|█████▋    | 142/250 [22:22<17:00,  9.45s/it]
+2026-08-02 03:09:10:644 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  57%|█████▋    | 143/250 [22:32<16:51,  9.45s/it]
+2026-08-02 03:09:20:061 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  58%|█████▊    | 144/250 [22:41<16:43,  9.46s/it]
+2026-08-02 03:09:29:609 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  58%|█████▊    | 145/250 [22:51<16:32,  9.45s/it]
+2026-08-02 03:09:39:027 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  58%|█████▊    | 146/250 [23:00<16:25,  9.48s/it]
+2026-08-02 03:09:48:564 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  59%|█████▉    | 147/250 [23:10<16:14,  9.46s/it]
+2026-08-02 03:09:58:042 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  59%|█████▉    | 148/250 [23:19<16:07,  9.48s/it]
+2026-08-02 03:10:07:552 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  60%|█████▉    | 149/250 [23:29<15:57,  9.48s/it]
+2026-08-02 03:10:17:007 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  60%|██████    | 150/250 [23:38<15:49,  9.49s/it]
+2026-08-02 03:10:26:536 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  60%|██████    | 151/250 [23:48<15:38,  9.48s/it]
+2026-08-02 03:10:35:912 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  61%|██████    | 152/250 [23:57<15:30,  9.49s/it]
+2026-08-02 03:10:45:447 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  61%|██████    | 153/250 [24:07<15:17,  9.46s/it]
+2026-08-02 03:10:54:874 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  62%|██████▏   | 154/250 [24:16<15:10,  9.48s/it]
+2026-08-02 03:11:04:172 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  62%|██████▏   | 155/250 [24:26<14:59,  9.47s/it]
+2026-08-02 03:11:13:517 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  62%|██████▏   | 156/250 [24:35<14:45,  9.42s/it]
+2026-08-02 03:11:22:991 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  63%|██████▎   | 157/250 [24:44<14:33,  9.39s/it]
+2026-08-02 03:11:32:447 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  63%|██████▎   | 158/250 [24:54<14:26,  9.42s/it]
+2026-08-02 03:11:41:916 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  64%|██████▎   | 159/250 [25:03<14:18,  9.43s/it]
+2026-08-02 03:11:51:405 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  64%|██████▍   | 160/250 [25:13<14:09,  9.44s/it]
+2026-08-02 03:12:01:010 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  64%|██████▍   | 161/250 [25:22<14:01,  9.46s/it]
+2026-08-02 03:12:10:375 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  65%|██████▍   | 162/250 [25:32<13:56,  9.50s/it]
+2026-08-02 03:12:19:817 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  65%|██████▌   | 163/250 [25:41<13:42,  9.46s/it]
+2026-08-02 03:12:29:295 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  66%|██████▌   | 164/250 [25:50<13:33,  9.45s/it]
+2026-08-02 03:12:38:735 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  66%|██████▌   | 165/250 [26:00<13:24,  9.46s/it]
+2026-08-02 03:12:48:221 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  66%|██████▋   | 166/250 [26:09<13:14,  9.46s/it]
+2026-08-02 03:12:57:587 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  67%|██████▋   | 167/250 [26:19<13:05,  9.46s/it]
+2026-08-02 03:13:07:198 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  67%|██████▋   | 168/250 [26:28<12:53,  9.43s/it]
+2026-08-02 03:13:16:655 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  68%|██████▊   | 169/250 [26:38<12:48,  9.49s/it]
+2026-08-02 03:13:26:005 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  68%|██████▊   | 170/250 [26:47<12:38,  9.48s/it]
+2026-08-02 03:13:35:472 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  68%|██████▊   | 171/250 [26:57<12:25,  9.44s/it]
+2026-08-02 03:13:45:014 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  69%|██████▉   | 172/250 [27:06<12:16,  9.45s/it]
+2026-08-02 03:13:54:572 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  69%|██████▉   | 173/250 [27:16<12:09,  9.48s/it]
+2026-08-02 03:14:04:001 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  70%|██████▉   | 174/250 [27:25<12:02,  9.50s/it]
+2026-08-02 03:14:13:441 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  70%|███████   | 175/250 [27:35<11:50,  9.48s/it]
+2026-08-02 03:14:22:962 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  70%|███████   | 176/250 [27:44<11:40,  9.47s/it]
+2026-08-02 03:14:32:509 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  71%|███████   | 177/250 [27:54<11:32,  9.48s/it]
+2026-08-02 03:14:41:793 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  71%|███████   | 178/250 [28:03<11:24,  9.50s/it]
+2026-08-02 03:14:51:262 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  72%|███████▏  | 179/250 [28:12<11:10,  9.44s/it]
+2026-08-02 03:15:00:797 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  72%|███████▏  | 180/250 [28:22<11:01,  9.45s/it]
+2026-08-02 03:15:10:221 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  72%|███████▏  | 181/250 [28:31<10:53,  9.47s/it]
+2026-08-02 03:15:19:708 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  73%|███████▎  | 182/250 [28:41<10:43,  9.46s/it]
+2026-08-02 03:15:29:001 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  73%|███████▎  | 183/250 [28:50<10:34,  9.47s/it]
+2026-08-02 03:15:38:522 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  74%|███████▎  | 184/250 [29:00<10:21,  9.41s/it]
+2026-08-02 03:15:47:970 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  74%|███████▍  | 185/250 [29:09<10:14,  9.45s/it]
+2026-08-02 03:15:57:493 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  74%|███████▍  | 186/250 [29:19<10:04,  9.45s/it]
+2026-08-02 03:16:06:979 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  75%|███████▍  | 187/250 [29:28<09:56,  9.47s/it]
+2026-08-02 03:16:16:524 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  75%|███████▌  | 188/250 [29:38<09:47,  9.47s/it]
+2026-08-02 03:16:25:933 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  76%|███████▌  | 189/250 [29:47<09:39,  9.50s/it]
+2026-08-02 03:16:35:539 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  76%|███████▌  | 190/250 [29:57<09:28,  9.47s/it]
+2026-08-02 03:16:45:025 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  76%|███████▋  | 191/250 [30:06<09:21,  9.51s/it]
+2026-08-02 03:16:54:418 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  77%|███████▋  | 192/250 [30:16<09:11,  9.50s/it]
+2026-08-02 03:17:03:820 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  77%|███████▋  | 193/250 [30:25<08:59,  9.47s/it]
+2026-08-02 03:17:13:266 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  78%|███████▊  | 194/250 [30:34<08:49,  9.45s/it]
+2026-08-02 03:17:22:734 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  78%|███████▊  | 195/250 [30:44<08:39,  9.45s/it]
+2026-08-02 03:17:32:207 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  78%|███████▊  | 196/250 [30:53<08:30,  9.45s/it]
+2026-08-02 03:17:41:724 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  79%|███████▉  | 197/250 [31:03<08:21,  9.46s/it]
+2026-08-02 03:17:51:087 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  79%|███████▉  | 198/250 [31:12<08:12,  9.48s/it]
+2026-08-02 03:18:00:621 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  80%|███████▉  | 199/250 [31:22<08:01,  9.44s/it]
+2026-08-02 03:18:10:179 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  80%|████████  | 200/250 [31:31<07:53,  9.47s/it]
+2026-08-02 03:18:19:639 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  80%|████████  | 201/250 [31:41<07:45,  9.50s/it]
+2026-08-02 03:18:29:054 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  81%|████████  | 202/250 [31:50<07:35,  9.49s/it]
+2026-08-02 03:18:38:575 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  81%|████████  | 203/250 [32:00<07:24,  9.46s/it]
+2026-08-02 03:18:48:110 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  82%|████████▏ | 204/250 [32:09<07:16,  9.48s/it]
+2026-08-02 03:18:57:505 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  82%|████████▏ | 205/250 [32:19<07:07,  9.50s/it]
+2026-08-02 03:19:06:947 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  82%|████████▏ | 206/250 [32:28<06:56,  9.47s/it]
+2026-08-02 03:19:16:399 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  83%|████████▎ | 207/250 [32:38<06:46,  9.46s/it]
+2026-08-02 03:19:25:950 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  83%|████████▎ | 208/250 [32:47<06:37,  9.46s/it]
+2026-08-02 03:19:35:323 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  84%|████████▎ | 209/250 [32:57<06:28,  9.49s/it]
+2026-08-02 03:19:44:726 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  84%|████████▍ | 210/250 [33:06<06:18,  9.45s/it]
+2026-08-02 03:19:54:256 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  84%|████████▍ | 211/250 [33:15<06:08,  9.44s/it]
+2026-08-02 03:20:03:741 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  85%|████████▍ | 212/250 [33:25<05:59,  9.46s/it]
+2026-08-02 03:20:13:145 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  85%|████████▌ | 213/250 [33:34<05:50,  9.47s/it]
+2026-08-02 03:20:22:544 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  86%|████████▌ | 214/250 [33:44<05:40,  9.45s/it]
+2026-08-02 03:20:32:125 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  86%|████████▌ | 215/250 [33:53<05:30,  9.44s/it]
+2026-08-02 03:20:41:613 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  86%|████████▋ | 216/250 [34:03<05:22,  9.48s/it]
+2026-08-02 03:20:51:147 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  87%|████████▋ | 217/250 [34:12<05:12,  9.48s/it]
+2026-08-02 03:21:00:446 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  87%|████████▋ | 218/250 [34:22<05:03,  9.50s/it]
+2026-08-02 03:21:09:976 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  88%|████████▊ | 219/250 [34:31<04:52,  9.44s/it]
+2026-08-02 03:21:19:489 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  88%|████████▊ | 220/250 [34:41<04:43,  9.47s/it]
+2026-08-02 03:21:29:029 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  88%|████████▊ | 221/250 [34:50<04:34,  9.48s/it]
+2026-08-02 03:21:38:569 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  89%|████████▉ | 222/250 [35:00<04:25,  9.50s/it]
+2026-08-02 03:21:47:919 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  89%|████████▉ | 223/250 [35:09<04:16,  9.51s/it]
+2026-08-02 03:21:57:418 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  90%|████████▉ | 224/250 [35:19<04:06,  9.46s/it]
+2026-08-02 03:22:06:892 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  90%|█████████ | 225/250 [35:28<03:56,  9.47s/it]
+2026-08-02 03:22:16:459 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  90%|█████████ | 226/250 [35:38<03:47,  9.47s/it]
+2026-08-02 03:22:25:989 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  91%|█████████ | 227/250 [35:47<03:38,  9.50s/it]
+2026-08-02 03:22:35:448 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  91%|█████████ | 228/250 [35:57<03:29,  9.51s/it]
+2026-08-02 03:22:44:982 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  92%|█████████▏| 229/250 [36:06<03:19,  9.49s/it]
+2026-08-02 03:22:54:651 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  92%|█████████▏| 230/250 [36:16<03:10,  9.51s/it]
+2026-08-02 03:23:04:210 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  92%|█████████▏| 231/250 [36:25<03:01,  9.56s/it]
+2026-08-02 03:23:13:505 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  93%|█████████▎| 232/250 [36:35<02:52,  9.56s/it]
+2026-08-02 03:23:22:917 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  93%|█████████▎| 233/250 [36:44<02:41,  9.48s/it]
+2026-08-02 03:23:32:161 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  94%|█████████▎| 234/250 [36:54<02:31,  9.46s/it]
+2026-08-02 03:23:41:610 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  94%|█████████▍| 235/250 [37:03<02:20,  9.39s/it]
+2026-08-02 03:23:50:979 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  94%|█████████▍| 236/250 [37:12<02:11,  9.41s/it]
+2026-08-02 03:24:00:469 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  95%|█████████▍| 237/250 [37:22<02:02,  9.40s/it]
+2026-08-02 03:24:09:781 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  95%|█████████▌| 238/250 [37:31<01:53,  9.43s/it]
+2026-08-02 03:24:19:167 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  96%|█████████▌| 239/250 [37:40<01:43,  9.39s/it]
+2026-08-02 03:24:28:647 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  96%|█████████▌| 240/250 [37:50<01:33,  9.39s/it]
+2026-08-02 03:24:37:917 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  96%|█████████▋| 241/250 [37:59<01:24,  9.42s/it]
+2026-08-02 03:24:47:447 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  97%|█████████▋| 242/250 [38:09<01:14,  9.37s/it]
+2026-08-02 03:24:56:825 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  97%|█████████▋| 243/250 [38:18<01:05,  9.42s/it]
+2026-08-02 03:25:06:141 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  98%|█████████▊| 244/250 [38:27<00:56,  9.41s/it]
+2026-08-02 03:25:15:570 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  98%|█████████▊| 245/250 [38:37<00:46,  9.38s/it]
+2026-08-02 03:25:25:061 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  98%|█████████▊| 246/250 [38:46<00:37,  9.39s/it]
+2026-08-02 03:25:34:499 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  99%|█████████▉| 247/250 [38:56<00:28,  9.42s/it]
+2026-08-02 03:25:43:899 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap]  99%|█████████▉| 248/250 [39:05<00:18,  9.43s/it]
+2026-08-02 03:25:53:470 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 100%|█████████▉| 249/250 [39:15<00:09,  9.42s/it]
+2026-08-02 03:25:53:471 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 100%|██████████| 250/250 [39:24<00:00,  9.46s/it]
+2026-08-02 03:25:53:471 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] 100%|██████████| 250/250 [39:24<00:00,  9.46s/it]
+2026-08-02 03:26:35:232 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [shap] wrote /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new/local/local_shap_values.csv (250 instances x 68 features, signed)
+2026-08-02 03:26:35:232 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 0 ...
+2026-08-02 03:26:35:232 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 1 ...
+2026-08-02 03:26:35:232 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 2 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 3 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 4 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 5 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 6 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 7 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 8 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 9 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 10 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 11 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 12 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 13 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 14 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 15 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 16 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 17 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 18 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 19 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 20 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 21 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 22 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 23 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 24 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 25 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 26 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 27 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 28 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 29 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 30 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 31 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 32 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 33 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 34 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 35 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 36 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 37 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 38 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 39 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 40 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 41 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 42 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 43 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 44 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 45 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 46 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 47 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 48 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 49 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 50 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 51 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 52 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 53 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 54 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 55 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 56 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 57 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 58 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 59 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 60 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 61 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 62 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 63 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 64 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 65 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 66 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 67 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 68 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 69 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 70 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 71 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 72 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 73 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 74 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 75 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 76 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 77 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 78 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 79 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 80 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 81 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 82 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 83 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 84 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 85 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 86 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 87 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 88 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 89 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 90 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 91 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 92 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 93 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 94 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 95 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 96 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 97 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 98 ...
+2026-08-02 03:26:35:233 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 99 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 100 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 101 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 102 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 103 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 104 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 105 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 106 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 107 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 108 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 109 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 110 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 111 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 112 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 113 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 114 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 115 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 116 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 117 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 118 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 119 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 120 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 121 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 122 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 123 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 124 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 125 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 126 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 127 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 128 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 129 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 130 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 131 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 132 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 133 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 134 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 135 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 136 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 137 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 138 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 139 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 140 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 141 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 142 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 143 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 144 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 145 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 146 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 147 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 148 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 149 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 150 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 151 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 152 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 153 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 154 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 155 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 156 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 157 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 158 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 159 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 160 ...
+2026-08-02 03:26:35:234 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 161 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 162 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 163 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 164 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 165 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 166 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 167 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 168 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 169 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 170 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 171 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 172 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 173 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 174 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 175 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 176 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 177 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 178 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 179 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 180 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 181 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 182 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 183 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 184 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 185 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 186 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 187 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 188 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 189 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 190 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 191 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 192 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 193 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 194 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 195 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 196 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 197 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 198 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 199 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 200 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 201 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 202 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 203 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 204 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 205 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 206 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 207 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 208 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 209 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 210 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 211 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 212 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 213 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 214 ...
+2026-08-02 03:26:57:859 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 215 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 216 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 217 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 218 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 219 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 220 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 221 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 222 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 223 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 224 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 225 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 226 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 227 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 228 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 229 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 230 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 231 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 232 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 233 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 234 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 235 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 236 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 237 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 238 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 239 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 240 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 241 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 242 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 243 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 244 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 245 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 246 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 247 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 248 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Computing SHAP values for instance 249 ...
+2026-08-02 03:26:57:860 INFO de.fraunhofer.iem.weave.module.ModelExplainer - [shap] [WEKA] Global and local SHAP plots written to: /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new
+2026-08-02 03:26:58:479 INFO de.fraunhofer.iem.weave.module.ModelExplainer - Python SHAP script completed successfully, plots should be in: /scratch/hpc-prf-crnrw/asej-2026/weave/evaluation/ml4srm/swan/source/explanations/new
+2026-08-02 03:27:03:481 INFO de.fraunhofer.iem.weave.module.explainer.server.PredictionHttpServer - Prediction HTTP server stopped.
+2026-08-02 03:27:03:507 INFO de.fraunhofer.iem.weave.module.explainer.server.PredictionHttpServer - Prediction worker pool shut down.
+Process completed

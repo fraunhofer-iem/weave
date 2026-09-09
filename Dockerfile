@@ -1,32 +1,62 @@
-FROM python:3.10-slim
+# Container image for WEAVE and the ML4SRM replication package.
+#
+# The image copies the assembled jar, it does not build it. From the repository
+# root, which is also the build context:
+#
+#   mvn -q clean package
+#   docker build -t weave .
+#   docker run --rm -it weave
+#
+# Inside the container the invocation is identical to the one on the host
+# (see evaluation/ml4srm/README.md):
+#
+#   MODEL_TAG=new java -jar /app/weave.jar -t weka \
+#     -c /app/evaluation/ml4srm/sscm/sscm.properties \
+#     -X -e "<model descriptor from evaluation/ml4srm/sscm.sh>"
+#
+# Results land in /app/evaluation/ml4srm/<case>/explanations/<MODEL_TAG>, so
+# mount a volume there to keep them.
 
-# install venv and java
-RUN apt-get update && apt-get install -y \
+FROM eclipse-temurin:21-jdk
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
     python3-venv \
-    openjdk-17-jdk \
-    && rm -rf /var/lib/apt/lists/* \
+    bash \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set JAVA_HOME
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-ENV PATH="$JAVA_HOME/bin:$PATH"
-
-# Set work directory
 WORKDIR /app
 
-# Copy datasets and scripts
-COPY evaluation /app/evaluation
-COPY shap /app/shap
-COPY RQ2_and_RQ3.sh .
+# The image mirrors the repository layout under /app so that WEAVE_HOME=/app
+# makes every ${WEAVE_HOME} placeholder in the committed .properties files
+# resolve without editing them.
+ENV WEAVE_HOME=/app
 
-# Install dependencies
-RUN pip install --upgrade pip && pip install -r shap/weka/requirements.txt
-RUN pip install -r shap/meka/requirements.txt
+# Dependencies first, so this layer is only rebuilt when requirements.txt
+# changes. Installed from the same pinned file the cluster jobs use, so the
+# container and the evaluation/ml4srm runs produce the same explanations.
+# Keep it as one pip invocation - see the notes in requirements.txt for why
+# splitting it apart breaks the numba/NumPy combination.
+COPY evaluation/ml4srm/requirements.txt /app/evaluation/ml4srm/requirements.txt
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install --no-cache-dir -r /app/evaluation/ml4srm/requirements.txt \
+ && python -c "import shap, numpy, pandas, matplotlib, requests"
 
-# Provide file permissions
-RUN chmod +x RQ2_and_RQ3.sh
+COPY cli/target/cli-1.0-jar-with-dependencies.jar \
+     /app/cli/target/cli-1.0-jar-with-dependencies.jar
 
+# paths.explainer in every .properties file points at the script's location in
+# the source tree, so it has to keep that path inside the image too.
+COPY cli/src/main/java/de/fraunhofer/iem/weave/module/explainer/shap/shap_explainer.py \
+     /app/cli/src/main/java/de/fraunhofer/iem/weave/module/explainer/shap/shap_explainer.py
 
-CMD ["./RQ2_and_RQ3.sh"]
+# Datasets, .properties, experiments.cnf and db.properties for the seven case
+# studies. The committed SHAP results and job logs are excluded by
+# .dockerignore - the container regenerates them.
+COPY evaluation/ml4srm /app/evaluation/ml4srm
 
+RUN ln -s /app/cli/target/cli-1.0-jar-with-dependencies.jar /app/weave.jar
 
-
+ENTRYPOINT ["/bin/bash"]

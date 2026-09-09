@@ -14,6 +14,9 @@ import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * A lightweight HTTP server that exposes the /predict endpoint and invokes a PredictionService
@@ -26,6 +29,7 @@ public class PredictionHttpServer {
     private final PredictionService predictor;
     private final int port;
     private HttpServer server;
+    private ExecutorService executor;
     private final ObjectMapper mapper = new ObjectMapper();
 
     /**
@@ -46,9 +50,28 @@ public class PredictionHttpServer {
     public void start() throws Exception {
         server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/predict", new PredictHandler());
-        server.setExecutor(null);
+
+        int cores = Runtime.getRuntime().availableProcessors();
+        logger.info("Using {} available cores", cores);
+        // Daemon threads so a missed shutdown can never keep the JVM alive.
+        executor = Executors.newFixedThreadPool(cores * 4, runnable -> {
+            Thread thread = new Thread(runnable, "predict-worker");
+            thread.setDaemon(true);
+            return thread;
+        });
+        server.setExecutor(executor);
         server.start();
-        logger.info("Prediction HTTP server started on port {}", port);
+        logger.info("Prediction HTTP server started on port {}", getPort());
+    }
+
+    /**
+     * The port actually bound. Differs from the configured value when that value is 0,
+     * which asks the OS for any free port - the way concurrent runs of the same label
+     * (e.g. the old and the new model) avoid colliding when SLURM places them on one
+     * node.
+     */
+    public int getPort() {
+        return server != null ? server.getAddress().getPort() : port;
     }
 
     /**
@@ -59,7 +82,23 @@ public class PredictionHttpServer {
     public void stop(int delaySeconds) {
         if (server != null) {
             server.stop(delaySeconds);
+            server = null;
             logger.info("Prediction HTTP server stopped.");
+        }
+        // HttpServer.stop() deliberately leaves an executor supplied via setExecutor
+        // running, so the pool has to be shut down here as well.
+        if (executor != null) {
+            executor.shutdown();
+            try {
+                if (!executor.awaitTermination(delaySeconds, TimeUnit.SECONDS)) {
+                    executor.shutdownNow();
+                }
+            } catch (InterruptedException e) {
+                executor.shutdownNow();
+                Thread.currentThread().interrupt();
+            }
+            executor = null;
+            logger.info("Prediction worker pool shut down.");
         }
     }
 

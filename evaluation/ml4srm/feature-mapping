@@ -1,0 +1,457 @@
+SoPfxRead,readInputPrefixFeature
+SoPfxGet,getInputPrefixFeature
+SoPfxFind,findInputPrefixFeature
+SoPfxRemove,removeInputPrefixFeature
+SoPfxParse,parseInputPrefixFeature
+MixedPfxCopy,copyMixedPrefixFeature
+MixedPfxMove,moveMixedPrefixFeature
+MixedPfxDo,doMixedPrefixFeature
+SiPfxWrite,writeTargetPrefixFeature
+SiPfxSet,setTargetPrefixFeature
+SiPfxAdd,addTargetPrefixFeature
+SiPfxUpdate,updateTargetPrefixFeature
+SiPfxSave,saveTargetPrefixFeature
+SiPfxRun,runTargetPrefixFeature
+SiPfxExec,execTargetPrefixFeature
+SiPfxSend,sendTargetPrefixFeature
+SiPfxLog,logTargetPrefixFeature
+SiPfxPrint,printTargetPrefixFeature
+SiPfxEval,evalTargetPrefixFeature
+SoSRMInvkRead,readInputNRMInvokes
+SoSRMInvkGet,getInputNRMInvokes
+SoSRMInvkFind,findInputNRMInvokes
+SoSRMInvkRemove,removeInputNRMInvokes
+SoSRMInvkParse,parseInputNRMInvokes
+SoSRMInvkList,listInputNRMInvokes
+SoSRMInvkPeek,peekInputNRMInvokes
+SoSRMInvkPoll,pollInputNRMInvokes
+SoSRMInvkRetrieve,retrieveInputNRMInvokes
+SoSRMInvkAs,asInputNRMInvokes
+SoSRMInvkPull,pullInputNRMInvokes
+SoSRMInvkElement,elementInputNRMInvokes
+MixedSRMInvkCopy,copyMixedNRMInvokes
+MixedSRMInvkMove,moveMixedNRMInvokes
+MixedSRMInvkDo,doMixedNRMInvokes
+SiSRMInvkWrite,writeTargetNRMInvokes
+SiSRMInvkSet,setTargetNRMInvokes
+SiSRMInvkAdd,addTargetNRMInvokes
+SiSRMInvkUpdate,updateTargetNRMInvokes
+SiSRMInvkSave,saveTargetNRMInvokes
+SiSRMInvkRun,runTargetNRMInvokes
+SiSRMInvkExec,execTargetNRMInvokes
+SiSRMInvkSend,sendTargetNRMInvokes
+SiSRMInvkLog,logTargetNRMInvokes
+SiSRMInvkPrint,printTargetNRMInvokes
+SiSRMInvkEval,evalTargetNRMInvokes
+SiSRMInvkPush,pushTargetNRMInvokes
+SiSRMInvkInsert,insertTargetNRMInvokes
+SiSRMInvkFormat,formatTargetNRMInvokes
+SiSRMInvkOffer,offerTargetNRMInvokes
+SiSRMInvkFatal,fatalTargetNRMInvokes
+SiSRMInvkError,errorTargetNRMInvokes
+SiSRMInvkInfo,infoTargetNRMInvokes
+SiSRMInvkTrace,traceTargetNRMInvokes
+SiSRMInvkWarn,warnTargetNRMInvokes
+SiSRMInvkSevere,severeTargetNRMInvokes
+SiSRMInvkFine,fineTargetNRMInvokes
+SiSRMInvkConfig,configTargetNRMInvokes
+SiSRMInvkDebug,debugTargetNRMInvokes
+GeneralNR,generalNRCategoryFeature
+GeneralParamNR,generalParamNRCategoryFeature
+GeneralRtnNR,generalReturnNRCategoryFeature
+FileNR,fileNRCategoryFeature
+FileParamNR,fileParamNRCategoryFeature
+FileRtnNR,fileReturnNRCategoryFeature
+LogNR,logNRCategoryFeature
+LogParamNR,logParamNRCategoryFeature
+LogRtnNR,logReturnNRCategoryFeature
+WebNR,webNRCategoryFeature
+WebParamNR,webParamNRCategoryFeature
+WebRtnNR,webReturnNRCategoryFeature
+DbNR,dbNRCategoryFeature
+DbParamNR,dbParamNRCategoryFeature
+DbRtnNR,dbReturnNRCategoryFeature
+XmlNR,xmlNRCategoryFeature
+XmlParamNR,xmlParamNRCategoryFeature
+XmlRtnNR,xmlReturnNRCategoryFeature
+GuiNR,guiNRCategoryFeature
+GuiParamNR,guiParamNRCategoryFeature
+GuiRtnNR,guiReturnNRCategoryFeature
+ParamTypCtnStr,StringParam
+ParamTypCtnStr[],String[]Param
+ParamTypCtnByte[],Byte[]Param
+ParamTypCtnChar[],Char[]Param
+PrimitiveParam,primitiveParam
+SRMDfThis,DFfromNRMtoThis
+SRMDfRet,DFfromNRMtoRet
+ParamDfSRM,DFfromParamToNRM
+ParamDfThis,DFfromParamToThis
+SRMDfParam,DFfromNRMtoParam
+ConcreteMtd,concreteMethod
+IsInterface,isInterface
+IsAbstractCls,isAbstractClass
+IsConcreteCls,isConcreteClass
+SoPfxTyp,inputPrefixType
+SiPfxTyp,targetPrefixTye
+MixedPfxTyp,mixedPrefixType
+ClsNmCtnGeneral,generalClassNamePatternCat
+ClsNmCtnFile,fileClassNamePatternCat
+ClsNmCtnLog,logClassNamePatternCat
+ClsNmCtnWeb,webClassNamePatternCat
+ClsNmCtnXml,xmlClassNamePatternCat
+ClsNmCtnGui,guiClassNamePatternCat
+ClsNmCtnDb,dbClassNamePatternCat
+MtdNm,MethodName
+ClsNmCtnJdbc,ClassNameContainsJDBC
+MtdAccessMod,MethodAccessModifier
+InvkdMtdNmCtnIs,InvokedMethodNameContainsIS
+ParamDfInvkdSiCtnPrint,ParameterToInvokedSinkContainsPRINT
+SoDfRtnCtnRed,SourceToReturnContainsRED
+ClsNmCtnEncoder,ClassNameContainsENCODER
+IsClsConcrete,IsClassConcrete
+MtdTyp,MethodType
+ClsLinesCnt,ClassLinesCount
+MtdNmCtnRetriev,MethodNameContainsRETRIEV
+InvkdMtdNmCtnHas,InvokedMethodNameContainsHAS
+ClsNmCtnValid,ClassNameContainsVALID
+ParamDfInvkdSiCtnPut,ParameterToInvokedSinkContainsPUT
+InvkdMtdNmCtnDelete,InvokedMethodNameContainsDELETE
+BranchingStmtCnt,BranchingStatementCount
+MtdNmCtnPrivilege,MethodNameContainsPRIVILEGE
+MtdNmCtnSend,MethodNameContainsSEND
+ClsNmCtnSql,ClassNameContainsSQL
+ClsNmCtnIo,ClassNameContains.IO.
+DefinedFunctionsInvkdCnt,DefinedFunctionsInvokedCount
+ClsNmCtnOauth,ClassNameContainsOAUTH
+InvkdClsNmCtnSaniti,InvokedClassNameContainsSANITI
+MtdNmCtnDecod,MethodNameContainsDECOD
+SoDfRtnCtnLoad,SourceToReturnContainsLOAD
+MtdNmCtnReq,MethodNameContainsREQUEST
+ParamDfInvkdSiCtnDump,ParameterToInvokedSinkContainsDUMP
+MtdNmCtnDump,MethodNameContainsDUMP
+MtdNmCtnRegex,MethodNameContainsREGEX
+ParamDfInvkdSiCtnUpdat,ParameterToInvokedSinkContainsUPDAT
+ParamDfInvkdSiCtnPars,ParameterToInvokedSinkContainsPARS
+ClsNmCtnCheck,ClassNameContainsCHECK
+ParamDfInvkdSiCtnLog,ParameterToInvokedSinkContainsLOG
+MtdNmCtnReplac,MethodNameContainsREPLAC
+MtdNmCtnUnescape,MethodNameContainsUNESCAPE
+MtdNmCtnRun,MethodNameContainsRUN
+MtdNmCtnStream,MethodNameContainsSTREAM
+ExceptionsCnt,ExceptionsCount
+ClsNmCtnEscap,ClassNameContainsESCAP
+ClsNmCtnSecurity,ClassNameContainsSECURITY
+MtdNmCtnUpdat,MethodNameContainsUPDAT
+ClsNmCtnNet,ClassNameContains.NET
+ClsNmCtnAuthen,ClassNameContainsAUTHEN
+InvkdMtdNmCtnOpen,InvokedMethodNameContainsOPEN
+ClsNmCtnVerif,ClassNameContainsVERIF
+ClsNmCtnConnect,ClassNameContainsCONNECT
+ParamDfInvkdSiCtnSet,ParameterToInvokedSinkContainsSET
+VarUsageCnt,VariablesUsageCount
+ClsNmCtnSaniti,ClassNameContainsSANITI
+ParamDfInvkdSiCtnSend,ParameterToInvokedSinkContainsSEND
+InvkdClsNmCtnDb,InvokedClassNameContainsDB
+ParamDfInvkdSiCtnStream,ParameterToInvokedSinkContainsSTREAM
+SoDfRtnCtnReq,SourceToReturnContainsREQUEST
+TotalMtdsInvkdCnt,TotalMethodsInvokedCount
+MtdNmCtnDisconnect,MethodNameContainsDISCONNECT
+MtdNmCtnRedirect,MethodNameContainsREDIRECT
+MtdsInvkdCnt,MethodsInvokedCount
+MtdNmCtnExecut,MethodNameContainsEXECUT
+InvkdClsNmCtnRegex,InvokedClassNameContainsREGEX
+MtdMod,MethodModifier
+MtdNmCtnSetheader,MethodNameContainsSETHEADER
+ClsNmCtnBind,ClassNameContainsBIND
+ParamFlowsDfRtn,ParameterFlowsToReturn
+InvkdClsNmCtnEscap,InvokedClassNameContainsESCAP
+MtdNmCtnName,MethodNameContainsNAME
+ParamDfInvkdSiCtnRun,ParameterToInvokedSinkContainsRUN
+InvkdClsNmCtnWeb,InvokedClassNameContainsWEB
+InvkdClsNmCtnEncod,InvokedClassNameContainsENCOD
+MtdNmCtnCheck,MethodNameContainsCHECK
+IterStmtsCnt,IterationStatementsCount
+MtdNmCtnUnbind,MethodNameContainsUNBIND
+IsMtdImplicit,IsMethodImplicit
+ClsNmCtnEncod,ClassNameContainsENCOD
+ParamDfInvkdSiCtnWrit,ParameterToInvokedSinkContainsWRIT
+ParamDfInvkdSiCtnHandl,ParameterToInvokedSinkContainsHANDL
+MtdNmCtnStrip,MethodNameContainsSTRIP
+ClsMod,ClassModifier
+MtdNmCtnObject,MethodNameContainsOBJECT
+SoDfRtnCtnCreate,SourceToReturnContainsCREATE
+MtdNmCtnPars,MethodNameContainsPARS
+ClsNmCtnPage,ClassNameContainsPAGE
+ClsesInvkdCnt,ClassesInvokedCount
+MtdOrigin,MethodOrigin
+MtdLinesCnt,MethodLinesCount
+ClsAccessMod,ClassAccessModifier
+MtdParamsTyps,MethodParametersTypes
+ClsNmCtnResponse,ClassNameContainsRESPONSE
+MtdNmCtnUnescap,MethodNameContainsUNESCAP
+MtdNmCtnHandl,MethodNameContainsHANDL
+SoDfRtnCtnGet,SourceToReturnContainsGET
+ParamsCnt,ParametersCount
+InvkdClsNmCtnIo,InvokedClassNameContains.IO.
+ClsNmCtnRedirect,ClassNameContainsREDIRECT
+InvkdMtdNmCtnCreate,InvokedMethodNameContainsCREATE
+SoDfRtnCtnUnescap,SourceToReturnContainsUNESCAPE
+ClsNmCtnWeb,ClassNameContainsWEB
+InvkdClsNmCtnNet,ClassNameContainsNet
+ParamDfInvkdSiCtnExecut,ParameterToInvokedSinkContainsEXECUT
+ClsNmCtnOutput,ClassNameContainsOUTPUT
+ClsNmCtnHtml,ClassNameContainsHTML
+MtdNmCtnWrit,MethodNameContainsWRIT
+InvkdClsNmCtnLog,InvokedClassNameContainsLOG.
+SoDfRtnCtnDecode,SourceToReturnContainsDECODE
+MtdNmCtnLog,MethodNameContainsLOG
+MtdNmCtnAuthen,MethodNameContainsAUTHEN
+MtdInnerOrAnonymousCls,MethodInnerOrAnonymousClass
+MtdNmCtnVerif,MethodNameContainsVERIF
+MtdNmCtnCreat,MethodNameContainsCREAT
+InvkdMtdNmCtnOn,InvokedMethodNameContainsON
+InvkdMtdNmCtnSet,InvokedMethodNameContainsSET
+MtdNmCtnSaniti,MethodNameContainsSANITI
+MtdRtnTyp,MethodReturnType
+InvkdClsNmCtnSql,InvokedClassNameContainsSQL
+MtdNmCtnLogin,MethodNameContainsLOGIN
+ParamAndRtnTypMatch,ParameterAndReturnTypeMatch
+ClsNmCtnInput,ClassNameContainsINPUT
+InvkdMtdNmCtnGet,InvokedMethodNameContainsGET
+InvkdMtdNmCtnClose,InvokedMethodNameContainsCLOSE
+ClsNmTknCnt,ClassNameKeywordsCount
+MtdNmCtnLogout,MethodNameContainsLOGOUT
+ClsNmCtnManager,ClassNameContainsMANAGER
+InvkdMtdNmCtnPut,InvokedMethodNameContainsPUT
+ClsNmCtn.io.,Class contains the name .io.
+ClsNmCtn.net.,Class contains the name .net.
+ClsNmCtnHtml,Class contains the name html
+ClsNmCtnInput,Class contains the name input
+ClsNmCtnJdbc,Class contains the name jdbc
+ClsNmCtnManager,Class contains the name manager
+ClsNmCtnRedirect,Class contains the name redirect
+ClsNmCtnResponse,Class contains the name response
+ClsNmCtnSecurity,Class contains the name security
+ClsNmCtnSql,Class contains the name sql
+ClsNmCtnWeb,Class contains the name web
+MtdNmCtnDump,Method name contains dump
+MtdNmCtnExecut,Method name contains execut
+MtdNmCtnHandl,Method name contains handl
+MtdNmCtnLog,Method name contains log
+MtdNmCtnPars,Method name contains pars
+MtdNmCtnPrint,Method name contains print
+MtdNmCtnRedirect,Method name contains redirect
+MtdNmCtnReplac,Method name contains replac
+MtdNmCtnRun,Method name contains run
+MtdNmCtnSend,Method name contains send
+MtdNmCtnSetheader,Method name contains setheader
+MtdNmCtnStream,Method name contains stream
+MtdNmCtnUpdat,Method name contains updat
+MtdNmCtnWrit,Method name contains writ
+MtdNmStrtSet,Method name starts with set
+MtdNmStrtOn,Method starts with on and has void/bool return type
+MtdCtnParams,Method has parameters
+ParamTypCtn.io.,Parameter type contains .io.
+ParamTypCtnByte[],Parameter type contains byte[]
+ParamTypCtnChar[],Parameter type contains char[]
+ParamTypCtnDb,Parameter type contains db
+ParamTypCtnCharsequence,Parameter type contains java.lang.charsequence
+ParamTypCtnStr,Parameter type contains java.lang.string
+ParamTypCtnStringbuilder,Parameter type contains java.lang.stringbuilder
+ParamTypCtnSql,Parameter type contains sql
+ParamTypCtnWeb,Parameter type contains web
+RtnTypResultSet,Return type is java.sql.ResultSet
+Implicit method,Implicit method
+MtdConstructor,Method is constructor
+MtdLoneGetterOrSetter,Method is lone getter or setter
+MtdModFINAL,Method modifier is FINAL
+MtdModPRIVATE,Method modifier is PRIVATE
+MtdModPUBLIC,Method modifier is PUBLIC
+MtdModSTATIC,Method modifier is STATIC
+ParamDfSiMtdDump,Parameter to sink method dump
+ParamDfSiMtdExecut,Parameter to sink method execut
+ParamDfSiMtdHandl,Parameter to sink method handl
+ParamDfSiMtdLog,Parameter to sink method log
+ParamDfSiMtdPars,Parameter to sink method pars
+ParamDfSiMtdPrint,Parameter to sink method print
+ParamDfSiMtdPut,Parameter to sink method put
+ParamDfSiMtdRun,Parameter to sink method run
+ParamDfSiMtdSend,Parameter to sink method send
+ParamDfSiMtdSet,Parameter to sink method set
+ParamDfSiMtdStream,Parameter to sink method stream
+ParamDfSiMtdUpdat,Parameter to sink method updat
+ParamDfSiMtdWrit,Parameter to sink method writ
+MtdDumpInvkd,Method dump invoked
+MtdExecutInvkd,Method execut invoked
+Cls.io.Invkd,Method from class .io. invoked
+Cls.net.Invkd,Method from class .net. invoked
+InvokedClassNameContains.NET.,InvokedClassNameContains.NET.
+ClsDbInvkd,Method from class db invoked
+ClsLogInvkd,Method from class Log. invoked
+ClsSqlInvkd,Method from class sql invoked
+MtdFrmClsWebInvkd,Method from class web invoked
+MtdHandlInvkd,Method handl invoked
+MtdLogInvkd,Method log invoked
+MtdParsInvkd,Method pars invoked
+MtdPrintInvkd,Method print invoked
+MtdputInvkd,Method put invoked
+MtdReplacInvkd,Method replac invoked
+MtdRunInvkd,Method run invoked
+MtdsendInvkd,Method send invoked
+MtdSetInvkd,Method set invoked
+MtdupdatInvkd,Method updat invoked
+MtdWritInvkd,Method writ invoked
+ClsNmCtnCss,Class contains the name css
+ClsNmCtnDatabase,Class contains the name database
+ClsNmCtnDb,Class contains the name db
+ClsNmCtnDom,Class contains the name dom
+ClsNmCtnEncod,Class contains the name encod
+ClsNmCtnEscap,Class contains the name escap
+ClsNmCtnHibernate,Class contains the name hibernate
+ClsNmCtnOutPut,Class contains the name output
+ClsNmCtnPage,Class contains the name page
+ClsNmCtnSaniti,Class contains the name saniti
+ClsNmCtnValid,Class contains the name valid
+ClsNmEndsEncoder,Class name ends with Encoder
+ClsNmEndsRender,Class name ends with Render
+ClsNmEndsReq,Class name ends with Request
+MtdNmCtnCreat,Method name contains creat
+MtdNmCtnDecod,Method name contains decod
+MtdNmCtnEncodNotEncoding,Method name contains encod but not encoding
+MtdNmCtnEscapeNotUnescape,Method name contains escape but not unescape
+MtdNmCtnExecute,Method name contains execute
+MtdNmCtnLoadNotPayload,Method name contains load but not payload
+MtdNmCtnName,Method name contains name
+MtdNmCtnObject,Method name contains object
+MtdNmCtnQuery,Method name contains query
+MtdNmCtnReadNotThread,Method name contains read but not thread
+MtdNmCtnRegex,Method name contains regex
+MtdNmCtnRequest,Method name contains request
+MtdNmCtnRetriev,Method name contains retriev
+MtdNmCtnSaniti,Method name contains saniti
+MtdNmCtnStrip,Method name contains strip
+MtdNmCtnUnescap,Method name contains unescap
+MtdNmCtnUnescape,Method name contains unescape
+MtdNmCtnVerif,Method name contains verif
+MtdNmStrtGet,Method name starts with get
+MtdNmStrtHas,Method name starts with has
+MtdNmStrtPut,Method name starts with put
+MtdRtnsConst,Method returns constant
+RtnTypByte[],Return type is byte[]
+RtnTypDocument,Return type is Document
+RtnTypCharsequence,Return type is java.lang.CharSequence
+RtnTypString,Return type is java.lang.String
+RtnTypNode,Return type is Node
+RtnTypRequest,Return type is Request
+RtnTypServlet,Return type is Servlet
+ClsFINAL,Method is part of a FINAL class
+ClsPUBLIC,Method is part of a PUBLIC class
+ClsSTATIC,Method is part of a STATIC class
+ParamTypEqRtnTyp,Matching parameter type to return type.
+ClsAnonymous,Method is part of an anonymous class
+ParamDfRtn,Parameter flows to return.
+SoMtdRtnCreate,Source method to return create
+SoMtdRtnDecode,Source method to return decode
+SoMtdRtnGet,Source method to return get
+SoMtdRtnLoad,Source method to return load
+SoMtdRtnRead,Source method to return read
+SoMtdRtnRequest,Source method to return request
+SoMtdRtnUnescape,Source method to return unescape
+MtdCreatInvkd,Method creat invoked
+MtdDecodInvkd,Method decod invoked
+MtdEncodInvkd,Method encod invoked
+MtdEscapInvkd,Method escap invoked
+ClsEncodInvkd,Method from class encod invoked
+ClsEscapInvkd,Method from class escap invoked
+ClsRegexInvkd,Method from class regex invoked
+ClsSanitiInvkd,Method from class Saniti invoked
+MtdGetInvkd,Method get invoked
+MtdLoadInvkd,Method load invoked
+MtdMakedbInvkd,Method makedb invoked
+MethodMatchInvkd,Method match invoked
+MtdOutPutInvkd,Method output invoked
+MtdReadInvkd,Method read invoked
+MethodRegexInvkd,Method regex invoked
+MtdReqInvkd,Method request invoked
+MtdSanitiInvkd,Method saniti invoked
+MethodStripInvkd,Method strip invoked
+MtdUnescapInvkd,Method unescap invoked
+InnerCls,Method is part of inner class
+ClsNmCtnCss,Class contains the name css
+ClsNmCtnDatabase,Class contains the name database
+ClsNmCtnDb,Class contains the name db
+ClsNmCtnDom,Class contains the name dom
+ClsNmCtnEncod,Class contains the name encod
+ClsNmCtnEscap,Class contains the name escap
+ClsNmCtnOutPut,Class contains the name output
+ClsNmCtnPage,Class contains the name page
+ClsNmCtnSaniti,Class contains the name saniti
+ClsNmCtnValid,Class contains the name valid
+ClsNmEndsEncoder,Class name ends with Encoder
+ClsNmEndsRender,Class name ends with Render
+ClsNmEndsReq,Class name ends with Request
+MtdNmCtnCreat,Method name contains creat
+MtdNmCtnDecod,Method name contains decod
+MtdNmCtnEncodNotEncoding,Method name contains encod but not encoding
+MtdNmCtnEscapeNotUnescape,Method name contains escape but not unescape
+MtdNmCtnExecute,Method name contains execute
+MtdNmCtnLoadNotPayload,Method name contains load but not payload
+MtdNmNmCtn,Method name contains name
+MtdNmCtnObject,Method name contains object
+MtdNmCtnQuery,Method name contains query
+MtdNmCtnReadNotThread,Method name contains read but not thread
+MtdNmCtnRegex,Method name contains regex
+MtdNmCtnReq,Method name contains request
+MtdNmCtnRetriev,Method name contains retriev
+MtdNmCtnSaniti,Method name contains saniti
+MtdNmCtnStrip,Method name contains strip
+MtdNmCtnUnescap,Method name contains unescap
+MtdNmCtnUnescape,Method name contains unescape
+MtdNmCtnVerif,Method name contains verif
+MtdNmStrtGet,Method name starts with get
+MtdNmStrtHas,Method name starts with has
+MtdNmStrtPut,Method name starts with put
+RtnTypConstant,Method returns constant
+RtnTypByte[],Return type is byte[]
+RtnTypDocument,Return type is Document
+RtnTypCharsequence,Return type is java.lang.CharSequence
+RtnTypStr,Return type is java.lang.String
+RtnTypNode,Return type is Node
+RtnTypReq,Return type is Request
+RtnTypServlet,Return type is Servlet
+FINALCls,Method is part of a FINAL class
+ClsPUBLIC,Method is part of a PUBLIC class
+ClsSTATIC,Method is part of a STATIC class
+MatchingParamTypRtnTyp,Matching parameter type to return type.
+ClsAnonymous,Method is part of an anonymous class
+ParamDfRtn,Parameter flows to return.
+SoMtdRtnCreate,Source method to return create
+SoMtdRtnDecode,Source method to return decode
+SoMtdRtnGet,Source method to return get
+SoMtdRtnLoad,Source method to return load
+SoMtdRtnRead,Source method to return read
+SoMtdRtnReq,Source method to return request
+SoMtdRtnUnescape,Source method to return unescape
+MethodCreatInvkd,Method creat invoked
+MethodDecodInvkd,Method decod invoked
+MethodEncodInvkd,Method encod invoked
+MethodEscapInvkd,Method escap invoked
+ClsEncodInvkd,Method from class encod invoked
+ClsEscapInvkd,Method from class escap invoked
+ClsRegexInvkd,Method from class regex invoked
+ClsSanitiInvkd,Method from class Saniti invoked
+MtdGetInvkd,Method get invoked
+MtdLoadInvkd,Method load invoked
+MtdMakedbInvkd,Method makedb invoked
+MtdMatchInvkd,Method match invoked
+MtdOutPutInvkd,Method output invoked
+MtdReadInvkd,Method read invoked
+MtdRegexInvkd,Method regex invoked
+MtdRequestInvkd,Method request invoked
+MtdSanitiInvkd,Method saniti invoked
+MtdStripInvkd,Method strip invoked
+MtdUnescapInvkd,Method unescap invoked
+InnerCls,Method is part of inner class
+MtdStrtOn,Method starts with on and has void/bool return type
+ImplicitMtd,Implicit method
+ClsWebInvkd,Method from class web invoked
