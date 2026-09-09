@@ -1,42 +1,62 @@
+# Container image for WEAVE and the ML4SRM replication package.
+#
+# The image copies the assembled jar, it does not build it. From the repository
+# root, which is also the build context:
+#
+#   mvn -q clean package
+#   docker build -t weave .
+#   docker run --rm -it weave
+#
+# Inside the container the invocation is identical to the one on the host
+# (see evaluation/ml4srm/README.md):
+#
+#   MODEL_TAG=new java -jar /app/weave.jar -t weka \
+#     -c /app/evaluation/ml4srm/sscm/sscm.properties \
+#     -X -e "<model descriptor from evaluation/ml4srm/sscm.sh>"
+#
+# Results land in /app/evaluation/ml4srm/<case>/explanations/<MODEL_TAG>, so
+# mount a volume there to keep them.
+
 FROM eclipse-temurin:21-jdk
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
-    python3-pip \
     python3-venv \
     bash \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-RUN ln -s /usr/bin/python3 /usr/bin/python || true
-
 WORKDIR /app
 
-COPY target/cli-1.0-jar-with-dependencies.jar /app/weave.jar
-COPY artefact/scripts/shap_explainer.py /app/scripts/shap_explainer.py
-COPY artefact/data /app/data
-
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
-
-RUN pip install \
-        matplotlib==3.10.0 \
-        numpy==2.1.3 \
-        pandas==2.2.3 \
-        scikit-learn==1.6.1 \
-        scipy==1.15.1 \
-        shap==0.46.0 \
-        requests
-
-RUN mkdir -p /app/out
-
-# Root that the ${WEAVE_HOME} placeholders in data/**/*.properties resolve against.
+# The image mirrors the repository layout under /app so that WEAVE_HOME=/app
+# makes every ${WEAVE_HOME} placeholder in the committed .properties files
+# resolve without editing them.
 ENV WEAVE_HOME=/app
 
-ENV PYTHON_EXECUTABLE=python
-ENV SHAP_SCRIPT=/app/scripts/shap_explainer.py
-ENV SHAP_OUTPUT_DIR=/app/out
+# Dependencies first, so this layer is only rebuilt when requirements.txt
+# changes. Installed from the same pinned file the cluster jobs use, so the
+# container and the evaluation/ml4srm runs produce the same explanations.
+# Keep it as one pip invocation - see the notes in requirements.txt for why
+# splitting it apart breaks the numba/NumPy combination.
+COPY evaluation/ml4srm/requirements.txt /app/evaluation/ml4srm/requirements.txt
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install --no-cache-dir -r /app/evaluation/ml4srm/requirements.txt \
+ && python -c "import shap, numpy, pandas, matplotlib, requests"
 
-EXPOSE 8090
+COPY cli/target/cli-1.0-jar-with-dependencies.jar \
+     /app/cli/target/cli-1.0-jar-with-dependencies.jar
+
+# paths.explainer in every .properties file points at the script's location in
+# the source tree, so it has to keep that path inside the image too.
+COPY cli/src/main/java/de/fraunhofer/iem/weave/module/explainer/shap/shap_explainer.py \
+     /app/cli/src/main/java/de/fraunhofer/iem/weave/module/explainer/shap/shap_explainer.py
+
+# Datasets, .properties, experiments.cnf and db.properties for the seven case
+# studies. The committed SHAP results and job logs are excluded by
+# .dockerignore - the container regenerates them.
+COPY evaluation/ml4srm /app/evaluation/ml4srm
+
+RUN ln -s /app/cli/target/cli-1.0-jar-with-dependencies.jar /app/weave.jar
 
 ENTRYPOINT ["/bin/bash"]
